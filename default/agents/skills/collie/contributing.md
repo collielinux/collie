@@ -3,7 +3,7 @@
 Read this when the user wants to report an Collie bug, suggest a feature, or
 contribute a fix upstream.
 
-Collie lives at https://github.com/embeputer/collie. Route requests to the
+Collie lives at https://github.com/collielinux/collie. Route requests to the
 right place:
 
 - **Verified bugs** -> GitHub issues. Issues are for validated bugs only, not
@@ -43,7 +43,7 @@ For screen-recording failures specifically, rerun with
 File the issue with `gh` when available:
 
 ```bash
-gh issue create --repo embeputer/collie --title "..." --body "..."
+gh issue create --repo collielinux/collie --title "..." --body "..."
 ```
 
 Include: what happened, what was expected, steps to reproduce, system details,
@@ -54,7 +54,7 @@ the debug log URL (or attached log), and the capture.
 Never develop against `/usr/share/collie`. Clone a working copy instead:
 
 ```bash
-gh repo fork embeputer/collie --clone
+gh repo fork collielinux/collie --clone
 cd collie
 ```
 

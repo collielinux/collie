@@ -62,7 +62,7 @@ link_dev_checkout() {
   local checkout="$1" required
   # Skip file contents only old history holds, like retired theme videos; git
   # fetches whatever a checkout needs when it needs it.
-  [[ -d $checkout/.git ]] || git clone --filter=blob:none https://github.com/embeputer/collie.git "$checkout"
+  [[ -d $checkout/.git ]] || git clone --filter=blob:none https://github.com/collielinux/collie.git "$checkout"
   validate_dev_region "$checkout"
 
   # Check the destination before changing /etc/collie.conf or sudo's path.

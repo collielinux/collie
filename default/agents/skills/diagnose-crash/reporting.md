@@ -40,8 +40,8 @@ useful; filing there yourself is not part of this.
 A duplicate issue costs a maintainer more time than no report at all.
 
 ```bash
-gh search issues --repo embeputer/collie "<program> crash"
-gh issue list --repo embeputer/collie --state all --search "<signal> <program>"
+gh search issues --repo collielinux/collie "<program> crash"
+gh issue list --repo collielinux/collie --state all --search "<signal> <program>"
 ```
 
 Search on the crashing program, the signal, and distinctive symbols from the
@@ -59,7 +59,7 @@ more than another duplicate.
 If a plausible match comes back, read it properly first:
 
 ```bash
-gh issue view <number> --repo embeputer/collie --comments
+gh issue view <number> --repo collielinux/collie --comments
 ```
 
 Confirm it is genuinely the same failure. The same program crashing is not the
@@ -74,7 +74,7 @@ A comment that only says the bug happens to you too is noise. If that is all you
 have, tell the user so and file nothing.
 
 ```bash
-gh issue comment <number> --repo embeputer/collie --body "..."
+gh issue comment <number> --repo collielinux/collie --body "..."
 ```
 
 ## Filing a new issue
@@ -82,7 +82,7 @@ gh issue comment <number> --repo embeputer/collie --body "..."
 Only when the search turns up nothing that matches:
 
 ```bash
-gh issue create --repo embeputer/collie --title "..." --body "..."
+gh issue create --repo collielinux/collie --title "..." --body "..."
 ```
 
 Include what happened, what was expected, steps to reproduce, system details from

@@ -44,7 +44,7 @@ case "$1" in
     ;;
   config)
     case "$2" in
-      remote.origin.url) echo https://github.com/embeputer/collie.git ;;
+      remote.origin.url) echo https://github.com/collielinux/collie.git ;;
       remote.origin.promisor) [[ ${TEST_GIT_PROMISOR:-no} == "yes" ]] && echo true ;;
       *) exit 1 ;;
     esac
