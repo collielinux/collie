@@ -1,8 +1,8 @@
 # Navigering
 
-Allt i Omarchy sker via tangentbordet — _ALLT!_ När systemet startar för första gången kan du bokstavligen inte göra någonting med bara musen. Men du kan trycka på `Super + Space` för att visa Omarchy-menyn, och härifrån kan du göra nästan allt.
+Allt i Collie sker via tangentbordet — _ALLT!_ När systemet startar för första gången kan du bokstavligen inte göra någonting med bara musen. Men du kan trycka på `Super + Space` för att visa Collie-menyn, och härifrån kan du göra nästan allt.
 
-Men Omarchy-menyn är inte ens tänkt att vara det huvudsakliga sättet att styra systemet för det mesta. Vi kan bli snabbare än så! Alla de viktigaste applikationerna är bundna direkt till individuella snabbtangenter. Du startar terminalen med `Super + Return` och en webbläsare med `Super + Shift + Return`. Prova att göra det ena efter det andra, så får du se Hyprlands plattsättning i praktiken:
+Men Collie-menyn är inte ens tänkt att vara det huvudsakliga sättet att styra systemet för det mesta. Vi kan bli snabbare än så! Alla de viktigaste applikationerna är bundna direkt till individuella snabbtangenter. Du startar terminalen med `Super + Return` och en webbläsare med `Super + Shift + Return`. Prova att göra det ena efter det andra, så får du se Hyprlands plattsättning i praktiken:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Du kan också gå till fullskärm med `Super + F` eller till och med bara full b
 
 ### Dwindle kontra rullande layout
 
-Omarchys standardlayout kallas dwindle. Den håller alla fönster du öppnar på en enda arbetsyta synliga hela tiden, även om den måste krympa dem.
+Collies standardlayout kallas dwindle. Den håller alla fönster du öppnar på en enda arbetsyta synliga hela tiden, även om den måste krympa dem.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 En flytande arbetsyta fungerar som ett traditionellt skrivbord: fönster överlappar, och du flyttar och storleksändrar dem själv. Varje fönster får en titellist i ditt temas färger, med knappar för att minimera, maximera och stänga. `Super + M` minimerar också det fokuserade fönstret. Ett minimerat fönster väntar i dockan; klicka på dess app för att ta tillbaka det. Klicka på ett fönster för att föra det framåt. Ändra dess storlek från vilken kant eller vilket hörn som helst. Dubbelklicka på en titellist för att maximera fönstret samtidigt som det övre fältet hålls synligt, och igen för att få tillbaka dess gamla storlek.
 
-En flytande arbetsyta visar också en docka, med dina fästa appar, allt som körs, och ett rutnät med alla appar bakom appknappen, som `Super + Alt + Space` och _Appar_ i Omarchy-menyn också öppnar. Högerklicka på en app i rutnätet, eller tryck på `Delete`, för att avinstallera den. Klicka på en app för att öppna den, eller för att föra dess fönster framåt; klicka igen för att cykla genom dess fönster. Mellanklick öppnar ett nytt fönster. Dra en ikon längs dockan för att flytta den; drar du en körande app in bland de andra behålls den där. Högerklicka för att behålla en app i dockan, ta bort den eller avsluta den. Dockan flyttar sig ur vägen för ett fullskärmsfönster. Högerklicka på appknappen för att flytta dockan till en annan kant eller få den att gömma sig tills pekaren når dess kant. Positionen finns också under _Utseende > Docka > Dockans position_, och `omarchy dock position left` och `omarchy dock autohide on` ställer in båda från en terminal. Appar du behåller i dockan är uttonade medan de inte körs.
+En flytande arbetsyta visar också en docka, med dina fästa appar, allt som körs, och ett rutnät med alla appar bakom appknappen, som `Super + Alt + Space` och _Appar_ i Collie-menyn också öppnar. Högerklicka på en app i rutnätet, eller tryck på `Delete`, för att avinstallera den. Klicka på en app för att öppna den, eller för att föra dess fönster framåt; klicka igen för att cykla genom dess fönster. Mellanklick öppnar ett nytt fönster. Dra en ikon längs dockan för att flytta den; drar du en körande app in bland de andra behålls den där. Högerklicka för att behålla en app i dockan, ta bort den eller avsluta den. Dockan flyttar sig ur vägen för ett fullskärmsfönster. Högerklicka på appknappen för att flytta dockan till en annan kant eller få den att gömma sig tills pekaren når dess kant. Positionen finns också under _Utseende > Docka > Dockans position_, och `collie dock position left` och `collie dock autohide on` ställer in båda från en terminal. Appar du behåller i dockan är uttonade medan de inte körs.
 
-Nya arbetsytor, och sådana du inte har gett en egen layout med `Super + L`, använder standardlayouten. Om du ändrar standarden återställs varje arbetsyta utan fönster till den, medan en med fönster på den behåller den layout den har. Ett fönster som minimerats till dockan räknas fortfarande som ett fönster på den arbetsyta det lämnade. Välj den under _Utseende > Arbetsytans layout_: Kaklat, Rullande eller Flytande. `omarchy-hyprland-workspace-layout-default scrolling` ställer in det från en terminal.
+Nya arbetsytor, och sådana du inte har gett en egen layout med `Super + L`, använder standardlayouten. Om du ändrar standarden återställs varje arbetsyta utan fönster till den, medan en med fönster på den behåller den layout den har. Ett fönster som minimerats till dockan räknas fortfarande som ett fönster på den arbetsyta det lämnade. Välj den under _Utseende > Arbetsytans layout_: Kaklat, Rullande eller Flytande. `collie-hyprland-workspace-layout-default scrolling` ställer in det från en terminal.
 
 ### Gruppera fönster
 

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# collie:summary=Print the installed Collie version
+
+collie_path=${COLLIE_PATH:-/usr/share/collie}
+collie_path=${collie_path%/}
+
+if [[ $collie_path != "/usr/share/collie" ]]; then
+  hash=$(git -C "$collie_path" rev-parse --short HEAD 2>/dev/null || true)
+
+  if [[ -n $hash ]]; then
+    echo "dev ($hash)"
+  else
+    echo "dev"
+  fi
+
+  exit 0
+fi
+
+# The edge channel installs omarchy-dev instead of collie, so check both.
+for package in omarchy-dev omarchy; do
+  version=$(pacman -Q "$package" 2>/dev/null | awk '{ print $2 }')
+  [[ -n $version ]] && break
+done
+
+[[ -n $version ]] || exit 1
+
+echo "$version"

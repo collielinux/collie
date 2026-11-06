@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# collie:summary=Remove the Xbox Cloud Gaming web app.
+
+set -e
+
+collie-webapp-remove "Xbox Cloud Gaming"

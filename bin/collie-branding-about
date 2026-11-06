@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# collie:summary=Edit, set, or reset About branding
+# collie:group=branding
+# collie:name=about
+# collie:args=<image|text|reset>
+# collie:examples=collie branding about image | collie branding about text | collie branding about reset
+
+set -euo pipefail
+
+case "${1:-}" in
+image)
+  image=$(collie-file-select --title "$(collie-i18n branding.pickAboutImage)" --extensions "png svg")
+  if collie-transcode-ascii "$image" ~/.config/collie/branding/about.txt --width 54 --height 26; then
+    collie-launch-about >/dev/null 2>&1
+  fi
+  ;;
+text)
+  collie-launch-editor ~/.config/collie/branding/about.txt >/dev/null 2>&1 && collie-launch-about >/dev/null 2>&1
+  ;;
+reset)
+  cp "$COLLIE_PATH/icon.txt" ~/.config/collie/branding/about.txt && collie-launch-about >/dev/null 2>&1
+  ;;
+*)
+  echo "Usage: collie-branding-about <image|text|reset>" >&2
+  exit 1
+  ;;
+esac

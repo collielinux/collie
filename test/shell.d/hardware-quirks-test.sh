@@ -15,7 +15,7 @@ trap 'chmod -R u+rwX "$test_tmp"; rm -rf "$test_tmp"' EXIT
 # remoteproc starter.
 dispatched=$(
   run_logged() { printf '%s\n' "${1#"$ROOT/install/"}"; }
-  OMARCHY_INSTALL="$ROOT/install"
+  COLLIE_INSTALL="$ROOT/install"
   source "$ROOT/install/config/all.sh"
   source "$ROOT/install/hardware/all.sh"
   source "$ROOT/install/user/all.sh"
@@ -35,14 +35,14 @@ while read -r leaf; do
   leaf=${leaf#"$ROOT/install/"}
   grep -Fxq "$leaf" <<<"$dispatched" || fail "install/$leaf runs during setup" "its all.sh does not run it"
 done < <(find "$ROOT/install/config" "$ROOT/install/user" -maxdepth 1 -name '*.sh' ! -name all.sh | sort)
-# Platform packages hook in after everything Omarchy sets up for the user.
+# Platform packages hook in after everything Collie sets up for the user.
 [[ $(tail -n1 <<<"$dispatched") == "user/platform-setup.sh" ]] ||
   fail "platform setup runs last" "last: $(tail -n1 <<<"$dispatched")"
 pass "every setup script is reached from setup"
 
 # --- Each quirk is a no-op on other hardware and applies on its own ---
 
-# The fake machine: DMI attributes as files, which cat and omarchy-hw-match
+# The fake machine: DMI attributes as files, which cat and collie-hw-match
 # read in place of /sys/class/dmi/id; the platform, loaded modules, input
 # devices and lspci listing come from FAKE_* variables. Writes the leaves make
 # through sudo land under a scratch root, and every other effect is logged.
@@ -52,7 +52,7 @@ stub_bin="$test_tmp/bin"
 calls="$test_tmp/calls"
 mkdir -p "$stub_bin"
 
-sed 's|/sys/class/dmi/id|$FAKE_HW/dmi|g' "$ROOT/bin/omarchy-hw-match" >"$stub_bin/omarchy-hw-match"
+sed 's|/sys/class/dmi/id|$FAKE_HW/dmi|g' "$ROOT/bin/collie-hw-match" >"$stub_bin/collie-hw-match"
 
 cat >"$stub_bin/cat" <<'SH'
 #!/bin/bash
@@ -64,17 +64,17 @@ done
 exec /usr/bin/cat "${args[@]}"
 SH
 
-cat >"$stub_bin/omarchy-hw-x86" <<'SH'
+cat >"$stub_bin/collie-hw-x86" <<'SH'
 #!/bin/bash
 [[ $FAKE_PLATFORM == "x86" ]]
 SH
 
-cat >"$stub_bin/omarchy-hw-aarch64-qualcomm" <<'SH'
+cat >"$stub_bin/collie-hw-aarch64-qualcomm" <<'SH'
 #!/bin/bash
 [[ $FAKE_PLATFORM == "aarch64-qualcomm" ]]
 SH
 
-cat >"$stub_bin/omarchy-hw-aarch64-n1x" <<'SH'
+cat >"$stub_bin/collie-hw-aarch64-n1x" <<'SH'
 #!/bin/bash
 [[ $FAKE_PLATFORM == "aarch64-n1x" ]]
 SH
@@ -98,13 +98,13 @@ printf 'modprobe %s\n' "$*" >>"$CALLS"
 exit "$FAKE_MODPROBE_STATUS"
 SH
 
-cat >"$stub_bin/omarchy-pkg-add" <<'SH'
+cat >"$stub_bin/collie-pkg-add" <<'SH'
 #!/bin/bash
 printf 'pkg-add %s\n' "$*" >>"$CALLS"
 exit "$FAKE_PKG_ADD_STATUS"
 SH
 
-cat >"$stub_bin/omarchy-pkg-drop" <<'SH'
+cat >"$stub_bin/collie-pkg-drop" <<'SH'
 #!/bin/bash
 printf 'pkg-drop %s\n' "$*" >>"$CALLS"
 SH
@@ -201,15 +201,15 @@ run_leaf() {
   local before status=0
   : >"$calls"
   before=$(snapshot)
-  HOME="$root/home" OMARCHY_PATH="$ROOT" PATH="$stub_bin:$ROOT/bin:$PATH" STUB_BIN="$stub_bin" CALLS="$calls" \
+  HOME="$root/home" COLLIE_PATH="$ROOT" PATH="$stub_bin:$ROOT/bin:$PATH" STUB_BIN="$stub_bin" CALLS="$calls" \
     FAKE_HW="$hw" FAKE_ROOT="$root" \
-    OMARCHY_DMI_PRODUCT_SKU="$hw/dmi/product_sku" \
-    OMARCHY_SYNAPTIC_INPUT_DEVICES="$hw/input-devices" \
-    OMARCHY_SURFACE_MKINITCPIO_DIR="$root/etc/mkinitcpio.conf.d" \
-    OMARCHY_ZENBOOK_A16_MKINITCPIO_DIR="$root/etc/mkinitcpio.conf.d" \
-    OMARCHY_ZENBOOK_A16_LIMINE_CONFIG_DIR="$root/etc/limine-entry-tool.d" \
-    OMARCHY_ZENBOOK_A16_SLEEP_CONFIG_DIR="$root/etc/systemd/sleep.conf.d" \
-    OMARCHY_NVIDIA_MODPROBE_CONFIG="$hw/nvidia.conf" \
+    COLLIE_DMI_PRODUCT_SKU="$hw/dmi/product_sku" \
+    COLLIE_SYNAPTIC_INPUT_DEVICES="$hw/input-devices" \
+    COLLIE_SURFACE_MKINITCPIO_DIR="$root/etc/mkinitcpio.conf.d" \
+    COLLIE_ZENBOOK_A16_MKINITCPIO_DIR="$root/etc/mkinitcpio.conf.d" \
+    COLLIE_ZENBOOK_A16_LIMINE_CONFIG_DIR="$root/etc/limine-entry-tool.d" \
+    COLLIE_ZENBOOK_A16_SLEEP_CONFIG_DIR="$root/etc/systemd/sleep.conf.d" \
+    COLLIE_NVIDIA_MODPROBE_CONFIG="$hw/nvidia.conf" \
     bash -eE -c 'source "$1"' bash "$ROOT/install/$1" </dev/null >/dev/null 2>&1 || status=$?
   {
     printf '%s\n' "$status"

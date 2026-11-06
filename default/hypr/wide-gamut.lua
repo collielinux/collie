@@ -38,7 +38,7 @@ local function chosen_for(output)
   return chosen[""]
 end
 
-if o.shell_succeeds(o.shell_quote(paths.omarchy_path .. "/bin/omarchy-hw-aarch64-apple")) then
+if o.shell_succeeds(o.shell_quote(paths.collie_path .. "/bin/collie-hw-aarch64-apple")) then
   local monitor = hl.monitor
 
   hl.monitor = function(rule)

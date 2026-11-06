@@ -1,16 +1,16 @@
 # Mac palaikymas
 
-Omarchy turi integruotą **Intel Macs** palaikymą. Šiuo metu yra keletas žinomų apribojimų, bet jei juos žinote ir jie jums tinka, įdiegę Omarchy galite įpūsti naujos gyvybės savo seniems Mac kompiuteriams.
+Collie turi integruotą **Intel Macs** palaikymą. Šiuo metu yra keletas žinomų apribojimų, bet jei juos žinote ir jie jums tinka, įdiegę Collie galite įpūsti naujos gyvybės savo seniems Mac kompiuteriams.
 
-Atkreipkite dėmesį, kad diegimas M serijos Mac kompiuteriuose šiuo metu tiesiogiai nepalaikomas. Daugiau apie tai galite sužinoti #omarchy-on-other kanale mūsų [Discord](https://discord.gg/tXFUdasqhY).
+Atkreipkite dėmesį, kad diegimas M serijos Mac kompiuteriuose šiuo metu tiesiogiai nepalaikomas. Daugiau apie tai galite sužinoti #collie-on-other kanale mūsų [Discord](https://discord.gg/tXFUdasqhY).
 
-Atlikdami paprastą testą, vien įdiegę Omarchy 2019 m. MacBook Pro sugebėjome pasiekti 36% našumo padidėjimą.
+Atlikdami paprastą testą, vien įdiegę Collie 2019 m. MacBook Pro sugebėjome pasiekti 36% našumo padidėjimą.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy diegimas Mac kompiuteryje
+### Collie diegimas Mac kompiuteryje
 
-Omarchy šiuo metu palaiko tik buvimą **vienintele** įdiegta OS. Diegimo metu diskas bus išvalytas, ir MacOS nebebus galima paleisti.
+Collie šiuo metu palaiko tik buvimą **vienintele** įdiegta OS. Diegimo metu diskas bus išvalytas, ir MacOS nebebus galima paleisti.
 
 Vėliau, jei norėsite, vis tiek galėsite ją atkurti naudodami Internet Recovery.
 
@@ -39,7 +39,7 @@ Diegimo programa aptinka Mac aparatinę įrangą ir automatiškai pritaiko reiki
 
 ### Žinomi apribojimai
 
-Bendruomenės nariai nuolat dirba spręsdami šiuos iššūkius, todėl, jei tai jums kelia problemų, prisijunkite prie #omarchy-on-other mūsų [Discord](https://discord.gg/tXFUdasqhY) ir pažiūrėkite, ar nėra naujausių būdų jiems išspręsti.
+Bendruomenės nariai nuolat dirba spręsdami šiuos iššūkius, todėl, jei tai jums kelia problemų, prisijunkite prie #collie-on-other mūsų [Discord](https://discord.gg/tXFUdasqhY) ir pažiūrėkite, ar nėra naujausių būdų jiems išspręsti.
 
 #### Įrenginiai su T1 lustu
 

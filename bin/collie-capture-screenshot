@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# collie:summary=Take a screenshot
+# collie:group=capture
+# collie:args=[smart|region|windows|fullscreen|scroll] [copy|save]
+# collie:examples=collie screenshot | collie capture screenshot region
+# collie:aliases=collie screenshot
+
+if [[ -n ${COLLIE_SCREENSHOT_DIR:-} && -z ${OMASNAP_SCREENSHOT_DIR:-} ]]; then
+  export OMASNAP_SCREENSHOT_DIR="$COLLIE_SCREENSHOT_DIR"
+fi
+
+# --notify announces saved shots with Open and Edit buttons instead of a
+# preview. Omasnap reads that toast's text from this catalog itself:
+#   collie-i18n capture.screenshotSaved, collie-i18n capture.screenshotSavedCopied,
+#   collie-i18n capture.screenshotOpen, collie-i18n capture.screenshotEdit
+omasnap_args=(--notify)
+for arg in "$@"; do
+  case "$arg" in
+    copy) omasnap_args+=(--copy) ;;
+    save) omasnap_args+=(--save) ;;
+    slurp) ;;
+    *) omasnap_args+=("$arg") ;;
+  esac
+done
+
+exec omasnap "${omasnap_args[@]}"

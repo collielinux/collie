@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Toggle notification do-not-disturb mode
+
+state=$(collie-shell notifications toggleDnd 2>/dev/null || echo "")
+collie-shell -q collie.indicators refresh

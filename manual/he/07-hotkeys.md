@@ -8,7 +8,7 @@
 
 | מישור | מה נמצא שם | דוגמאות |
 | --- | --- | --- |
-| `Super + key` | המערכת: חלונות, מרחבי עבודה, פריסות ותפריטי ליבה | `Super + Space` תפריט Omarchy, `Super + W` סגירת חלון, `Super + F` מסך מלא |
+| `Super + key` | המערכת: חלונות, מרחבי עבודה, פריסות ותפריטי ליבה | `Super + Space` תפריט Collie, `Super + W` סגירת חלון, `Super + F` מסך מלא |
 | `Super + Shift + key` | יישומים | `Super + Shift + B` דפדפן, `Super + Shift + E` דוא"ל, `Super + Shift + N` עורך |
 | `Super + Ctrl + key` | פאנלים ותפריטי מערכת | `Super + Ctrl + A` שמע, `Super + Ctrl + N` רשת, `Super + Ctrl + C` תפריט לכידה |
 | `Super + Ctrl + Alt + key` | פעולות מהירות והודעות | `Super + Ctrl + Alt + T` הצגת השעה, `Super + Ctrl + Alt + B` סוללה, `Super + Ctrl + Alt + C` צילום מסך |
@@ -34,7 +34,7 @@
 
 | מקש קיצור                  | פעולה              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | תפריט Omarchy (יישומים וכל השאר)    |
+| `Super + Space`           | תפריט Collie (יישומים וכל השאר)    |
 | `Super + Alt + Space` | רשת יישומים |
 | `Super + Escape` | תפריט מערכת (השהיה, הפעלה מחדש וכו')  |
 | `Super + Ctrl + L` | נעילת המחשב |
@@ -171,7 +171,7 @@
 | `Super + V`           | הדבקה    |
 | `Super + Ctrl + V`           | מנהל לוח העתקה    |
 
-בדרך כלל ב-Linux, צריך `Ctrl + Shift + C/V` כדי להעתיק ולהדביק במסוף ו-`Ctrl + C/V` כדי לעשות זאת בכל מקום אחר. מקשי הקיצור המאוחדים האלה של Omarchy ללוח ההעתקה עובדים בכל מקום.
+בדרך כלל ב-Linux, צריך `Ctrl + Shift + C/V` כדי להעתיק ולהדביק במסוף ו-`Ctrl + C/V` כדי לעשות זאת בכל מקום אחר. מקשי הקיצור המאוחדים האלה של Collie ללוח ההעתקה עובדים בכל מקום.
 
 ## לכידה
 
@@ -192,7 +192,7 @@
 
 בהקלטות מסך, מקש הקיצור שואל תחילה איזה שמע תרצו, ואז מתחיל להקליט. לחצו עליו שוב כדי לעצור. ראו [צילומי מסך והקלטה](12-screenshots-recording.md) לפרטים.
 
-כל אפשרויות הלכידה נגישות גם תחת _Trigger > Capture_ בתפריט Omarchy (`Super + Space`).
+כל אפשרויות הלכידה נגישות גם תחת _Trigger > Capture_ בתפריט Collie (`Super + Space`).
 
 ## התראות
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | החלפת שקיפות של חלון |
 | `Super + Ctrl + Backspace` | החלפת יחס גובה-רוחב ריבועי לחלון יחיד |
 
-תמונות רקע נוספות נמצאות ב-`~/.config/omarchy/backgrounds/<theme name>`. זמין גם דרך _Install > Style > Background_ בתפריט Omarchy.
+תמונות רקע נוספות נמצאות ב-`~/.config/collie/backgrounds/<theme name>`. זמין גם דרך _Install > Style > Background_ בתפריט Collie.
 
-כל אפשרויות הסגנון נגישות גם תחת _Style_ בתפריט Omarchy (`Super + Space`).
+כל אפשרויות הסגנון נגישות גם תחת _Style_ בתפריט Collie (`Super + Space`).
 
 ## מתגים
 
@@ -317,7 +317,7 @@
 
 ## מסוף Ghostty
 
-מסוף Ghostty מותקן באמצעות _Install > Terminal_ דרך תפריט Omarchy.
+מסוף Ghostty מותקן באמצעות _Install > Terminal_ דרך תפריט Collie.
 
 | מקש קיצור                  | פעולה              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@
 | `Shift + CapsLock Space N` | השם שלכם (כפי שהוזן בהגדרה)  |
 | `Shift + CapsLock Space E` | הדוא"ל שלכם (כפי שהוזן בהגדרה)  |
 
-אפשר להוסיף עוד משלכם על ידי עריכת `~/.XCompose`, ואז הרצת `omarchy-restart-xcompose` במסוף כדי שהשינויים ייקלטו.
+אפשר להוסיף עוד משלכם על ידי עריכת `~/.XCompose`, ואז הרצת `collie-restart-xcompose` במסוף כדי שהשינויים ייקלטו.

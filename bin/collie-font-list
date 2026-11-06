@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=List available monospace fonts
+# collie:examples=collie font list | collie font set "CaskaydiaMono Nerd Font"
+
+fc-list :spacing=100 -f "%{family[0]}\n" | grep -v -i -E 'emoji|signwriting|collie' | sort -u

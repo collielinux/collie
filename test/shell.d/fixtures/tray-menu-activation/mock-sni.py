@@ -34,18 +34,18 @@ class StatusNotifierItem(dbus.service.Object):
 
     return dbus.Dictionary({
       "Category": "ApplicationStatus",
-      "Id": "omarchy-test-tray",
-      "Title": "omarchy-test-tray",
+      "Id": "collie-test-tray",
+      "Title": "collie-test-tray",
       "Status": "Active",
       "WindowId": dbus.Int32(0),
-      "IconName": os.environ.get("OMARCHY_TRAY_ICON_NAME", "dialog-information"),
-      "IconThemePath": os.environ.get("OMARCHY_TRAY_ICON_THEME_PATH", ""),
+      "IconName": os.environ.get("COLLIE_TRAY_ICON_NAME", "dialog-information"),
+      "IconThemePath": os.environ.get("COLLIE_TRAY_ICON_THEME_PATH", ""),
       "Menu": dbus.ObjectPath(MENU_PATH),
       "ItemIsMenu": dbus.Boolean(False),
       "ToolTip": dbus.Struct((
         "",
         dbus.Array([], signature="(iiay)"),
-        "omarchy-test-tray",
+        "collie-test-tray",
         "",
       ), signature=None),
     }, signature="sv")
@@ -157,12 +157,12 @@ def main():
 
 
 def run():
-  event_path = os.environ["OMARCHY_TRAY_MENU_EVENT_RESULT"]
-  ready_path = os.environ["OMARCHY_TRAY_MENU_READY"]
+  event_path = os.environ["COLLIE_TRAY_MENU_EVENT_RESULT"]
+  ready_path = os.environ["COLLIE_TRAY_MENU_READY"]
 
   DBusGMainLoop(set_as_default=True)
   bus = dbus.SessionBus()
-  dbus.service.BusName("org.omarchy.TestStatusNotifier", bus)
+  dbus.service.BusName("org.collie.TestStatusNotifier", bus)
 
   StatusNotifierItem(bus)
   DBusMenu(bus, event_path)

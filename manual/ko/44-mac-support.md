@@ -1,16 +1,16 @@
 # Mac 지원
 
-Omarchy에는 **Intel Mac**에 대한 지원이 내장되어 있습니다. 현재 알려진 제한 사항이 몇 가지 있지만, 이를 인지하고 괜찮다면 Omarchy를 설치해 오래된 Mac에 새 생명을 불어넣을 수 있습니다.
+Collie에는 **Intel Mac**에 대한 지원이 내장되어 있습니다. 현재 알려진 제한 사항이 몇 가지 있지만, 이를 인지하고 괜찮다면 Collie를 설치해 오래된 Mac에 새 생명을 불어넣을 수 있습니다.
 
-M 시리즈 Mac에 대한 설치는 현재 직접 지원되지 않습니다. 이에 대한 현황은 저희 [Discord](https://discord.gg/tXFUdasqhY)의 #omarchy-on-other에서 자세히 확인할 수 있습니다.
+M 시리즈 Mac에 대한 설치는 현재 직접 지원되지 않습니다. 이에 대한 현황은 저희 [Discord](https://discord.gg/tXFUdasqhY)의 #collie-on-other에서 자세히 확인할 수 있습니다.
 
-간단한 테스트에서, Omarchy를 설치하는 것만으로 2019년형 MacBook Pro에서 36%의 성능 향상을 얻을 수 있었습니다.
+간단한 테스트에서, Collie를 설치하는 것만으로 2019년형 MacBook Pro에서 36%의 성능 향상을 얻을 수 있었습니다.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Mac에 Omarchy 설치하기
+### Mac에 Collie 설치하기
 
-Omarchy는 현재 **유일한** OS로 설치되는 경우만 지원합니다. 설치 과정에서 드라이브가 지워지고 MacOS는 더 이상 부팅할 수 없게 됩니다.
+Collie는 현재 **유일한** OS로 설치되는 경우만 지원합니다. 설치 과정에서 드라이브가 지워지고 MacOS는 더 이상 부팅할 수 없게 됩니다.
 
 원한다면 나중에 Internet Recovery를 통해 복원할 수 있습니다.
 
@@ -39,7 +39,7 @@ Omarchy는 현재 **유일한** OS로 설치되는 경우만 지원합니다. �
 
 ### 알려진 제한 사항
 
-커뮤니티 구성원들이 이러한 문제를 해결하기 위해 끊임없이 노력하고 있으니, 이러한 문제가 불편하다면 저희 [Discord](https://discord.gg/tXFUdasqhY)의 #omarchy-on-other에 참여해 최신 해결 방법이 있는지 확인해 보세요.
+커뮤니티 구성원들이 이러한 문제를 해결하기 위해 끊임없이 노력하고 있으니, 이러한 문제가 불편하다면 저희 [Discord](https://discord.gg/tXFUdasqhY)의 #collie-on-other에 참여해 최신 해결 방법이 있는지 확인해 보세요.
 
 #### T1 칩이 탑재된 기기
 

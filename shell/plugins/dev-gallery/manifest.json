@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "omarchy.dev-gallery",
+  "id": "collie.dev-gallery",
   "name": "Dev gallery",
   "version": "1.0.0",
-  "author": "Omarchy",
-  "description": "Visual reference for omarchy-shell common UI components. Summon with: omarchy-shell shell summon omarchy.dev-gallery '{}' (or run: omarchy dev ui-preview).",
+  "author": "Collie",
+  "description": "Visual reference for collie-shell common UI components. Summon with: collie-shell shell summon collie.dev-gallery '{}' (or run: collie dev ui-preview).",
   "kinds": [
     "panel"
   ],

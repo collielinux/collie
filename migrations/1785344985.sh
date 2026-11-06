@@ -6,7 +6,7 @@ echo "Add the agents widget to the bar"
 # active days, or a rate limit. So adding it to every existing bar is free:
 # machines without Claude Code or Codex never see it.
 
-config_file="$HOME/.config/omarchy/shell.json"
+config_file="$HOME/.config/collie/shell.json"
 
 if [[ -s $config_file ]]; then
   tmp=$(mktemp)
@@ -39,10 +39,10 @@ if [[ -s $config_file ]]; then
     # Respect a bar the user already curated: only place the widget when it is
     # absent from every section, never a second copy. A bar still carrying the
     # widget under its old id has it already: 1786099804 renames that entry.
-    if has_widget("omarchy.agents") or has_widget("omarchy.model-usage") then
+    if has_widget("collie.agents") or has_widget("collie.model-usage") then
       .
     else
-      .bar.layout.right |= insert_after("omarchy.tray"; { id: "omarchy.agents" })
+      .bar.layout.right |= insert_after("collie.tray"; { id: "collie.agents" })
     end
   ' "$config_file" >"$tmp" && mv "$tmp" "$config_file" || rm -f "$tmp"
 fi

@@ -1,16 +1,16 @@
 # Stuðningur við Mac
 
-Omarchy er með innbyggðan stuðning við **Intel Macs**. Það eru nokkrar þekktar takmarkanir í augnablikinu, en svo lengi sem þú veist af þeim og sættir þig við þær getur þú blásið nýju lífi í gömlu Mac-tölvurnar þínar með því að setja upp Omarchy.
+Collie er með innbyggðan stuðning við **Intel Macs**. Það eru nokkrar þekktar takmarkanir í augnablikinu, en svo lengi sem þú veist af þeim og sættir þig við þær getur þú blásið nýju lífi í gömlu Mac-tölvurnar þínar með því að setja upp Collie.
 
-Athugaðu að uppsetning á M-series Mac er ekki studd beint eins og er. Þú getur fengið frekari upplýsingar um stöðu þess í #omarchy-on-other í [Discord](https://discord.gg/tXFUdasqhY) okkar.
+Athugaðu að uppsetning á M-series Mac er ekki studd beint eins og er. Þú getur fengið frekari upplýsingar um stöðu þess í #collie-on-other í [Discord](https://discord.gg/tXFUdasqhY) okkar.
 
-Í einföldu prófi náðum við 36% betri afköstum á 2019 MacBook Pro bara með því að setja upp Omarchy.
+Í einföldu prófi náðum við 36% betri afköstum á 2019 MacBook Pro bara með því að setja upp Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Að setja Omarchy upp á Mac
+### Að setja Collie upp á Mac
 
-Omarchy styður aðeins að vera **eina** stýrikerfið sem er uppsett í augnablikinu. Við uppsetninguna verður drifið þurrkað út og ekki lengur verður hægt að ræsa MacOS.
+Collie styður aðeins að vera **eina** stýrikerfið sem er uppsett í augnablikinu. Við uppsetninguna verður drifið þurrkað út og ekki lengur verður hægt að ræsa MacOS.
 
 Þú getur samt endurheimt það síðar í gegnum Internet Recovery ef þú vilt.
 
@@ -39,7 +39,7 @@ Uppsetningarforritið greinir Mac-vélbúnað og setur sjálfkrafa upp þær lag
 
 ### Þekktar takmarkanir
 
-Meðlimir samfélagsins vinna stöðugt að lausnum á þessum áskorunum, svo ef þetta veldur þér vandræðum skaltu koma í #omarchy-on-other í [Discord](https://discord.gg/tXFUdasqhY) okkar og sjá hvort til séu einhverjar nýjustu aðferðir til að leysa þetta.
+Meðlimir samfélagsins vinna stöðugt að lausnum á þessum áskorunum, svo ef þetta veldur þér vandræðum skaltu koma í #collie-on-other í [Discord](https://discord.gg/tXFUdasqhY) okkar og sjá hvort til séu einhverjar nýjustu aðferðir til að leysa þetta.
 
 #### Tæki með T1-kubb
 

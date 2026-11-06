@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# collie:summary=Toggle animations, blur and shadows, which are slow without a GPU
+# collie:args=[toggle|on|off]
+# collie:examples=collie toggle animations | collie toggle animations off | collie toggle animations on
+
+case ${1:-toggle} in
+toggle)
+  if collie-hyprland-animations-off; then
+    animations=on
+  else
+    animations=off
+  fi
+  ;;
+on | off) animations=$1 ;;
+*)
+  echo "Usage: collie-toggle-animations [toggle|on|off]" >&2
+  exit 1
+  ;;
+esac
+
+# A session that renders on the CPU turns animations off by itself
+# (default/hypr/software-rendering.lua). Turning them on there is remembered for
+# later sessions too, and has to be in place before the toggle reloads Hyprland.
+without_gpu="$HOME/.local/state/collie/toggles/animations-without-gpu"
+
+# The flag records animations being off, so on and off swap on the way through.
+if [[ $animations == "on" ]]; then
+  if [[ -e $XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/collie-software-rendering ]]; then
+    mkdir -p "${without_gpu%/*}"
+    touch "$without_gpu"
+  fi
+  collie-hyprland-toggle no-animations off
+else
+  rm -f "$without_gpu"
+  collie-hyprland-toggle no-animations on
+fi
+
+if collie-hyprland-animations-off; then
+  collie-notification-send -g 󰗘 "$(collie-i18n animations.disabled)"
+else
+  collie-notification-send -g 󰗘 "$(collie-i18n animations.enabled)"
+fi

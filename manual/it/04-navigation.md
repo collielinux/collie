@@ -1,8 +1,8 @@
 # Navigazione
 
-Tutto in Omarchy avviene tramite la tastiera — _TUTTO!_ Quando il sistema si avvia per la prima volta, letteralmente non puoi fare nulla con il solo mouse. Ma puoi premere `Super + Space` per visualizzare il Menu di Omarchy e da qui puoi fare praticamente tutto.
+Tutto in Collie avviene tramite la tastiera — _TUTTO!_ Quando il sistema si avvia per la prima volta, letteralmente non puoi fare nulla con il solo mouse. Ma puoi premere `Super + Space` per visualizzare il Menu di Collie e da qui puoi fare praticamente tutto.
 
-Ma il menu di Omarchy non è nemmeno pensato per essere il modo principale di usare il sistema per la maggior parte del tempo. Possiamo fare ancora più in fretta! Tutte le applicazioni più importanti sono associate direttamente a singole scorciatoie da tastiera. Avvii il terminale con `Super + Return` e un browser con `Super + Shift + Return`. Prova a farlo uno dopo l'altro e vedrai la magia del tiling di Hyprland in azione:
+Ma il menu di Collie non è nemmeno pensato per essere il modo principale di usare il sistema per la maggior parte del tempo. Possiamo fare ancora più in fretta! Tutte le applicazioni più importanti sono associate direttamente a singole scorciatoie da tastiera. Avvii il terminale con `Super + Return` e un browser con `Super + Shift + Return`. Prova a farlo uno dopo l'altro e vedrai la magia del tiling di Hyprland in azione:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Puoi anche passare a schermo intero con `Super + F` o anche solo a tutta larghez
 
 ### Layout dwindle vs scrolling
 
-Il layout predefinito di Omarchy si chiama dwindle. Mantiene sempre visibili tutte le finestre che apri su un singolo spazio di lavoro, anche se deve rimpicciolirle.
+Il layout predefinito di Collie si chiama dwindle. Mantiene sempre visibili tutte le finestre che apri su un singolo spazio di lavoro, anche se deve rimpicciolirle.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Uno spazio di lavoro fluttuante funziona come un desktop tradizionale: le finestre si sovrappongono e le sposti e ridimensioni tu stesso. Ogni finestra riceve una barra del titolo nei colori del tuo tema, con pulsanti per minimizzare, massimizzare e chiudere. Anche `Super + M` minimizza la finestra attiva. Una finestra minimizzata attende nel dock; fai clic sulla sua app per riportarla. Fai clic su una finestra per portarla in primo piano. Ridimensionala da qualsiasi bordo o angolo. Fai doppio clic su una barra del titolo per massimizzare la finestra mantenendo visibile la barra superiore, e di nuovo per ripristinare le sue vecchie dimensioni.
 
-Uno spazio di lavoro fluttuante mostra anche un dock, con le tue app bloccate, tutto ciò che è in esecuzione e una griglia di ogni app dietro il pulsante delle app, che anche `Super + Alt + Space` e _Apps_ nel menu di Omarchy aprono. Fai clic con il pulsante destro su un'app nella griglia, o premi `Delete`, per disinstallarla. Fai clic su un'app per aprirla, o per portare in primo piano la sua finestra; fai di nuovo clic per scorrere tra le sue finestre. Il clic centrale apre una nuova finestra. Trascina un'icona lungo il dock per spostarla; trascinare un'app in esecuzione tra le altre la mantiene lì. Fai clic con il pulsante destro per tenere un'app nel dock, rimuoverla o chiuderla. Il dock si sposta per non intralciare una finestra a schermo intero. Fai clic con il pulsante destro sul pulsante delle app per spostare il dock su un altro bordo o farlo nascondere finché il puntatore non raggiunge il suo bordo. La posizione si trova anche in _Appearance > Dock > Dock Position_, e `omarchy dock position left` e `omarchy dock autohide on` impostano entrambe le cose da un terminale. Le app che tieni nel dock sono sbiadite mentre non sono in esecuzione.
+Uno spazio di lavoro fluttuante mostra anche un dock, con le tue app bloccate, tutto ciò che è in esecuzione e una griglia di ogni app dietro il pulsante delle app, che anche `Super + Alt + Space` e _Apps_ nel menu di Collie aprono. Fai clic con il pulsante destro su un'app nella griglia, o premi `Delete`, per disinstallarla. Fai clic su un'app per aprirla, o per portare in primo piano la sua finestra; fai di nuovo clic per scorrere tra le sue finestre. Il clic centrale apre una nuova finestra. Trascina un'icona lungo il dock per spostarla; trascinare un'app in esecuzione tra le altre la mantiene lì. Fai clic con il pulsante destro per tenere un'app nel dock, rimuoverla o chiuderla. Il dock si sposta per non intralciare una finestra a schermo intero. Fai clic con il pulsante destro sul pulsante delle app per spostare il dock su un altro bordo o farlo nascondere finché il puntatore non raggiunge il suo bordo. La posizione si trova anche in _Appearance > Dock > Dock Position_, e `collie dock position left` e `collie dock autohide on` impostano entrambe le cose da un terminale. Le app che tieni nel dock sono sbiadite mentre non sono in esecuzione.
 
-I nuovi spazi di lavoro, e quelli a cui non hai assegnato un layout proprio con `Super + L`, usano il layout predefinito. Cambiare il predefinito reimposta su di esso ogni spazio di lavoro senza finestre, mentre uno con finestre mantiene il layout che ha. Una finestra minimizzata nel dock conta ancora come finestra sullo spazio di lavoro che ha lasciato. Sceglilo in _Appearance > Workspace Layout_: Tiling, Scrolling o Floating. `omarchy-hyprland-workspace-layout-default scrolling` lo imposta da un terminale.
+I nuovi spazi di lavoro, e quelli a cui non hai assegnato un layout proprio con `Super + L`, usano il layout predefinito. Cambiare il predefinito reimposta su di esso ogni spazio di lavoro senza finestre, mentre uno con finestre mantiene il layout che ha. Una finestra minimizzata nel dock conta ancora come finestra sullo spazio di lavoro che ha lasciato. Sceglilo in _Appearance > Workspace Layout_: Tiling, Scrolling o Floating. `collie-hyprland-workspace-layout-default scrolling` lo imposta da un terminale.
 
 ### Raggruppare le finestre
 

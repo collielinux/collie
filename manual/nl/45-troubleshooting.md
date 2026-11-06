@@ -2,23 +2,23 @@
 
 ### Ik heb mijn systeem kapotgemaakt met een update!
 
-Probeer eerst [je systeem terug te zetten](47-system-snapshots.md) naar de versie van vóór je recente update. Als dat niet werkt, gebruik dan `omarchy-debug` om je probleem te delen in #omarchy-help op Discord. En als dat allemaal niet lukt, kun je de standaardconfiguraties en -pakketten opnieuw installeren met `omarchy-reinstall`.
+Probeer eerst [je systeem terug te zetten](47-system-snapshots.md) naar de versie van vóór je recente update. Als dat niet werkt, gebruik dan `collie-debug` om je probleem te delen in #collie-help op Discord. En als dat allemaal niet lukt, kun je de standaardconfiguraties en -pakketten opnieuw installeren met `collie-reinstall`.
 
 ### Waarom zijn sommige apps zo groot op mijn scherm?
 
-Omarchy gaat uit van een 2x-scherm met hoge resolutie, dus stelt het `GDK_SCALE` in op 2 totdat je een schaal kiest in het monitorpaneel. Als je op een 1x-scherm zit en GTK- of X11-apps te groot worden weergegeven, kies dan 1x daarvoor in het monitorpaneel, of voeg `hl.env("GDK_SCALE", "1")` toe aan `~/.config/hypr/monitors.lua` (en herstart daarna elke app die te groot is). Zie [de handleiding over monitoren](33-monitors.md).
+Collie gaat uit van een 2x-scherm met hoge resolutie, dus stelt het `GDK_SCALE` in op 2 totdat je een schaal kiest in het monitorpaneel. Als je op een 1x-scherm zit en GTK- of X11-apps te groot worden weergegeven, kies dan 1x daarvoor in het monitorpaneel, of voeg `hl.env("GDK_SCALE", "1")` toe aan `~/.config/hypr/monitors.lua` (en herstart daarna elke app die te groot is). Zie [de handleiding over monitoren](33-monitors.md).
 
 Bij Spotify kun je `Ctrl + Minus` gebruiken om de UI te verkleinen (en `Ctrl + Plus` om die groter te maken).
 
 ### Waarom werken al mijn Super-toetscombinaties ineens niet meer?
 
-Op sommige ASUS ROG- en TUF-laptops is `Fn + Super` een makkelijk te missen toetscombinatie die een Windows-toetsvergrendeling in de firmware in- en uitschakelt (bedoeld voor gamen, zodat je niet per ongeluk een game verlaat). Niets op het scherm vertelt je dat het is gebeurd. Zolang de vergrendeling aanstaat, geeft Super helemaal niets door — dus stopt elke Omarchy-combinatie met Super gewoon, en het lijkt alsof Hyprland kapot is.
+Op sommige ASUS ROG- en TUF-laptops is `Fn + Super` een makkelijk te missen toetscombinatie die een Windows-toetsvergrendeling in de firmware in- en uitschakelt (bedoeld voor gamen, zodat je niet per ongeluk een game verlaat). Niets op het scherm vertelt je dat het is gebeurd. Zolang de vergrendeling aanstaat, geeft Super helemaal niets door — dus stopt elke Collie-combinatie met Super gewoon, en het lijkt alsof Hyprland kapot is.
 
 Druk één keer op `Fn + Super` voordat je in `~/.config/hypr/` gaat graven, en als Super daardoor niet terugkomt, druk er dan nog een keer op zodat je de vergrendeling niet aan laat staan. Dit is geen Fn-lock; die verandert alleen wat de rij met F-toetsen doet.
 
 ### Mijn Wi-Fi, Bluetooth, audio of trackpad werkt ineens niet meer
 
-Probeer voordat je opnieuw opstart eerst het betreffende subsysteem apart opnieuw te starten. _Update > Hardware_ in het Omarchy-menu heeft Wi-Fi, Bluetooth, Audio en Trackpad, en het opnieuw laden van een daarvan lost de meeste "het werkte vijf minuten geleden nog"-situaties op — een Bluetooth-headset die geen verbinding meer wil maken, een trackpad dat ermee ophield na een slaapstand, geluid dat verdween toen je een monitor loskoppelde.
+Probeer voordat je opnieuw opstart eerst het betreffende subsysteem apart opnieuw te starten. _Update > Hardware_ in het Collie-menu heeft Wi-Fi, Bluetooth, Audio en Trackpad, en het opnieuw laden van een daarvan lost de meeste "het werkte vijf minuten geleden nog"-situaties op — een Bluetooth-headset die geen verbinding meer wil maken, een trackpad dat ermee ophield na een slaapstand, geluid dat verdween toen je een monitor loskoppelde.
 
 ### Waarom spelen mijn externe speakers niet af?
 
@@ -26,7 +26,7 @@ Waarschijnlijk omdat ze niet zijn ingesteld als primaire uitvoer. Klik op het sp
 
 ### De speakers van mijn laptop klinken niet goed
 
-Op sommige laptops past Omarchy automatisch een speaker-tuning toe die de frequentierespons van de ingebouwde speakers corrigeert. `omarchy audio tuning status` vertelt je of er een actief is op jouw machine, en `omarchy audio tuning off` schakelt die uit als je de speakers liever rauw hoort.
+Op sommige laptops past Collie automatisch een speaker-tuning toe die de frequentierespons van de ingebouwde speakers corrigeert. `collie audio tuning status` vertelt je of er een actief is op jouw machine, en `collie audio tuning off` schakelt die uit als je de speakers liever rauw hoort.
 
 ### Waarom kan ik niet inloggen of sudo gebruiken met mijn wachtwoord?
 

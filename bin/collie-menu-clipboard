@@ -1,0 +1,6 @@
+#!/bin/bash
+# collie:summary=Launch the clipboard manager
+# collie:group=menu
+# collie:examples=collie menu clipboard
+
+collie-shell shell toggle collie.clipboard

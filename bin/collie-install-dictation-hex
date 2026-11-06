@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# collie:summary=Install and configure Hex dictation
+# collie:requires-sudo=true
+
+set -e
+
+collie-pkg-add hex-bin
+# Download the speech model here, with progress, instead of silently on first launch.
+hex model install
+systemctl --user enable hex.service
+# Launching through the CLI saves this session's display environment for the unit before starting it.
+hex start
+collie-dictation-use hex
+collie-restart-hyprctl
+collie-notification-send -g  "$(collie-i18n dictation.hexReady)" "$(collie-i18n dictation.hint)" -t 10000

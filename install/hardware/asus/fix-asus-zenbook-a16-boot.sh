@@ -1,10 +1,10 @@
 # Disk unlock and sleep on the ASUS Zenbook A16 UX3607OA (Snapdragon X2 Elite).
 
-mkinitcpio_dir=${OMARCHY_ZENBOOK_A16_MKINITCPIO_DIR:-/etc/mkinitcpio.conf.d}
-limine_config_dir=${OMARCHY_ZENBOOK_A16_LIMINE_CONFIG_DIR:-/etc/limine-entry-tool.d}
-sleep_config_dir=${OMARCHY_ZENBOOK_A16_SLEEP_CONFIG_DIR:-/etc/systemd/sleep.conf.d}
+mkinitcpio_dir=${COLLIE_ZENBOOK_A16_MKINITCPIO_DIR:-/etc/mkinitcpio.conf.d}
+limine_config_dir=${COLLIE_ZENBOOK_A16_LIMINE_CONFIG_DIR:-/etc/limine-entry-tool.d}
+sleep_config_dir=${COLLIE_ZENBOOK_A16_SLEEP_CONFIG_DIR:-/etc/systemd/sleep.conf.d}
 
-if omarchy-hw-aarch64-qualcomm && omarchy-hw-match "UX3607OA"; then
+if collie-hw-aarch64-qualcomm && collie-hw-match "UX3607OA"; then
   # The kernel defaults to deep sleep, PSCI system suspend, and resuming from
   # it resets the SoC. Suspend to idle resumes cleanly, so sleep that way.
   mkdir -p "$sleep_config_dir"

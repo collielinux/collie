@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-if grep -rlE '^(Path[A-Za-z]+|DirectoryNotEmpty)=.*/usr/share/omarchy/migrations' "$ROOT/default/systemd/user" >/dev/null 2>&1; then
+if grep -rlE '^(Path[A-Za-z]+|DirectoryNotEmpty)=.*/usr/share/collie/migrations' "$ROOT/default/systemd/user" >/dev/null 2>&1; then
   fail "a user unit watches the migration directory again; the notifier must stay login-only"
 fi
 pass "no unit watches the migration directory, so package updates cannot trigger the notifier"

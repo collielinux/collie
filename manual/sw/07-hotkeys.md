@@ -8,7 +8,7 @@ Kila kibonye cha haraka kiko kwenye tabaka, linalowekwa na virekebishaji vyake, 
 
 | Tabaka | Kile kilicho hapo | Mifano |
 | --- | --- | --- |
-| `Super + key` | Mfumo: madirisha, nafasi za kazi, mipangilio, na menyu za msingi | `Super + Space` menyu ya Omarchy, `Super + W` funga dirisha, `Super + F` skrini nzima |
+| `Super + key` | Mfumo: madirisha, nafasi za kazi, mipangilio, na menyu za msingi | `Super + Space` menyu ya Collie, `Super + W` funga dirisha, `Super + F` skrini nzima |
 | `Super + Shift + key` | Programu | `Super + Shift + B` kivinjari, `Super + Shift + E` barua pepe, `Super + Shift + N` kihariri |
 | `Super + Ctrl + key` | Paneli na menyu za mfumo | `Super + Ctrl + A` sauti, `Super + Ctrl + N` mtandao, `Super + Ctrl + C` menyu ya kunasa |
 | `Super + Ctrl + Alt + key` | Vitendo vya haraka na taarifa | `Super + Ctrl + Alt + T` onyesha saa, `Super + Ctrl + Alt + B` betri, `Super + Ctrl + Alt + C` picha ya skrini |
@@ -34,7 +34,7 @@ Kama chaguo-msingi halikufai (tuseme unataka `Super + Shift + S` kwa picha za sk
 
 | Kibonye cha Haraka                  | Kazi              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menyu ya Omarchy (programu na kila kitu kingine)    |
+| `Super + Space`           | Menyu ya Collie (programu na kila kitu kingine)    |
 | `Super + Alt + Space` | Gridi ya programu |
 | `Super + Escape` | Menyu ya mfumo (simamisha kwa muda, anzisha upya, n.k.)  |
 | `Super + Ctrl + L` | Funga kompyuta |
@@ -171,7 +171,7 @@ Badilisha/ongeza vifungo katika `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Bandika    |
 | `Super + Ctrl + V`           | Kidhibiti cha ubao wa kunakili    |
 
-Kwa kawaida kwenye Linux, unahitaji `Ctrl + Shift + C/V` kunakili na kubandika katika terminali na `Ctrl + C/V` kufanya hivyo kila mahali pengine. Vibonye hivi vya haraka vya ubao wa kunakili vilivyounganishwa vya Omarchy hufanya kazi kila mahali.
+Kwa kawaida kwenye Linux, unahitaji `Ctrl + Shift + C/V` kunakili na kubandika katika terminali na `Ctrl + C/V` kufanya hivyo kila mahali pengine. Vibonye hivi vya haraka vya ubao wa kunakili vilivyounganishwa vya Collie hufanya kazi kila mahali.
 
 ## Kunasa
 
@@ -192,7 +192,7 @@ Kwa kawaida kwenye Linux, unahitaji `Ctrl + Shift + C/V` kunakili na kubandika k
 
 Kwa rekodi za skrini, kibonye cha haraka kwanza hukuuliza sauti unayotaka, kisha huanza kurekodi. Kibonye tena ili kusimamisha. Tazama [picha za skrini na kurekodi](12-screenshots-recording.md) kwa maelezo.
 
-Chaguo zote za kunasa pia zinapatikana chini ya _Trigger > Capture_ katika menyu ya Omarchy (`Super + Space`).
+Chaguo zote za kunasa pia zinapatikana chini ya _Trigger > Capture_ katika menyu ya Collie (`Super + Space`).
 
 ## Arifa
 
@@ -214,9 +214,9 @@ Chaguo zote za kunasa pia zinapatikana chini ya _Trigger > Capture_ katika menyu
 | `Super + Backspace` | Badilisha uwazi kwenye dirisha |
 | `Super + Ctrl + Backspace` | Badilisha uwiano wa mraba wa dirisha moja |
 
-Picha za ziada za mandharinyuma ziko katika `~/.config/omarchy/backgrounds/<theme name>`. Pia zinapatikana kupitia _Install > Style > Background_ katika menyu ya Omarchy.
+Picha za ziada za mandharinyuma ziko katika `~/.config/collie/backgrounds/<theme name>`. Pia zinapatikana kupitia _Install > Style > Background_ katika menyu ya Collie.
 
-Chaguo zote za mtindo pia zinapatikana chini ya _Style_ katika menyu ya Omarchy (`Super + Space`).
+Chaguo zote za mtindo pia zinapatikana chini ya _Style_ katika menyu ya Collie (`Super + Space`).
 
 ## Kugeuza
 
@@ -317,7 +317,7 @@ Vitendakazi hivi lazima viendeshwe ndani ya kipindi cha Tmux.
 
 ## Terminali ya Ghostty
 
-Terminali ya Ghostty husakinishwa kwa kutumia _Install > Terminal_ kupitia menyu ya Omarchy.
+Terminali ya Ghostty husakinishwa kwa kutumia _Install > Terminal_ kupitia menyu ya Collie.
 
 | Kibonye cha Haraka                  | Kazi              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Unaweza kutumia `Super + Ctrl + E` kuonyesha kiteua kamili cha emoji ambacho kit
 | `Shift + CapsLock Space N` | Jina lako (kama lilivyoingizwa wakati wa usanidi)  |
 | `Shift + CapsLock Space E` | Barua pepe yako (kama ilivyoingizwa wakati wa usanidi)  |
 
-Unaweza kuongeza zaidi yako mwenyewe kwa kuhariri `~/.XCompose`, kisha endesha `omarchy-restart-xcompose` katika terminali ili mabadiliko yachukuliwe.
+Unaweza kuongeza zaidi yako mwenyewe kwa kuhariri `~/.XCompose`, kisha endesha `collie-restart-xcompose` katika terminali ili mabadiliko yachukuliwe.

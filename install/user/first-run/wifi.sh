@@ -1,13 +1,13 @@
 notify_update() {
-  omarchy-notification-send -u critical -g  "$(omarchy-i18n firstRun.updateTitle)" "$(omarchy-i18n firstRun.updateBody)" \
-    --exec omarchy-launch-floating-terminal-with-presentation omarchy-update
+  collie-notification-send -u critical -g  "$(collie-i18n firstRun.updateTitle)" "$(collie-i18n firstRun.updateBody)" \
+    --exec collie-launch-floating-terminal-with-presentation collie-update
 }
 
-# Something for omarchy-update to install: any repository package, Omarchy's
+# Something for collie-update to install: any repository package, Collie's
 # own among them, or a development checkout behind its upstream. checkupdates
 # exits 2 when every package is current and 1 when it could not tell, so only
 # a definite "nothing" holds the prompt back. It syncs the package databases,
-# so it runs once; omarchy-update-available would run it again, and is asked
+# so it runs once; collie-update-available would run it again, and is asked
 # only about a checkout, which checkupdates cannot see.
 update_pending() {
   local status=0
@@ -15,16 +15,16 @@ update_pending() {
 
   if (( status != 2 )); then
     return 0
-  elif [[ $OMARCHY_PATH != "/usr/share/omarchy" ]]; then
-    omarchy-update-available >/dev/null 2>&1
+  elif [[ $COLLIE_PATH != "/usr/share/collie" ]]; then
+    collie-update-available >/dev/null 2>&1
   else
     return 1
   fi
 }
 
 notify_wifi() {
-  omarchy-notification-send -u critical -g 󰖩 "$(omarchy-i18n firstRun.wifiTitle)" "$(omarchy-i18n firstRun.wifiBody)" \
-    --exec omarchy-shell shell toggle omarchy.network
+  collie-notification-send -u critical -g 󰖩 "$(collie-i18n firstRun.wifiTitle)" "$(collie-i18n firstRun.wifiBody)" \
+    --exec collie-shell shell toggle collie.network
 }
 
 announce_network() {
@@ -47,8 +47,8 @@ announce_network() {
   # Both setups install packages, so they wait for the link rather than for the
   # first update. Each invites only once, and only when there is something to
   # set up.
-  bash "$OMARCHY_PATH/install/user/first-run/setup-agent.hook"
-  bash "$OMARCHY_PATH/install/user/first-run/setup-fingerprint.hook"
+  bash "$COLLIE_PATH/install/user/first-run/setup-agent.hook"
+  bash "$COLLIE_PATH/install/user/first-run/setup-fingerprint.hook"
 
   # A fresh install from current media has nothing to update, and a toast
   # that leads nowhere teaches people to dismiss the next one.

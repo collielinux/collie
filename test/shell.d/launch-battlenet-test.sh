@@ -44,7 +44,7 @@ chmod +x "$tmp_dir/bin/hyprctl" "$tmp_dir/bin/umu-run"
 # A fractional scale rounds to the nearest DPI: 1.6 x 96 = 153.6, so 154.
 write_registry
 echo 1.6 >"$tmp_dir/scale"
-"$ROOT/bin/omarchy-launch-battlenet"
+"$ROOT/bin/collie-launch-battlenet"
 
 [[ $(grep -c '^"LogPixels"=dword:0000009a$' "$prefix/user.reg") == "2" ]] ||
   fail "Battle.net launch matches the DPI to the focused monitor's scale" "$(cat "$prefix/user.reg")"
@@ -62,7 +62,7 @@ wineserver_pid=$!
 write_registry
 echo 2 >"$tmp_dir/scale"
 : >"$TEST_LOG"
-"$ROOT/bin/omarchy-launch-battlenet"
+"$ROOT/bin/collie-launch-battlenet"
 
 [[ $(grep -c '^"LogPixels"=dword:00000060$' "$prefix/user.reg") == "2" ]] ||
   fail "Battle.net launch leaves a running prefix's DPI alone" "$(cat "$prefix/user.reg")"

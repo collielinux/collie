@@ -1,6 +1,6 @@
 # Pemasangan Dual Boot
 
-Anda boleh memasang Omarchy pada satu partition sahaja bersama Windows atau pemasangan lain.
+Anda boleh memasang Collie pada satu partition sahaja bersama Windows atau pemasangan lain.
 
 Kaedah pemasangan ini masih dilengkapi dengan penyulitan LUKS untuk partition tersebut secara lalai, jadi ia sebenarnya tidak berbeza daripada pemasangan pada keseluruhan pemacu dan hanya memerlukan ruang kosong tersedia pada cakera.
 
@@ -14,17 +14,17 @@ Cari partition yang sesuai, klik kanan, dan pilih **Shrink Volume**.
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Masukkan jumlah yang anda mahu kecilkan daripada volume tersebut. Perlu diingat bahawa ini akan menjadi saiz pemasangan Omarchy anda pada masa hadapan termasuk partition but.
+ Masukkan jumlah yang anda mahu kecilkan daripada volume tersebut. Perlu diingat bahawa ini akan menjadi saiz pemasangan Collie anda pada masa hadapan termasuk partition but.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Apabila anda selesai, anda sepatutnya melihat sesuatu seperti ini di mana bahagian 50GB ialah tempat kami akan memasang Omarchy dalam contoh ini.
+Apabila anda selesai, anda sepatutnya melihat sesuatu seperti ini di mana bahagian 50GB ialah tempat kami akan memasang Collie dalam contoh ini.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Memasang Omarchy
+## Memasang Collie
 
-Proses pemasangan Omarchy sebenarnya sama seperti biasa. Selepas anda memilih cakera anda, anda akan diberikan pilihan **Free space install**. Pilih pilihan tersebut untuk mengelakkan keseluruhan cakera dipadamkan.
+Proses pemasangan Collie sebenarnya sama seperti biasa. Selepas anda memilih cakera anda, anda akan diberikan pilihan **Free space install**. Pilih pilihan tersebut untuk mengelakkan keseluruhan cakera dipadamkan.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Sahkan semuanya kelihatan baik dan tunggu pemasangan selesai seperti biasa. Di s
 
 ## Menambah Pemasangan Lain pada Bootloader
 
-Apabila anda selesai memasang Omarchy, anda akan perasan bahawa bootloader Limine kini menjadi lalai. Dengan ini, anda juga boleh menambah pilihan pada Limine untuk pemasangan lain anda seperti Windows.
+Apabila anda selesai memasang Collie, anda akan perasan bahawa bootloader Limine kini menjadi lalai. Dengan ini, anda juga boleh menambah pilihan pada Limine untuk pemasangan lain anda seperti Windows.
 
-Untuk menambah sistem pengendalian lain, jalankan `limine-scan` dan ikut gesaan untuk menambah entri yang anda mahu pada konfigurasi Limine anda. Menu but kekal tersembunyi secara lalai dan memulakan Omarchy selepas satu saat. Untuk memilih Windows atau entri lain, tekan sebarang kekunci sebaik sahaja Limine bermula; apabila menu muncul, gunakan kekunci anak panah untuk memilih entri dan tekan Enter. Jika Omarchy bermula sebelum anda menekan kekunci, mulakan semula dan cuba lagi. Jika anda menghidupkan _Setup > Direct Boot_, firmware akan melangkau Limine sepenuhnya, jadi pilih Limine daripada menu but BIOS anda atau jalankan _Setup > Direct Boot_ sekali lagi untuk mengalih keluar entri tersebut.
+Untuk menambah sistem pengendalian lain, jalankan `limine-scan` dan ikut gesaan untuk menambah entri yang anda mahu pada konfigurasi Limine anda. Menu but kekal tersembunyi secara lalai dan memulakan Collie selepas satu saat. Untuk memilih Windows atau entri lain, tekan sebarang kekunci sebaik sahaja Limine bermula; apabila menu muncul, gunakan kekunci anak panah untuk memilih entri dan tekan Enter. Jika Collie bermula sebelum anda menekan kekunci, mulakan semula dan cuba lagi. Jika anda menghidupkan _Setup > Direct Boot_, firmware akan melangkau Limine sepenuhnya, jadi pilih Limine daripada menu but BIOS anda atau jalankan _Setup > Direct Boot_ sekali lagi untuk mengalih keluar entri tersebut.
 
 ## Bitlocker
 

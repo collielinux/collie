@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# collie:summary=Toggle Collie features between enabled and disabled
+# collie:args=<flag-name> [toggle|on|off]
+
+if (($# < 1)); then
+  echo "Usage: collie-toggle <flag-name> [toggle|on|off]" >&2
+  exit 1
+fi
+
+FLAG_NAME="$1"
+ACTION="${2:-toggle}"
+FLAG="$HOME/.local/state/collie/toggles/$FLAG_NAME"
+
+enable() {
+  mkdir -p "$(dirname "$FLAG")"
+  touch "$FLAG"
+}
+
+disable() {
+  rm -f "$FLAG"
+}
+
+case "$ACTION" in
+  toggle|"")
+    if [[ -f $FLAG ]]; then
+      disable
+    else
+      enable
+    fi
+    ;;
+  on)
+    enable
+    ;;
+  off)
+    disable
+    ;;
+  *)
+    echo "Usage: collie-toggle <flag-name> [toggle|on|off]" >&2
+    exit 1
+    ;;
+esac

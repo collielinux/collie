@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# collie:summary=Apply the current theme keyboard color to supported keyboards
+# collie:hidden=true
+
+collie-theme-set-keyboard-asus-rog
+collie-theme-set-keyboard-f16

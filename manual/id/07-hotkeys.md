@@ -8,7 +8,7 @@ Setiap tombol pintas berada di satu bidang, ditentukan oleh modifier-nya, dan se
 
 | Bidang | Yang ada di sana | Contoh |
 | --- | --- | --- |
-| `Super + key` | Sistem: jendela, workspace, tata letak, dan menu inti | `Super + Space` menu Omarchy, `Super + W` tutup jendela, `Super + F` layar penuh |
+| `Super + key` | Sistem: jendela, workspace, tata letak, dan menu inti | `Super + Space` menu Collie, `Super + W` tutup jendela, `Super + F` layar penuh |
 | `Super + Shift + key` | Aplikasi | `Super + Shift + B` browser, `Super + Shift + E` email, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panel dan menu sistem | `Super + Ctrl + A` audio, `Super + Ctrl + N` jaringan, `Super + Ctrl + C` menu tangkapan |
 | `Super + Ctrl + Alt + key` | Tindakan cepat dan pemberitahuan | `Super + Ctrl + Alt + T` tampilkan waktu, `Super + Ctrl + Alt + B` baterai, `Super + Ctrl + Alt + C` tangkapan layar |
@@ -34,7 +34,7 @@ Jika bawaan tidak cocok untukmu (misalnya kamu ingin `Super + Shift + S` untuk t
 
 | Tombol Pintas                  | Fungsi              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu Omarchy (aplikasi dan semua yang lain)    |
+| `Super + Space`           | Menu Collie (aplikasi dan semua yang lain)    |
 | `Super + Alt + Space` | Grid aplikasi |
 | `Super + Escape` | Menu sistem (tunda, mulai ulang, dll)  |
 | `Super + Ctrl + L` | Kunci komputer |
@@ -171,7 +171,7 @@ Ubah/tambah ikatan di `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Tempel    |
 | `Super + Ctrl + V`           | Manajer papan klip    |
 
-Biasanya di Linux, kamu perlu `Ctrl + Shift + C/V` untuk salin-tempel di terminal dan `Ctrl + C/V` untuk melakukannya di tempat lain. Tombol pintas papan klip terpadu Omarchy ini bekerja di mana saja.
+Biasanya di Linux, kamu perlu `Ctrl + Shift + C/V` untuk salin-tempel di terminal dan `Ctrl + C/V` untuk melakukannya di tempat lain. Tombol pintas papan klip terpadu Collie ini bekerja di mana saja.
 
 ## Tangkapan
 
@@ -192,7 +192,7 @@ Biasanya di Linux, kamu perlu `Ctrl + Shift + C/V` untuk salin-tempel di termina
 
 Dengan rekaman layar, tombol pintas pertama-tama menanyakan audio mana yang kamu inginkan, lalu mulai merekam. Tekan lagi untuk berhenti. Lihat [tangkapan layar dan perekaman](12-screenshots-recording.md) untuk detailnya.
 
-Semua opsi tangkapan juga dapat diakses di bawah _Trigger > Capture_ di menu Omarchy (`Super + Space`).
+Semua opsi tangkapan juga dapat diakses di bawah _Trigger > Capture_ di menu Collie (`Super + Space`).
 
 ## Notifikasi
 
@@ -214,9 +214,9 @@ Semua opsi tangkapan juga dapat diakses di bawah _Trigger > Capture_ di menu Oma
 | `Super + Backspace` | Alihkan transparansi pada jendela |
 | `Super + Ctrl + Backspace` | Alihkan aspek persegi jendela tunggal |
 
-Gambar latar tambahan ada di `~/.config/omarchy/backgrounds/<theme name>`. Juga tersedia via _Install > Style > Background_ di menu Omarchy.
+Gambar latar tambahan ada di `~/.config/collie/backgrounds/<theme name>`. Juga tersedia via _Install > Style > Background_ di menu Collie.
 
-Semua opsi gaya juga dapat diakses di bawah _Style_ di menu Omarchy (`Super + Space`).
+Semua opsi gaya juga dapat diakses di bawah _Style_ di menu Collie (`Super + Space`).
 
 ## Pengalih
 
@@ -317,7 +317,7 @@ Fungsi-fungsi ini harus dijalankan di dalam sesi Tmux.
 
 ## Terminal Ghostty
 
-Terminal Ghostty dipasang menggunakan _Install > Terminal_ via menu Omarchy.
+Terminal Ghostty dipasang menggunakan _Install > Terminal_ via menu Collie.
 
 | Tombol Pintas                  | Fungsi              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Kamu bisa menggunakan `Super + Ctrl + E` untuk menampilkan pemilih emoji lengkap
 | `Shift + CapsLock Space N` | Nama kamu (seperti yang dimasukkan saat penyiapan)  |
 | `Shift + CapsLock Space E` | Email kamu (seperti yang dimasukkan saat penyiapan)  |
 
-Kamu bisa menambahkan lebih banyak milikmu sendiri dengan mengedit `~/.XCompose`, lalu menjalankan `omarchy-restart-xcompose` di terminal agar perubahan diterapkan.
+Kamu bisa menambahkan lebih banyak milikmu sendiri dengan mengedit `~/.XCompose`, lalu menjalankan `collie-restart-xcompose` di terminal agar perubahan diterapkan.

@@ -8,7 +8,7 @@ Každá klávesová zkratka leží v jedné rovině, určené jejími modifikát
 
 | Rovina | Co tam patří | Příklady |
 | --- | --- | --- |
-| `Super + key` | Systém: okna, pracovní plochy, rozvržení a základní menu | `Super + Space` menu Omarchy, `Super + W` zavřít okno, `Super + F` celá obrazovka |
+| `Super + key` | Systém: okna, pracovní plochy, rozvržení a základní menu | `Super + Space` menu Collie, `Super + W` zavřít okno, `Super + F` celá obrazovka |
 | `Super + Shift + key` | Aplikace | `Super + Shift + B` prohlížeč, `Super + Shift + E` e-mail, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panely a systémová menu | `Super + Ctrl + A` zvuk, `Super + Ctrl + N` síť, `Super + Ctrl + C` menu zachytávání |
 | `Super + Ctrl + Alt + key` | Rychlé akce a oznámení | `Super + Ctrl + Alt + T` zobrazit čas, `Super + Ctrl + Alt + B` baterie, `Super + Ctrl + Alt + C` snímek obrazovky |
@@ -34,7 +34,7 @@ Pokud vám výchozí nastavení nevyhovuje (třeba chcete `Super + Shift + S` pr
 
 | Klávesová zkratka | Funkce |
 | ----------------------- | --------------------- |
-| `Super + Space` | Menu Omarchy (aplikace a všechno ostatní) |
+| `Super + Space` | Menu Collie (aplikace a všechno ostatní) |
 | `Super + Alt + Space` | Mřížka aplikací |
 | `Super + Escape` | Systémové menu (uspání, restart atd.) |
 | `Super + Ctrl + L` | Zamknout počítač |
@@ -171,7 +171,7 @@ Změňte/přidejte vazby v `~/.config/hypr/bindings.lua`.
 | `Super + V` | Vložit |
 | `Super + Ctrl + V` | Správce schránky |
 
-V Linuxu obvykle potřebujete `Ctrl + Shift + C/V` ke kopírování a vkládání v terminálu a `Ctrl + C/V` k témuž všude jinde. Tyto sjednocené klávesové zkratky schránky v Omarchy fungují všude.
+V Linuxu obvykle potřebujete `Ctrl + Shift + C/V` ke kopírování a vkládání v terminálu a `Ctrl + C/V` k témuž všude jinde. Tyto sjednocené klávesové zkratky schránky v Collie fungují všude.
 
 ## Zachytávání
 
@@ -192,7 +192,7 @@ V Linuxu obvykle potřebujete `Ctrl + Shift + C/V` ke kopírování a vkládán�
 
 U nahrávání obrazovky se zkratka nejprve zeptá, který zvuk chcete, a pak spustí nahrávání. Dalším stisknutím ho zastavíte. Podrobnosti najdete v [snímky obrazovky a nahrávání](12-screenshots-recording.md).
 
-Všechny možnosti zachytávání jsou dostupné také pod _Trigger > Capture_ v menu Omarchy (`Super + Space`).
+Všechny možnosti zachytávání jsou dostupné také pod _Trigger > Capture_ v menu Collie (`Super + Space`).
 
 ## Oznámení
 
@@ -214,9 +214,9 @@ Všechny možnosti zachytávání jsou dostupné také pod _Trigger > Capture_ v
 | `Super + Backspace` | Přepnout průhlednost okna |
 | `Super + Ctrl + Backspace` | Přepnout čtvercový poměr stran jednoho okna |
 
-Další obrázky pozadí jsou v `~/.config/omarchy/backgrounds/<theme name>`. Dostupné také přes _Install > Style > Background_ v menu Omarchy.
+Další obrázky pozadí jsou v `~/.config/collie/backgrounds/<theme name>`. Dostupné také přes _Install > Style > Background_ v menu Collie.
 
-Všechny možnosti stylu jsou dostupné také pod _Style_ v menu Omarchy (`Super + Space`).
+Všechny možnosti stylu jsou dostupné také pod _Style_ v menu Collie (`Super + Space`).
 
 ## Přepínače
 
@@ -317,7 +317,7 @@ Tyto funkce musíte spouštět uvnitř relace Tmux.
 
 ## Terminál Ghostty
 
-Terminál Ghostty se instaluje pomocí _Install > Terminal_ přes menu Omarchy.
+Terminál Ghostty se instaluje pomocí _Install > Terminal_ přes menu Collie.
 
 | Klávesová zkratka | Funkce |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Pomocí `Super + Ctrl + E` můžete zobrazit kompletní výběr emoji, který vl
 | `Shift + CapsLock Space N` | Vaše jméno (jak bylo zadáno při nastavení) |
 | `Shift + CapsLock Space E` | Váš e-mail (jak byl zadán při nastavení) |
 
-Své další můžete přidat úpravou `~/.XCompose`, pak spuštěním `omarchy-restart-xcompose` v terminálu, aby se změny projevily.
+Své další můžete přidat úpravou `~/.XCompose`, pak spuštěním `collie-restart-xcompose` v terminálu, aby se změny projevily.

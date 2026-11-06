@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# collie:summary=Launch a floating terminal with the Collie presentation wrapper
+# collie:args=<command>
+
+# Export the current theme's gum styling so gum widgets match the active theme
+# even after a theme switch (the inherited environment is captured at login).
+source collie-restart-gum
+
+cmd="$*"
+# 130 is the user bailing with Ctrl-C; anything else gets the Done/Failed prompt.
+presentation_script="collie-show-logo; $cmd; code=\$?; if (( code != 130 )); then collie-show-done \$code; fi"
+
+exec setsid uwsm-app -- xdg-terminal-exec --app-id=org.collie.terminal --title=Collie -e bash -c "$presentation_script"

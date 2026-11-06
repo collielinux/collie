@@ -1,3 +1,3 @@
-echo "Install the native Omarchy screensaver"
+echo "Install the native Collie screensaver"
 
-omarchy-pkg-add omarchy-screensaver
+collie-pkg-add omarchy-screensaver

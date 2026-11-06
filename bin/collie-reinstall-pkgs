@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# collie:summary=Reinstall all default Collie packages from the stable channel, or on Apple Silicon the edge channel
+# collie:requires-sudo=true
+
+set -e
+
+# Reinstall all default Collie packages from the platform's default channel
+# (stable, or edge on Apple Silicon) and downgrade any packages that are too new.
+
+# Set the package repository to the platform's default channel
+source "$COLLIE_PATH/install/helpers/pacman.sh"
+platform=$(collie-hw-platform)
+channel=$(collie_pacman_default_channel "$platform")
+collie-refresh-pacman "$channel"
+
+# Downgrade any packages to that channel's setup
+collie-update-pacman -Suu --noconfirm
+
+# Ensure this platform's default packages are installed
+default_packages=$(collie-pkg-defaults)
+mapfile -t packages <<<"$default_packages"
+# --ask 4 accepts removing a stock package a default replaces, such as
+# power-profiles-daemon for omarchy-power-profiles-daemon.
+collie-update-pacman -Syu --noconfirm --ask 4 --needed "${packages[@]}"

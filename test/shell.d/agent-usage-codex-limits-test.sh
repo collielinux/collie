@@ -119,7 +119,7 @@ expect("an access token in the environment never shows auth.json's account's lim
 
 # The token signs in the primary home alone: a registered home without a login
 # of its own waits for one rather than answering for the token's account.
-side = state_home() / "omarchy" / "agents" / "accounts" / "codex" / "side"
+side = state_home() / "collie" / "agents" / "accounts" / "codex" / "side"
 side.mkdir(parents=True)
 registry("codex", [
   {"id": "main", "label": "Main", "home": "", "primary": True},
@@ -130,7 +130,7 @@ tokened = codex("ok", CODEX_ACCESS_TOKEN="another")
 expect("CODEX_ACCESS_TOKEN signs in only the primary of several Codex homes",
        [[(account["id"], account["usageStatusText"], bool(account["limits"])) for account in tokened["accounts"]], starts() - before_starts],
        [[("main", "", True), ("side", "Waiting for auth", False)], 1], tokened)
-for path in (state_home() / "omarchy" / "agents" / "accounts").glob("codex.json"):
+for path in (state_home() / "collie" / "agents" / "accounts").glob("codex.json"):
   path.unlink()
 
 (home() / ".codex" / "config.toml").write_text('cli_auth_credentials_store = "keyring"\n')

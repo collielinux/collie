@@ -1,14 +1,14 @@
 # Horní lišta
 
-Pruh podél horní části obrazovky je lišta Omarchy. Není to přišroubovaná stavová lišta, ale součást shellu Omarchy, jediného dlouho běžícího procesu Quickshell, který kreslí i menu, oznámení, vyskakovací OSD okna a zamykací obrazovku. Proto dokonale ladí se vším ostatním a proto se panel otevře okamžitě, místo aby spouštěl novou aplikaci.
+Pruh podél horní části obrazovky je lišta Collie. Není to přišroubovaná stavová lišta, ale součást shellu Collie, jediného dlouho běžícího procesu Quickshell, který kreslí i menu, oznámení, vyskakovací OSD okna a zamykací obrazovku. Proto dokonale ladí se vším ostatním a proto se panel otevře okamžitě, místo aby spouštěl novou aplikaci.
 
 Je to taky jediná část plochy, která je pořád na obrazovce, takže stojí za to vědět, co všechny ty malé glyfy dělají.
 
 ## Co je na ní ve výchozím stavu
 
-Lišta má tři sekce. Vlevo sedí logo Omarchy (spouštěč menu) a indikátory pracovních ploch. Uprostřed máte stavové indikátory, hodiny, Elsewhen (světové hodiny), počasí a odznak aktualizace Omarchy. Vpravo: systémová oblast, rozložení klávesnice (když je nakonfigurováno víc než jedno), agenti, bluetooth, síť, zvuk, displej a napájení.
+Lišta má tři sekce. Vlevo sedí logo Collie (spouštěč menu) a indikátory pracovních ploch. Uprostřed máte stavové indikátory, hodiny, Elsewhen (světové hodiny), počasí a odznak aktualizace Collie. Vpravo: systémová oblast, rozložení klávesnice (když je nakonfigurováno víc než jedno), agenti, bluetooth, síť, zvuk, displej a napájení.
 
-Několik z nich se objeví jen tehdy, když mají co říct. Rozložení klávesnice se objeví jen tehdy, pokud jste nakonfigurovali víc než jedno rozložení. Odznak aktualizace se objeví jen tehdy, když čeká aktualizace Omarchy. A ikona agentů se objeví poprvé, když Omarchy na počítači najde využití AI kódování (viz [AI](17-ai.md)).
+Několik z nich se objeví jen tehdy, když mají co říct. Rozložení klávesnice se objeví jen tehdy, pokud jste nakonfigurovali víc než jedno rozložení. Odznak aktualizace se objeví jen tehdy, když čeká aktualizace Collie. A ikona agentů se objeví poprvé, když Collie na počítači najde využití AI kódování (viz [AI](17-ai.md)).
 
 ## Klikání po liště
 
@@ -16,7 +16,7 @@ Skoro každý widget něco dělá při levém, pravém a prostředním kliknutí
 
 | Widget | Levý klik | Pravý klik | Prostřední klik / rolování |
 | --- | --- | --- | --- |
-| Menu | Menu Omarchy | Nový terminál | — |
+| Menu | Menu Collie | Nový terminál | — |
 | Pracovní plochy | Zaměřit danou pracovní plochu na tomto monitoru | — | Rolování: další/předchozí pracovní plocha |
 | Hodiny | Vyskakovací kalendář | Přepnout formát popisku | Prostřední: výběr časového pásma |
 | Počasí | Vyskakovací předpověď | Úplné počasí jako oznámení | Prostřední: obnovit |
@@ -29,7 +29,7 @@ Skoro každý widget něco dělá při levém, pravém a prostředním kliknutí
 | Média | Přehrát/pozastavit | Vyskakovací okno s obalem alba | Prostřední: další · rolování: předchozí/další |
 | Agenti | Panel agentů | Spustit vašeho agenta | Prostřední: další předplatné |
 | Systémová oblast | Najetím myši odhalíte zásuvku | Pravý klik na šipku pro správu | — |
-| Aktualizace Omarchy | Spustit aktualizaci | — | — |
+| Aktualizace Collie | Spustit aktualizaci | — | — |
 
 Ne všechno v té tabulce máte na liště hned po vybalení. Widget médií (právě hrající MPRIS, s posouvající se skladbou a interpretem) a widget mikrofonu jsou oba vestavěné, ale ve výchozím stavu vypnuté — přidejte si je, pokud je chcete, jak je popsáno níže.
 
@@ -66,7 +66,7 @@ Každý panel bere klávesnici stejně jako myš: šipky se pohybují, Return ak
 
 Další dva widgety se na liště objeví, až když si z **Install → Service** nainstalujete odpovídající službu, a oba stojí za to znát, protože dělají víc než jen hlásí stav.
 
-Panel **Tailscale** připojuje a odpojuje tailnet, přepíná mezi účty a vybírá exit node (v tom seznamu se objeví vaše vlastní stroje i regiony Mullvadu). Taky prochází vaše stroje — a když je jeden vybraný, `s` mu pošle soubory přes Taildrop, což je nejrychlejší způsob, jak přesunout soubor do telefonu nebo jiného laptopu. `c` zkopíruje IP stroje, `n` jeho název a `d` jeho úplný název DNS. Na každém řádku stroje je taky tlačítko pro odeslání, pokud raději klikáte. Totéž z terminálu je `omarchy tailscale send <machine> [file...]`.
+Panel **Tailscale** připojuje a odpojuje tailnet, přepíná mezi účty a vybírá exit node (v tom seznamu se objeví vaše vlastní stroje i regiony Mullvadu). Taky prochází vaše stroje — a když je jeden vybraný, `s` mu pošle soubory přes Taildrop, což je nejrychlejší způsob, jak přesunout soubor do telefonu nebo jiného laptopu. `c` zkopíruje IP stroje, `n` jeho název a `d` jeho úplný název DNS. Na každém řádku stroje je taky tlačítko pro odeslání, pokud raději klikáte. Totéž z terminálu je `collie tailscale send <machine> [file...]`.
 
 Panel **Dropbox** řeší přihlášení, ukazuje, kolik úložiště jste využili, a vypisuje nedávno synchronizované soubory.
 
@@ -93,19 +93,19 @@ Pokud byste raději vybírali z menu, **Appearance → Menu Bar** má pozici a *
 Tytéž věci mají příkazy, což je to, co chcete pro nastavení [dotfiles](31-dotfiles.md):
 
 ```bash
-omarchy bar position bottom
-omarchy bar background glassy  # opaque, glassy, none, or cycle
-omarchy bar move omarchy.weather --section centerBegin --index 0
-omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
-omarchy bar set omarchy.clock format "HH:mm"
-omarchy bar defaults          # back to the shipped layout
+collie bar position bottom
+collie bar background glassy  # opaque, glassy, none, or cycle
+collie bar move collie.weather --section centerBegin --index 0
+collie bar move collie.bluetooth --section tray  # into the tray's drawer
+collie bar set collie.clock format "HH:mm"
+collie bar defaults          # back to the shipped layout
 ```
 
-Chcete-li widget úplně přidat nebo odebrat, použijte příkazy pluginů. `omarchy plugin list` vytiskne každý widget, který shell zná, s jeho id, a pak:
+Chcete-li widget úplně přidat nebo odebrat, použijte příkazy pluginů. `collie plugin list` vytiskne každý widget, který shell zná, s jeho id, a pak:
 
 ```bash
-omarchy plugin enable omarchy.media --section centerEnd
-omarchy plugin disable omarchy.weather
+collie plugin enable collie.media --section centerEnd
+collie plugin disable collie.weather
 ```
 
 ## Skrytí lišty
@@ -114,7 +114,7 @@ omarchy plugin disable omarchy.weather
 
 ## Konfigurační soubor
 
-Všechno je uloženo v `~/.config/omarchy/shell.json`, pod klíčem `bar`. Tady je ořezaná verze:
+Všechno je uloženo v `~/.config/collie/shell.json`, pod klíčem `bar`. Tady je ořezaná verze:
 
 ```json
 {
@@ -123,20 +123,20 @@ Všechno je uloženo v `~/.config/omarchy/shell.json`, pod klíčem `bar`. Tady 
     "position": "top",
     "background": "opaque",
     "layout": {
-      "left": [{ "id": "omarchy.menu" }, { "id": "omarchy.workspaces" }],
-      "centerBegin": [{ "id": "omarchy.indicators" }],
-      "center": [{ "id": "omarchy.clock", "format": "HH:mm" }],
-      "centerEnd": [{ "id": "omarchy.weather" }],
-      "right": [{ "id": "omarchy.audio" }, { "id": "omarchy.power" }]
+      "left": [{ "id": "collie.menu" }, { "id": "collie.workspaces" }],
+      "centerBegin": [{ "id": "collie.indicators" }],
+      "center": [{ "id": "collie.clock", "format": "HH:mm" }],
+      "centerEnd": [{ "id": "collie.weather" }],
+      "right": [{ "id": "collie.audio" }, { "id": "collie.power" }]
     }
   }
 }
 ```
 
-Každý widget je jeden záznam v jednom z pěti polí rozložení a jeho nastavení sedí přímo na tom záznamu — není žádný samostatný soubor nastavení a žádný podobjekt `config`. `format`, `formatAlt` (na co přepne pravý klik) a `verticalFormat` hodin žijí všechny přímo tam na `{ "id": "omarchy.clock" }`.
+Každý widget je jeden záznam v jednom z pěti polí rozložení a jeho nastavení sedí přímo na tom záznamu — není žádný samostatný soubor nastavení a žádný podobjekt `config`. `format`, `formatAlt` (na co přepne pravý klik) a `verticalFormat` hodin žijí všechny přímo tam na `{ "id": "collie.clock" }`.
 
 `center` je box uprostřed lišty: všechno v něm je vycentrováno na obrazovce jako jedna skupina. `centerBegin` a `centerEnd` visí po obou stranách boxu, což je způsob, jak hodiny zůstávají přesně uprostřed, i když počasí a odznak aktualizace přicházejí a odcházejí. Dejte do `center` víc než jeden widget a budou vycentrovány společně; nechte ho prázdný a `centerBegin` a `centerEnd` se setkají uprostřed lišty.
 
-Jedno pravidlo, které stojí za to si vštípit: **jakmile máte vlastní `shell.json`, je kanonický**. Dokud si nic nepřizpůsobíte, shell čte výchozí soubor Omarchy. V okamžiku, kdy přetáhnete widget, spustíte `omarchy bar` nebo sami upravíte soubor, vlastníte ho vy — nedochází k žádnému hlubokému slučování, takže nové výchozí widgety v budoucích vydáních Omarchy se na vaší liště neobjeví automaticky. `omarchy bar defaults` vrátí dodávané rozložení, kdykoli chcete čistý štít.
+Jedno pravidlo, které stojí za to si vštípit: **jakmile máte vlastní `shell.json`, je kanonický**. Dokud si nic nepřizpůsobíte, shell čte výchozí soubor Collie. V okamžiku, kdy přetáhnete widget, spustíte `collie bar` nebo sami upravíte soubor, vlastníte ho vy — nedochází k žádnému hlubokému slučování, takže nové výchozí widgety v budoucích vydáních Collie se na vaší liště neobjeví automaticky. `collie bar defaults` vrátí dodávané rozložení, kdykoli chcete čistý štít.
 
 Tentýž soubor taky drží vaše časování nečinnosti na nejvyšší úrovni, mimo klíč `bar`: `idle.screensaver` a `idle.lock`, obojí v sekundách od chvíle, kdy jste přestali být aktivní. Takže výchozí spořič obrazovky naskočí po 150 sekundách a zámek po 300.

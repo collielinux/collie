@@ -8,7 +8,7 @@ Chaque raccourci clavier se trouve sur un plan, défini par ses modificateurs, e
 
 | Plan | Ce qui s'y trouve | Exemples |
 | --- | --- | --- |
-| `Super + key` | Le système : fenêtres, espaces de travail, dispositions et menus principaux | `Super + Space` menu Omarchy, `Super + W` fermer la fenêtre, `Super + F` plein écran |
+| `Super + key` | Le système : fenêtres, espaces de travail, dispositions et menus principaux | `Super + Space` menu Collie, `Super + W` fermer la fenêtre, `Super + F` plein écran |
 | `Super + Shift + key` | Applications | `Super + Shift + B` navigateur, `Super + Shift + E` e-mail, `Super + Shift + N` éditeur |
 | `Super + Ctrl + key` | Panneaux et menus système | `Super + Ctrl + A` audio, `Super + Ctrl + N` réseau, `Super + Ctrl + C` menu de capture |
 | `Super + Ctrl + Alt + key` | Actions rapides et avis | `Super + Ctrl + Alt + T` afficher l'heure, `Super + Ctrl + Alt + B` batterie, `Super + Ctrl + Alt + C` capture d'écran |
@@ -34,7 +34,7 @@ Si un raccourci par défaut ne vous convient pas (par exemple vous voulez `Super
 
 | Raccourci clavier                  | Fonction              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu Omarchy (applications et tout le reste)    |
+| `Super + Space`           | Menu Collie (applications et tout le reste)    |
 | `Super + Alt + Space` | Grille d'applications |
 | `Super + Escape` | Menu système (mise en veille, redémarrage, etc.)  |
 | `Super + Ctrl + L` | Verrouiller l'ordinateur |
@@ -171,7 +171,7 @@ Modifiez/ajoutez des raccourcis dans `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Coller    |
 | `Super + Ctrl + V`           | Gestionnaire de presse-papiers    |
 
-D'habitude sous Linux, il faut `Ctrl + Shift + C/V` pour copier-coller dans le terminal et `Ctrl + C/V` pour le faire partout ailleurs. Ces raccourcis de presse-papiers unifiés d'Omarchy fonctionnent partout.
+D'habitude sous Linux, il faut `Ctrl + Shift + C/V` pour copier-coller dans le terminal et `Ctrl + C/V` pour le faire partout ailleurs. Ces raccourcis de presse-papiers unifiés d'Collie fonctionnent partout.
 
 ## Capture
 
@@ -192,7 +192,7 @@ D'habitude sous Linux, il faut `Ctrl + Shift + C/V` pour copier-coller dans le t
 
 Avec les enregistrements d'écran, le raccourci demande d'abord quel audio vous voulez, puis démarre l'enregistrement. Appuyez à nouveau dessus pour arrêter. Voir [captures d'écran et enregistrement](12-screenshots-recording.md) pour les détails.
 
-Toutes les options de capture sont aussi accessibles sous _Trigger > Capture_ dans le menu Omarchy (`Super + Space`).
+Toutes les options de capture sont aussi accessibles sous _Trigger > Capture_ dans le menu Collie (`Super + Space`).
 
 ## Notifications
 
@@ -214,9 +214,9 @@ Toutes les options de capture sont aussi accessibles sous _Trigger > Capture_ da
 | `Super + Backspace` | Activer/désactiver la transparence d'une fenêtre |
 | `Super + Ctrl + Backspace` | Activer/désactiver le format carré pour une fenêtre unique |
 
-Les images d'arrière-plan supplémentaires se trouvent dans `~/.config/omarchy/backgrounds/<theme name>`. Également disponible via _Install > Style > Background_ dans le menu Omarchy.
+Les images d'arrière-plan supplémentaires se trouvent dans `~/.config/collie/backgrounds/<theme name>`. Également disponible via _Install > Style > Background_ dans le menu Collie.
 
-Toutes les options de style sont aussi accessibles sous _Style_ dans le menu Omarchy (`Super + Space`).
+Toutes les options de style sont aussi accessibles sous _Style_ dans le menu Collie (`Super + Space`).
 
 ## Bascules
 
@@ -317,7 +317,7 @@ Ces fonctions doivent être exécutées à l'intérieur d'une session Tmux.
 
 ## Terminal Ghostty
 
-Le terminal Ghostty s'installe à l'aide de _Install > Terminal_ via le menu Omarchy.
+Le terminal Ghostty s'installe à l'aide de _Install > Terminal_ via le menu Collie.
 
 | Raccourci clavier                  | Fonction              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Vous pouvez utiliser `Super + Ctrl + E` pour afficher un sélecteur d'emoji comp
 | `Shift + CapsLock Space N` | Votre nom (tel que saisi lors de la configuration)  |
 | `Shift + CapsLock Space E` | Votre e-mail (tel que saisi lors de la configuration)  |
 
-Vous pouvez en ajouter d'autres en modifiant `~/.XCompose`, puis en exécutant `omarchy-restart-xcompose` dans le terminal pour que les modifications soient prises en compte.
+Vous pouvez en ajouter d'autres en modifiant `~/.XCompose`, puis en exécutant `collie-restart-xcompose` dans le terminal pour que les modifications soient prises en compte.

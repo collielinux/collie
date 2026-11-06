@@ -2,23 +2,23 @@
 
 ### Ma lõhkusin uuendusega oma süsteemi ära!
 
-Esmalt proovi [oma süsteem tagasi pöörata](47-system-snapshots.md) versioonile, mis oli enne sinu viimast uuendust. Kui see ei tööta, kasuta käsku `omarchy-debug`, et jagada oma probleemi Discordi kanalil #omarchy-help. Ja kui kõik muu ebaõnnestub, saad vaike konfiguratsioonid ja paketid uuesti installida käsuga `omarchy-reinstall`.
+Esmalt proovi [oma süsteem tagasi pöörata](47-system-snapshots.md) versioonile, mis oli enne sinu viimast uuendust. Kui see ei tööta, kasuta käsku `collie-debug`, et jagada oma probleemi Discordi kanalil #collie-help. Ja kui kõik muu ebaõnnestub, saad vaike konfiguratsioonid ja paketid uuesti installida käsuga `collie-reinstall`.
 
 ### Miks on mõned rakendused minu ekraanil nii suured?
 
-Omarchy eeldab 2x kõrge eraldusvõimega ekraani, seega määrab see `GDK_SCALE` väärtuseks 2, kuni valid monitori paneelil mastaabi. Kui kasutad 1x ekraani ja GTK või X11 rakendused tulevad liiga suured välja, vali selle jaoks monitori paneelil 1x või lisa `hl.env("GDK_SCALE", "1")` faili `~/.config/hypr/monitors.lua` (ja seejärel taaskäivita iga rakendus, mis on liiga suur). Vaata [monitoride käsiraamatut](33-monitors.md).
+Collie eeldab 2x kõrge eraldusvõimega ekraani, seega määrab see `GDK_SCALE` väärtuseks 2, kuni valid monitori paneelil mastaabi. Kui kasutad 1x ekraani ja GTK või X11 rakendused tulevad liiga suured välja, vali selle jaoks monitori paneelil 1x või lisa `hl.env("GDK_SCALE", "1")` faili `~/.config/hypr/monitors.lua` (ja seejärel taaskäivita iga rakendus, mis on liiga suur). Vaata [monitoride käsiraamatut](33-monitors.md).
 
 Spotify puhul saad kasutajaliidese kahandamiseks kasutada `Ctrl + Minus` (ja suurendamiseks `Ctrl + Plus`).
 
 ### Miks kõik minu Super klahvi seosed enam ei tööta?
 
-Mõnel ASUS ROG ja TUF sülearvutil on `Fn + Super` kergesti märkamata jääv kombinatsioon, mis lülitab sisse või välja püsivara Windowsi klahvi luku (mõeldud mängimiseks, et sa kogemata mängust ei lahkuks). Miski ekraanil ei anna sulle teada, et see juhtus. Kuni lukk on peal, ei saada Super üldse midagi — seega iga Omarchy seos, mis kasutab Super klahvi, lihtsalt lakkab töötamast ja tundub, et Hyprland läks katki.
+Mõnel ASUS ROG ja TUF sülearvutil on `Fn + Super` kergesti märkamata jääv kombinatsioon, mis lülitab sisse või välja püsivara Windowsi klahvi luku (mõeldud mängimiseks, et sa kogemata mängust ei lahkuks). Miski ekraanil ei anna sulle teada, et see juhtus. Kuni lukk on peal, ei saada Super üldse midagi — seega iga Collie seos, mis kasutab Super klahvi, lihtsalt lakkab töötamast ja tundub, et Hyprland läks katki.
 
 Vajuta üks kord `Fn + Super`, enne kui hakkad uurima kausta `~/.config/hypr/`, ja kui see Super klahvi tagasi ei too, vajuta seda uuesti, et sa lukku peale ei jätaks. See ei ole Fn-lock, mis muudab ainult seda, mida F-klahvide rida teeb.
 
 ### Minu Wi-Fi, Bluetooth, heli või puuteplaat lakkas lihtsalt töötamast
 
-Enne taaskäivitamist proovi probleemne alamsüsteem eraldi taaskäivitada. Omarchy menüüs _Update > Hardware_ on Wi-Fi, Bluetooth, Audio ja Trackpad ning ühe neist uuesti laadimine lahendab enamiku olukordadest stiilis „see töötas viis minutit tagasi“ — Bluetooth kõrvaklapid, mis ei taha uuesti ühenduda, puuteplaat, mis lakkas pärast unerežiimi töötamast, heli, mis kadus monitori lahtiühendamisel.
+Enne taaskäivitamist proovi probleemne alamsüsteem eraldi taaskäivitada. Collie menüüs _Update > Hardware_ on Wi-Fi, Bluetooth, Audio ja Trackpad ning ühe neist uuesti laadimine lahendab enamiku olukordadest stiilis „see töötas viis minutit tagasi“ — Bluetooth kõrvaklapid, mis ei taha uuesti ühenduda, puuteplaat, mis lakkas pärast unerežiimi töötamast, heli, mis kadus monitori lahtiühendamisel.
 
 ### Miks minu välised kõlarid ei mängi?
 
@@ -26,7 +26,7 @@ Tõenäoliselt seetõttu, et need ei ole määratud peamiseks väljundiks. Klõp
 
 ### Minu sülearvuti kõlarid kõlavad valesti
 
-Mõnel sülearvutil rakendab Omarchy automaatselt kõlarite häälestuse, mis korrigeerib sisseehitatud kõlarite sageduskarakteristikut. `omarchy audio tuning status` ütleb sulle, kas sinu masinal on mõni aktiivne, ja `omarchy audio tuning off` lülitab selle välja, kui eelistad kuulata kõlareid töötlemata kujul.
+Mõnel sülearvutil rakendab Collie automaatselt kõlarite häälestuse, mis korrigeerib sisseehitatud kõlarite sageduskarakteristikut. `collie audio tuning status` ütleb sulle, kas sinu masinal on mõni aktiivne, ja `collie audio tuning off` lülitab selle välja, kui eelistad kuulata kõlareid töötlemata kujul.
 
 ### Miks ma ei saa oma parooliga sisse logida ega sudo't kasutada?
 

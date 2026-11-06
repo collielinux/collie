@@ -8,7 +8,7 @@
 
 | سطح | وہاں کیا ہوتا ہے | مثالیں |
 | --- | --- | --- |
-| `Super + key` | سسٹم: ونڈوز، ورک اسپیسز، لے آؤٹس، اور بنیادی مینوز | `Super + Space` Omarchy مینو، `Super + W` ونڈو بند کریں، `Super + F` فل اسکرین |
+| `Super + key` | سسٹم: ونڈوز، ورک اسپیسز، لے آؤٹس، اور بنیادی مینوز | `Super + Space` Collie مینو، `Super + W` ونڈو بند کریں، `Super + F` فل اسکرین |
 | `Super + Shift + key` | ایپس | `Super + Shift + B` براؤزر، `Super + Shift + E` ای میل، `Super + Shift + N` ایڈیٹر |
 | `Super + Ctrl + key` | پینلز اور سسٹم مینوز | `Super + Ctrl + A` آڈیو، `Super + Ctrl + N` نیٹ ورک، `Super + Ctrl + C` کیپچر مینو |
 | `Super + Ctrl + Alt + key` | فوری اقدامات اور نوٹسز | `Super + Ctrl + Alt + T` وقت دکھائیں، `Super + Ctrl + Alt + B` بیٹری، `Super + Ctrl + Alt + C` اسکرین شاٹ |
@@ -34,7 +34,7 @@
 
 | ہاٹ کی | فنکشن |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy مینو (ایپس اور باقی سب کچھ) |
+| `Super + Space` | Collie مینو (ایپس اور باقی سب کچھ) |
 | `Super + Alt + Space` | ایپ گرڈ |
 | `Super + Escape` | سسٹم مینو (معطل کریں، دوبارہ شروع کریں، وغیرہ) |
 | `Super + Ctrl + L` | کمپیوٹر لاک کریں |
@@ -171,7 +171,7 @@
 | `Super + V` | پیسٹ کریں |
 | `Super + Ctrl + V` | کلپ بورڈ مینیجر |
 
-عام طور پر Linux پر، آپ کو ٹرمینل میں copy'n'paste کے لیے `Ctrl + Shift + C/V` اور ہر دوسری جگہ اس کے لیے `Ctrl + C/V` کی ضرورت ہوتی ہے۔ یہ Omarchy متحد کلپ بورڈ ہاٹ کیز ہر جگہ کام کرتی ہیں۔
+عام طور پر Linux پر، آپ کو ٹرمینل میں copy'n'paste کے لیے `Ctrl + Shift + C/V` اور ہر دوسری جگہ اس کے لیے `Ctrl + C/V` کی ضرورت ہوتی ہے۔ یہ Collie متحد کلپ بورڈ ہاٹ کیز ہر جگہ کام کرتی ہیں۔
 
 ## کیپچر
 
@@ -192,7 +192,7 @@
 
 اسکرین ریکارڈنگز کے ساتھ، ہاٹ کی پہلے پوچھتی ہے کہ آپ کون سی آڈیو چاہتے ہیں، پھر ریکارڈنگ شروع کرتی ہے۔ رکنے کے لیے اسے دوبارہ دبائیں۔ تفصیلات کے لیے [اسکرین شاٹس اور ریکارڈنگ](12-screenshots-recording.md) دیکھیں۔
 
-تمام کیپچر اختیارات Omarchy مینو (`Super + Space`) میں _Trigger > Capture_ کے تحت بھی قابل رسائی ہیں۔
+تمام کیپچر اختیارات Collie مینو (`Super + Space`) میں _Trigger > Capture_ کے تحت بھی قابل رسائی ہیں۔
 
 ## نوٹیفکیشنز
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | ونڈو پر شفافیت ٹوگل کریں |
 | `Super + Ctrl + Backspace` | واحد ونڈو مربع تناسب ٹوگل کریں |
 
-اضافی پس منظر کی تصاویر `~/.config/omarchy/backgrounds/<theme name>` میں ہوتی ہیں۔ Omarchy مینو میں _Install > Style > Background_ کے ذریعے بھی دستیاب ہیں۔
+اضافی پس منظر کی تصاویر `~/.config/collie/backgrounds/<theme name>` میں ہوتی ہیں۔ Collie مینو میں _Install > Style > Background_ کے ذریعے بھی دستیاب ہیں۔
 
-تمام اسٹائل اختیارات Omarchy مینو (`Super + Space`) میں _Style_ کے تحت بھی قابل رسائی ہیں۔
+تمام اسٹائل اختیارات Collie مینو (`Super + Space`) میں _Style_ کے تحت بھی قابل رسائی ہیں۔
 
 ## ٹوگلز
 
@@ -317,7 +317,7 @@ prefix کی `Ctrl + Space` ہے (`Ctrl + B` بھی کام کرتا ہے)۔ آپ 
 
 ## Ghostty ٹرمینل
 
-Ghostty ٹرمینل Omarchy مینو کے ذریعے _Install > Terminal_ استعمال کر کے نصب کیا جاتا ہے۔
+Ghostty ٹرمینل Collie مینو کے ذریعے _Install > Terminal_ استعمال کر کے نصب کیا جاتا ہے۔
 
 | ہاٹ کی | فنکشن |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty ٹرمینل Omarchy مینو کے ذریعے _Install > Terminal_ اس�
 | `Shift + CapsLock Space N` | آپ کا نام (جیسا سیٹ اپ پر درج کیا گیا تھا) |
 | `Shift + CapsLock Space E` | آپ کی ای میل (جیسا سیٹ اپ پر درج کیا گیا تھا) |
 
-آپ `~/.XCompose` میں ترمیم کر کے اپنی مزید شامل کر سکتے ہیں، پھر تبدیلیاں منتخب کروانے کے لیے ٹرمینل میں `omarchy-restart-xcompose` چلائیں۔
+آپ `~/.XCompose` میں ترمیم کر کے اپنی مزید شامل کر سکتے ہیں، پھر تبدیلیاں منتخب کروانے کے لیے ٹرمینل میں `collie-restart-xcompose` چلائیں۔

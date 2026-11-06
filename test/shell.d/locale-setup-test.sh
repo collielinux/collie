@@ -43,7 +43,7 @@ chmod +x "$stub_bin"/*
 run_leaf() {
   : >"$calls"
   GENERATED_LOCALES="${1:-C}" TEST_LOG="$calls" PATH="$stub_bin:$PATH" \
-    OMARCHY_LOCALE_CONF="$locale_conf" OMARCHY_LOCALE_GEN="$locale_gen" \
+    COLLIE_LOCALE_CONF="$locale_conf" COLLIE_LOCALE_GEN="$locale_gen" \
     bash -euo pipefail -c 'source "$1"' bash "$leaf" >/dev/null
 }
 
@@ -109,7 +109,7 @@ printf 'LANG=en_US.UTF-8\n' >"$locale_conf"
 printf '#en_US.UTF-8 UTF-8\n' >"$locale_gen"
 : >"$calls"
 output=$(GENERATED_LOCALES="C en_US.utf8" TEST_LOG="$calls" PATH="$stub_bin:$PATH" \
-  OMARCHY_LOCALE_CONF="$locale_conf" OMARCHY_LOCALE_GEN="$locale_gen" \
+  COLLIE_LOCALE_CONF="$locale_conf" COLLIE_LOCALE_GEN="$locale_gen" \
   bash -euo pipefail -c 'source "$1"' bash "$leaf")
 [[ $output == "Leaving the locale as en_US.UTF-8" && $(cat "$locale_conf") == "LANG=en_US.UTF-8" ]] ||
   fail "an ISO install's locale is left as the ISO wrote it" "$output"

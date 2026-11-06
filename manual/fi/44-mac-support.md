@@ -1,16 +1,16 @@
 # Mac-tuki
 
-Omarchyssa on sisäänrakennettu tuki **Intel Maceille**. Tällä hetkellä tiedossa on pari rajoitusta, mutta kunhan tiedät ne ja ne sopivat sinulle, voit puhaltaa vanhoihin Maceihisi uutta elämää asentamalla Omarchyn.
+Colliessa on sisäänrakennettu tuki **Intel Maceille**. Tällä hetkellä tiedossa on pari rajoitusta, mutta kunhan tiedät ne ja ne sopivat sinulle, voit puhaltaa vanhoihin Maceihisi uutta elämää asentamalla Collien.
 
-Huomaa, että asentaminen M-sarjan Maciin ei ole tällä hetkellä suoraan tuettua. Lisätietoja tämän tilanteesta löydät kanavalta #omarchy-on-other [Discordissamme](https://discord.gg/tXFUdasqhY).
+Huomaa, että asentaminen M-sarjan Maciin ei ole tällä hetkellä suoraan tuettua. Lisätietoja tämän tilanteesta löydät kanavalta #collie-on-other [Discordissamme](https://discord.gg/tXFUdasqhY).
 
-Yksinkertaisessa testissä saimme vuoden 2019 MacBook Prohon 36% lisää suorituskykyä pelkästään asentamalla Omarchyn.
+Yksinkertaisessa testissä saimme vuoden 2019 MacBook Prohon 36% lisää suorituskykyä pelkästään asentamalla Collien.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchyn asentaminen Maciin
+### Collien asentaminen Maciin
 
-Omarchy tukee tällä hetkellä vain sitä, että se on koneen **ainoa** käyttöjärjestelmä. Asennuksen aikana levy tyhjennetään, eikä MacOSia voi enää käynnistää.
+Collie tukee tällä hetkellä vain sitä, että se on koneen **ainoa** käyttöjärjestelmä. Asennuksen aikana levy tyhjennetään, eikä MacOSia voi enää käynnistää.
 
 Voit silti palauttaa sen myöhemmin Internet Recoveryn kautta, jos haluat.
 
@@ -39,7 +39,7 @@ Asennusohjelma tunnistaa Mac-laitteiston ja ottaa tarvittavat korjaukset käytt�
 
 ### Tunnetut rajoitukset
 
-Yhteisön jäsenet työstävät näihin haasteisiin jatkuvasti ratkaisuja, joten jos nämä ovat sinulle ongelma, liity kanavalle #omarchy-on-other [Discordissamme](https://discord.gg/tXFUdasqhY) ja katso, onko niiden ratkaisemiseen jo ajantasaisia keinoja.
+Yhteisön jäsenet työstävät näihin haasteisiin jatkuvasti ratkaisuja, joten jos nämä ovat sinulle ongelma, liity kanavalle #collie-on-other [Discordissamme](https://discord.gg/tXFUdasqhY) ja katso, onko niiden ratkaisemiseen jo ajantasaisia keinoja.
 
 #### Laitteet, joissa on T1-siru
 

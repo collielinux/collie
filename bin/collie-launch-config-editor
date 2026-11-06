@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# collie:summary=Open a config file in the user's editor and surface a toast
+# collie:args=<path>
+# collie:examples=collie launch config-editor ~/.config/hypr/hyprland.lua
+
+path="${1-}"
+
+if [[ -z $path ]]; then
+  echo "Usage: collie-launch-config-editor <path>" >&2
+  exit 1
+fi
+
+collie-notification-send -u low "$(collie-i18n config.editing)" "$path"
+exec collie-launch-editor "$path"

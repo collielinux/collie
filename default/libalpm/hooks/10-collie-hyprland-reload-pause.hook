@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = omarchy-settings
+Target = omarchy-settings-dev
+
+[Action]
+Description = Pausing Hyprland config auto-reload for Collie settings update...
+When = PreTransaction
+Depends = omarchy
+Exec = /usr/bin/collie-hyprland-reload-guard pause

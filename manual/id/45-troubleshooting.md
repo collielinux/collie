@@ -2,23 +2,23 @@
 
 ### Sistem saya rusak gara-gara pembaruan!
 
-Pertama, coba [kembalikan sistem Anda](47-system-snapshots.md) ke versi sebelum pembaruan terakhir Anda. Jika itu tidak berhasil, gunakan `omarchy-debug` untuk membagikan masalah Anda di #omarchy-help di Discord. Dan jika semua itu gagal, Anda bisa menginstal ulang konfigurasi dan paket default menggunakan `omarchy-reinstall`.
+Pertama, coba [kembalikan sistem Anda](47-system-snapshots.md) ke versi sebelum pembaruan terakhir Anda. Jika itu tidak berhasil, gunakan `collie-debug` untuk membagikan masalah Anda di #collie-help di Discord. Dan jika semua itu gagal, Anda bisa menginstal ulang konfigurasi dan paket default menggunakan `collie-reinstall`.
 
 ### Kenapa beberapa aplikasi terlihat begitu besar di layar saya?
 
-Omarchy mengasumsikan layar beresolusi tinggi 2x, jadi Omarchy mengatur `GDK_SCALE` ke 2 sampai Anda memilih skala di panel monitor. Jika Anda menggunakan layar 1x dan aplikasi GTK atau X11 tampil terlalu besar, pilih 1x untuk layar tersebut di panel monitor, atau tambahkan `hl.env("GDK_SCALE", "1")` ke `~/.config/hypr/monitors.lua` (lalu mulai ulang aplikasi apa pun yang tampil terlalu besar). Lihat [panduan tentang monitor](33-monitors.md).
+Collie mengasumsikan layar beresolusi tinggi 2x, jadi Collie mengatur `GDK_SCALE` ke 2 sampai Anda memilih skala di panel monitor. Jika Anda menggunakan layar 1x dan aplikasi GTK atau X11 tampil terlalu besar, pilih 1x untuk layar tersebut di panel monitor, atau tambahkan `hl.env("GDK_SCALE", "1")` ke `~/.config/hypr/monitors.lua` (lalu mulai ulang aplikasi apa pun yang tampil terlalu besar). Lihat [panduan tentang monitor](33-monitors.md).
 
 Untuk Spotify, Anda bisa menggunakan `Ctrl + Minus` untuk mengecilkan UI (dan `Ctrl + Plus` untuk memperbesarnya).
 
 ### Kenapa semua bind tombol Super saya berhenti berfungsi?
 
-Pada beberapa laptop ASUS ROG dan TUF, `Fn + Super` adalah kombinasi yang mudah terlewat yang mengaktifkan kunci Windows-key firmware (dimaksudkan untuk gaming agar Anda tidak keluar dari game tanpa sengaja). Tidak ada apa pun di layar yang memberi tahu Anda bahwa itu terjadi. Saat kunci tersebut aktif, Super tidak mengirimkan apa pun sama sekali — jadi setiap bind Omarchy yang menggunakan Super langsung berhenti, dan terlihat seperti Hyprland yang rusak.
+Pada beberapa laptop ASUS ROG dan TUF, `Fn + Super` adalah kombinasi yang mudah terlewat yang mengaktifkan kunci Windows-key firmware (dimaksudkan untuk gaming agar Anda tidak keluar dari game tanpa sengaja). Tidak ada apa pun di layar yang memberi tahu Anda bahwa itu terjadi. Saat kunci tersebut aktif, Super tidak mengirimkan apa pun sama sekali — jadi setiap bind Collie yang menggunakan Super langsung berhenti, dan terlihat seperti Hyprland yang rusak.
 
 Tekan `Fn + Super` sekali sebelum Anda mengutak-atik `~/.config/hypr/`, dan jika itu tidak mengembalikan Super, tekan lagi agar Anda tidak membiarkan kuncinya tetap aktif. Ini bukan Fn-lock, yang hanya mengubah fungsi baris tombol F.
 
 ### Wi-Fi, Bluetooth, audio, atau trackpad saya tiba-tiba berhenti berfungsi
 
-Sebelum reboot, coba mulai ulang subsistem yang bermasalah itu saja. _Update > Hardware_ di menu Omarchy memiliki Wi-Fi, Bluetooth, Audio, dan Trackpad, dan memuat ulang salah satunya menyelesaikan sebagian besar situasi "tadi lima menit yang lalu masih bisa" — headset Bluetooth yang tidak mau terhubung kembali, trackpad yang mati setelah suspend, suara yang hilang saat Anda mencabut monitor.
+Sebelum reboot, coba mulai ulang subsistem yang bermasalah itu saja. _Update > Hardware_ di menu Collie memiliki Wi-Fi, Bluetooth, Audio, dan Trackpad, dan memuat ulang salah satunya menyelesaikan sebagian besar situasi "tadi lima menit yang lalu masih bisa" — headset Bluetooth yang tidak mau terhubung kembali, trackpad yang mati setelah suspend, suara yang hilang saat Anda mencabut monitor.
 
 ### Kenapa speaker eksternal saya tidak mengeluarkan suara?
 
@@ -26,7 +26,7 @@ Mungkin karena speaker tersebut belum diatur sebagai output utama. Klik ikon spe
 
 ### Speaker laptop saya terdengar aneh
 
-Pada beberapa laptop, Omarchy secara otomatis menerapkan tuning speaker yang mengoreksi respons frekuensi speaker bawaan. `omarchy audio tuning status` memberi tahu Anda apakah tuning tersebut aktif di mesin Anda, dan `omarchy audio tuning off` mematikannya jika Anda lebih suka mendengar speaker apa adanya.
+Pada beberapa laptop, Collie secara otomatis menerapkan tuning speaker yang mengoreksi respons frekuensi speaker bawaan. `collie audio tuning status` memberi tahu Anda apakah tuning tersebut aktif di mesin Anda, dan `collie audio tuning off` mematikannya jika Anda lebih suka mendengar speaker apa adanya.
 
 ### Kenapa saya tidak bisa login atau sudo dengan kata sandi saya?
 

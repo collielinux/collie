@@ -8,7 +8,7 @@
 
 | 平面 | 放置什麼 | 範例 |
 | --- | --- | --- |
-| `Super + key` | 系統：視窗、工作區、版面配置與核心選單 | `Super + Space` Omarchy 選單、`Super + W` 關閉視窗、`Super + F` 全螢幕 |
+| `Super + key` | 系統：視窗、工作區、版面配置與核心選單 | `Super + Space` Collie 選單、`Super + W` 關閉視窗、`Super + F` 全螢幕 |
 | `Super + Shift + key` | 應用程式 | `Super + Shift + B` 瀏覽器、`Super + Shift + E` 電子郵件、`Super + Shift + N` 編輯器 |
 | `Super + Ctrl + key` | 面板與系統選單 | `Super + Ctrl + A` 音訊、`Super + Ctrl + N` 網路、`Super + Ctrl + C` 擷取選單 |
 | `Super + Ctrl + Alt + key` | 快速動作與提示 | `Super + Ctrl + Alt + T` 顯示時間、`Super + Ctrl + Alt + B` 電池、`Super + Ctrl + Alt + C` 截圖 |
@@ -34,7 +34,7 @@
 
 | 快捷鍵 | 功能 |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy 選單（應用程式與所有其他功能） |
+| `Super + Space` | Collie 選單（應用程式與所有其他功能） |
 | `Super + Alt + Space` | 應用程式網格 |
 | `Super + Escape` | 系統選單（暫停、重新啟動等） |
 | `Super + Ctrl + L` | 鎖定電腦 |
@@ -171,7 +171,7 @@
 | `Super + V` | 貼上 |
 | `Super + Ctrl + V` | 剪貼簿管理器 |
 
-在 Linux 上，你通常需要在終端機中使用 `Ctrl + Shift + C/V` 來複製貼上，在其他地方則用 `Ctrl + C/V`。這些 Omarchy 統一剪貼簿快捷鍵到哪裡都能用。
+在 Linux 上，你通常需要在終端機中使用 `Ctrl + Shift + C/V` 來複製貼上，在其他地方則用 `Ctrl + C/V`。這些 Collie 統一剪貼簿快捷鍵到哪裡都能用。
 
 ## 擷取
 
@@ -192,7 +192,7 @@
 
 進行螢幕錄影時，快捷鍵會先詢問你要使用哪種音訊，然後開始錄影。再按一次即可停止。詳情請見 [截圖與錄影](12-screenshots-recording.md)。
 
-所有擷取選項也可在 Omarchy 選單 (`Super + Space`) 的 _觸發 > 擷取_ 下找到。
+所有擷取選項也可在 Collie 選單 (`Super + Space`) 的 _觸發 > 擷取_ 下找到。
 
 ## 通知
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | 切換視窗透明度 |
 | `Super + Ctrl + Backspace` | 切換單一視窗正方形比例 |
 
-額外的背景圖片位於 `~/.config/omarchy/backgrounds/<theme name>`。也可以透過 Omarchy 選單中的 _安裝 > 樣式 > 背景_ 取得。
+額外的背景圖片位於 `~/.config/collie/backgrounds/<theme name>`。也可以透過 Collie 選單中的 _安裝 > 樣式 > 背景_ 取得。
 
-所有樣式選項也可在 Omarchy 選單 (`Super + Space`) 的 _樣式_ 下找到。
+所有樣式選項也可在 Collie 選單 (`Super + Space`) 的 _樣式_ 下找到。
 
 ## 切換
 
@@ -317,7 +317,7 @@
 
 ## Ghostty 終端機
 
-Ghostty 終端機是透過 Omarchy 選單中的 _安裝 > 終端機_ 來安裝。
+Ghostty 終端機是透過 Collie 選單中的 _安裝 > 終端機_ 來安裝。
 
 | 快捷鍵 | 功能 |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty 終端機是透過 Omarchy 選單中的 _安裝 > 終端機_ 來安裝�
 | `Shift + CapsLock Space N` | 你的姓名（如設定時所輸入） |
 | `Shift + CapsLock Space E` | 你的電子郵件（如設定時所輸入） |
 
-你可以編輯 `~/.XCompose` 來新增更多自己的內容，然後在終端機中執行 `omarchy-restart-xcompose`，讓變更生效。
+你可以編輯 `~/.XCompose` 來新增更多自己的內容，然後在終端機中執行 `collie-restart-xcompose`，讓變更生效。

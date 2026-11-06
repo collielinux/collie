@@ -4,17 +4,17 @@ echo "Make the ASUS Zenbook A16 keyboard's top row send media keys by default"
 # set to. New installs start every such keyboard on the media keys; see
 # install/hardware/fix-fkeys.sh. hid-asus loads from the A16's initramfs, so the
 # option needs a rebuild to reach it.
-conf=/etc/modprobe.d/omarchy-toprow.conf
-rebuild_marker=/var/lib/omarchy/migrations/1793545066
+conf=/etc/modprobe.d/collie-toprow.conf
+rebuild_marker=/var/lib/collie/migrations/1793545066
 
-if ! omarchy-hw-aarch64-qualcomm || ! omarchy-hw-match "UX3607OA"; then
+if ! collie-hw-aarch64-qualcomm || ! collie-hw-match "UX3607OA"; then
   exit 0
 fi
 
 # An Fn-lock option already set is the administrator's choice; leave it.
 if [[ ! -f $conf ]] && ! grep -qsE '^[[:space:]]*options[[:space:]]+hid_asus[[:space:]].*fnlock_default=' /etc/modprobe.d/*.conf; then
   sudo install -Dm644 /dev/stdin "$conf" <<'CONF'
-# Written by omarchy-keyboard-toprow: the top row sends the media keys by default,
+# Written by collie-keyboard-toprow: the top row sends the media keys by default,
 # and Fn (Fn+Esc to lock it) gives F1-F12.
 options hid_apple fnmode=1
 options hid_asus fnlock_default=0

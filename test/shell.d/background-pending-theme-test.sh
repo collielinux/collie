@@ -9,13 +9,13 @@ require_command magick
 
 stage=$(mktemp -d)
 trap 'rm -rf "$stage"' EXIT
-mkdir -p "$stage/home/.local/state/omarchy/current"
+mkdir -p "$stage/home/.local/state/collie/current"
 ln -s "$ROOT/shell/plugins/background" "$stage/background"
 ln -s "$ROOT/shell/Commons" "$stage/Commons"
 ln -s "$ROOT/shell/Ui" "$stage/Ui"
 magick -size 128x128 xc:magenta "$stage/still.png"
 magick -size 128x128 xc:cyan "$stage/home/next.png"
-ln -s "$stage/still.png" "$stage/home/.local/state/omarchy/current/background"
+ln -s "$stage/still.png" "$stage/home/.local/state/collie/current/background"
 python3 - "$ROOT/shell/shell.qml" "$SHELL_TEST_DIR/fixtures/background-pending-theme/shell.qml" "$stage/shell.qml" <<'PY'
 import re
 import sys
@@ -35,13 +35,13 @@ pass "a video chosen during a reveal keeps the stills on screen, and the reveal 
 # larger screen finishes later than a smaller one, as on a real desk.
 reveal=$(mktemp -d)
 trap 'rm -rf "$stage" "$reveal"' EXIT
-mkdir -p "$reveal/home/.local/state/omarchy/current"
+mkdir -p "$reveal/home/.local/state/collie/current"
 ln -s "$ROOT/shell/plugins/background" "$reveal/background"
 ln -s "$ROOT/shell/Commons" "$reveal/Commons"
 ln -s "$ROOT/shell/Ui" "$reveal/Ui"
 magick -size 4000x2500 gradient:magenta-navy "$reveal/still.png"
 magick -size 4000x2500 gradient:cyan-orange "$reveal/home/next.png"
-ln -s "$reveal/still.png" "$reveal/home/.local/state/omarchy/current/background"
+ln -s "$reveal/still.png" "$reveal/home/.local/state/collie/current/background"
 cp "$SHELL_TEST_DIR/fixtures/background-reveal/shell.qml" "$reveal/shell.qml"
 output=$(HOME="$reveal/home" timeout 10 quickshell -p "$reveal" --no-color 2>&1) || fail "background reveal fixture exits cleanly" "$output"
 [[ $output == *"RESULT pass"* && $output != *"RESULT fail"* ]] || fail "every screen slides together and keeps its frame until its new background is drawn" "$output"

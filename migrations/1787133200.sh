@@ -1,3 +1,3 @@
 echo "Add webp decoding to the shell"
 
-omarchy-pkg-add qt6-imageformats
+collie-pkg-add qt6-imageformats

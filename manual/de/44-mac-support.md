@@ -1,16 +1,16 @@
 # Mac-Unterstützung
 
-Omarchy hat integrierte Unterstützung für **Intel Macs**. Es gibt im Moment ein paar bekannte Einschränkungen, aber solange du dir dessen bewusst bist und damit einverstanden bist, kannst du deinen alten Macs neues Leben einhauchen, indem du Omarchy darauf lädst.
+Collie hat integrierte Unterstützung für **Intel Macs**. Es gibt im Moment ein paar bekannte Einschränkungen, aber solange du dir dessen bewusst bist und damit einverstanden bist, kannst du deinen alten Macs neues Leben einhauchen, indem du Collie darauf lädst.
 
-Bitte beachte, dass eine Installation auf einem Mac der M-Serie derzeit nicht direkt unterstützt wird. Mehr über den aktuellen Stand dazu erfährst du in #omarchy-on-other in unserem [Discord](https://discord.gg/tXFUdasqhY).
+Bitte beachte, dass eine Installation auf einem Mac der M-Serie derzeit nicht direkt unterstützt wird. Mehr über den aktuellen Stand dazu erfährst du in #collie-on-other in unserem [Discord](https://discord.gg/tXFUdasqhY).
 
-In einem einfachen Test konnten wir allein durch die Installation von Omarchy eine Leistungssteigerung von 36 % auf einem 2019 MacBook Pro erzielen.
+In einem einfachen Test konnten wir allein durch die Installation von Collie eine Leistungssteigerung von 36 % auf einem 2019 MacBook Pro erzielen.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy auf dem Mac installieren
+### Collie auf dem Mac installieren
 
-Omarchy unterstützt derzeit nur, das **einzige** installierte OS zu sein. Während der Installation wird das Laufwerk gelöscht und MacOS wird nicht mehr bootfähig sein.
+Collie unterstützt derzeit nur, das **einzige** installierte OS zu sein. Während der Installation wird das Laufwerk gelöscht und MacOS wird nicht mehr bootfähig sein.
 
 Du kannst es später bei Bedarf weiterhin über Internet Recovery wiederherstellen.
 
@@ -39,7 +39,7 @@ Das Installationsprogramm erkennt Mac-Hardware und wendet automatisch die benöt
 
 ### Bekannte Einschränkungen
 
-Mitglieder der Community arbeiten ständig an Lösungen für diese Herausforderungen. Wenn diese für dich problematisch sind, komm deshalb in #omarchy-on-other in unserem [Discord](https://discord.gg/tXFUdasqhY) und sieh nach, ob es aktuelle Methoden zu ihrer Behebung gibt.
+Mitglieder der Community arbeiten ständig an Lösungen für diese Herausforderungen. Wenn diese für dich problematisch sind, komm deshalb in #collie-on-other in unserem [Discord](https://discord.gg/tXFUdasqhY) und sieh nach, ob es aktuelle Methoden zu ihrer Behebung gibt.
 
 #### Geräte mit T1-Chip
 

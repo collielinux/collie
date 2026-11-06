@@ -2,23 +2,23 @@
 
 ### Niliharibu mfumo wangu kwa usasishaji!
 
-Kwanza jaribu [kurudisha mfumo wako](47-system-snapshots.md) kwenye toleo la kabla ya usasishaji wako wa hivi karibuni. Ikiwa hilo halifanyi kazi, tumia `omarchy-debug` kushiriki tatizo lako kwenye #omarchy-help katika Discord. Na ikiwa yote hayo yatashindikana, unaweza kusakinisha upya usanidi na vifurushi chaguo-msingi kwa kutumia `omarchy-reinstall`.
+Kwanza jaribu [kurudisha mfumo wako](47-system-snapshots.md) kwenye toleo la kabla ya usasishaji wako wa hivi karibuni. Ikiwa hilo halifanyi kazi, tumia `collie-debug` kushiriki tatizo lako kwenye #collie-help katika Discord. Na ikiwa yote hayo yatashindikana, unaweza kusakinisha upya usanidi na vifurushi chaguo-msingi kwa kutumia `collie-reinstall`.
 
 ### Kwa nini baadhi ya programu ni kubwa sana kwenye skrini yangu?
 
-Omarchy hudhani una skrini yenye ubora wa juu wa 2x, kwa hivyo huweka `GDK_SCALE` kuwa 2 hadi uchague kipimo katika paneli ya monita. Ikiwa uko kwenye skrini ya 1x na programu za GTK au X11 zinatokea kubwa kupita kiasi, chagua 1x kwa ajili yake katika paneli ya monita, au ongeza `hl.env("GDK_SCALE", "1")` kwenye `~/.config/hypr/monitors.lua` (kisha uanzishe upya programu yoyote iliyo kubwa kupita kiasi). Tazama [mwongozo kuhusu monita](33-monitors.md).
+Collie hudhani una skrini yenye ubora wa juu wa 2x, kwa hivyo huweka `GDK_SCALE` kuwa 2 hadi uchague kipimo katika paneli ya monita. Ikiwa uko kwenye skrini ya 1x na programu za GTK au X11 zinatokea kubwa kupita kiasi, chagua 1x kwa ajili yake katika paneli ya monita, au ongeza `hl.env("GDK_SCALE", "1")` kwenye `~/.config/hypr/monitors.lua` (kisha uanzishe upya programu yoyote iliyo kubwa kupita kiasi). Tazama [mwongozo kuhusu monita](33-monitors.md).
 
 Kwa Spotify, unaweza kutumia `Ctrl + Minus` kupunguza kiolesura (na `Ctrl + Plus` kukifanya kikubwa zaidi).
 
 ### Kwa nini vifungo vyangu vyote vya kitufe cha Super vimeacha kufanya kazi?
 
-Kwenye baadhi ya kompyuta mpakato za ASUS ROG na TUF, `Fn + Super` ni mchanganyiko rahisi kuukosa ambao hubadilisha ufungaji wa kitufe cha Windows wa programu dhibiti (uliokusudiwa kwa michezo ili usiondoke kwenye mchezo kwa bahati mbaya). Hakuna kinachoonekana kwenye skrini kinachokuambia kuwa limetokea. Wakati ufungaji umewashwa, Super haitoi chochote kabisa — kwa hivyo kila kifungo cha Omarchy kinachotumia Super huacha tu kufanya kazi, na inaonekana kama Hyprland imeharibika.
+Kwenye baadhi ya kompyuta mpakato za ASUS ROG na TUF, `Fn + Super` ni mchanganyiko rahisi kuukosa ambao hubadilisha ufungaji wa kitufe cha Windows wa programu dhibiti (uliokusudiwa kwa michezo ili usiondoke kwenye mchezo kwa bahati mbaya). Hakuna kinachoonekana kwenye skrini kinachokuambia kuwa limetokea. Wakati ufungaji umewashwa, Super haitoi chochote kabisa — kwa hivyo kila kifungo cha Collie kinachotumia Super huacha tu kufanya kazi, na inaonekana kama Hyprland imeharibika.
 
 Bonyeza `Fn + Super` mara moja kabla ya kuanza kuchimba kwenye `~/.config/hypr/`, na ikiwa hilo halirudishi Super, libonyeze tena ili usiache ufungaji umewashwa. Hii si Fn-lock, ambayo hubadilisha tu kile safu ya vitufe vya F inafanya.
 
 ### Wi-Fi, Bluetooth, sauti, au padi yangu ya mguso imeacha tu kufanya kazi
 
-Kabla ya kuwasha upya, jaribu kuanzisha upya mfumo mdogo unaosumbua peke yake. _Update > Hardware_ katika menyu ya Omarchy ina Wi-Fi, Bluetooth, Audio, na Trackpad, na kupakia upya mojawapo ya hayo huondoa sehemu kubwa ya hali za "ilifanya kazi dakika tano zilizopita" — vifaa vya sauti vya Bluetooth vinavyokataa kuunganishwa tena, padi ya mguso iliyokufa baada ya kusimamishwa, sauti iliyopotea ulipounganua monita.
+Kabla ya kuwasha upya, jaribu kuanzisha upya mfumo mdogo unaosumbua peke yake. _Update > Hardware_ katika menyu ya Collie ina Wi-Fi, Bluetooth, Audio, na Trackpad, na kupakia upya mojawapo ya hayo huondoa sehemu kubwa ya hali za "ilifanya kazi dakika tano zilizopita" — vifaa vya sauti vya Bluetooth vinavyokataa kuunganishwa tena, padi ya mguso iliyokufa baada ya kusimamishwa, sauti iliyopotea ulipounganua monita.
 
 ### Kwa nini spika zangu za nje hazichezi?
 
@@ -26,7 +26,7 @@ Pengine ni kwa sababu hazijawekwa kama kifaa kikuu cha kutoa sauti. Bofya kwenye
 
 ### Spika za kompyuta yangu mpakato zinasikika vibaya
 
-Kwenye baadhi ya kompyuta mpakato, Omarchy hutumia kiotomatiki urekebishaji wa spika ambao hurekebisha mwitikio wa masafa wa spika zilizojengwa ndani. `omarchy audio tuning status` hukuambia ikiwa mojawapo inatumika kwenye mashine yako, na `omarchy audio tuning off` huizima ikiwa ungependa kusikia spika kama zilivyo.
+Kwenye baadhi ya kompyuta mpakato, Collie hutumia kiotomatiki urekebishaji wa spika ambao hurekebisha mwitikio wa masafa wa spika zilizojengwa ndani. `collie audio tuning status` hukuambia ikiwa mojawapo inatumika kwenye mashine yako, na `collie audio tuning off` huizima ikiwa ungependa kusikia spika kama zilivyo.
 
 ### Kwa nini siwezi kuingia au kutumia sudo kwa nenosiri langu?
 

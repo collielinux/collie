@@ -1,16 +1,16 @@
 # Supporto Mac
 
-Omarchy ha un supporto integrato per i **Mac Intel**. Al momento ci sono un paio di limitazioni note, ma finché ne sei consapevole e ti sta bene, puoi dare nuova vita ai tuoi vecchi Mac installando Omarchy.
+Collie ha un supporto integrato per i **Mac Intel**. Al momento ci sono un paio di limitazioni note, ma finché ne sei consapevole e ti sta bene, puoi dare nuova vita ai tuoi vecchi Mac installando Collie.
 
-Tieni presente che l'installazione su un Mac con chip serie M al momento non è supportata direttamente. Puoi scoprire di più sullo stato della questione in #omarchy-on-other nel nostro [Discord](https://discord.gg/tXFUdasqhY).
+Tieni presente che l'installazione su un Mac con chip serie M al momento non è supportata direttamente. Puoi scoprire di più sullo stato della questione in #collie-on-other nel nostro [Discord](https://discord.gg/tXFUdasqhY).
 
-In un semplice test, siamo riusciti a ottenere un aumento delle prestazioni del 36% su un MacBook Pro del 2019 semplicemente installando Omarchy.
+In un semplice test, siamo riusciti a ottenere un aumento delle prestazioni del 36% su un MacBook Pro del 2019 semplicemente installando Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Installare Omarchy su Mac
+### Installare Collie su Mac
 
-Al momento Omarchy supporta solo l'essere l'**unico** sistema operativo installato. Durante l'installazione, l'unità verrà cancellata e MacOS non sarà più avviabile.
+Al momento Collie supporta solo l'essere l'**unico** sistema operativo installato. Durante l'installazione, l'unità verrà cancellata e MacOS non sarà più avviabile.
 
 Potrai comunque ripristinarlo in seguito tramite Internet Recovery, se lo desideri.
 
@@ -39,7 +39,7 @@ Il programma di installazione rileva l'hardware Mac e applica automaticamente le
 
 ### Limitazioni note
 
-I membri della community lavorano costantemente a soluzioni per queste sfide, quindi se per te sono un problema, unisciti a #omarchy-on-other nel nostro [Discord](https://discord.gg/tXFUdasqhY) e verifica se ci sono metodi aggiornati per risolverle.
+I membri della community lavorano costantemente a soluzioni per queste sfide, quindi se per te sono un problema, unisciti a #collie-on-other nel nostro [Discord](https://discord.gg/tXFUdasqhY) e verifica se ci sono metodi aggiornati per risolverle.
 
 #### Dispositivi con chip T1
 

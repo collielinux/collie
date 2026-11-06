@@ -12,7 +12,7 @@ require_command pacman-conf
 
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
-export OMARCHY_PATH="$ROOT"
+export COLLIE_PATH="$ROOT"
 source "$ROOT/install/helpers/pacman.sh"
 
 platforms="x86 aarch64 aarch64-apple"
@@ -22,21 +22,21 @@ channels_for() {
 
 # ── the templates ────────────────────────────────────────────────────────────
 
-[[ $(omarchy_pacman_templates x86) == "$ROOT/default/pacman" ]] || fail "x86 keeps its templates where they were"
-[[ $(omarchy_pacman_templates aarch64) == "$ROOT/default/pacman/aarch64" ]] || fail "plain aarch64 uses the aarch64 templates"
-[[ $(omarchy_pacman_templates aarch64-apple) == "$ROOT/default/pacman/aarch64-apple" ]] || fail "Apple Silicon uses its own templates"
+[[ $(collie_pacman_templates x86) == "$ROOT/default/pacman" ]] || fail "x86 keeps its templates where they were"
+[[ $(collie_pacman_templates aarch64) == "$ROOT/default/pacman/aarch64" ]] || fail "plain aarch64 uses the aarch64 templates"
+[[ $(collie_pacman_templates aarch64-apple) == "$ROOT/default/pacman/aarch64-apple" ]] || fail "Apple Silicon uses its own templates"
 for platform in aarch64-qualcomm aarch64-n1x aarch64-gb10; do
-  [[ $(omarchy_pacman_templates "$platform") == "$ROOT/default/pacman/aarch64" ]] || fail "$platform shares the aarch64 templates"
-  [[ $(omarchy_pacman_default_channel "$platform") == stable ]] || fail "$platform defaults to stable"
+  [[ $(collie_pacman_templates "$platform") == "$ROOT/default/pacman/aarch64" ]] || fail "$platform shares the aarch64 templates"
+  [[ $(collie_pacman_default_channel "$platform") == stable ]] || fail "$platform defaults to stable"
 done
-! omarchy_pacman_templates riscv 2>/dev/null || fail "an unknown platform has no templates"
+! collie_pacman_templates riscv 2>/dev/null || fail "an unknown platform has no templates"
 pass "each platform's templates sit in a directory of their own, x86_64's where they always were"
 
 for platform in x86 aarch64; do
-  [[ $(omarchy_pacman_default_channel "$platform") == stable ]] || fail "$platform defaults to stable"
+  [[ $(collie_pacman_default_channel "$platform") == stable ]] || fail "$platform defaults to stable"
 done
-[[ $(omarchy_pacman_default_channel aarch64-apple) == edge ]] || fail "aarch64-apple defaults to edge"
-! omarchy_pacman_default_channel riscv 2>/dev/null || fail "an unknown platform has no default channel"
+[[ $(collie_pacman_default_channel aarch64-apple) == edge ]] || fail "aarch64-apple defaults to edge"
+! collie_pacman_default_channel riscv 2>/dev/null || fail "an unknown platform has no default channel"
 pass "every platform defaults to stable but Apple Silicon, which defaults to edge"
 
 # pacman reads each repository list from the template, with its mirrorlist
@@ -47,21 +47,21 @@ repos() {
   pacman-conf --config "$work/pacman.conf" --repo-list | tr '\n' ' '
 }
 for platform in $platforms; do
-  templates=$(omarchy_pacman_templates "$platform")
+  templates=$(collie_pacman_templates "$platform")
   for channel in $(channels_for "$platform"); do
     [[ -f $templates/pacman-$channel.conf && -f $templates/mirrorlist-$channel ]] ||
       fail "$platform has a $channel template and mirrorlist"
     list=$(repos "$templates" "$channel") || fail "$platform $channel: pacman reads the template"
     case $platform in
-      x86) expected="omarchy core extra multilib " ;;
-      aarch64) expected="omarchy core extra alarm " ;;
-      aarch64-apple) expected="omarchy asahi-alarm core extra alarm " ;;
+      x86) expected="collie core extra multilib " ;;
+      aarch64) expected="collie core extra alarm " ;;
+      aarch64-apple) expected="collie asahi-alarm core extra alarm " ;;
     esac
     [[ $list == "$expected" ]] || fail "$platform $channel: repositories in order" "$list"
     # $arch stays literal: pacman fills it in on the machine.
     server=$(sed -n '/^\[omarchy\]/,/^\[/s/^Server = //p' "$templates/pacman-$channel.conf")
     [[ $server == "https://pkgs.omarchy.org/$channel/\$arch" ]] ||
-      fail "$platform $channel: Omarchy's $channel repository" "$server"
+      fail "$platform $channel: Collie's $channel repository" "$server"
     # The Arch mirror is the same channel's: x86's at <channel>-mirror, Arch
     # Linux ARM's at arm-<channel>-mirror, edge without the channel.
     case $platform in
@@ -75,31 +75,31 @@ for platform in $platforms; do
 done
 pass "every platform has templates for stable, rc and edge, each with its repositories in order and its channel's mirrors"
 
-# omarchy-version-channel names each template pair's channel: the menu's
+# collie-version-channel names each template pair's channel: the menu's
 # checkmarks and a refresh with no channel go by it.
 sed -e "s|/etc/pacman.d/mirrorlist|$work/mirrorlist|g" -e "s|/etc/pacman.conf|$work/pacman.conf|g" \
-  "$ROOT/bin/omarchy-version-channel" >"$work/version-channel"
+  "$ROOT/bin/collie-version-channel" >"$work/version-channel"
 for platform in $platforms; do
-  templates=$(omarchy_pacman_templates "$platform")
+  templates=$(collie_pacman_templates "$platform")
   for channel in $(channels_for "$platform"); do
     cp "$templates/pacman-$channel.conf" "$work/pacman.conf"
     cp "$templates/mirrorlist-$channel" "$work/mirrorlist"
     said=$(bash "$work/version-channel")
-    [[ $said == "$channel" ]] || fail "$platform $channel: omarchy-version-channel names it" "$said"
+    [[ $said == "$channel" ]] || fail "$platform $channel: collie-version-channel names it" "$said"
   done
 done
-pass "omarchy-version-channel names the channel of every platform's templates"
+pass "collie-version-channel names the channel of every platform's templates"
 
 # ── install finalization ─────────────────────────────────────────────────────
 
 finalize_bin=$work/finalize-bin
 mkdir -p "$finalize_bin"
-printf '#!/bin/bash\necho "$PLATFORM"\n' >"$finalize_bin/omarchy-hw-platform"
-for command in omarchy-pkg-add pacman-key; do
+printf '#!/bin/bash\necho "$PLATFORM"\n' >"$finalize_bin/collie-hw-platform"
+for command in collie-pkg-add pacman-key; do
   printf '#!/bin/bash\nexit 0\n' >"$finalize_bin/$command"
 done
 chmod +x "$finalize_bin"/*
-# Finalization restores the templates through omarchy-apply-pacman, whose copy
+# Finalization restores the templates through collie-apply-pacman, whose copy
 # here writes into the test's etc rather than the host's.
 finalize_root=$work/finalize-root
 mkdir -p "$finalize_root/bin" "$finalize_root/install/post-install" "$finalize_root/default"
@@ -107,28 +107,28 @@ cp -r "$ROOT/install/helpers" "$finalize_root/install/"
 cp -r "$ROOT/default/pacman" "$ROOT/default/regions" "$finalize_root/default/"
 cp "$ROOT/install/post-install/pacman.sh" "$work/finalize.sh"
 target_etc='etc="${2:-/}/etc"'
-grep -Fqx "  $target_etc" "$ROOT/bin/omarchy-apply-pacman" || fail "omarchy-apply-pacman still names its target etc"
-sed "s|^  $target_etc\$|  etc=\"\${2:-$work}/etc\"|" "$ROOT/bin/omarchy-apply-pacman" >"$finalize_root/bin/omarchy-apply-pacman"
-chmod +x "$finalize_root/bin/omarchy-apply-pacman"
+grep -Fqx "  $target_etc" "$ROOT/bin/collie-apply-pacman" || fail "collie-apply-pacman still names its target etc"
+sed "s|^  $target_etc\$|  etc=\"\${2:-$work}/etc\"|" "$ROOT/bin/collie-apply-pacman" >"$finalize_root/bin/collie-apply-pacman"
+chmod +x "$finalize_root/bin/collie-apply-pacman"
 mkdir -p "$work/install/hardware"
 : >"$work/install/hardware/pacman.sh"
 
 # Finalization asks the image helper whether this is an image build, which root
-# answers from the real /var/lib/omarchy; everyone else from the test's root.
+# answers from the real /var/lib/collie; everyone else from the test's root.
 if (( EUID == 0 )); then
   skip "install finalization copies the platform's channel template and mirrorlist (refuses to run as root)"
 else
 for platform in $platforms; do
-  templates=$(omarchy_pacman_templates "$platform")
+  templates=$(collie_pacman_templates "$platform")
   # An install built for a channel the platform has no templates for, or for
   # none, gets the platform's default channel.
   for channel in stable rc edge ""; do
     expected=$channel
-    [[ -n $expected && -f $templates/pacman-$expected.conf ]] || expected=$(omarchy_pacman_default_channel "$platform")
+    [[ -n $expected && -f $templates/pacman-$expected.conf ]] || expected=$(collie_pacman_default_channel "$platform")
     rm -rf "$work/etc"
     mkdir -p "$work/etc/pacman.d"
     printf 'offline\n' | tee "$work/etc/pacman.conf" >"$work/etc/pacman.d/mirrorlist"
-    OMARCHY_PATH=$finalize_root OMARCHY_IMAGE_ROOT=$work OMARCHY_MIRROR=$channel PLATFORM=$platform OMARCHY_INSTALL="$work/install" PATH="$finalize_bin:$PATH" \
+    COLLIE_PATH=$finalize_root COLLIE_IMAGE_ROOT=$work COLLIE_MIRROR=$channel PLATFORM=$platform COLLIE_INSTALL="$work/install" PATH="$finalize_bin:$PATH" \
       bash -e -c 'source "$1"' bash "$work/finalize.sh" >/dev/null || fail "$platform finalization on '$channel'"
     cmp -s "$work/etc/pacman.conf" "$templates/pacman-$expected.conf" || fail "$platform '$channel': finalization copies the $expected template"
     cmp -s "$work/etc/pacman.d/mirrorlist" "$templates/mirrorlist-$expected" || fail "$platform '$channel': finalization copies the $expected mirrorlist"
@@ -141,17 +141,17 @@ fi
 
 rm -rf "$work"
 source "$SHELL_TEST_DIR/fixtures/sudo-boundary-test.sh"
-copy_boundary_file bin/omarchy-refresh-pacman
-copy_boundary_file bin/omarchy-apply-pacman
-cat >"$SUDO_TEST_ROOT/bin/omarchy-channel-current" <<'STUB'
+copy_boundary_file bin/collie-refresh-pacman
+copy_boundary_file bin/collie-apply-pacman
+cat >"$SUDO_TEST_ROOT/bin/collie-channel-current" <<'STUB'
 #!/bin/bash
 [[ ${SUDO_TEST_CHANNEL_FAIL:-0} != "1" ]] || exit 1
 echo "${SUDO_TEST_CHANNEL:-unknown}"
 STUB
-chmod +x "$SUDO_TEST_ROOT/bin/omarchy-channel-current"
+chmod +x "$SUDO_TEST_ROOT/bin/collie-channel-current"
 
 refresh() {
-  "$SUDO_TEST_ROOT/bin/omarchy-refresh-pacman" "$@" >"$boundary_tmp/output" 2>&1
+  "$SUDO_TEST_ROOT/bin/collie-refresh-pacman" "$@" >"$boundary_tmp/output" 2>&1
 }
 events() {
   grep -vE '^sudo (-h|-k)$' "$SUDO_TEST_LOG" || true
@@ -167,7 +167,7 @@ for platform in $platforms; do
   for channel in $(channels_for "$platform") ""; do
     reset_boundary
     SUDO_TEST_PLATFORM=$platform refresh $channel || fail "$platform refreshes to '$channel'" "$(cat "$boundary_tmp/output")"
-    [[ -n $channel ]] || channel=$(omarchy_pacman_default_channel "$platform")
+    [[ -n $channel ]] || channel=$(collie_pacman_default_channel "$platform")
     python3 - "$SUDO_TEST_LOG" "$templates" "$channel" <<'PY'
 import sys
 events = open(sys.argv[1]).read().splitlines()
@@ -186,7 +186,7 @@ expected = [
   f'step:cp -f {rendered}/mirrorlist /etc/pacman.d/mirrorlist',
 ]
 assert copies == expected, events
-hook = events.index('step:omarchy-hook pre-refresh-pacman')
+hook = events.index('step:collie-hook pre-refresh-pacman')
 upgrade = 'step:pacman -Syyuu --noconfirm'
 if channel in ('stable', 'rc'):
   # The -dev pair is edge's: an old build of it in a stable or rc repository is
@@ -248,11 +248,11 @@ for platform in aarch64-apple; do
     reset_boundary
     if SUDO_TEST_PLATFORM=$platform refresh "$channel"; then fail "$platform: $channel is refused"; fi
     [[ -z $(events) ]] || fail "$platform: $channel stops before anything" "$(events)"
-    grep -q "Omarchy has no $channel channel for $platform" "$boundary_tmp/output" || fail "the refusal says why" "$(cat "$boundary_tmp/output")"
+    grep -q "Collie has no $channel channel for $platform" "$boundary_tmp/output" || fail "the refusal says why" "$(cat "$boundary_tmp/output")"
   done
 done
 mv "$boundary_tmp/saved-template" "$SUDO_TEST_ROOT/default/pacman/aarch64-apple/pacman-stable.conf"
-cat >"$SUDO_TEST_ROOT/bin/omarchy-hw-platform" <<'STUB'
+cat >"$SUDO_TEST_ROOT/bin/collie-hw-platform" <<'STUB'
 #!/bin/bash
 exit 1
 STUB

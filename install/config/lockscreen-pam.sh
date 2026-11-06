@@ -1,1 +1,1 @@
-omarchy-apply-lock
+collie-apply-lock

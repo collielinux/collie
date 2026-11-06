@@ -1,8 +1,8 @@
 # Navigointi
 
-Kaikki Omarchyssa tapahtuu näppäimistöllä — _KAIKKI!_ Kun järjestelmä käynnistyy ensimmäisen kerran, et kirjaimellisesti pysty tekemään mitään pelkällä hiirellä. Mutta voit painaa `Super + Space` paljastaaksesi Omarchy-valikon, ja täältä voit tehdä melkein kaiken.
+Kaikki Colliessa tapahtuu näppäimistöllä — _KAIKKI!_ Kun järjestelmä käynnistyy ensimmäisen kerran, et kirjaimellisesti pysty tekemään mitään pelkällä hiirellä. Mutta voit painaa `Super + Space` paljastaaksesi Collie-valikon, ja täältä voit tehdä melkein kaiken.
 
-Mutta Omarchy-valikon ei ole edes tarkoitus olla pääasiallinen tapa käyttää järjestelmää suurimman osan ajasta. Pystymme nopeampaankin! Kaikki tärkeimmät sovellukset on sidottu suoraan yksittäisiin pikanäppäimiin. Käynnistät päätteen näppäimillä `Super + Return` ja selaimen näppäimillä `Super + Shift + Return`. Kokeile tehdä toinen toisensa jälkeen, niin näet Hyprlandin laatoituksen taikuuden toiminnassa:
+Mutta Collie-valikon ei ole edes tarkoitus olla pääasiallinen tapa käyttää järjestelmää suurimman osan ajasta. Pystymme nopeampaankin! Kaikki tärkeimmät sovellukset on sidottu suoraan yksittäisiin pikanäppäimiin. Käynnistät päätteen näppäimillä `Super + Return` ja selaimen näppäimillä `Super + Shift + Return`. Kokeile tehdä toinen toisensa jälkeen, niin näet Hyprlandin laatoituksen taikuuden toiminnassa:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Voit myös siirtyä koko näytön tilaan näppäimillä `Super + F` tai jopa vai
 
 ### Dwindle vastaan vierivä asettelu
 
-Omarchyn oletusasettelua kutsutaan nimellä dwindle. Se pitää kaikki yhdessä työtilassa avaamasi ikkunat näkyvissä koko ajan, vaikka sen täytyisi kutistaa niitä.
+Collien oletusasettelua kutsutaan nimellä dwindle. Se pitää kaikki yhdessä työtilassa avaamasi ikkunat näkyvissä koko ajan, vaikka sen täytyisi kutistaa niitä.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Kelluva työtila toimii kuten perinteinen työpöytä: ikkunat menevät päällekkäin, ja siirrät ja mitoitat ne itse. Jokainen ikkuna saa otsikkopalkin teemasi väreissä, jossa on painikkeet pienentämiseen, suurentamiseen ja sulkemiseen. `Super + M` pienentää myös kohdistetun ikkunan. Pienennetty ikkuna odottaa dockissa; napsauta sen sovellusta tuodaksesi sen takaisin. Napsauta ikkunaa tuodaksesi sen eteen. Muuta sen kokoa mistä tahansa reunasta tai kulmasta. Kaksoisnapsauta otsikkopalkkia suurentaaksesi ikkunan säilyttäen samalla yläpalkin näkyvissä, ja uudelleen saadaksesi sen vanhan koon takaisin.
 
-Kelluva työtila näyttää myös dockin, jossa ovat kiinnittämäsi sovellukset, kaikki käynnissä olevat sovellukset ja ruudukko jokaisesta sovelluksesta sovelluspainikkeen takana, jonka myös `Super + Alt + Space` ja Omarchy-valikon _Sovellukset_ avaavat. Napsauta sovellusta ruudukossa hiiren oikealla painikkeella tai paina `Delete` poistaaksesi sen asennuksen. Napsauta sovellusta avataksesi sen tai tuodaksesi sen ikkunan eteen; napsauta uudelleen selataksesi sen ikkunoita. Keskipainikkeen napsautus avaa uuden ikkunan. Vedä kuvaketta dockia pitkin siirtääksesi sitä; käynnissä olevan sovelluksen vetäminen muiden joukkoon pitää sen siellä. Napsauta hiiren oikealla painikkeella pitääksesi sovelluksen dockissa, poistaaksesi sen sieltä tai lopettaaksesi sen. Dock väistyy koko näytön ikkunan tieltä. Napsauta sovelluspainiketta hiiren oikealla painikkeella siirtääksesi dockin toiseen reunaan tai saadaksesi sen piiloutumaan, kunnes osoitin saavuttaa sen reunan. Sijainti on myös kohdassa _Ulkoasu > Dock > Dockin sijainti_, ja `omarchy dock position left` ja `omarchy dock autohide on` asettavat molemmat päätteestä. Sovellukset, jotka pidät dockissa, ovat haalistuneita, kun ne eivät ole käynnissä.
+Kelluva työtila näyttää myös dockin, jossa ovat kiinnittämäsi sovellukset, kaikki käynnissä olevat sovellukset ja ruudukko jokaisesta sovelluksesta sovelluspainikkeen takana, jonka myös `Super + Alt + Space` ja Collie-valikon _Sovellukset_ avaavat. Napsauta sovellusta ruudukossa hiiren oikealla painikkeella tai paina `Delete` poistaaksesi sen asennuksen. Napsauta sovellusta avataksesi sen tai tuodaksesi sen ikkunan eteen; napsauta uudelleen selataksesi sen ikkunoita. Keskipainikkeen napsautus avaa uuden ikkunan. Vedä kuvaketta dockia pitkin siirtääksesi sitä; käynnissä olevan sovelluksen vetäminen muiden joukkoon pitää sen siellä. Napsauta hiiren oikealla painikkeella pitääksesi sovelluksen dockissa, poistaaksesi sen sieltä tai lopettaaksesi sen. Dock väistyy koko näytön ikkunan tieltä. Napsauta sovelluspainiketta hiiren oikealla painikkeella siirtääksesi dockin toiseen reunaan tai saadaksesi sen piiloutumaan, kunnes osoitin saavuttaa sen reunan. Sijainti on myös kohdassa _Ulkoasu > Dock > Dockin sijainti_, ja `collie dock position left` ja `collie dock autohide on` asettavat molemmat päätteestä. Sovellukset, jotka pidät dockissa, ovat haalistuneita, kun ne eivät ole käynnissä.
 
-Uudet työtilat ja kaikki, joille et ole antanut omaa asetteluaan näppäimillä `Super + L`, käyttävät oletusasettelua. Oletuksen muuttaminen palauttaa jokaisen ikkunattoman työtilan siihen, kun taas työtila, jossa on ikkunoita, säilyttää asettelun, joka sillä on. Ikkuna, joka on pienennetty dockiin, lasketaan edelleen ikkunaksi työtilassa, josta se lähti. Valitse se kohdasta _Ulkoasu > Työtilan asettelu_: Laatoitus, Vierivä tai Kelluva. `omarchy-hyprland-workspace-layout-default scrolling` asettaa sen päätteestä.
+Uudet työtilat ja kaikki, joille et ole antanut omaa asetteluaan näppäimillä `Super + L`, käyttävät oletusasettelua. Oletuksen muuttaminen palauttaa jokaisen ikkunattoman työtilan siihen, kun taas työtila, jossa on ikkunoita, säilyttää asettelun, joka sillä on. Ikkuna, joka on pienennetty dockiin, lasketaan edelleen ikkunaksi työtilassa, josta se lähti. Valitse se kohdasta _Ulkoasu > Työtilan asettelu_: Laatoitus, Vierivä tai Kelluva. `collie-hyprland-workspace-layout-default scrolling` asettaa sen päätteestä.
 
 ### Ikkunoiden ryhmittely
 

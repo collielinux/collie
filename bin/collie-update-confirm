@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# collie:summary=Prompt for confirmation before starting an update
+
+gum style --border normal --padding "1 2" \
+  "$(collie-i18n update.ready)" \
+  "" \
+  "• $(collie-i18n update.cannotStop)" \
+  "• $(collie-i18n update.connectPower)" \
+  "" \
+  "$(collie-i18n update.whatsNew "https://github.com/embeputer/collie/releases/latest")"
+
+echo
+
+if ! gum confirm --affirmative "$(collie-i18n common.yes)" --negative "$(collie-i18n common.no)" "$(collie-i18n update.continue)"; then
+  echo "Update cancelled"
+  exit 1
+fi

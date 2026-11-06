@@ -50,9 +50,9 @@ def sessions():
 
 def prefix(value):
   if value is None:
-    (config_home() / "omarchy" / "agents" / "ollama.json").unlink()
+    (config_home() / "collie" / "agents" / "ollama.json").unlink()
   else:
-    write_json(config_home() / "omarchy" / "agents" / "ollama.json", {"modelPrefix": value})
+    write_json(config_home() / "collie" / "agents" / "ollama.json", {"modelPrefix": value})
 
 
 # ------------------------------------------------------------ local stats
@@ -135,7 +135,7 @@ record = ollama()
 expect("Ollama counts Codex rollouts on its cloud models and its own provider, prompts as typed",
        [record["todayTokensByModel"], record["modelUsage"].get("gpt-oss"), record["todayPrompts"], record["todaySessions"]],
        [{"gpt-oss": 6285, "qwen3-coder": 985}, {"inputTokens": 6270, "outputTokens": 5, "cacheReadInputTokens": 10, "cacheCreationInputTokens": 0}, 2, 2], record)
-write_json(config_home() / "omarchy" / "agents" / "ollama.json", {"modelPrefix": "qwen"})
+write_json(config_home() / "collie" / "agents" / "ollama.json", {"modelPrefix": "qwen"})
 record = ollama()
 expect("Ollama's model prefix filters Codex rollouts too", record["todayTokensByModel"], {"qwen3-coder": 985}, record)
 del os.environ["CODEX_HOME"]

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# collie:summary=Install a packaged app, surfacing the install in a floating terminal
+# collie:args=<display-name> <packages>
+# collie:examples=collie install app 'LM Studio' lmstudio-bin
+
+name="${1-}"
+packages="${2-}"
+
+if [[ -z $name || -z $packages ]]; then
+  echo "Usage: collie-install-app <display-name> <packages>" >&2
+  exit 1
+fi
+
+printf -v install_message '%q' "Installing ${name}..."
+
+# The list has to reach collie-pkg-add as several words, so each word is quoted
+# rather than the whole string; -d '' reads past newlines and always ends at EOF.
+read -r -d '' -a package_list <<<"$packages" || true
+printf -v packages_arg '%q ' "${package_list[@]}"
+packages_arg="${packages_arg% }"
+
+exec collie-launch-floating-terminal-with-presentation \
+  "echo ${install_message}; collie-pkg-add ${packages_arg}"

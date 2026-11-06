@@ -48,7 +48,7 @@ def quota(plan, entitlement, used, **snapshot):
 
 
 def configured(**config):
-  write_json(config_home() / "omarchy" / "agents" / "copilot.json", config)
+  write_json(config_home() / "collie" / "agents" / "copilot.json", config)
 
 
 def copilot_home():

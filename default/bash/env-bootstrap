@@ -1,50 +1,50 @@
-# Single source of truth for OMARCHY_PATH + PATH adjustments. Sourced by:
-#   /etc/profile.d/omarchy.sh                 (system login shells)
+# Single source of truth for COLLIE_PATH + PATH adjustments. Sourced by:
+#   /etc/profile.d/collie.sh                 (system login shells)
 #   /etc/skel/.bashrc                         (interactive shells)
-#   /usr/share/uwsm/env.d/10-omarchy          (Hyprland session via uwsm)
-#   /usr/share/omarchy/default/bash/envs      (bash rc chain; SSH/non-login)
+#   /usr/share/uwsm/env.d/10-collie          (Hyprland session via uwsm)
+#   /usr/share/collie/default/bash/envs      (bash rc chain; SSH/non-login)
 
-# /etc/omarchy.conf is written by omarchy-dev-link and reset by
-# omarchy-dev-unlink. When absent, force the packaged default instead of
+# /etc/collie.conf is written by collie-dev-link and reset by
+# collie-dev-unlink. When absent, force the packaged default instead of
 # preserving a stale inherited value.
-if [ -f /etc/omarchy.conf ]; then
-  . /etc/omarchy.conf
-  : "${OMARCHY_PATH:=/usr/share/omarchy}"
+if [ -f /etc/collie.conf ]; then
+  . /etc/collie.conf
+  : "${COLLIE_PATH:=/usr/share/collie}"
 else
-  OMARCHY_PATH=/usr/share/omarchy
+  COLLIE_PATH=/usr/share/collie
 fi
-export OMARCHY_PATH
+export COLLIE_PATH
 
 # Only prepend in dev-link mode. On a production install, the binaries are
-# already on PATH as /usr/bin/omarchy-* via the omarchy package — prepending
-# /usr/share/omarchy/bin would just be noise.
-if [ "$OMARCHY_PATH" != /usr/share/omarchy ]; then
+# already on PATH as /usr/bin/collie-* via the omarchy package — prepending
+# /usr/share/collie/bin would just be noise.
+if [ "$COLLIE_PATH" != /usr/share/collie ]; then
   case ":$PATH:" in
-    *":${OMARCHY_PATH%/}/bin:"*) ;;
-    *) PATH="${OMARCHY_PATH%/}/bin${PATH:+:$PATH}" ;;
+    *":${COLLIE_PATH%/}/bin:"*) ;;
+    *) PATH="${COLLIE_PATH%/}/bin${PATH:+:$PATH}" ;;
   esac
 fi
 
 # mise's command wrappers must precede real tool directories inherited from a
 # parent shell, so scripts follow account switches without Bash functions.
 # mise activate also keeps this directory ahead of its managed tool binaries.
-omarchy_wrapper_dir="${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/command-wrappers/bin"
-omarchy_wrapper_path=$omarchy_wrapper_dir
+collie_wrapper_dir="${MISE_DATA_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/mise}/command-wrappers/bin"
+collie_wrapper_path=$collie_wrapper_dir
 if [ -n "${PATH:-}" ]; then
-  omarchy_remaining_path=$PATH
+  collie_remaining_path=$PATH
   while :; do
-    omarchy_path_entry=${omarchy_remaining_path%%:*}
-    if [ "$omarchy_path_entry" != "$omarchy_wrapper_dir" ]; then
-      omarchy_wrapper_path="$omarchy_wrapper_path:$omarchy_path_entry"
+    collie_path_entry=${collie_remaining_path%%:*}
+    if [ "$collie_path_entry" != "$collie_wrapper_dir" ]; then
+      collie_wrapper_path="$collie_wrapper_path:$collie_path_entry"
     fi
-    case "$omarchy_remaining_path" in
-      *:*) omarchy_remaining_path=${omarchy_remaining_path#*:} ;;
+    case "$collie_remaining_path" in
+      *:*) collie_remaining_path=${collie_remaining_path#*:} ;;
       *) break ;;
     esac
   done
 fi
-PATH=$omarchy_wrapper_path
-unset omarchy_wrapper_dir omarchy_wrapper_path omarchy_remaining_path omarchy_path_entry
+PATH=$collie_wrapper_path
+unset collie_wrapper_dir collie_wrapper_path collie_remaining_path collie_path_entry
 
 # User-level tool paths, appended so system binaries keep precedence. This is
 # what lets login shells (ssh, bash -lc) and the uwsm session find mise-managed

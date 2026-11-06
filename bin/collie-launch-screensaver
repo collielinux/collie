@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Launch the Collie screensaver on every display.
+# collie:args=[force] [options]
+
+exec /usr/lib/omarchy-screensaver/omarchy-screensaver "$@"

@@ -1,6 +1,6 @@
 # 双启动安装
 
-你可以将 Omarchy 安装到单个分区上，与 Windows 或其他系统并存。
+你可以将 Collie 安装到单个分区上，与 Windows 或其他系统并存。
 
 这种安装方式默认仍为该分区提供 LUKS 加密，因此它实际上与整盘安装没有区别，只是要求磁盘上有可用的空闲空间。
 
@@ -14,17 +14,17 @@
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- 输入你想要压缩的容量。请注意，这将是你未来 Omarchy 安装的大小，其中包含启动分区。
+ 输入你想要压缩的容量。请注意，这将是你未来 Collie 安装的大小，其中包含启动分区。
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-完成后，你应该会看到类似这样的界面，在本示例中，50GB 的部分就是我们将要安装 Omarchy 的位置。
+完成后，你应该会看到类似这样的界面，在本示例中，50GB 的部分就是我们将要安装 Collie 的位置。
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## 安装 Omarchy
+## 安装 Collie
 
-Omarchy 的安装过程与正常安装基本相同。选择磁盘后，你会看到 **空闲空间安装** 选项。选择该选项可防止抹除整个磁盘。
+Collie 的安装过程与正常安装基本相同。选择磁盘后，你会看到 **空闲空间安装** 选项。选择该选项可防止抹除整个磁盘。
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Omarchy 的安装过程与正常安装基本相同。选择磁盘后，你会看
 
 ## 将其他系统添加到引导加载程序
 
-完成 Omarchy 安装后，你会注意到 Limine 引导加载程序现在是默认引导程序。有了它，你还可以为其他系统（如 Windows）向 Limine 中添加选项。
+完成 Collie 安装后，你会注意到 Limine 引导加载程序现在是默认引导程序。有了它，你还可以为其他系统（如 Windows）向 Limine 中添加选项。
 
-要添加其他操作系统，请运行 `limine-scan`，并按照提示将你想要的条目添加到 Limine 配置中。引导菜单默认保持隐藏，并会在一秒后启动 Omarchy。要选择 Windows 或其他条目，请在 Limine 启动后立即按任意键；当菜单出现时，使用方向键选择一个条目并按 Enter。如果 Omarchy 在你按键之前就已启动，请重启并重试。如果你开启了 _Setup > Direct Boot_，固件会完全跳过 Limine，因此请从 BIOS 引导菜单中选择 Limine，或者再次运行 _Setup > Direct Boot_ 以移除该条目。
+要添加其他操作系统，请运行 `limine-scan`，并按照提示将你想要的条目添加到 Limine 配置中。引导菜单默认保持隐藏，并会在一秒后启动 Collie。要选择 Windows 或其他条目，请在 Limine 启动后立即按任意键；当菜单出现时，使用方向键选择一个条目并按 Enter。如果 Collie 在你按键之前就已启动，请重启并重试。如果你开启了 _Setup > Direct Boot_，固件会完全跳过 Limine，因此请从 BIOS 引导菜单中选择 Limine，或者再次运行 _Setup > Direct Boot_ 以移除该条目。
 
 ## Bitlocker
 

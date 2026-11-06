@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-export OMARCHY_PATH="$ROOT"
+export COLLIE_PATH="$ROOT"
 
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
@@ -31,7 +31,7 @@ const items = dock.buildItems(['chromium', 'Alacritty'], [
   app('signal', 1),
   app('chromium', 2),
   app('signal', 3),
-  app('org.omarchy.agent', 4, { hasEntry: false }),
+  app('org.collie.agent', 4, { hasEntry: false }),
   app('foot', 5, { workspaceId: -98 })
 ])
 assertDeepEqual(
@@ -85,13 +85,13 @@ assertDeepEqual(
 
 const terminalEntries = [
   { id: 'nvim', execString: 'nvim %F', command: ['nvim', '%F'], runInTerminal: true },
-  { id: 'HEY TUI', execString: 'xdg-terminal-exec --app-id=org.omarchy.hey -e hey tui', command: ['xdg-terminal-exec', '--app-id=org.omarchy.hey', '-e', 'hey', 'tui'], runInTerminal: false },
+  { id: 'HEY TUI', execString: 'xdg-terminal-exec --app-id=org.collie.hey -e hey tui', command: ['xdg-terminal-exec', '--app-id=org.collie.hey', '-e', 'hey', 'tui'], runInTerminal: false },
   { id: 'btop', execString: '/usr/bin/btop', command: ['/usr/bin/btop'], runInTerminal: true }
 ]
-assertEqual(dock.claimingEntryId('org.omarchy.nvim', terminalEntries), 'nvim', 'dock gives Neovim launched by the TUI launcher its own entry')
-assertEqual(dock.claimingEntryId('org.omarchy.btop', terminalEntries), 'btop', 'dock matches a terminal entry by its program name')
-assertEqual(dock.claimingEntryId('org.omarchy.hey', terminalEntries), 'HEY TUI', 'dock matches an entry that hands the terminal its app id')
-assertEqual(dock.claimingEntryId('org.omarchy.agent', terminalEntries), '', 'dock leaves an app id no entry claims unclaimed')
+assertEqual(dock.claimingEntryId('org.collie.nvim', terminalEntries), 'nvim', 'dock gives Neovim launched by the TUI launcher its own entry')
+assertEqual(dock.claimingEntryId('org.collie.btop', terminalEntries), 'btop', 'dock matches a terminal entry by its program name')
+assertEqual(dock.claimingEntryId('org.collie.hey', terminalEntries), 'HEY TUI', 'dock matches an entry that hands the terminal its app id')
+assertEqual(dock.claimingEntryId('org.collie.agent', terminalEntries), '', 'dock leaves an app id no entry claims unclaimed')
 assertEqual(dock.claimingEntryId('Alacritty', terminalEntries), '', 'dock leaves a terminal of its own to its own entry')
 
 assertDeepEqual(
@@ -112,52 +112,52 @@ assertEqual(dock.pickWindow([], 4), -1, 'dock has no window to pick for an app t
 JS
 
 home="$TMPDIR/home"
-mkdir -p "$home/.config/omarchy"
+mkdir -p "$home/.config/collie"
 mock_bin="$TMPDIR/bin"
 mkdir -p "$mock_bin"
-printf '#!/bin/bash\nexit 0\n' >"$mock_bin/omarchy-shell"
-chmod +x "$mock_bin/omarchy-shell"
-omarchy_dock() { HOME="$home" PATH="$mock_bin:$ROOT/bin:$PATH" omarchy-dock "$@"; }
+printf '#!/bin/bash\nexit 0\n' >"$mock_bin/collie-shell"
+chmod +x "$mock_bin/collie-shell"
+collie_dock() { HOME="$home" PATH="$mock_bin:$ROOT/bin:$PATH" collie-dock "$@"; }
 
-[[ $(omarchy_dock position) == "bottom" ]] || fail "dock position defaults to bottom"
-omarchy_dock position left >/dev/null
-jq -e '.dock.position == "left" and .version == 1' "$home/.config/omarchy/shell.json" >/dev/null ||
-  fail "dock position is saved" "$(cat "$home/.config/omarchy/shell.json")"
-[[ $(omarchy_dock position) == "left" ]] || fail "dock position reads back"
-if omarchy_dock position diagonal 2>/dev/null; then
+[[ $(collie_dock position) == "bottom" ]] || fail "dock position defaults to bottom"
+collie_dock position left >/dev/null
+jq -e '.dock.position == "left" and .version == 1' "$home/.config/collie/shell.json" >/dev/null ||
+  fail "dock position is saved" "$(cat "$home/.config/collie/shell.json")"
+[[ $(collie_dock position) == "left" ]] || fail "dock position reads back"
+if collie_dock position diagonal 2>/dev/null; then
   fail "dock position rejects anything but top, bottom, left, and right"
 fi
-pass "dock position is set and read through omarchy-dock"
+pass "dock position is set and read through collie-dock"
 
-default_pins=$(jq -r '.dock.pinned[]' "$ROOT/config/omarchy/shell.json" | paste -sd " ")
-[[ -n $default_pins && $(omarchy_dock pinned | paste -sd " ") == "$default_pins" ]] || fail "dock pins start from the defaults"
-omarchy_dock unpin spotify >/dev/null
-omarchy_dock pin com.example.App.desktop >/dev/null
-omarchy_dock pin com.example.App >/dev/null
+default_pins=$(jq -r '.dock.pinned[]' "$ROOT/config/collie/shell.json" | paste -sd " ")
+[[ -n $default_pins && $(collie_dock pinned | paste -sd " ") == "$default_pins" ]] || fail "dock pins start from the defaults"
+collie_dock unpin spotify >/dev/null
+collie_dock pin com.example.App.desktop >/dev/null
+collie_dock pin com.example.App >/dev/null
 jq -e '
   .dock.pinned[-1] == "com.example.App" and
   (.dock.pinned | index("spotify")) == null and
   (.dock.pinned | map(select(. == "com.example.App")) | length) == 1 and
   .dock.position == "left"
-' "$home/.config/omarchy/shell.json" >/dev/null ||
-  fail "dock pins and unpins apps once each" "$(cat "$home/.config/omarchy/shell.json")"
-pass "dock pins and unpins apps through omarchy-dock"
+' "$home/.config/collie/shell.json" >/dev/null ||
+  fail "dock pins and unpins apps once each" "$(cat "$home/.config/collie/shell.json")"
+pass "dock pins and unpins apps through collie-dock"
 
-omarchy_dock pinned signal chromium.desktop signal >/dev/null
-[[ $(omarchy_dock pinned | paste -sd ' ') == "signal chromium" ]] ||
-  fail "dock pin order is set in one go" "$(cat "$home/.config/omarchy/shell.json")"
-pass "dock pin order is set through omarchy-dock pinned"
+collie_dock pinned signal chromium.desktop signal >/dev/null
+[[ $(collie_dock pinned | paste -sd ' ') == "signal chromium" ]] ||
+  fail "dock pin order is set in one go" "$(cat "$home/.config/collie/shell.json")"
+pass "dock pin order is set through collie-dock pinned"
 
-[[ $(omarchy_dock autohide) == "off" ]] || fail "dock auto-hide starts off"
-omarchy_dock autohide toggle >/dev/null
-jq -e '.dock.autohide == true' "$home/.config/omarchy/shell.json" >/dev/null || fail "dock auto-hide toggles on"
-[[ $(omarchy_dock autohide) == "on" ]] || fail "dock auto-hide reads back"
-omarchy_dock autohide off >/dev/null
-jq -e '.dock.autohide == false' "$home/.config/omarchy/shell.json" >/dev/null || fail "dock auto-hide turns off"
-if omarchy_dock autohide sometimes 2>/dev/null; then
+[[ $(collie_dock autohide) == "off" ]] || fail "dock auto-hide starts off"
+collie_dock autohide toggle >/dev/null
+jq -e '.dock.autohide == true' "$home/.config/collie/shell.json" >/dev/null || fail "dock auto-hide toggles on"
+[[ $(collie_dock autohide) == "on" ]] || fail "dock auto-hide reads back"
+collie_dock autohide off >/dev/null
+jq -e '.dock.autohide == false' "$home/.config/collie/shell.json" >/dev/null || fail "dock auto-hide turns off"
+if collie_dock autohide sometimes 2>/dev/null; then
   fail "dock auto-hide takes only on, off, or toggle"
 fi
-pass "dock auto-hide is set through omarchy-dock autohide"
+pass "dock auto-hide is set through collie-dock autohide"
 
 # Minimizing moves a window to the dock's hidden workspace without following
 # it, then focuses the workspace it left, so the next window opens there and
@@ -171,12 +171,12 @@ case "\$1" in
 esac
 STUB
 chmod +x "$mock_bin/hyprctl"
-printf '#!/bin/bash\n[[ $1 == 9 ]] && echo dwindle || echo floating\n' >"$mock_bin/omarchy-hyprland-workspace-layout-current"
-chmod +x "$mock_bin/omarchy-hyprland-workspace-layout-current"
-minimize() { PATH="$mock_bin:$ROOT/bin:$PATH" omarchy-hyprland-window-minimize "$@"; }
+printf '#!/bin/bash\n[[ $1 == 9 ]] && echo dwindle || echo floating\n' >"$mock_bin/collie-hyprland-workspace-layout-current"
+chmod +x "$mock_bin/collie-hyprland-workspace-layout-current"
+minimize() { PATH="$mock_bin:$ROOT/bin:$PATH" collie-hyprland-window-minimize "$@"; }
 
 minimize 0xabc
-grep -qxF 'hl.dsp.window.tag({ tag = "+omarchy-minimized-from-3", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
+grep -qxF 'hl.dsp.window.tag({ tag = "+collie-minimized-from-3", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
   fail "minimize remembers the workspace the window left" "$(cat "$TMPDIR/hyprctl.log")"
 grep -qxF 'hl.dsp.window.move({ workspace = "special:minimized", follow = false, window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
   fail "minimize moves the window to the dock's hidden workspace" "$(cat "$TMPDIR/hyprctl.log")"
@@ -184,7 +184,7 @@ grep -qxF 'hl.dsp.window.move({ workspace = "special:minimized", follow = false,
   fail "minimize focuses the workspace the window left" "$(cat "$TMPDIR/hyprctl.log")"
 : >"$TMPDIR/hyprctl.log"
 minimize
-grep -qF 'hl.dsp.window.tag({ tag = "+omarchy-minimized-from-5", window = "address:0xdef" })' "$TMPDIR/hyprctl.log" &&
+grep -qF 'hl.dsp.window.tag({ tag = "+collie-minimized-from-5", window = "address:0xdef" })' "$TMPDIR/hyprctl.log" &&
   grep -qF 'address:0xdef' "$TMPDIR/hyprctl.log" && [[ $(tail -1 "$TMPDIR/hyprctl.log") == 'hl.dsp.focus({ workspace = "5" })' ]] ||
   fail "minimize takes the active window when given none" "$(cat "$TMPDIR/hyprctl.log")"
 pass "minimize sends a window to the dock and keeps focus on its workspace"
@@ -192,15 +192,15 @@ pass "minimize sends a window to the dock and keeps focus on its workspace"
 cat >"$mock_bin/hyprctl" <<STUB
 #!/bin/bash
 case "\$1" in
-  clients) printf '[{"address":"0xabc","workspace":{"id":7},"tags":["omarchy-minimized-from-3"]}]\n' ;;
+  clients) printf '[{"address":"0xabc","workspace":{"id":7},"tags":["collie-minimized-from-3"]}]\n' ;;
   dispatch) printf '%s\n' "\$2" >>"$TMPDIR/hyprctl.log" ;;
 esac
 STUB
 : >"$TMPDIR/hyprctl.log"
 minimize 0xabc
-grep -qxF 'hl.dsp.window.tag({ tag = "-omarchy-minimized-from-3", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
+grep -qxF 'hl.dsp.window.tag({ tag = "-collie-minimized-from-3", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
   fail "minimize forgets the previous workspace" "$(cat "$TMPDIR/hyprctl.log")"
-grep -qxF 'hl.dsp.window.tag({ tag = "+omarchy-minimized-from-7", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
+grep -qxF 'hl.dsp.window.tag({ tag = "+collie-minimized-from-7", window = "address:0xabc" })' "$TMPDIR/hyprctl.log" ||
   fail "minimize remembers the workspace it leaves this time" "$(cat "$TMPDIR/hyprctl.log")"
 pass "minimize remembers only the workspace the window is leaving"
 

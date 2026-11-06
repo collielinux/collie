@@ -1,16 +1,16 @@
 # Mac-támogatás
 
-Az Omarchy beépített támogatást kínál az **Intel Macekhez**. Jelenleg van néhány ismert korlátozás, de amíg tisztában vagy ezekkel, és rendben vannak számodra, új életet lehelhetsz régi Macjeidbe az Omarchy telepítésével.
+Az Collie beépített támogatást kínál az **Intel Macekhez**. Jelenleg van néhány ismert korlátozás, de amíg tisztában vagy ezekkel, és rendben vannak számodra, új életet lehelhetsz régi Macjeidbe az Collie telepítésével.
 
-Felhívjuk a figyelmet, hogy az M-sorozatú Macekre történő telepítés jelenleg nem támogatott közvetlenül. Erről bővebben a #omarchy-on-other csatornán tájékozódhatsz a [Discord](https://discord.gg/tXFUdasqhY) szerverünkön.
+Felhívjuk a figyelmet, hogy az M-sorozatú Macekre történő telepítés jelenleg nem támogatott közvetlenül. Erről bővebben a #collie-on-other csatornán tájékozódhatsz a [Discord](https://discord.gg/tXFUdasqhY) szerverünkön.
 
-Egy egyszerű tesztben 36%-os teljesítménynövekedést értünk el egy 2019-es MacBook Prón pusztán az Omarchy telepítésével.
+Egy egyszerű tesztben 36%-os teljesítménynövekedést értünk el egy 2019-es MacBook Prón pusztán az Collie telepítésével.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Az Omarchy telepítése Macre
+### Az Collie telepítése Macre
 
-Az Omarchy jelenleg csak egyedüli operációs rendszerként telepítve támogatott. A telepítés során a meghajtó törlődik, és a MacOS a továbbiakban nem lesz indítható.
+Az Collie jelenleg csak egyedüli operációs rendszerként telepítve támogatott. A telepítés során a meghajtó törlődik, és a MacOS a továbbiakban nem lesz indítható.
 
 Később az Internet Recovery segítségével mégis visszaállíthatod, ha szeretnéd.
 
@@ -39,7 +39,7 @@ A telepítő felismeri a Mac hardverét, és automatikusan alkalmazza a szüksé
 
 ### Ismert korlátozások
 
-A közösség tagjai folyamatosan dolgoznak e kihívások megoldásain, ezért ha ezek problémát jelentenek számodra, csatlakozz a #omarchy-on-other csatornához a [Discord](https://discord.gg/tXFUdasqhY) szerverünkön, és nézd meg, vannak-e naprakész módszerek a megoldásukra.
+A közösség tagjai folyamatosan dolgoznak e kihívások megoldásain, ezért ha ezek problémát jelentenek számodra, csatlakozz a #collie-on-other csatornához a [Discord](https://discord.gg/tXFUdasqhY) szerverünkön, és nézd meg, vannak-e naprakész módszerek a megoldásukra.
 
 #### T1 chippel rendelkező eszközök
 

@@ -1,8 +1,8 @@
 # Navigasi
 
-Segala-galanya dalam Omarchy berlaku melalui papan kekunci — _SEGALA-GALANYA!_ Apabila sistem mula-mula dimulakan, anda benar-benar tidak boleh buat apa-apa dengan tetikus sahaja. Tetapi anda boleh tekan `Super + Space` untuk memaparkan Menu Omarchy dan dari sini anda boleh buat hampir segala-galanya.
+Segala-galanya dalam Collie berlaku melalui papan kekunci — _SEGALA-GALANYA!_ Apabila sistem mula-mula dimulakan, anda benar-benar tidak boleh buat apa-apa dengan tetikus sahaja. Tetapi anda boleh tekan `Super + Space` untuk memaparkan Menu Collie dan dari sini anda boleh buat hampir segala-galanya.
 
-Tetapi menu Omarchy pun tidak dimaksudkan sebagai cara utama untuk mengendalikan sistem pada kebanyakan masa. Kita boleh buat lebih pantas daripada itu! Semua aplikasi paling penting diikat terus pada kekunci pintas individu. Anda mulakan terminal dengan `Super + Return` dan pelayar dengan `Super + Shift + Return`. Cuba buat satu demi satu, dan anda akan lihat keajaiban jubin Hyprland beraksi:
+Tetapi menu Collie pun tidak dimaksudkan sebagai cara utama untuk mengendalikan sistem pada kebanyakan masa. Kita boleh buat lebih pantas daripada itu! Semua aplikasi paling penting diikat terus pada kekunci pintas individu. Anda mulakan terminal dengan `Super + Return` dan pelayar dengan `Super + Shift + Return`. Cuba buat satu demi satu, dan anda akan lihat keajaiban jubin Hyprland beraksi:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Anda juga boleh pergi ke skrin penuh dengan `Super + F` atau malah hanya lebar p
 
 ### Dwindle lwn susun atur menatal
 
-Susun atur lalai Omarchy dipanggil dwindle. Ia mengekalkan semua tetingkap yang anda buka pada satu ruang kerja supaya sentiasa kelihatan, walaupun ia terpaksa mengecilkan tetingkap itu.
+Susun atur lalai Collie dipanggil dwindle. Ia mengekalkan semua tetingkap yang anda buka pada satu ruang kerja supaya sentiasa kelihatan, walaupun ia terpaksa mengecilkan tetingkap itu.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Ruang kerja terapung berfungsi seperti desktop tradisional: tetingkap bertindih, dan anda mengalih serta mengubah saiznya sendiri. Setiap tetingkap mendapat bar tajuk dalam warna tema anda, dengan butang untuk meminimumkan, memaksimumkan, dan menutup. `Super + M` meminimumkan tetingkap yang difokuskan juga. Tetingkap yang diminimumkan menunggu dalam dok; klik aplikasinya untuk membawanya kembali. Klik tetingkap untuk membawanya ke hadapan. Ubah saiznya dari mana-mana tepi atau sudut. Klik dua kali bar tajuk untuk memaksimumkan tetingkap sambil mengekalkan bar atas supaya kelihatan, dan klik dua kali lagi untuk mendapatkan kembali saiz lamanya.
 
-Ruang kerja terapung juga menunjukkan dok, dengan aplikasi yang anda sematkan, semua yang sedang berjalan, dan grid setiap aplikasi di sebalik butang aplikasi, yang juga dibuka oleh `Super + Alt + Space` dan _Apps_ dalam menu Omarchy. Klik kanan aplikasi pada grid, atau tekan `Delete`, untuk menyahpasangnya. Klik aplikasi untuk membukanya, atau untuk membawa tetingkapnya ke hadapan; klik sekali lagi untuk berkitar melalui tetingkapnya. Klik tengah membuka tetingkap baharu. Seret ikon di sepanjang dok untuk mengalihkannya; menyeret aplikasi yang sedang berjalan masuk ke antara aplikasi lain akan mengekalkannya di situ. Klik kanan untuk mengekalkan aplikasi dalam dok, mengeluarkannya, atau menutupnya. Dok menyingkir daripada laluan tetingkap skrin penuh. Klik kanan butang aplikasi untuk mengalihkan dok ke tepi lain atau menyuruhnya sembunyi sehingga penuding mencapai tepinya. Kedudukan ini juga berada di bawah _Appearance > Dock > Dock Position_, dan `omarchy dock position left` dan `omarchy dock autohide on` menetapkan kedua-duanya dari terminal. Aplikasi yang anda kekalkan dalam dok menjadi pudar semasa ia tidak berjalan.
+Ruang kerja terapung juga menunjukkan dok, dengan aplikasi yang anda sematkan, semua yang sedang berjalan, dan grid setiap aplikasi di sebalik butang aplikasi, yang juga dibuka oleh `Super + Alt + Space` dan _Apps_ dalam menu Collie. Klik kanan aplikasi pada grid, atau tekan `Delete`, untuk menyahpasangnya. Klik aplikasi untuk membukanya, atau untuk membawa tetingkapnya ke hadapan; klik sekali lagi untuk berkitar melalui tetingkapnya. Klik tengah membuka tetingkap baharu. Seret ikon di sepanjang dok untuk mengalihkannya; menyeret aplikasi yang sedang berjalan masuk ke antara aplikasi lain akan mengekalkannya di situ. Klik kanan untuk mengekalkan aplikasi dalam dok, mengeluarkannya, atau menutupnya. Dok menyingkir daripada laluan tetingkap skrin penuh. Klik kanan butang aplikasi untuk mengalihkan dok ke tepi lain atau menyuruhnya sembunyi sehingga penuding mencapai tepinya. Kedudukan ini juga berada di bawah _Appearance > Dock > Dock Position_, dan `collie dock position left` dan `collie dock autohide on` menetapkan kedua-duanya dari terminal. Aplikasi yang anda kekalkan dalam dok menjadi pudar semasa ia tidak berjalan.
 
-Ruang kerja baharu, dan mana-mana ruang kerja yang anda belum berikan susun atur tersendiri dengan `Super + L`, menggunakan susun atur lalai. Mengubah lalai menetapkan semula setiap ruang kerja tanpa tetingkap kepadanya, manakala ruang kerja yang mempunyai tetingkap padanya mengekalkan susun atur yang dimilikinya. Tetingkap yang diminimumkan ke dok masih dikira sebagai tetingkap pada ruang kerja yang ditinggalkannya. Pilihnya di bawah _Appearance > Workspace Layout_: Tiling, Scrolling, atau Floating. `omarchy-hyprland-workspace-layout-default scrolling` menetapkannya dari terminal.
+Ruang kerja baharu, dan mana-mana ruang kerja yang anda belum berikan susun atur tersendiri dengan `Super + L`, menggunakan susun atur lalai. Mengubah lalai menetapkan semula setiap ruang kerja tanpa tetingkap kepadanya, manakala ruang kerja yang mempunyai tetingkap padanya mengekalkan susun atur yang dimilikinya. Tetingkap yang diminimumkan ke dok masih dikira sebagai tetingkap pada ruang kerja yang ditinggalkannya. Pilihnya di bawah _Appearance > Workspace Layout_: Tiling, Scrolling, atau Floating. `collie-hyprland-workspace-layout-default scrolling` menetapkannya dari terminal.
 
 ### Mengumpulkan tetingkap
 

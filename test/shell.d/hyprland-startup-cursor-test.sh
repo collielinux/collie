@@ -8,7 +8,7 @@ lua - <<'LUA' || fail "the first compositor frame starts blank and the reveal re
 package.path = os.getenv("ROOT") .. "/?.lua;" .. package.path
 local events, recovery, command, imported, commands = {}, nil, nil, false, {}
 local config = { invisible = false, enable_hyprcursor = true, sync_gsettings_theme = true }
-local env = { XCURSOR_THEME = "my-xcursor", HYPRCURSOR_THEME = "my-hyprcursor", XCURSOR_PATH = "/my/icons", HYPRLAND_INSTANCE_SIGNATURE = "test-session", OMARCHY_PATH = os.getenv("ROOT") }
+local env = { XCURSOR_THEME = "my-xcursor", HYPRCURSOR_THEME = "my-hyprcursor", XCURSOR_PATH = "/my/icons", HYPRLAND_INSTANCE_SIGNATURE = "test-session", COLLIE_PATH = os.getenv("ROOT") }
 local getenv = os.getenv
 -- The fake environment owns every cursor variable, unset ones included, so
 -- the session running the test cannot leak its own cursor into it.
@@ -31,10 +31,10 @@ hl = {
   end,
   exec_cmd = function(value)
     if value == "dbus-update-activation-environment --systemd XCURSOR_PATH XCURSOR_THEME" then
-      assert(env.XCURSOR_THEME ~= "omarchy-startup" and not env.XCURSOR_PATH:match("/default/hypr/cursors"))
+      assert(env.XCURSOR_THEME ~= "collie-startup" and not env.XCURSOR_PATH:match("/default/hypr/cursors"))
       imported = true
     end
-    if value == "omarchy-launch-shell" then
+    if value == "collie-launch-shell" then
       assert(config.invisible and env.XCURSOR_THEME == "my-xcursor", "hide the compositor cursor while restoring application settings before launch")
     end
     command = value
@@ -47,27 +47,27 @@ require("default.hypr.autostart")
 assert(not config.invisible, "loading the module must wait for user configuration")
 events["config.reloaded"]()
 assert(config.invisible and not config.enable_hyprcursor and not config.sync_gsettings_theme)
-assert(env.XCURSOR_THEME == "omarchy-startup" and env.XCURSOR_PATH:match("/default/hypr/cursors:/my/icons$"))
-assert(omarchy_startup_cursor_pending, "the first compositor frame must use the blank cursor")
+assert(env.XCURSOR_THEME == "collie-startup" and env.XCURSOR_PATH:match("/default/hypr/cursors:/my/icons$"))
+assert(collie_startup_cursor_pending, "the first compositor frame must use the blank cursor")
 events["hyprland.start"]()
 assert(env.XCURSOR_THEME == "my-xcursor" and env.XCURSOR_PATH == "/my/icons", "applications must inherit the user's cursor")
 assert(config.invisible, "starting applications must not reveal the cursor")
 
 local previous_recovery = recovery
 -- Hyprland reloads the configuration in a fresh Lua state and discards timers.
-omarchy_startup_cursor_pending = nil
-omarchy_startup_cursor = nil
+collie_startup_cursor_pending = nil
+collie_startup_cursor = nil
 for name in pairs(config) do config[name] = true end
 config.invisible = false
 monitors = { {} }
 dofile(os.getenv("ROOT") .. "/default/hypr/startup-cursor.lua")
 events["config.reloaded"]()
-assert(omarchy_startup_cursor_pending and omarchy_startup_cursor.xcursor == "my-xcursor", "a fresh Lua state must retain the pending reveal and the user's cursor")
+assert(collie_startup_cursor_pending and collie_startup_cursor.xcursor == "my-xcursor", "a fresh Lua state must retain the pending reveal and the user's cursor")
 assert(recovery ~= previous_recovery and config.invisible, "a config reload must retain startup hiding and rearm recovery")
 recovery()
 assert(command:match("setcursor 'my%-xcursor'"), "restore the Xcursor fallback before revealing the pointer")
 assert(config.invisible, "wait for the normal theme before restoring visibility")
-omarchy_startup_cursor_restore(true)
+collie_startup_cursor_restore(true)
 assert(not config.invisible and config.enable_hyprcursor and config.sync_gsettings_theme)
 assert(command:match("xsetroot %-cursor_name left_ptr"), "restore the X11/XWayland root cursor")
 local hyprcursor_restored = false
@@ -81,10 +81,10 @@ assert(command == previous_command, "recovery must not change a revealed cursor"
 events["config.reloaded"]()
 assert(not config.invisible and env.XCURSOR_THEME == "my-xcursor", "ordinary config reloads must not hide the cursor")
 
-omarchy_startup_cursor_pending = nil
+collie_startup_cursor_pending = nil
 monitors = { {} }
 events["config.reloaded"]()
-assert(not omarchy_startup_cursor_pending and not config.invisible, "installing the fix in a running compositor must leave its cursor alone")
+assert(not collie_startup_cursor_pending and not config.invisible, "installing the fix in a running compositor must leave its cursor alone")
 
 local popen = io.popen
 local gsettings = "'custom-cursor'\n"
@@ -94,54 +94,54 @@ io.popen = function(value)
 end
 local function orphan(theme)
   imported = false
-  omarchy_startup_cursor_pending, omarchy_startup_cursor = nil, nil
-  env.XCURSOR_THEME = "omarchy-startup"
-  env.OMARCHY_STARTUP_CURSOR_THEME = theme
-  env.OMARCHY_STARTUP_CURSOR_SESSION = "old-session"
+  collie_startup_cursor_pending, collie_startup_cursor = nil, nil
+  env.XCURSOR_THEME = "collie-startup"
+  env.COLLIE_STARTUP_CURSOR_THEME = theme
+  env.COLLIE_STARTUP_CURSOR_SESSION = "old-session"
   env.XCURSOR_PATH = "/old/worktree/default/hypr/cursors:/my/icons"
-  env.OMARCHY_STARTUP_CURSOR_PATH = nil
+  env.COLLIE_STARTUP_CURSOR_PATH = nil
   config.invisible, config.enable_hyprcursor, config.sync_gsettings_theme = false, false, true
   dofile(os.getenv("ROOT") .. "/default/hypr/startup-cursor.lua")
   events["config.reloaded"]()
-  assert(omarchy_startup_cursor_pending, "an orphan blank theme must be recovered with live monitors")
-  assert(env.XCURSOR_THEME ~= "omarchy-startup" and env.XCURSOR_PATH == "/my/icons", "recovery must remove the blank theme and old worktree search path")
-  return omarchy_startup_cursor.xcursor
+  assert(collie_startup_cursor_pending, "an orphan blank theme must be recovered with live monitors")
+  assert(env.XCURSOR_THEME ~= "collie-startup" and env.XCURSOR_PATH == "/my/icons", "recovery must remove the blank theme and old worktree search path")
+  return collie_startup_cursor.xcursor
 end
 assert(orphan("saved-custom") == "saved-custom", "saved settings take precedence over GSettings")
-omarchy_startup_cursor_restore()
+collie_startup_cursor_restore()
 assert(command:match("setcursor 'saved%-custom'") and imported, "orphan recovery must also repair activation environments")
 local stalled = command
 command = nil
 recovery()
 assert(command == stalled, "the timeout must retry an unfinished restore")
 local completion = assert(command:match("hyprctl eval '(.*)'$"))
-omarchy_startup_cursor.xcursor = "changed-during-restore"
+collie_startup_cursor.xcursor = "changed-during-restore"
 assert(load(completion))()
-assert(omarchy_startup_cursor_pending, "a stale completion must not reveal a different cursor after reload")
-omarchy_startup_cursor.xcursor = "saved-custom"
-local old_size = omarchy_startup_cursor.size
-omarchy_startup_cursor.size = old_size + 8
+assert(collie_startup_cursor_pending, "a stale completion must not reveal a different cursor after reload")
+collie_startup_cursor.xcursor = "saved-custom"
+local old_size = collie_startup_cursor.size
+collie_startup_cursor.size = old_size + 8
 assert(load(completion))()
-assert(omarchy_startup_cursor_pending, "a stale completion must not acknowledge a different cursor size")
-omarchy_startup_cursor.size = old_size
-omarchy_startup_cursor_restore(true)
+assert(collie_startup_cursor_pending, "a stale completion must not acknowledge a different cursor size")
+collie_startup_cursor.size = old_size
+collie_startup_cursor_restore(true)
 assert(not config.invisible and config.sync_gsettings_theme)
 assert(orphan(nil) == "custom-cursor", "recover a nonblank user GSettings theme when no snapshot survives")
-omarchy_startup_cursor_restore(true)
-gsettings = "'omarchy-startup'\n"
+collie_startup_cursor_restore(true)
+gsettings = "'collie-startup'\n"
 assert(orphan(nil) == "default", "a destroyed user preference must fall back to the default alias, never the blank theme")
-omarchy_startup_cursor_restore(true)
-omarchy_startup_cursor_pending, omarchy_startup_cursor = nil, nil
+collie_startup_cursor_restore(true)
+collie_startup_cursor_pending, collie_startup_cursor = nil, nil
 monitors = {}
 env.XCURSOR_THEME, env.XCURSOR_PATH = "next-theme", "/next/icons"
-env.OMARCHY_STARTUP_CURSOR_PATH = "/stale/icons"
-env.OMARCHY_STARTUP_CURSOR_SESSION = "old-session"
+env.COLLIE_STARTUP_CURSOR_PATH = "/stale/icons"
+env.COLLIE_STARTUP_CURSOR_SESSION = "old-session"
 events["config.reloaded"]()
-assert(omarchy_startup_cursor.xcursor == "next-theme" and omarchy_startup_cursor.path == "/next/icons", "a new session must honor changed cursor settings instead of inherited snapshots")
-omarchy_startup_cursor_pending, omarchy_startup_cursor = nil, nil
-env.XCURSOR_THEME, env.OMARCHY_STARTUP_CURSOR_SESSION, gsettings = "", "old-session", "'custom-cursor'\n"
+assert(collie_startup_cursor.xcursor == "next-theme" and collie_startup_cursor.path == "/next/icons", "a new session must honor changed cursor settings instead of inherited snapshots")
+collie_startup_cursor_pending, collie_startup_cursor = nil, nil
+env.XCURSOR_THEME, env.COLLIE_STARTUP_CURSOR_SESSION, gsettings = "", "old-session", "'custom-cursor'\n"
 events["config.reloaded"]()
-assert(omarchy_startup_cursor.xcursor == "default", "an ordinary boot without a cursor theme keeps the default alias instead of adopting GSettings")
+assert(collie_startup_cursor.xcursor == "default", "an ordinary boot without a cursor theme keeps the default alias instead of adopting GSettings")
 io.popen = popen
 LUA
 pass "the first compositor frame starts blank and the reveal restores user cursor settings"

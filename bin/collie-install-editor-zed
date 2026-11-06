@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# collie:summary=Install Zed Editor and configure it with the current Collie theme
+
+echo "Installing Zed Editor..."
+collie-pkg-add zed omazed
+
+# Apply Collie theme to Zed
+omazed setup
+
+setsid uwsm-app -- gtk-launch dev.zed.Zed >/dev/null 2>&1 &

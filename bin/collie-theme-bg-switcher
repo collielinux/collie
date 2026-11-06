@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# collie:summary=Open the Collie background switcher
+# collie:group=theme
+# collie:name=bg-switcher
+# collie:aliases=collie background
+
+theme_name=$(cat "$HOME/.local/state/collie/current/theme.name" 2>/dev/null)
+current_background=$(readlink -f "$HOME/.local/state/collie/current/background" 2>/dev/null)
+
+collie-menu-images \
+  --selected "$current_background" \
+  "$HOME/.local/state/collie/current/theme/backgrounds" \
+  "$HOME/.config/collie/backgrounds/$theme_name"

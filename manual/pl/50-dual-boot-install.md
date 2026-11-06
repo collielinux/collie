@@ -1,6 +1,6 @@
 # Instalacja Dual Boot
 
-Możesz zainstalować Omarchy na jednej partycji obok Windows lub innych instalacji.
+Możesz zainstalować Collie na jednej partycji obok Windows lub innych instalacji.
 
 Ta metoda instalacji nadal domyślnie obejmuje szyfrowanie LUKS dla partycji, więc w praktyce nie różni się od instalacji na całym dysku i po prostu wymaga dostępnego wolnego miejsca na dysku.
 
@@ -14,17 +14,17 @@ Znajdź odpowiednią partycję, kliknij ją prawym przyciskiem myszy i wybierz *
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Wprowadź rozmiar, o jaki chcesz zmniejszyć wolumin. Pamiętaj, że będzie to rozmiar Twojej przyszłej instalacji Omarchy wraz z partycją rozruchową.
+ Wprowadź rozmiar, o jaki chcesz zmniejszyć wolumin. Pamiętaj, że będzie to rozmiar Twojej przyszłej instalacji Collie wraz z partycją rozruchową.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Po zakończeniu powinieneś zobaczyć coś takiego, gdzie sekcja 50GB jest miejscem, w którym w tym przykładzie zainstalujemy Omarchy.
+Po zakończeniu powinieneś zobaczyć coś takiego, gdzie sekcja 50GB jest miejscem, w którym w tym przykładzie zainstalujemy Collie.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Instalowanie Omarchy
+## Instalowanie Collie
 
-Proces instalacji Omarchy jest w praktyce taki sam jak zwykle. Po wybraniu dysku otrzymasz opcję **Free space install**. Wybierz tę opcję, aby zapobiec wyczyszczeniu całego dysku.
+Proces instalacji Collie jest w praktyce taki sam jak zwykle. Po wybraniu dysku otrzymasz opcję **Free space install**. Wybierz tę opcję, aby zapobiec wyczyszczeniu całego dysku.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Potwierdź, że wszystko wygląda dobrze, i poczekaj na zakończenie instalacji 
 
 ## Dodawanie innych instalacji do bootloadera
 
-Po zakończeniu instalacji Omarchy zauważysz, że domyślnym bootloaderem jest teraz Limine. Dzięki temu możesz również dodać do Limine opcje dla innych instalacji, takich jak Windows.
+Po zakończeniu instalacji Collie zauważysz, że domyślnym bootloaderem jest teraz Limine. Dzięki temu możesz również dodać do Limine opcje dla innych instalacji, takich jak Windows.
 
-Aby dodać inne systemy operacyjne, uruchom `limine-scan` i postępuj zgodnie z instrukcjami, aby dodać wybrane wpisy do konfiguracji Limine. Menu rozruchowe pozostaje domyślnie ukryte i po jednej sekundzie uruchamia Omarchy. Aby wybrać Windows lub inny wpis, naciśnij dowolny klawisz, gdy tylko uruchomi się Limine; gdy pojawi się menu, użyj klawiszy strzałek, aby wybrać wpis, i naciśnij Enter. Jeśli Omarchy uruchomi się, zanim naciśniesz klawisz, uruchom ponownie i spróbuj jeszcze raz. Jeśli włączyłeś _Setup > Direct Boot_, oprogramowanie układowe całkowicie pomija Limine, więc wybierz Limine z menu rozruchowego BIOS lub uruchom ponownie _Setup > Direct Boot_, aby usunąć wpis.
+Aby dodać inne systemy operacyjne, uruchom `limine-scan` i postępuj zgodnie z instrukcjami, aby dodać wybrane wpisy do konfiguracji Limine. Menu rozruchowe pozostaje domyślnie ukryte i po jednej sekundzie uruchamia Collie. Aby wybrać Windows lub inny wpis, naciśnij dowolny klawisz, gdy tylko uruchomi się Limine; gdy pojawi się menu, użyj klawiszy strzałek, aby wybrać wpis, i naciśnij Enter. Jeśli Collie uruchomi się, zanim naciśniesz klawisz, uruchom ponownie i spróbuj jeszcze raz. Jeśli włączyłeś _Setup > Direct Boot_, oprogramowanie układowe całkowicie pomija Limine, więc wybierz Limine z menu rozruchowego BIOS lub uruchom ponownie _Setup > Direct Boot_, aby usunąć wpis.
 
 ## Bitlocker
 

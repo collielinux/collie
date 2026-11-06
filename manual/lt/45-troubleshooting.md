@@ -2,23 +2,23 @@
 
 ### Atnaujinimas sugadino mano sistemą!
 
-Pirmiausia pabandykite [atstatyti sistemą](47-system-snapshots.md) į versiją, buvusią prieš neseniai atliktą atnaujinimą. Jei tai nepadeda, naudokite `omarchy-debug`, kad pasidalintumėte problema #omarchy-help kanale Discord serveryje. O jei visa tai nepadės, galite iš naujo įdiegti numatytąsias konfigūracijas ir paketus naudodami `omarchy-reinstall`.
+Pirmiausia pabandykite [atstatyti sistemą](47-system-snapshots.md) į versiją, buvusią prieš neseniai atliktą atnaujinimą. Jei tai nepadeda, naudokite `collie-debug`, kad pasidalintumėte problema #collie-help kanale Discord serveryje. O jei visa tai nepadės, galite iš naujo įdiegti numatytąsias konfigūracijas ir paketus naudodami `collie-reinstall`.
 
 ### Kodėl kai kurios programos mano ekrane tokios didelės?
 
-Omarchy pagal numatytuosius nustatymus naudoja 2x didelės raiškos ekraną, todėl `GDK_SCALE` nustato į 2, kol monitoriaus skydelyje nepasirinksite mastelio. Jei naudojate 1x ekraną ir GTK arba X11 programos rodomos per didelės, monitoriaus skydelyje jam pasirinkite 1x arba pridėkite `hl.env("GDK_SCALE", "1")` į `~/.config/hypr/monitors.lua` (o tada iš naujo paleiskite visas per dideles programas). Žr. [vadovą apie monitorius](33-monitors.md).
+Collie pagal numatytuosius nustatymus naudoja 2x didelės raiškos ekraną, todėl `GDK_SCALE` nustato į 2, kol monitoriaus skydelyje nepasirinksite mastelio. Jei naudojate 1x ekraną ir GTK arba X11 programos rodomos per didelės, monitoriaus skydelyje jam pasirinkite 1x arba pridėkite `hl.env("GDK_SCALE", "1")` į `~/.config/hypr/monitors.lua` (o tada iš naujo paleiskite visas per dideles programas). Žr. [vadovą apie monitorius](33-monitors.md).
 
 Spotify programoje sąsają galite sumažinti paspaudę `Ctrl + Minus` (o padidinti – `Ctrl + Plus`).
 
 ### Kodėl nustojo veikti visi mano Super klavišo susiejimai?
 
-Kai kuriuose ASUS ROG ir TUF nešiojamuosiuose kompiuteriuose `Fn + Super` yra lengvai nepastebimas derinys, kuris perjungia aparatinės įrangos Windows klavišo užraktą (skirtą žaidimams, kad netyčia neišeitumėte iš žaidimo). Ekrane apie tai niekas nepraneša. Kol užraktas įjungtas, Super nieko neišveda – todėl visi Omarchy susiejimai, kuriuose naudojamas Super, tiesiog nustoja veikti, ir atrodo, kad sugedo Hyprland.
+Kai kuriuose ASUS ROG ir TUF nešiojamuosiuose kompiuteriuose `Fn + Super` yra lengvai nepastebimas derinys, kuris perjungia aparatinės įrangos Windows klavišo užraktą (skirtą žaidimams, kad netyčia neišeitumėte iš žaidimo). Ekrane apie tai niekas nepraneša. Kol užraktas įjungtas, Super nieko neišveda – todėl visi Collie susiejimai, kuriuose naudojamas Super, tiesiog nustoja veikti, ir atrodo, kad sugedo Hyprland.
 
 Prieš lįsdami į `~/.config/hypr/`, vieną kartą paspauskite `Fn + Super`, o jei Super neatsiranda, paspauskite dar kartą, kad nepaliktumėte įjungto užrakto. Tai nėra Fn-lock, kuris keičia tik tai, kaip veikia F klavišų eilutė.
 
 ### Nustojo veikti mano Wi-Fi, Bluetooth, garsas ar jutiklinė plokštė
 
-Prieš perkraudami, pabandykite iš naujo paleisti tik sugedusį posistemį atskirai. _Update > Hardware_ Omarchy meniu yra Wi-Fi, Bluetooth, Audio ir Trackpad, ir kurio nors iš jų paleidimas iš naujo išsprendžia didžiąją dalį „prieš penkias minutes viskas veikė“ situacijų – Bluetooth ausinių, kurios neprisijungia iš naujo, jutiklinės plokštės, kuri nustojo veikti po pristabdymo, garso, kuris dingo atjungus monitorių.
+Prieš perkraudami, pabandykite iš naujo paleisti tik sugedusį posistemį atskirai. _Update > Hardware_ Collie meniu yra Wi-Fi, Bluetooth, Audio ir Trackpad, ir kurio nors iš jų paleidimas iš naujo išsprendžia didžiąją dalį „prieš penkias minutes viskas veikė“ situacijų – Bluetooth ausinių, kurios neprisijungia iš naujo, jutiklinės plokštės, kuri nustojo veikti po pristabdymo, garso, kuris dingo atjungus monitorių.
 
 ### Kodėl neveikia mano išoriniai garsiakalbiai?
 
@@ -26,7 +26,7 @@ Tikriausiai todėl, kad jie nenustatyti kaip pagrindinis išvesties įrenginys. 
 
 ### Mano nešiojamojo kompiuterio garsiakalbiai skamba keistai
 
-Kai kuriuose nešiojamuosiuose kompiuteriuose Omarchy automatiškai pritaiko garsiakalbių derinimą, kuris pakoreguoja įmontuotų garsiakalbių dažninę charakteristiką. `omarchy audio tuning status` parodys, ar toks derinimas aktyvus jūsų kompiuteryje, o `omarchy audio tuning off` jį išjungs, jei verčiau norite klausytis neapdoroto garsiakalbių skambesio.
+Kai kuriuose nešiojamuosiuose kompiuteriuose Collie automatiškai pritaiko garsiakalbių derinimą, kuris pakoreguoja įmontuotų garsiakalbių dažninę charakteristiką. `collie audio tuning status` parodys, ar toks derinimas aktyvus jūsų kompiuteryje, o `collie audio tuning off` jį išjungs, jei verčiau norite klausytis neapdoroto garsiakalbių skambesio.
 
 ### Kodėl negaliu prisijungti ar naudoti sudo su slaptažodžiu?
 

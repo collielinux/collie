@@ -21,14 +21,14 @@ write_backlights() {
 # unless a case writes one, whatever the machine running the suite has installed.
 platform_root="$tmp_dir/platform"
 mkdir -p "$platform_root" "$tmp_dir/bin"
-platform_root_copy "$ROOT/bin/omarchy-hw-display" "$tmp_dir/bin/omarchy-hw-display" "$platform_root"
+platform_root_copy "$ROOT/bin/collie-hw-display" "$tmp_dir/bin/collie-hw-display" "$platform_root"
 
 write_displays_conf() {
   printf '%s\n' "$@" >"$platform_root/displays.conf"
 }
 
 hw_display() {
-  OMARCHY_BACKLIGHT_PATH="$tmp_dir/backlight" "$tmp_dir/bin/omarchy-hw-display"
+  COLLIE_BACKLIGHT_PATH="$tmp_dir/backlight" "$tmp_dir/bin/collie-hw-display"
 }
 
 write_backlights intel_backlight
@@ -141,7 +141,7 @@ device=$(hw_display)
 [[ $device == "acpi_video0" ]] || fail "a directive with a trailing comment is ignored" "actual: $device"
 pass "malformed directives are ignored and the last line is read"
 
-# omarchy-hw-external-monitors: a connected connector that is not a built-in
+# collie-hw-external-monitors: a connected connector that is not a built-in
 # panel counts as an external display.
 drm_path="$tmp_dir/drm"
 
@@ -160,7 +160,7 @@ write_connectors() {
 }
 
 has_external_monitor() {
-  OMARCHY_DRM_PATH="$drm_path" "$ROOT/bin/omarchy-hw-external-monitors"
+  COLLIE_DRM_PATH="$drm_path" "$ROOT/bin/collie-hw-external-monitors"
 }
 
 write_connectors

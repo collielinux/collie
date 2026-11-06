@@ -8,7 +8,7 @@ Suíonn gach meareochair ar phlána, arna shocrú ag a modhnóirí, agus tá pos
 
 | Plána | Cad atá ann | Samplaí |
 | --- | --- | --- |
-| `Super + key` | An córas: fuinneoga, spásanna oibre, leaganacha amach, agus croí-roghchláir | `Super + Space` roghchlár Omarchy, `Super + W` dún an fhuinneog, `Super + F` scáileán iomlán |
+| `Super + key` | An córas: fuinneoga, spásanna oibre, leaganacha amach, agus croí-roghchláir | `Super + Space` roghchlár Collie, `Super + W` dún an fhuinneog, `Super + F` scáileán iomlán |
 | `Super + Shift + key` | Aipeanna | `Super + Shift + B` brabhsálaí, `Super + Shift + E` ríomhphost, `Super + Shift + N` eagarthóir |
 | `Super + Ctrl + key` | Painéil agus roghchláir an chórais | `Super + Ctrl + A` fuaim, `Super + Ctrl + N` líonra, `Super + Ctrl + C` roghchlár gabhála |
 | `Super + Ctrl + Alt + key` | Gníomhartha tapa agus fógraí | `Super + Ctrl + Alt + T` taispeáin an t-am, `Super + Ctrl + Alt + B` ceallra, `Super + Ctrl + Alt + C` gabháil scáileáin |
@@ -34,7 +34,7 @@ Mura n-oireann réamhshocrú duit (abair gur mian leat `Super + Shift + S` le ha
 
 | Meareochair                  | Feidhm              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Roghchlár Omarchy (aipeanna agus gach rud eile)    |
+| `Super + Space`           | Roghchlár Collie (aipeanna agus gach rud eile)    |
 | `Super + Alt + Space` | Greille aipeanna |
 | `Super + Escape` | Roghchlár an chórais (cur ar fionraí, atosú, srl.)  |
 | `Super + Ctrl + L` | Glasáil an ríomhaire |
@@ -171,7 +171,7 @@ Athraigh/cuir ceangail in `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Greamaigh    |
 | `Super + Ctrl + V`           | Bainisteoir gearrthaisce    |
 
-De ghnáth ar Linux, teastaíonn `Ctrl + Shift + C/V` uait chun cóipeáil agus greamú a dhéanamh sa teirminéal agus `Ctrl + C/V` chun é a dhéanamh i ngach áit eile. Oibríonn na meareochracha aontaithe gearrthaisce Omarchy seo i ngach áit.
+De ghnáth ar Linux, teastaíonn `Ctrl + Shift + C/V` uait chun cóipeáil agus greamú a dhéanamh sa teirminéal agus `Ctrl + C/V` chun é a dhéanamh i ngach áit eile. Oibríonn na meareochracha aontaithe gearrthaisce Collie seo i ngach áit.
 
 ## Gabháil
 
@@ -192,7 +192,7 @@ De ghnáth ar Linux, teastaíonn `Ctrl + Shift + C/V` uait chun cóipeáil agus 
 
 Le taifeadtaí scáileáin, fiafraíonn an mheareochair ar dtús cén fhuaim atá uait, ansin tosaíonn sí ag taifeadadh. Brúigh arís í chun stopadh. Féach [gabhálacha scáileáin agus taifeadadh](12-screenshots-recording.md) le haghaidh na sonraí.
 
-Tá gach rogha gabhála ar fáil freisin faoi _Trigger > Capture_ sa roghchlár Omarchy (`Super + Space`).
+Tá gach rogha gabhála ar fáil freisin faoi _Trigger > Capture_ sa roghchlár Collie (`Super + Space`).
 
 ## Fógraí
 
@@ -214,9 +214,9 @@ Tá gach rogha gabhála ar fáil freisin faoi _Trigger > Capture_ sa roghchlár 
 | `Super + Backspace` | Scoránaigh trédhearcacht ar fhuinneog |
 | `Super + Ctrl + Backspace` | Scoránaigh gné chearnógach aonfhuinneoige |
 
-Cónaíonn íomhánna cúlra breise in `~/.config/omarchy/backgrounds/<theme name>`. Ar fáil freisin trí _Install > Style > Background_ sa roghchlár Omarchy.
+Cónaíonn íomhánna cúlra breise in `~/.config/collie/backgrounds/<theme name>`. Ar fáil freisin trí _Install > Style > Background_ sa roghchlár Collie.
 
-Tá gach rogha stíle ar fáil freisin faoi _Style_ sa roghchlár Omarchy (`Super + Space`).
+Tá gach rogha stíle ar fáil freisin faoi _Style_ sa roghchlár Collie (`Super + Space`).
 
 ## Scoráin
 
@@ -317,7 +317,7 @@ Ní mór na feidhmeanna seo a rith taobh istigh de sheisiún Tmux.
 
 ## Teirminéal Ghostty
 
-Suiteáiltear teirminéal Ghostty le _Install > Terminal_ tríd an roghchlár Omarchy.
+Suiteáiltear teirminéal Ghostty le _Install > Terminal_ tríd an roghchlár Collie.
 
 | Meareochair                  | Feidhm              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Is féidir leat `Super + Ctrl + E` a úsáid chun roghnóir emoji iomlán a thai
 | `Shift + CapsLock Space N` | D'ainm (mar a cuireadh isteach é ag an socrú)  |
 | `Shift + CapsLock Space E` | Do ríomhphost (mar a cuireadh isteach é ag an socrú)  |
 
-Is féidir leat tuilleadh dod' chuid féin a chur leis trí `~/.XCompose` a chur in eagar, ansin `omarchy-restart-xcompose` a rith sa teirminéal chun na hathruithe a phiocadh suas.
+Is féidir leat tuilleadh dod' chuid féin a chur leis trí `~/.XCompose` a chur in eagar, ansin `collie-restart-xcompose` a rith sa teirminéal chun na hathruithe a phiocadh suas.

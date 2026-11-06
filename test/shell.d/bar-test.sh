@@ -5,9 +5,9 @@ set -euo pipefail
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
 # The command fixture follows the runtime invariant and reads defaults through
-# OMARCHY_PATH. Point it at this checkout rather than whichever install launched
-# the test (or nothing at all on a non-Omarchy development machine).
-export OMARCHY_PATH="$ROOT"
+# COLLIE_PATH. Point it at this checkout rather than whichever install launched
+# the test (or nothing at all on a non-Collie development machine).
+export COLLIE_PATH="$ROOT"
 
 run_node_test <<'JS'
 const fs = require('fs')
@@ -16,8 +16,8 @@ const bar = requireFromRoot('shell/plugins/bar/BarModel.js')
 // A widget's slot can be on the bar without being drawn (hidden by the
 // widget, or folded away by a drag), so panel routing has to pick the one
 // that is actually on screen, whichever registered first.
-const drawn = { moduleName: 'omarchy.clock', visible: true, width: 28, height: 81 }
-const undrawn = { moduleName: 'omarchy.clock', visible: true, width: 0, height: 26 }
+const drawn = { moduleName: 'collie.clock', visible: true, width: 28, height: 81 }
+const undrawn = { moduleName: 'collie.clock', visible: true, width: 0, height: 26 }
 assertEqual(bar.isDrawnSlot(drawn), true, 'bar recognises a drawn slot')
 assertEqual(bar.isDrawnSlot(undrawn), false, 'bar recognises a slot with nothing drawn')
 assertEqual(bar.pickDrawnSlot([undrawn, drawn]), drawn, 'bar picks the drawn slot when an undrawn one registers first')
@@ -60,8 +60,8 @@ assertEqual(peekRun([between, { x: 1050, y: 10 }, { x: 1050, y: 10 }]).join(), '
 
 // A bar surface is built per monitor, so a panel hotkey has one live copy of
 // the widget per screen to choose between.
-const internal = { moduleName: 'omarchy.audio', visible: true, width: 28, height: 81 }
-const external = { moduleName: 'omarchy.audio', visible: true, width: 28, height: 81 }
+const internal = { moduleName: 'collie.audio', visible: true, width: 28, height: 81 }
+const external = { moduleName: 'collie.audio', visible: true, width: 28, height: 81 }
 const row = (slot, screenName, opened) => ({ slot, screenName, opened: opened === true })
 const copies = [row(internal, 'eDP-1'), row(external, 'DP-1')]
 assertEqual(
@@ -160,7 +160,7 @@ const strayConfig = { bar: { layout: { left: [42, 'a', {}, 'b', 'c'] } } }
 assertEqual(bar.moveEntry(strayConfig, { from: { region: 'left', index: 2, id: 'c' }, to: { region: 'left', index: 1 } }), true, 'a drag moves by the bar\'s indexes past entries it leaves out')
 assertDeepEqual(strayConfig.bar.layout.left, [42, 'a', {}, 'c', 'b'], 'the move lands among the widgets the bar drew, leaving the rest alone')
 const aliasConfig = { bar: { layout: { left: ['clock', 'b'] } } }
-assertEqual(bar.moveEntry(aliasConfig, { from: { region: 'left', index: 0, id: 'omarchy.clock' }, to: { region: 'left', index: -1 } }, entry => entry === 'clock' ? { id: 'omarchy.clock' } : entry), true, 'an entry is matched by the id the bar knows it by')
+assertEqual(bar.moveEntry(aliasConfig, { from: { region: 'left', index: 0, id: 'collie.clock' }, to: { region: 'left', index: -1 } }, entry => entry === 'clock' ? { id: 'collie.clock' } : entry), true, 'an entry is matched by the id the bar knows it by')
 assertDeepEqual(aliasConfig.bar.layout.left, ['b', 'clock'], 'and moved as it is written')
 
 // A widget dragged off the bar leaves just its own entry, found as a move
@@ -303,9 +303,9 @@ assertDeepEqual(bar.fadeShares({ 'right:0': 0.5, 'centerEnd:1': 0.5 }, 'centerEn
 
 assertEqual(bar.normalizePosition('left'), 'left', 'bar accepts valid positions')
 assertEqual(bar.normalizePosition('sideways'), 'top', 'bar defaults invalid positions')
-assertDeepEqual(bar.entrySettings({ id: 'omarchy.clock', format: 'HH:mm' }), { format: 'HH:mm' }, 'bar extracts entry settings')
-assertEqual(bar.entryId({ id: 'omarchy.clock' }), 'omarchy.clock', 'bar extracts object entry ids')
-assertEqual(bar.entryId('omarchy.clock'), 'omarchy.clock', 'bar extracts string entry ids')
+assertDeepEqual(bar.entrySettings({ id: 'collie.clock', format: 'HH:mm' }), { format: 'HH:mm' }, 'bar extracts entry settings')
+assertEqual(bar.entryId({ id: 'collie.clock' }), 'collie.clock', 'bar extracts object entry ids')
+assertEqual(bar.entryId('collie.clock'), 'collie.clock', 'bar extracts string entry ids')
 
 // The section list lives in Util for QML and in BarModel and TrayModel for
 // plain JS; all three run the bar the same way.
@@ -315,7 +315,7 @@ assertDeepEqual(bar.sections, ['left', 'centerBegin', 'center', 'centerEnd', 'ri
 assertDeepEqual(utilSections, bar.sections, 'Util and BarModel list the same bar sections')
 const trayModel = requireFromRoot('shell/plugins/bar/widgets/TrayModel.js')
 for (const section of bar.sections)
-  assert(trayModel.layoutHasWidget({ [section]: ['omarchy.dropbox'] }, 'omarchy.dropbox'), `the tray finds a widget in ${section}`)
+  assert(trayModel.layoutHasWidget({ [section]: ['collie.dropbox'] }, 'collie.dropbox'), `the tray finds a widget in ${section}`)
 
 // Panel tabbing and positional hotkeys take the center as one section.
 for (const region of ['centerBegin', 'center', 'centerEnd'])
@@ -392,14 +392,14 @@ assertDeepEqual(bar.sectionDropZone({ x: 4, y: 300, width: 20, height: 30 }, 28,
 // Two entries with one id keep their own widgets: by their settings first,
 // then in order.
 const dupeMemo = {}
-const dupes = bar.layoutWidgets({ centerBegin: [{ id: 'omarchy.indicators', items: ['Dnd'] }], right: [{ id: 'omarchy.indicators', items: ['NightLight'] }] }, dupeMemo)
+const dupes = bar.layoutWidgets({ centerBegin: [{ id: 'collie.indicators', items: ['Dnd'] }], right: [{ id: 'collie.indicators', items: ['NightLight'] }] }, dupeMemo)
 const dnd = dupes.sections.centerBegin[0]
 const night = dupes.sections.right[0]
 assert(dnd !== night, 'repeated widgets get keys of their own')
-const dupesMoved = bar.layoutWidgets({ left: [{ id: 'omarchy.indicators', items: ['NightLight'] }], centerBegin: [{ id: 'omarchy.indicators', items: ['Dnd'] }] }, dupeMemo)
+const dupesMoved = bar.layoutWidgets({ left: [{ id: 'collie.indicators', items: ['NightLight'] }], centerBegin: [{ id: 'collie.indicators', items: ['Dnd'] }] }, dupeMemo)
 assertEqual(dupesMoved.sections.left[0], night, 'one of two entries with one id moved past the other keeps its own widget')
 assertEqual(dupesMoved.sections.centerBegin[0], dnd, 'as does the other')
-const dupesChanged = bar.layoutWidgets({ left: [{ id: 'omarchy.indicators', items: ['NightLight'] }], centerBegin: [{ id: 'omarchy.indicators', items: ['Dnd', 'Reminder'] }] }, dupeMemo)
+const dupesChanged = bar.layoutWidgets({ left: [{ id: 'collie.indicators', items: ['NightLight'] }], centerBegin: [{ id: 'collie.indicators', items: ['Dnd', 'Reminder'] }] }, dupeMemo)
 assertDeepEqual([dupesChanged.sections.left[0], dupesChanged.sections.centerBegin[0]], [night, dnd], 'the one whose settings changed takes the widget its id has left over')
 // One of two entries with one id changing, or going, leaves the other with
 // its own widget, in its own section.
@@ -509,8 +509,8 @@ assert(!bar.customModuleSafeName('../escape'), 'bar rejects path traversal custo
 assertEqual(bar.customModuleType({ id: 'custom', exec: 'date' }), 'command', 'bar infers command custom modules')
 assertEqual(bar.customModuleType({ id: 'custom', source: '~/Custom.qml' }), 'qml', 'bar infers qml custom modules')
 assertEqual(
-  bar.customModulePath({ id: 'local.weather' }, '/home/dhh', '/home/dhh/.config/omarchy'),
-  '/home/dhh/.config/omarchy/bar/modules/local.weather.qml',
+  bar.customModulePath({ id: 'local.weather' }, '/home/dhh', '/home/dhh/.config/collie'),
+  '/home/dhh/.config/collie/bar/modules/local.weather.qml',
   'bar builds default custom module paths'
 )
 JS
@@ -518,33 +518,33 @@ JS
 put_tmp=$(mktemp -d)
 trap 'rm -rf "$put_tmp"' EXIT
 mkdir -p "$put_tmp/bin"
-ln -s "$ROOT/bin/omarchy-shell-config" "$put_tmp/bin/omarchy-shell-config"
+ln -s "$ROOT/bin/collie-shell-config" "$put_tmp/bin/collie-shell-config"
 
-cat >"$put_tmp/bin/omarchy-shell" <<'STUB'
+cat >"$put_tmp/bin/collie-shell" <<'STUB'
 #!/bin/bash
-case ${OMARCHY_TEST_SHELL_STATE:-ready} in
+case ${COLLIE_TEST_SHELL_STATE:-ready} in
   missing)
-    echo "omarchy-shell is not running" >&2
+    echo "collie-shell is not running" >&2
     exit 1
     ;;
   starting)
-    echo "omarchy-shell is not ready" >&2
+    echo "collie-shell is not ready" >&2
     exit 1
     ;;
   crashing)
     # Seen coming up, then gone.
-    if [[ -e $OMARCHY_TEST_SHELL_MARKER ]]; then
-      echo "omarchy-shell is not running" >&2
+    if [[ -e $COLLIE_TEST_SHELL_MARKER ]]; then
+      echo "collie-shell is not running" >&2
     else
-      touch "$OMARCHY_TEST_SHELL_MARKER"
-      echo "omarchy-shell is not ready" >&2
+      touch "$COLLIE_TEST_SHELL_MARKER"
+      echo "collie-shell is not ready" >&2
     fi
     exit 1
     ;;
   oldshell)
     # A shell from before put learned to fall back.
     if [[ $4 == *"after"* ]]; then
-      echo "could not find target widget omarchy.clock"
+      echo "could not find target widget collie.clock"
     else
       echo "ok"
     fi
@@ -552,20 +552,20 @@ case ${OMARCHY_TEST_SHELL_STATE:-ready} in
     ;;
   spawning)
     # Launched, but with no socket to answer on yet.
-    if [[ ! -e $OMARCHY_TEST_SHELL_MARKER ]]; then
-      touch "$OMARCHY_TEST_SHELL_MARKER"
-      echo "omarchy-shell is not running" >&2
+    if [[ ! -e $COLLIE_TEST_SHELL_MARKER ]]; then
+      touch "$COLLIE_TEST_SHELL_MARKER"
+      echo "collie-shell is not running" >&2
       exit 1
     fi
     ;;
   vanishing)
     # Answers the first ask, then is gone before the fallback lands.
-    if [[ ! -e $OMARCHY_TEST_SHELL_MARKER ]]; then
-      touch "$OMARCHY_TEST_SHELL_MARKER"
-      echo "could not find target widget omarchy.clock"
+    if [[ ! -e $COLLIE_TEST_SHELL_MARKER ]]; then
+      touch "$COLLIE_TEST_SHELL_MARKER"
+      echo "could not find target widget collie.clock"
       exit 0
     fi
-    echo "omarchy-shell is not running" >&2
+    echo "collie-shell is not running" >&2
     exit 1
     ;;
   unsupported)
@@ -575,22 +575,22 @@ case ${OMARCHY_TEST_SHELL_STATE:-ready} in
     ;;
   flapping)
     # IPC timeout on every ask: the 2s default window keeps expiring.
-    echo >>"$OMARCHY_TEST_SHELL_MARKER"
-    echo "omarchy-shell is not responding" >&2
+    echo >>"$COLLIE_TEST_SHELL_MARKER"
+    echo "collie-shell is not responding" >&2
     exit 1
     ;;
   slow)
     # Misses the IPC window once, then answers.
-    if [[ ! -e $OMARCHY_TEST_SHELL_MARKER ]]; then
-      touch "$OMARCHY_TEST_SHELL_MARKER"
-      echo "omarchy-shell is not responding" >&2
+    if [[ ! -e $COLLIE_TEST_SHELL_MARKER ]]; then
+      touch "$COLLIE_TEST_SHELL_MARKER"
+      echo "collie-shell is not responding" >&2
       exit 1
     fi
     ;;
   scanning)
     # Answering IPC, but has not read the plugins yet.
-    if [[ ! -e $OMARCHY_TEST_SHELL_MARKER ]]; then
-      touch "$OMARCHY_TEST_SHELL_MARKER"
+    if [[ ! -e $COLLIE_TEST_SHELL_MARKER ]]; then
+      touch "$COLLIE_TEST_SHELL_MARKER"
       echo "not ready"
       exit 0
     fi
@@ -598,82 +598,82 @@ case ${OMARCHY_TEST_SHELL_STATE:-ready} in
 esac
 echo "ok"
 STUB
-chmod +x "$put_tmp/bin/omarchy-shell"
+chmod +x "$put_tmp/bin/collie-shell"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=missing \
-  OMARCHY_SHELL_ABSENT_ATTEMPTS=2 \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=missing \
+  COLLIE_SHELL_ABSENT_ATTEMPTS=2 \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put carries on when no shell is running" "$put_output"
 [[ $put_output == *"is not running"* ]] || fail "put says why it placed nothing" "$put_output"
 pass "put carries on when no shell is running"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=spawning \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/spawned" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=spawning \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/spawned" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put waits for a shell that is being spawned" "$put_output"
-[[ $put_output == "omarchy.keyboard-layout is on the bar" ]] || fail "put places once the shell answers" "$put_output"
+[[ $put_output == "collie.keyboard-layout is on the bar" ]] || fail "put places once the shell answers" "$put_output"
 pass "put waits for a shell that is being spawned"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=starting OMARCHY_SHELL_READY_ATTEMPTS=2 \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=starting COLLIE_SHELL_READY_ATTEMPTS=2 \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put carries on when the shell never becomes ready" "$put_output"
 [[ $put_output == *"did not become ready"* ]] || fail "put says the shell never became ready" "$put_output"
 pass "put carries on when the shell never becomes ready"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=slow \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/slow" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=slow \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/slow" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put asks again after a timeout" "$put_output"
-[[ $put_output == *"omarchy.keyboard-layout is on the bar" ]] || fail "put places once the shell answers in time" "$put_output"
+[[ $put_output == *"collie.keyboard-layout is on the bar" ]] || fail "put places once the shell answers in time" "$put_output"
 pass "put asks again when the shell misses the IPC window"
 
 # A shell that answers nothing but IPC timeouts must be carried on from the
 # same way: failing the first timeout wedges every subsequent update on a
 # shell that keeps missing the 2s window (omacom/omarchy#13301), and asking
 # it the full ready budget holds the update for over a minute.
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=flapping OMARCHY_SHELL_TIMEOUT_ATTEMPTS=2 \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/timeouts" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=flapping COLLIE_SHELL_TIMEOUT_ATTEMPTS=2 \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/timeouts" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put carries on when the shell only times out" "$put_output"
 [[ $put_output == *"did not become ready"* ]] || fail "put says the shell never settled" "$put_output"
 (( $(wc -l <"$put_tmp/timeouts") == 2 )) || fail "put stops asking a shell that keeps timing out" "$put_output"
 pass "put gives up on a shell that keeps timing out"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=crashing \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/started" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=crashing \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/started" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put carries on when a starting shell disappears" "$put_output"
 [[ $put_output == *"did not become ready"* ]] || fail "put keeps a lost shell retryable" "$put_output"
 pass "put carries on when a starting shell disappears"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=oldshell \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=oldshell \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put falls back against a shell that has not restarted yet" "$put_output"
-[[ $put_output == "omarchy.keyboard-layout is on the bar" ]] || fail "put places without the missing neighbour" "$put_output"
+[[ $put_output == "collie.keyboard-layout is on the bar" ]] || fail "put places without the missing neighbour" "$put_output"
 pass "put falls back against a shell that has not restarted yet"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=vanishing \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/vanished" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=vanishing \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/vanished" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put carries on when the shell goes away mid-fallback" "$put_output"
 [[ $put_output == *"did not become ready"* ]] || fail "put remembers the shell answered once" "$put_output"
 pass "put carries on when the shell goes away mid-fallback"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=unsupported \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) &&
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=unsupported \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) &&
   fail "put fails when the shell cannot answer the call" "$put_output"
 [[ $put_output == *"Function not found"* ]] || fail "put passes on what the shell said" "$put_output"
 pass "put fails when the shell cannot answer the call"
 
-put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" OMARCHY_TEST_SHELL_STATE=scanning \
-  OMARCHY_TEST_SHELL_MARKER="$put_tmp/scanned" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" COLLIE_TEST_SHELL_STATE=scanning \
+  COLLIE_TEST_SHELL_MARKER="$put_tmp/scanned" \
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put asks again while the shell is still reading its plugins" "$put_output"
-[[ $put_output == "omarchy.keyboard-layout is on the bar" ]] || fail "put places once the plugins are read" "$put_output"
+[[ $put_output == "collie.keyboard-layout is on the bar" ]] || fail "put places once the plugins are read" "$put_output"
 pass "put asks again while the shell is still reading its plugins"
 
 put_output=$(PATH="$put_tmp/bin:$ROOT/bin:$PATH" \
-  "$ROOT/bin/omarchy-bar" put omarchy.keyboard-layout --after omarchy.clock 2>&1) ||
+  "$ROOT/bin/collie-bar" put collie.keyboard-layout --after collie.clock 2>&1) ||
   fail "put places a widget through a ready shell" "$put_output"
-[[ $put_output == "omarchy.keyboard-layout is on the bar" ]] || fail "put reports the placed widget" "$put_output"
+[[ $put_output == "collie.keyboard-layout is on the bar" ]] || fail "put reports the placed widget" "$put_output"
 pass "put places a widget through a ready shell"

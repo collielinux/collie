@@ -1,16 +1,16 @@
 # Mac 支持
 
-Omarchy 内置支持 **Intel Macs**。目前有几个已知限制，但只要你了解并能接受这些限制；你就可以通过安装 Omarchy 让你的旧 Mac 焕发新生。
+Collie 内置支持 **Intel Macs**。目前有几个已知限制，但只要你了解并能接受这些限制；你就可以通过安装 Collie 让你的旧 Mac 焕发新生。
 
-请注意，目前不直接支持在 M 系列 Mac 上安装。你可以在我们的 [Discord](https://discord.gg/tXFUdasqhY) 中的 #omarchy-on-other 频道了解这方面的更多最新情况。
+请注意，目前不直接支持在 M 系列 Mac 上安装。你可以在我们的 [Discord](https://discord.gg/tXFUdasqhY) 中的 #collie-on-other 频道了解这方面的更多最新情况。
 
-在一次简单的测试中，我们仅通过安装 Omarchy，就在一台 2019 款 MacBook Pro 上实现了 36% 的性能提升。
+在一次简单的测试中，我们仅通过安装 Collie，就在一台 2019 款 MacBook Pro 上实现了 36% 的性能提升。
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### 在 Mac 上安装 Omarchy
+### 在 Mac 上安装 Collie
 
-Omarchy 目前仅支持作为**唯一**安装的操作系统。安装过程中，硬盘将被抹除，MacOS 将不再可启动。
+Collie 目前仅支持作为**唯一**安装的操作系统。安装过程中，硬盘将被抹除，MacOS 将不再可启动。
 
 之后如果你愿意，仍然可以通过 Internet Recovery 恢复它。
 
@@ -39,7 +39,7 @@ Omarchy 目前仅支持作为**唯一**安装的操作系统。安装过程中�
 
 ### 已知限制
 
-社区成员一直在努力寻找解决这些难题的方案，所以如果这些问题对你有影响，请加入我们 [Discord](https://discord.gg/tXFUdasqhY) 中的 #omarchy-on-other 频道，看看是否有最新的解决方法。
+社区成员一直在努力寻找解决这些难题的方案，所以如果这些问题对你有影响，请加入我们 [Discord](https://discord.gg/tXFUdasqhY) 中的 #collie-on-other 频道，看看是否有最新的解决方法。
 
 #### 配备 T1 芯片的设备
 

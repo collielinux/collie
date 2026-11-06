@@ -8,10 +8,10 @@ run_application_bindings() {
   local home="$1"
   local prelude="${2:-}"
 
-  HOME="$home" XDG_CONFIG_HOME="$home/.config" XDG_STATE_HOME="$home/.local/state" OMARCHY_PATH="$ROOT" OMARCHY_BINDING_PRELUDE="$prelude" lua - <<'LUA'
-package.path = os.getenv("HOME") .. "/.config/?.lua;" .. os.getenv("OMARCHY_PATH") .. "/?.lua;" .. package.path
+  HOME="$home" XDG_CONFIG_HOME="$home/.config" XDG_STATE_HOME="$home/.local/state" COLLIE_PATH="$ROOT" COLLIE_BINDING_PRELUDE="$prelude" lua - <<'LUA'
+package.path = os.getenv("HOME") .. "/.config/?.lua;" .. os.getenv("COLLIE_PATH") .. "/?.lua;" .. package.path
 
-local prelude = os.getenv("OMARCHY_BINDING_PRELUDE") or ""
+local prelude = os.getenv("COLLIE_BINDING_PRELUDE") or ""
 if prelude ~= "" then
   assert(load(prelude))()
 end
@@ -35,12 +35,12 @@ require("default.hypr.bindings.applications")
 LUA
 }
 
-run_omarchy_bindings() {
+run_collie_bindings() {
   local home="$1"
   local prelude="${2:-}"
 
-  HOME="$home" XDG_CONFIG_HOME="$home/.config" XDG_STATE_HOME="$home/.local/state" OMARCHY_PATH="$ROOT" OMARCHY_BINDING_PRELUDE="$prelude" lua - <<'LUA'
-package.path = os.getenv("HOME") .. "/.config/?.lua;" .. os.getenv("OMARCHY_PATH") .. "/?.lua;" .. package.path
+  HOME="$home" XDG_CONFIG_HOME="$home/.config" XDG_STATE_HOME="$home/.local/state" COLLIE_PATH="$ROOT" COLLIE_BINDING_PRELUDE="$prelude" lua - <<'LUA'
+package.path = os.getenv("HOME") .. "/.config/?.lua;" .. os.getenv("COLLIE_PATH") .. "/?.lua;" .. package.path
 
 local function proxy()
   return setmetatable({}, {
@@ -55,7 +55,7 @@ local function proxy()
   })
 end
 
-local prelude = os.getenv("OMARCHY_BINDING_PRELUDE") or ""
+local prelude = os.getenv("COLLIE_BINDING_PRELUDE") or ""
 if prelude ~= "" then
   assert(load(prelude))()
 end
@@ -91,7 +91,7 @@ hl = setmetatable({
   end,
 })
 
-require("default.hypr.omarchy")
+require("default.hypr.collie")
 LUA
 }
 
@@ -108,9 +108,9 @@ grep -Fq $'XF86Calculator	Calculator' <<<"$fresh_output" || fail "default applic
 pass "default application bindings load from package defaults"
 
 removed_home="$tmpdir/removed-home"
-mkdir -p "$removed_home/.local/state/omarchy"
-touch "$removed_home/.local/state/omarchy/preinstalls-removed"
-removed_output=$(run_omarchy_bindings "$removed_home")
+mkdir -p "$removed_home/.local/state/collie"
+touch "$removed_home/.local/state/collie/preinstalls-removed"
+removed_output=$(run_collie_bindings "$removed_home")
 grep -Fq $'SUPER + RETURN	Terminal' <<<"$removed_output" || fail "preinstall removal keeps essential bindings"
 if grep -Fq $'SUPER + SHIFT + A	ChatGPT' <<<"$removed_output"; then
   fail "preinstall removal skips preinstalled web app bindings"
@@ -122,7 +122,7 @@ pass "preinstall removal flag skips optional application bindings"
 
 variable_home="$tmpdir/variable-home"
 mkdir -p "$variable_home"
-variable_output=$(run_omarchy_bindings "$variable_home" 'omarchy_preinstalled_bindings = false')
+variable_output=$(run_collie_bindings "$variable_home" 'collie_preinstalled_bindings = false')
 grep -Fq $'SUPER + RETURN	Terminal' <<<"$variable_output" || fail "preinstalled binding variable keeps essential bindings"
 if grep -Fq $'SUPER + SHIFT + A	ChatGPT' <<<"$variable_output"; then
   fail "preinstalled binding variable skips optional application bindings"
@@ -134,10 +134,10 @@ pass "preinstalled binding variable skips optional application bindings"
 
 no_bindings_home="$tmpdir/no-bindings-home"
 mkdir -p "$no_bindings_home"
-no_bindings_output=$(run_omarchy_bindings "$no_bindings_home" 'omarchy_default_bindings = false') ||
-  fail "default binding variable disables all Omarchy bindings"
-[[ -z $no_bindings_output ]] || fail "default binding variable disables all Omarchy bindings" "$no_bindings_output"
-pass "default binding variable disables all Omarchy bindings"
+no_bindings_output=$(run_collie_bindings "$no_bindings_home" 'collie_default_bindings = false') ||
+  fail "default binding variable disables all Collie bindings"
+[[ -z $no_bindings_output ]] || fail "default binding variable disables all Collie bindings" "$no_bindings_output"
+pass "default binding variable disables all Collie bindings"
 
 dictation_home="$tmpdir/dictation-home"
 missing_bin="$tmpdir/missing-bin"
@@ -145,20 +145,20 @@ mkdir -p "$dictation_home" "$missing_bin"
 ln -s "$(command -v lua)" "$missing_bin/lua"
 ln -s "$(command -v lspci)" "$missing_bin/lspci"
 ln -s "$(command -v sort)" "$missing_bin/sort"
-dictation_output=$(PATH="$missing_bin" run_omarchy_bindings "$dictation_home") ||
+dictation_output=$(PATH="$missing_bin" run_collie_bindings "$dictation_home") ||
   fail "unconfigured dictation leaves application shortcuts available"
 if grep -Fq 'dictation' <<<"$dictation_output"; then fail "unconfigured dictation leaves application shortcuts available"; fi
-cat > "$missing_bin/omarchy-default-dictation" <<'SH'
+cat > "$missing_bin/collie-default-dictation" <<'SH'
 #!/bin/bash
 echo future-backend
 SH
-chmod +x "$missing_bin/omarchy-default-dictation"
-dictation_output=$(PATH="$missing_bin" run_omarchy_bindings "$dictation_home") ||
+chmod +x "$missing_bin/collie-default-dictation"
+dictation_output=$(PATH="$missing_bin" run_collie_bindings "$dictation_home") ||
   fail "a selected backend that is not installed leaves application shortcuts available"
 if grep -Fq 'dictation' <<<"$dictation_output"; then fail "a selected backend that is not installed leaves application shortcuts available"; fi
 printf '#!/bin/bash\nexit 0\n' > "$missing_bin/future-backend"
 chmod +x "$missing_bin/future-backend"
-dictation_output=$(PATH="$missing_bin" run_omarchy_bindings "$dictation_home")
+dictation_output=$(PATH="$missing_bin" run_collie_bindings "$dictation_home")
 for binding in \
   $'ALT + SPACE\tToggle dictation' \
   $'ALT + Alt_R\tStart dictation (push-to-talk)' \
@@ -187,7 +187,7 @@ pass "missing Lazydocker skips its Docker shortcut"
 # The original scratchpad stays separate from the Quake console.
 scratchpad_home="$tmpdir/scratchpad-home"
 mkdir -p "$scratchpad_home"
-scratchpad_output=$(run_omarchy_bindings "$scratchpad_home")
+scratchpad_output=$(run_collie_bindings "$scratchpad_home")
 grep -Fqx $'SUPER + S	Toggle scratchpad' <<<"$scratchpad_output" ||
   fail "scratchpad keeps its existing toggle binding"
 grep -Fqx $'SUPER + grave	Toggle Quake console' <<<"$scratchpad_output" ||
@@ -203,7 +203,7 @@ pass "scratchpad and Quake console have separate bindings"
 # claim on SUPER + CTRL + a number is a collision with one of these.
 panels_home="$tmpdir/panels-home"
 mkdir -p "$panels_home"
-panels_output=$(run_omarchy_bindings "$panels_home")
+panels_output=$(run_collie_bindings "$panels_home")
 for panel in 1 2 3 4 5 6 7 8 9; do
   grep -Fqx "SUPER + CTRL + code:$((panel + 9))"$'\t'"Bar panel $panel" <<<"$panels_output" ||
     fail "bar panel hotkeys count the right section" "$panel"

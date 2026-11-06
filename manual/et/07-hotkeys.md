@@ -8,7 +8,7 @@ Iga kiirklahv asub tasandil, mille määravad selle modifikaatorid, ja igal tasa
 
 | Tasand | Mis seal asub | Näited |
 | --- | --- | --- |
-| `Super + key` | Süsteem: aknad, tööruumid, paigutused ja põhimenüüd | `Super + Space` Omarchy menüü, `Super + W` sulge aken, `Super + F` täisekraan |
+| `Super + key` | Süsteem: aknad, tööruumid, paigutused ja põhimenüüd | `Super + Space` Collie menüü, `Super + W` sulge aken, `Super + F` täisekraan |
 | `Super + Shift + key` | Rakendused | `Super + Shift + B` brauser, `Super + Shift + E` e-post, `Super + Shift + N` redaktor |
 | `Super + Ctrl + key` | Paneelid ja süsteemimenüüd | `Super + Ctrl + A` heli, `Super + Ctrl + N` võrk, `Super + Ctrl + C` jäädvustamismenüü |
 | `Super + Ctrl + Alt + key` | Kiirtoimingud ja teated | `Super + Ctrl + Alt + T` näita kellaaega, `Super + Ctrl + Alt + B` aku, `Super + Ctrl + Alt + C` ekraanipilt |
@@ -34,7 +34,7 @@ Kui vaikeseade sulle ei sobi (näiteks tahad ekraanipiltide jaoks `Super + Shift
 
 | Kiirklahv                  | Funktsioon              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy menüü (rakendused ja kõik muu)    |
+| `Super + Space`           | Collie menüü (rakendused ja kõik muu)    |
 | `Super + Alt + Space` | Rakenduste ruudustik |
 | `Super + Escape` | Süsteemimenüü (peatamine, taaskäivitus jne)  |
 | `Super + Ctrl + L` | Lukusta arvuti |
@@ -171,7 +171,7 @@ Muuda/lisa seoseid failis `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Kleebi    |
 | `Super + Ctrl + V`           | Lõikelaua haldur    |
 
-Tavaliselt Linuxis on terminalis kopeerimiseks ja kleepimiseks vaja `Ctrl + Shift + C/V` ja kõikjal mujal `Ctrl + C/V`. Need Omarchy ühtsed lõikelaua kiirklahvid töötavad kõikjal.
+Tavaliselt Linuxis on terminalis kopeerimiseks ja kleepimiseks vaja `Ctrl + Shift + C/V` ja kõikjal mujal `Ctrl + C/V`. Need Collie ühtsed lõikelaua kiirklahvid töötavad kõikjal.
 
 ## Jäädvustamine
 
@@ -192,7 +192,7 @@ Tavaliselt Linuxis on terminalis kopeerimiseks ja kleepimiseks vaja `Ctrl + Shif
 
 Ekraanisalvestuste korral küsib kiirklahv esmalt, millist heli soovid, seejärel alustab salvestamist. Salvestamise peatamiseks vajuta seda uuesti. Üksikasju vaata jaotisest [ekraanipildid ja salvestamine](12-screenshots-recording.md).
 
-Kõik jäädvustamisvalikud on saadaval ka Omarchy menüüs (`Super + Space`) jaotises _Käivitaja > Jäädvustamine_.
+Kõik jäädvustamisvalikud on saadaval ka Collie menüüs (`Super + Space`) jaotises _Käivitaja > Jäädvustamine_.
 
 ## Teavitused
 
@@ -214,9 +214,9 @@ Kõik jäädvustamisvalikud on saadaval ka Omarchy menüüs (`Super + Space`) ja
 | `Super + Backspace` | Lülita akna läbipaistvust |
 | `Super + Ctrl + Backspace` | Lülita ühe akna ruudukujulist kuvasuhet |
 
-Täiendavad taustapildid asuvad kaustas `~/.config/omarchy/backgrounds/<theme name>`. Saadaval ka Omarchy menüüs jaotises _Installimine > Stiil > Taust_.
+Täiendavad taustapildid asuvad kaustas `~/.config/collie/backgrounds/<theme name>`. Saadaval ka Collie menüüs jaotises _Installimine > Stiil > Taust_.
 
-Kõik stiilivalikud on saadaval ka Omarchy menüüs (`Super + Space`) jaotises _Stiil_.
+Kõik stiilivalikud on saadaval ka Collie menüüs (`Super + Space`) jaotises _Stiil_.
 
 ## Lülitid
 
@@ -317,7 +317,7 @@ Neid funktsioone tuleb käivitada Tmuxi seansi sees.
 
 ## Ghostty terminal
 
-Ghostty terminal installitakse Omarchy menüü kaudu jaotises _Installimine > Terminal_.
+Ghostty terminal installitakse Collie menüü kaudu jaotises _Installimine > Terminal_.
 
 | Kiirklahv                  | Funktsioon              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Saad kasutada klahve `Super + Ctrl + E`, et näidata täielikku emojide valijat,
 | `Shift + CapsLock Space N` | Sinu nimi (nagu seadistamisel sisestatud)  |
 | `Shift + CapsLock Space E` | Sinu e-post (nagu seadistamisel sisestatud)  |
 
-Saad enda omi lisada, muutes faili `~/.XCompose`, seejärel käivitades terminalis käsu `omarchy-restart-xcompose`, et muudatused rakenduksid.
+Saad enda omi lisada, muutes faili `~/.XCompose`, seejärel käivitades terminalis käsu `collie-restart-xcompose`, et muudatused rakenduksid.

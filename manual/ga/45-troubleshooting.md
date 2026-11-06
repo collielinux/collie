@@ -2,23 +2,23 @@
 
 ### Bhris mé mo chóras le nuashonrú!
 
-Bain triail as ar dtús [do chóras a aisrolladh](47-system-snapshots.md) chuig an leagan roimh do nuashonrú is déanaí. Mura n-oibríonn sin, úsáid `omarchy-debug` chun do fhadhb a roinnt ar #omarchy-help sa Discord. Agus má theipeann ar gach rud, is féidir leat na cumraíochtaí agus na pacáistí réamhshocraithe a athshuiteáil le `omarchy-reinstall`.
+Bain triail as ar dtús [do chóras a aisrolladh](47-system-snapshots.md) chuig an leagan roimh do nuashonrú is déanaí. Mura n-oibríonn sin, úsáid `collie-debug` chun do fhadhb a roinnt ar #collie-help sa Discord. Agus má theipeann ar gach rud, is féidir leat na cumraíochtaí agus na pacáistí réamhshocraithe a athshuiteáil le `collie-reinstall`.
 
 ### Cén fáth a bhfuil roinnt aipeanna chomh mór sin ar mo scáileán?
 
-Glacann Omarchy leis go bhfuil scáileán ardtaifigh 2x agat, mar sin socraíonn sé `GDK_SCALE` go 2 go dtí go roghnaíonn tú scála sa phainéal monatóra. Má tá tú ar scáileán 1x agus má thagann aipeanna GTK nó X11 amach rómhór, roghnaigh 1x dó sa phainéal monatóra, nó cuir `hl.env("GDK_SCALE", "1")` le `~/.config/hypr/monitors.lua` (agus ansin atosaigh aon aip atá rómhór). Féach [an lámhleabhar ar mhonatóirí](33-monitors.md).
+Glacann Collie leis go bhfuil scáileán ardtaifigh 2x agat, mar sin socraíonn sé `GDK_SCALE` go 2 go dtí go roghnaíonn tú scála sa phainéal monatóra. Má tá tú ar scáileán 1x agus má thagann aipeanna GTK nó X11 amach rómhór, roghnaigh 1x dó sa phainéal monatóra, nó cuir `hl.env("GDK_SCALE", "1")` le `~/.config/hypr/monitors.lua` (agus ansin atosaigh aon aip atá rómhór). Féach [an lámhleabhar ar mhonatóirí](33-monitors.md).
 
 Maidir le Spotify, is féidir leat `Ctrl + Minus` a úsáid chun an comhéadan a chrapadh (agus `Ctrl + Plus` chun é a dhéanamh níos mó).
 
 ### Cén fáth ar stop gach ceangal eochrach Super agam ag obair?
 
-Ar roinnt ríomhairí glúine ASUS ROG agus TUF, is corda é `Fn + Super` atá éasca a chailleadh a scoránaíonn glas eochrach Windows sa bhuanearra (atá ceaptha le haghaidh cearrbhachais ionas nach bhfágfaidh tú cluiche de thaisme). Ní insíonn aon rud ar an scáileán duit gur tharla sé. Fad atá an glas ar siúl, ní astaíonn Super aon rud ar chor ar bith — mar sin stopann gach ceangal Omarchy a úsáideann Super, agus tá cuma air gur bhris Hyprland.
+Ar roinnt ríomhairí glúine ASUS ROG agus TUF, is corda é `Fn + Super` atá éasca a chailleadh a scoránaíonn glas eochrach Windows sa bhuanearra (atá ceaptha le haghaidh cearrbhachais ionas nach bhfágfaidh tú cluiche de thaisme). Ní insíonn aon rud ar an scáileán duit gur tharla sé. Fad atá an glas ar siúl, ní astaíonn Super aon rud ar chor ar bith — mar sin stopann gach ceangal Collie a úsáideann Super, agus tá cuma air gur bhris Hyprland.
 
 Brúigh `Fn + Super` uair amháin sula dtéann tú ag tochailt i `~/.config/hypr/`, agus mura dtugann sé sin Super ar ais, brúigh arís é ionas nach bhfágfaidh tú an glas ar siúl. Ní Fn-lock é seo, nach n-athraíonn ach an méid a dhéanann an tsraith eochracha F.
 
 ### Stop mo Wi-Fi, Bluetooth, fuaim, nó ceap tadhaill ag obair díreach
 
-Sula n-atosaíonn tú, bain triail as an bhfochóras ciontach a atosú leis féin. Tá Wi-Fi, Bluetooth, Fuaim, agus Ceap Tadhaill ag _Nuashonrú > Crua-earraí_ sa roghchlár Omarchy, agus réitíonn atosú ceann acu formhór na gcásanna "d'oibrigh sé cúig nóiméad ó shin" — gléas cinn Bluetooth nach n-athcheanglóidh, ceap tadhaill a d'éag tar éis fionraí, fuaim a d'imigh nuair a dhíphlugáil tú monatóir.
+Sula n-atosaíonn tú, bain triail as an bhfochóras ciontach a atosú leis féin. Tá Wi-Fi, Bluetooth, Fuaim, agus Ceap Tadhaill ag _Nuashonrú > Crua-earraí_ sa roghchlár Collie, agus réitíonn atosú ceann acu formhór na gcásanna "d'oibrigh sé cúig nóiméad ó shin" — gléas cinn Bluetooth nach n-athcheanglóidh, ceap tadhaill a d'éag tar éis fionraí, fuaim a d'imigh nuair a dhíphlugáil tú monatóir.
 
 ### Cén fáth nach bhfuil mo challairí seachtracha ag seinm?
 
@@ -26,7 +26,7 @@ Is dócha mar nach bhfuil siad socraithe mar an príomh-aschur. Cliceáil ar an 
 
 ### Fuaimeann callairí mo ríomhaire glúine aisteach
 
-Ar roinnt ríomhairí glúine, cuireann Omarchy tiúnadh callaire i bhfeidhm go huathoibríoch a cheartaíonn freagairt minicíochta na gcallairí ionsuite. Insíonn `omarchy audio tuning status` duit an bhfuil ceann gníomhach ar do mheaisín, agus múchann `omarchy audio tuning off` é más fearr leat na callairí a chloisteáil amh.
+Ar roinnt ríomhairí glúine, cuireann Collie tiúnadh callaire i bhfeidhm go huathoibríoch a cheartaíonn freagairt minicíochta na gcallairí ionsuite. Insíonn `collie audio tuning status` duit an bhfuil ceann gníomhach ar do mheaisín, agus múchann `collie audio tuning off` é más fearr leat na callairí a chloisteáil amh.
 
 ### Cén fáth nach féidir liom logáil isteach nó sudo a úsáid le mo phasfhocal?
 

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# collie:summary=Reinstall Collie packages and reset default configs
+# collie:requires-sudo=true
+
+set -e
+
+echo -e "This will reinstall all default Collie packages and reset default configs.\nWarning: user config changes will be overwritten.\n"
+
+if gum confirm "Are you sure you want to reinstall and lose config changes?"; then
+  collie-reinstall-pkgs
+  collie-reinstall-configs
+
+  gum confirm "System has been reinstalled. Reboot?" && collie-system reboot
+fi

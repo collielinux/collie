@@ -1,16 +1,16 @@
 # Suporta sa Mac
 
-May built-in na suporta ang Omarchy para sa **Intel Macs**. May ilang kilalang limitasyon sa ngayon, pero hangga't alam mo ang mga ito at ayos lang sa iyo; mabibigyan mo ng bagong buhay ang mga luma mong Mac sa pamamagitan ng pag-load ng Omarchy.
+May built-in na suporta ang Collie para sa **Intel Macs**. May ilang kilalang limitasyon sa ngayon, pero hangga't alam mo ang mga ito at ayos lang sa iyo; mabibigyan mo ng bagong buhay ang mga luma mong Mac sa pamamagitan ng pag-load ng Collie.
 
-Pakitandaan na hindi direktang sinusuportahan sa ngayon ang pag-install sa M-series Mac. Makakahanap ka ng karagdagang impormasyon tungkol sa estado nito sa #omarchy-on-other sa aming [Discord](https://discord.gg/tXFUdasqhY).
+Pakitandaan na hindi direktang sinusuportahan sa ngayon ang pag-install sa M-series Mac. Makakahanap ka ng karagdagang impormasyon tungkol sa estado nito sa #collie-on-other sa aming [Discord](https://discord.gg/tXFUdasqhY).
 
-Sa isang simpleng pagsubok, nakamit namin ang 36% na pagtaas ng performance sa isang 2019 MacBook Pro sa pamamagitan lang ng pag-install ng Omarchy.
+Sa isang simpleng pagsubok, nakamit namin ang 36% na pagtaas ng performance sa isang 2019 MacBook Pro sa pamamagitan lang ng pag-install ng Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Pag-install ng Omarchy sa Mac
+### Pag-install ng Collie sa Mac
 
-Sinusuportahan lang ng Omarchy na ito ang **tanging** OS na naka-install sa ngayon. Sa panahon ng pag-install, buburahin ang drive at hindi na mabo-boot ang MacOS.
+Sinusuportahan lang ng Collie na ito ang **tanging** OS na naka-install sa ngayon. Sa panahon ng pag-install, buburahin ang drive at hindi na mabo-boot ang MacOS.
 
 Maaari mo pa rin itong i-restore mamaya sa pamamagitan ng Internet Recovery kung gusto mo.
 
@@ -39,7 +39,7 @@ Nade-detect ng installer ang Mac hardware at awtomatikong ina-apply ang mga kail
 
 ### Mga Kilalang Limitasyon
 
-Patuloy na gumagawa ang mga miyembro ng komunidad ng mga solusyon para sa mga hamong ito kaya kung problematiko ang mga ito para sa iyo, sumali sa #omarchy-on-other sa aming [Discord](https://discord.gg/tXFUdasqhY) at tingnan kung may mga napapanahong paraan para malutas ang mga ito.
+Patuloy na gumagawa ang mga miyembro ng komunidad ng mga solusyon para sa mga hamong ito kaya kung problematiko ang mga ito para sa iyo, sumali sa #collie-on-other sa aming [Discord](https://discord.gg/tXFUdasqhY) at tingnan kung may mga napapanahong paraan para malutas ang mga ito.
 
 #### Mga Device na may T1 Chip
 

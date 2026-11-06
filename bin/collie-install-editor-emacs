@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# collie:summary=Install Emacs with Collie theme and font integration via the collie-emacs AUR package
+
+echo "Installing Emacs..."
+collie-pkg-aur-add collie-emacs && collie-install-emacs
+
+# emacsclient opens a frame on the running daemon, not a second Emacs
+setsid uwsm-app -- gtk-launch emacsclient >/dev/null 2>&1 &

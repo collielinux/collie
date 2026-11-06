@@ -10,7 +10,7 @@ require_command lua
 # on a scaled display, so it is worth pinning down.
 # base-test.sh does not set -e, so the assertions have to fail the file
 # themselves rather than leaving the pass below to run regardless.
-OMARCHY_PATH="$ROOT" lua - <<'LUA' || fail "the console is a centered panel until a second app joins it"
+COLLIE_PATH="$ROOT" lua - <<'LUA' || fail "the console is a centered panel until a second app joins it"
 local rules, handlers, spawned = {}, {}, {}
 local monitor = nil
 local workspace = nil
@@ -34,7 +34,7 @@ hl = {
   exec_cmd = function(cmd, rules) table.insert(spawned, { cmd = cmd, rules = rules }) end,
 }
 
-dofile(os.getenv("OMARCHY_PATH") .. "/default/hypr/bootstrap.lua")
+dofile(os.getenv("COLLIE_PATH") .. "/default/hypr/bootstrap.lua")
 require("default.hypr.qconsole")
 
 local function current()
@@ -57,7 +57,7 @@ handlers["workspace.created"]({ name = "special:qconsole", is_empty = false })
 handlers["workspace.created"]({ name = "special:scratchpad", is_empty = true })
 assert(#spawned == 0, "only an empty console is seeded")
 handlers["workspace.created"]({ name = "special:qconsole", is_empty = true })
-assert(#spawned == 1 and spawned[1].cmd == "omarchy-agent --pick --prefer-local", "console is seeded with the default agent")
+assert(#spawned == 1 and spawned[1].cmd == "collie-agent --pick --prefer-local", "console is seeded with the default agent")
 assert(spawned[1].rules.workspace == "special:qconsole silent",
   "the seed is pinned to the console rather than trusting the spawn to inherit it")
 

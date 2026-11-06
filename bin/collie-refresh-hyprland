@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# collie:summary=Overwrite all the user Hyprland Lua configs in ~/.config/hypr with the Collie defaults.
+
+collie-refresh-config hypr/.luarc.json
+collie-refresh-config hypr/autostart.lua
+collie-refresh-config hypr/bindings.lua
+collie-refresh-config hypr/input.lua
+collie-refresh-config hypr/looknfeel.lua
+collie-refresh-config hypr/hyprland.lua
+collie-refresh-config hypr/monitors.lua
+
+mkdir -p ~/.local/state/collie/toggles/hypr
+cp "$COLLIE_PATH/default/hypr/toggles/flags.lua" ~/.local/state/collie/toggles/hypr/

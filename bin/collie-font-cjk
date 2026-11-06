@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# collie:summary=Show or set the glyph forms for Chinese, Japanese, and Korean text
+# collie:args=[jp|kr|sc|tc|hk|default]
+# collie:examples=collie font cjk | collie font cjk jp | collie font cjk default
+
+set -euo pipefail
+
+# Also seeded by the first CJK input method or language chosen. Tagged text and
+# a CJK session language keep their own forms regardless.
+preference=${XDG_CONFIG_HOME:-$HOME/.config}/fontconfig/conf.d/50-collie-input-method.conf
+
+case "${1:-}" in
+"")
+  variant=""
+  if [[ -f $preference ]]; then
+    variant=$(sed -n 's|.*<family>Noto Sans CJK \([A-Z]*\)</family>.*|\1|p' "$preference" | head -n 1)
+  fi
+  variant=${variant,,}
+  echo "${variant:-default}"
+  ;;
+jp | kr | sc | tc | hk | default)
+  /usr/bin/python3 "$COLLIE_PATH/default/input-methods/configure.py" font "$1"
+  collie-restart-shell
+  collie-notification-send -g  "$(collie-i18n font.cjkChanged)" "$(collie-i18n font.restartAppsToSeeChange)"
+  ;;
+*)
+  echo "Usage: collie-font-cjk [jp|kr|sc|tc|hk|default]" >&2
+  exit 1
+  ;;
+esac

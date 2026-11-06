@@ -2,15 +2,15 @@
 -- o.bind or replace defaults with o.rebind.
 
 -- See current bindings and descriptions:
---   omarchy menu keybindings --print
+--   collie menu keybindings --print
 
--- To disable every Omarchy default binding, set this in
--- ~/.config/hypr/hyprland.lua before require("default.hypr.omarchy"), then add
+-- To disable every Collie default binding, set this in
+-- ~/.config/hypr/hyprland.lua before require("default.hypr.collie"), then add
 -- only the bindings you want below:
---   omarchy_default_bindings = false
+--   collie_default_bindings = false
 
 -- To disable all preinstalled app/webapp bindings, set:
---   omarchy_preinstalled_bindings = false
+--   collie_preinstalled_bindings = false
 
 -- Add a new binding.
 -- o.bind("SUPER + SHIFT + R", "SSH", "alacritty -e ssh your-server")
@@ -24,4 +24,4 @@
 
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
--- o.bind("SUPER + PERIOD", nil, { panel = "omarchy.emojis" })
+-- o.bind("SUPER + PERIOD", nil, { panel = "collie.emojis" })

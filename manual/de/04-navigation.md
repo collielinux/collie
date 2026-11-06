@@ -1,8 +1,8 @@
 # Navigation
 
-Alles in Omarchy passiert über die Tastatur — _ALLES!_ Wenn das System zum ersten Mal startet, kannst du buchstäblich nichts allein mit der Maus machen. Aber du kannst `Super + Space` drücken, um das Omarchy-Menü einzublenden, und von hier aus kannst du so gut wie alles machen.
+Alles in Collie passiert über die Tastatur — _ALLES!_ Wenn das System zum ersten Mal startet, kannst du buchstäblich nichts allein mit der Maus machen. Aber du kannst `Super + Space` drücken, um das Collie-Menü einzublenden, und von hier aus kannst du so gut wie alles machen.
 
-Aber das Omarchy-Menü ist die meiste Zeit nicht einmal als Hauptweg gedacht, um das System zu bedienen. Wir können schneller sein als das! Alle wichtigsten Anwendungen sind direkt an einzelne Hotkeys gebunden. Du startest das Terminal mit `Super + Return` und einen Browser mit `Super + Shift + Return`. Probiere eins nach dem anderen aus, und du wirst die Magie von Hyprlands Tiling in Aktion sehen:
+Aber das Collie-Menü ist die meiste Zeit nicht einmal als Hauptweg gedacht, um das System zu bedienen. Wir können schneller sein als das! Alle wichtigsten Anwendungen sind direkt an einzelne Hotkeys gebunden. Du startest das Terminal mit `Super + Return` und einen Browser mit `Super + Shift + Return`. Probiere eins nach dem anderen aus, und du wirst die Magie von Hyprlands Tiling in Aktion sehen:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Du kannst auch mit `Super + F` in den Vollbildmodus gehen oder mit `Super + Alt 
 
 ### Dwindle vs. Scrolling-Layout
 
-Das Standardlayout von Omarchy heißt dwindle. Es hält alle Fenster, die du auf einem einzelnen Arbeitsbereich öffnest, jederzeit sichtbar, selbst wenn es sie dafür verkleinern muss.
+Das Standardlayout von Collie heißt dwindle. Es hält alle Fenster, die du auf einem einzelnen Arbeitsbereich öffnest, jederzeit sichtbar, selbst wenn es sie dafür verkleinern muss.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Ein schwebender Arbeitsbereich funktioniert wie ein traditioneller Desktop: Fenster überlappen, und du bewegst und skalierst sie selbst. Jedes Fenster bekommt eine Titelleiste in den Farben deines Themes, mit Schaltflächen zum Minimieren, Maximieren und Schließen. `Super + M` minimiert auch das fokussierte Fenster. Ein minimiertes Fenster wartet im Dock; klicke auf seine App, um es zurückzuholen. Klicke auf ein Fenster, um es nach vorne zu bringen. Ändere seine Größe von jeder Kante oder Ecke aus. Doppelklicke auf eine Titelleiste, um das Fenster zu maximieren, während die obere Leiste sichtbar bleibt, und erneut, um seine alte Größe zurückzubekommen.
 
-Ein schwebender Arbeitsbereich zeigt auch ein Dock, mit deinen angehefteten Apps, allem, was gerade läuft, und einem Raster jeder App hinter der Apps-Schaltfläche, das `Super + Alt + Space` und _Apps_ im Omarchy-Menü ebenfalls öffnen. Klicke mit der rechten Maustaste auf eine App im Raster, oder drücke `Delete`, um sie zu deinstallieren. Klicke auf eine App, um sie zu öffnen oder ihr Fenster nach vorne zu bringen; klicke erneut, um durch ihre Fenster zu durchlaufen. Ein Mittelklick öffnet ein neues Fenster. Ziehe ein Symbol entlang des Docks, um es zu verschieben; eine laufende App zwischen die anderen zu ziehen, hält sie dort. Klicke mit der rechten Maustaste, um eine App im Dock zu behalten, sie zu entfernen oder sie zu beenden. Das Dock weicht einem Vollbildfenster aus dem Weg. Klicke mit der rechten Maustaste auf die Apps-Schaltfläche, um das Dock an eine andere Kante zu verschieben oder es auszublenden, bis der Zeiger seine Kante erreicht. Die Position steht auch unter _Appearance > Dock > Dock Position_, und `omarchy dock position left` und `omarchy dock autohide on` stellen beides von einem Terminal aus ein. Apps, die du im Dock behältst, sind verblasst, während sie nicht laufen.
+Ein schwebender Arbeitsbereich zeigt auch ein Dock, mit deinen angehefteten Apps, allem, was gerade läuft, und einem Raster jeder App hinter der Apps-Schaltfläche, das `Super + Alt + Space` und _Apps_ im Collie-Menü ebenfalls öffnen. Klicke mit der rechten Maustaste auf eine App im Raster, oder drücke `Delete`, um sie zu deinstallieren. Klicke auf eine App, um sie zu öffnen oder ihr Fenster nach vorne zu bringen; klicke erneut, um durch ihre Fenster zu durchlaufen. Ein Mittelklick öffnet ein neues Fenster. Ziehe ein Symbol entlang des Docks, um es zu verschieben; eine laufende App zwischen die anderen zu ziehen, hält sie dort. Klicke mit der rechten Maustaste, um eine App im Dock zu behalten, sie zu entfernen oder sie zu beenden. Das Dock weicht einem Vollbildfenster aus dem Weg. Klicke mit der rechten Maustaste auf die Apps-Schaltfläche, um das Dock an eine andere Kante zu verschieben oder es auszublenden, bis der Zeiger seine Kante erreicht. Die Position steht auch unter _Appearance > Dock > Dock Position_, und `collie dock position left` und `collie dock autohide on` stellen beides von einem Terminal aus ein. Apps, die du im Dock behältst, sind verblasst, während sie nicht laufen.
 
-Neue Arbeitsbereiche, und alle, denen du nicht mit `Super + L` ein eigenes Layout gegeben hast, verwenden das Standardlayout. Das Ändern des Standards setzt jeden Arbeitsbereich ohne Fenster darauf zurück, während einer mit Fenstern darauf das Layout behält, das er hat. Ein ins Dock minimiertes Fenster zählt weiterhin als Fenster auf dem Arbeitsbereich, den es verlassen hat. Wähle es unter _Appearance > Workspace Layout_ aus: Tiling, Scrolling oder Floating. `omarchy-hyprland-workspace-layout-default scrolling` stellt es von einem Terminal aus ein.
+Neue Arbeitsbereiche, und alle, denen du nicht mit `Super + L` ein eigenes Layout gegeben hast, verwenden das Standardlayout. Das Ändern des Standards setzt jeden Arbeitsbereich ohne Fenster darauf zurück, während einer mit Fenstern darauf das Layout behält, das er hat. Ein ins Dock minimiertes Fenster zählt weiterhin als Fenster auf dem Arbeitsbereich, den es verlassen hat. Wähle es unter _Appearance > Workspace Layout_ aus: Tiling, Scrolling oder Floating. `collie-hyprland-workspace-layout-default scrolling` stellt es von einem Terminal aus ein.
 
 ### Fenster gruppieren
 

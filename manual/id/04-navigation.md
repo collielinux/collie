@@ -1,8 +1,8 @@
 # Navigasi
 
-Semua hal di Omarchy terjadi lewat keyboard — _SEMUA!_ Saat sistem pertama kali menyala, kamu benar-benar tidak bisa melakukan apa pun hanya dengan mouse. Tapi kamu bisa menekan `Super + Space` untuk memunculkan Menu Omarchy dan dari sini kamu bisa melakukan hampir segalanya.
+Semua hal di Collie terjadi lewat keyboard — _SEMUA!_ Saat sistem pertama kali menyala, kamu benar-benar tidak bisa melakukan apa pun hanya dengan mouse. Tapi kamu bisa menekan `Super + Space` untuk memunculkan Menu Collie dan dari sini kamu bisa melakukan hampir segalanya.
 
-Tapi menu Omarchy bahkan tidak dimaksudkan menjadi cara utama mengoperasikan sistem sebagian besar waktu. Kita bisa lebih cepat dari itu! Semua aplikasi terpenting terikat langsung ke hotkey masing-masing. Kamu membuka terminal dengan `Super + Return` dan browser dengan `Super + Shift + Return`. Coba lakukan satu demi satu, dan kamu akan melihat keajaiban tiling Hyprland beraksi:
+Tapi menu Collie bahkan tidak dimaksudkan menjadi cara utama mengoperasikan sistem sebagian besar waktu. Kita bisa lebih cepat dari itu! Semua aplikasi terpenting terikat langsung ke hotkey masing-masing. Kamu membuka terminal dengan `Super + Return` dan browser dengan `Super + Shift + Return`. Coba lakukan satu demi satu, dan kamu akan melihat keajaiban tiling Hyprland beraksi:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Kamu juga bisa masuk layar penuh dengan `Super + F` atau bahkan hanya selebar la
 
 ### Dwindle vs tata letak scrolling
 
-Tata letak default Omarchy disebut dwindle. Tata letak ini membuat semua jendela yang kamu buka di satu workspace tetap terlihat setiap saat, bahkan jika harus mengecilkannya.
+Tata letak default Collie disebut dwindle. Tata letak ini membuat semua jendela yang kamu buka di satu workspace tetap terlihat setiap saat, bahkan jika harus mengecilkannya.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Workspace melayang bekerja seperti desktop tradisional: jendela-jendela tumpang tindih, dan kamu memindahkan serta mengatur ukurannya sendiri. Setiap jendela mendapatkan titlebar dengan warna tema kamu, dengan tombol untuk meminimalkan, memaksimalkan, dan menutup. `Super + M` juga meminimalkan jendela yang difokuskan. Jendela yang diminimalkan menunggu di dock; klik aplikasinya untuk membawanya kembali. Klik sebuah jendela untuk membawanya ke depan. Ubah ukurannya dari tepi atau sudut mana pun. Klik dua kali titlebar untuk memaksimalkan jendela sambil tetap menampilkan bilah atas, dan klik dua kali lagi untuk mendapatkan kembali ukuran lamanya.
 
-Workspace melayang juga menampilkan dock, dengan aplikasi yang kamu sematkan, semua yang sedang berjalan, dan grid semua aplikasi di balik tombol aplikasi, yang juga dibuka oleh `Super + Alt + Space` dan _Apps_ di menu Omarchy. Klik kanan sebuah aplikasi di grid, atau tekan `Delete`, untuk mencopot pemasangannya. Klik sebuah aplikasi untuk membukanya, atau untuk membawa jendelanya ke depan; klik lagi untuk berputar melalui jendela-jendelanya. Klik tengah membuka jendela baru. Seret ikon di sepanjang dock untuk memindahkannya; menyeret aplikasi yang sedang berjalan ke antara yang lain akan mempertahankannya di sana. Klik kanan untuk mempertahankan aplikasi di dock, mengeluarkannya, atau menutupnya. Dock menyingkir dari jendela layar penuh. Klik kanan tombol aplikasi untuk memindahkan dock ke tepi lain atau membuatnya bersembunyi sampai pointer mencapai tepinya. Posisinya juga ada di bawah _Appearance > Dock > Dock Position_, dan `omarchy dock position left` serta `omarchy dock autohide on` mengatur keduanya dari terminal. Aplikasi yang kamu pertahankan di dock tampil pudar saat tidak berjalan.
+Workspace melayang juga menampilkan dock, dengan aplikasi yang kamu sematkan, semua yang sedang berjalan, dan grid semua aplikasi di balik tombol aplikasi, yang juga dibuka oleh `Super + Alt + Space` dan _Apps_ di menu Collie. Klik kanan sebuah aplikasi di grid, atau tekan `Delete`, untuk mencopot pemasangannya. Klik sebuah aplikasi untuk membukanya, atau untuk membawa jendelanya ke depan; klik lagi untuk berputar melalui jendela-jendelanya. Klik tengah membuka jendela baru. Seret ikon di sepanjang dock untuk memindahkannya; menyeret aplikasi yang sedang berjalan ke antara yang lain akan mempertahankannya di sana. Klik kanan untuk mempertahankan aplikasi di dock, mengeluarkannya, atau menutupnya. Dock menyingkir dari jendela layar penuh. Klik kanan tombol aplikasi untuk memindahkan dock ke tepi lain atau membuatnya bersembunyi sampai pointer mencapai tepinya. Posisinya juga ada di bawah _Appearance > Dock > Dock Position_, dan `collie dock position left` serta `collie dock autohide on` mengatur keduanya dari terminal. Aplikasi yang kamu pertahankan di dock tampil pudar saat tidak berjalan.
 
-Workspace baru, dan workspace mana pun yang belum kamu beri tata letak sendiri dengan `Super + L`, menggunakan tata letak default. Mengubah default akan mengatur ulang setiap workspace tanpa jendela ke tata letak tersebut, sementara workspace yang memiliki jendela tetap mempertahankan tata letak yang dimilikinya. Jendela yang diminimalkan ke dock tetap dihitung sebagai jendela di workspace yang ditinggalkannya. Pilih di bawah _Appearance > Workspace Layout_: Tiling, Scrolling, atau Floating. `omarchy-hyprland-workspace-layout-default scrolling` mengaturnya dari terminal.
+Workspace baru, dan workspace mana pun yang belum kamu beri tata letak sendiri dengan `Super + L`, menggunakan tata letak default. Mengubah default akan mengatur ulang setiap workspace tanpa jendela ke tata letak tersebut, sementara workspace yang memiliki jendela tetap mempertahankan tata letak yang dimilikinya. Jendela yang diminimalkan ke dock tetap dihitung sebagai jendela di workspace yang ditinggalkannya. Pilih di bawah _Appearance > Workspace Layout_: Tiling, Scrolling, atau Floating. `collie-hyprland-workspace-layout-default scrolling` mengaturnya dari terminal.
 
 ### Mengelompokkan jendela
 

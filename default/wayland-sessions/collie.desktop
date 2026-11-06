@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Collie (Hyprland uwsm)
+Comment=Collie Hyprland session managed by uwsm
+Exec=uwsm start -g -1 -e -D Hyprland hyprland.desktop
+TryExec=uwsm
+Type=Application

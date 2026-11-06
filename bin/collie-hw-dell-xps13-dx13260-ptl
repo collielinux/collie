@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# collie:summary=Match the Dell XPS 13 DX13260 with an Intel Panther Lake GPU.
+
+collie-hw-match "DX13260" && collie-hw-intel-ptl

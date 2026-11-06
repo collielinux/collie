@@ -1,8 +1,8 @@
 # 導覽
 
-Omarchy 裡的一切都透過鍵盤完成 — _一切！_ 系統剛啟動時，你光靠滑鼠真的什麼都做不了。但你可以按下 `Super + Space` 叫出 Omarchy Menu，從這裡你幾乎能做所有事。
+Collie 裡的一切都透過鍵盤完成 — _一切！_ 系統剛啟動時，你光靠滑鼠真的什麼都做不了。但你可以按下 `Super + Space` 叫出 Collie Menu，從這裡你幾乎能做所有事。
 
-不過，Omarchy menu 本來就不是設計來當作你平常操作系統的主要方式。我們可以比那更快！所有最重要的應用程式都直接綁定到個別的快捷鍵。你用 `Super + Return` 啟動終端機，用 `Super + Shift + Return` 啟動瀏覽器。試著一個接著一個開啟，你就會看到 Hyprland 平鋪佈局的魔法：
+不過，Collie menu 本來就不是設計來當作你平常操作系統的主要方式。我們可以比那更快！所有最重要的應用程式都直接綁定到個別的快捷鍵。你用 `Super + Return` 啟動終端機，用 `Super + Shift + Return` 啟動瀏覽器。試著一個接著一個開啟，你就會看到 Hyprland 平鋪佈局的魔法：
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Omarchy 裡的一切都透過鍵盤完成 — _一切！_ 系統剛啟動時，�
 
 ### Dwindle 與 scrolling 佈局
 
-Omarchy 的預設佈局叫做 dwindle。它會讓你開啟的所有視窗在單一工作區上隨時都可見，就算必須把視窗縮小也一樣。
+Collie 的預設佈局叫做 dwindle。它會讓你開啟的所有視窗在單一工作區上隨時都可見，就算必須把視窗縮小也一樣。
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 浮動工作區的運作方式就像傳統桌面：視窗彼此重疊，由你自己移動和調整大小。每個視窗都會有一條以你的主題顏色顯示的標題列，上面有最小化、最大化和關閉按鈕。`Super + M` 也可以最小化聚焦的視窗。最小化的視窗會等在 dock 裡；點一下它的應用程式就能把它叫回來。點一下視窗就能把它帶到最前面。從任何邊緣或角落都能調整它的大小。點兩下標題列可以最大化視窗，同時仍看得到頂部列，再點兩下就能恢復成原來的大小。
 
-浮動工作區也會顯示一個 dock，裡面有你釘選的應用程式、所有正在執行的程式，以及 apps 按鈕後面收著的全部應用程式格狀清單，`Super + Alt + Space` 和 Omarchy menu 裡的 _Apps_ 也能開啟它。在格狀清單上對某個應用程式按右鍵，或按下 `Delete`，就能解除安裝它。點一下應用程式就能開啟它，或把它的視窗帶到最前面；再點一下會在它的視窗之間循環切換。按中鍵會開啟新視窗。沿著 dock 拖曳圖示可以移動它；把正在執行的應用程式拖進其他圖示之間，就能把它留在那裡。按右鍵可以把應用程式留在 dock 裡、把它從 dock 移走，或結束它。dock 會為全螢幕視窗自動讓路。在 apps 按鈕上按右鍵，可以把 dock 移到另一個邊緣，或讓它隱藏起來，直到指標碰到那個邊緣為止。這個位置也在 _Appearance > Dock > Dock Position_ 底下，`omarchy dock position left` 和 `omarchy dock autohide on` 則可以從終端機設定這兩項。你留在 dock 裡的應用程式在未執行時會以淡色顯示。
+浮動工作區也會顯示一個 dock，裡面有你釘選的應用程式、所有正在執行的程式，以及 apps 按鈕後面收著的全部應用程式格狀清單，`Super + Alt + Space` 和 Collie menu 裡的 _Apps_ 也能開啟它。在格狀清單上對某個應用程式按右鍵，或按下 `Delete`，就能解除安裝它。點一下應用程式就能開啟它，或把它的視窗帶到最前面；再點一下會在它的視窗之間循環切換。按中鍵會開啟新視窗。沿著 dock 拖曳圖示可以移動它；把正在執行的應用程式拖進其他圖示之間，就能把它留在那裡。按右鍵可以把應用程式留在 dock 裡、把它從 dock 移走，或結束它。dock 會為全螢幕視窗自動讓路。在 apps 按鈕上按右鍵，可以把 dock 移到另一個邊緣，或讓它隱藏起來，直到指標碰到那個邊緣為止。這個位置也在 _Appearance > Dock > Dock Position_ 底下，`collie dock position left` 和 `collie dock autohide on` 則可以從終端機設定這兩項。你留在 dock 裡的應用程式在未執行時會以淡色顯示。
 
-新的工作區，以及任何你沒有用 `Super + L` 給它個別指定佈局的工作區，都會使用預設佈局。更改預設值會把每個沒有視窗的工作區都重設為新預設值，而上面有視窗的工作區會保留它目前的佈局。最小化到 dock 的視窗仍然算作它離開的那個工作區上的一個視窗。在 _Appearance > Workspace Layout_ 底下選擇它：Tiling、Scrolling 或 Floating。`omarchy-hyprland-workspace-layout-default scrolling` 可以從終端機設定它。
+新的工作區，以及任何你沒有用 `Super + L` 給它個別指定佈局的工作區，都會使用預設佈局。更改預設值會把每個沒有視窗的工作區都重設為新預設值，而上面有視窗的工作區會保留它目前的佈局。最小化到 dock 的視窗仍然算作它離開的那個工作區上的一個視窗。在 _Appearance > Workspace Layout_ 底下選擇它：Tiling、Scrolling 或 Floating。`collie-hyprland-workspace-layout-default scrolling` 可以從終端機設定它。
 
 ### 群組視窗
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# collie:summary=List themes that can style the Plymouth boot screen
+# collie:examples=collie plymouth list
+
+{
+  find ~/.config/collie/themes/ -mindepth 1 -maxdepth 1 \( -type d -o -type l \) -printf '%f\n' 2>/dev/null
+  find "$COLLIE_PATH/themes/" -mindepth 1 -maxdepth 1 -type d -printf '%f\n'
+} | sort -u | while read -r name; do
+  if [[ -f $(collie-theme-dir "$name")/preview-unlock.png ]]; then
+    echo "$name"
+  fi
+done

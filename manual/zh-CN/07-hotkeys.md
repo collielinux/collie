@@ -8,7 +8,7 @@
 
 | 层面 | 存放什么 | 示例 |
 | --- | --- | --- |
-| `Super + key` | 系统：窗口、工作区、布局和核心菜单 | `Super + Space` Omarchy 菜单，`Super + W` 关闭窗口，`Super + F` 全屏 |
+| `Super + key` | 系统：窗口、工作区、布局和核心菜单 | `Super + Space` Collie 菜单，`Super + W` 关闭窗口，`Super + F` 全屏 |
 | `Super + Shift + key` | 应用 | `Super + Shift + B` 浏览器，`Super + Shift + E` 邮件，`Super + Shift + N` 编辑器 |
 | `Super + Ctrl + key` | 面板和系统菜单 | `Super + Ctrl + A` 音频，`Super + Ctrl + N` 网络，`Super + Ctrl + C` 捕获菜单 |
 | `Super + Ctrl + Alt + key` | 快捷操作和通知 | `Super + Ctrl + Alt + T` 显示时间，`Super + Ctrl + Alt + B` 电池，`Super + Ctrl + Alt + C` 截图 |
@@ -34,7 +34,7 @@
 
 | 快捷键                  | 功能              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy 菜单（应用和其他一切）    |
+| `Super + Space`           | Collie 菜单（应用和其他一切）    |
 | `Super + Alt + Space` | 应用网格 |
 | `Super + Escape` | 系统菜单（挂起、重启等）  |
 | `Super + Ctrl + L` | 锁定计算机 |
@@ -171,7 +171,7 @@
 | `Super + V`           | 粘贴    |
 | `Super + Ctrl + V`           | 剪贴板管理器    |
 
-通常在 Linux 上，你需要在终端中使用 `Ctrl + Shift + C/V` 来复制粘贴，在其他地方使用 `Ctrl + C/V`。这些 Omarchy 统一剪贴板快捷键在任何地方都能用。
+通常在 Linux 上，你需要在终端中使用 `Ctrl + Shift + C/V` 来复制粘贴，在其他地方使用 `Ctrl + C/V`。这些 Collie 统一剪贴板快捷键在任何地方都能用。
 
 ## 捕获
 
@@ -192,7 +192,7 @@
 
 录屏时，快捷键会先询问你想要哪种音频，然后开始录制。再按一次即可停止。详情请查看[截图和录屏](12-screenshots-recording.md)。
 
-所有捕获选项也可以在 Omarchy 菜单（`Super + Space`）的 _Trigger > Capture_ 下访问。
+所有捕获选项也可以在 Collie 菜单（`Super + Space`）的 _Trigger > Capture_ 下访问。
 
 ## 通知
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | 切换窗口的透明度 |
 | `Super + Ctrl + Backspace` | 切换单窗口方形宽高比 |
 
-额外的背景图片位于 `~/.config/omarchy/backgrounds/<theme name>`。也可以通过 Omarchy 菜单中的 _Install > Style > Background_ 获取。
+额外的背景图片位于 `~/.config/collie/backgrounds/<theme name>`。也可以通过 Collie 菜单中的 _Install > Style > Background_ 获取。
 
-所有样式选项也可以在 Omarchy 菜单（`Super + Space`）的 _Style_ 下访问。
+所有样式选项也可以在 Collie 菜单（`Super + Space`）的 _Style_ 下访问。
 
 ## 开关
 
@@ -317,7 +317,7 @@
 
 ## Ghostty 终端
 
-Ghostty 终端通过 Omarchy 菜单中的 _Install > Terminal_ 安装。
+Ghostty 终端通过 Collie 菜单中的 _Install > Terminal_ 安装。
 
 | 快捷键                  | 功能              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty 终端通过 Omarchy 菜单中的 _Install > Terminal_ 安装。
 | `Shift + CapsLock Space N` | 你的姓名（按设置时输入的内容）  |
 | `Shift + CapsLock Space E` | 你的邮箱（按设置时输入的内容）  |
 
-你可以通过编辑 `~/.XCompose` 添加更多你自己的内容，然后在终端中运行 `omarchy-restart-xcompose` 以使更改生效。
+你可以通过编辑 `~/.XCompose` 添加更多你自己的内容，然后在终端中运行 `collie-restart-xcompose` 以使更改生效。

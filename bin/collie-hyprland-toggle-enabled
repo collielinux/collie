@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Check if a Hyprland toggle is currently enabled.
+# collie:args=<flag-name>
+
+[[ -f "$HOME/.local/state/collie/toggles/hypr/$1.lua" ]]

@@ -8,7 +8,7 @@ Kiekvienas spartusis klavišas yra vienoje plokštumoje, kurią nustato jo modif
 
 | Plokštuma | Kas joje yra | Pavyzdžiai |
 | --- | --- | --- |
-| `Super + key` | Sistema: langai, darbo sritys, išdėstymai ir pagrindiniai meniu | `Super + Space` Omarchy meniu, `Super + W` uždaryti langą, `Super + F` per visą ekraną |
+| `Super + key` | Sistema: langai, darbo sritys, išdėstymai ir pagrindiniai meniu | `Super + Space` Collie meniu, `Super + W` uždaryti langą, `Super + F` per visą ekraną |
 | `Super + Shift + key` | Programos | `Super + Shift + B` naršyklė, `Super + Shift + E` el. paštas, `Super + Shift + N` redaktorius |
 | `Super + Ctrl + key` | Skydeliai ir sistemos meniu | `Super + Ctrl + A` garsas, `Super + Ctrl + N` tinklas, `Super + Ctrl + C` fiksavimo meniu |
 | `Super + Ctrl + Alt + key` | Greiti veiksmai ir pranešimai | `Super + Ctrl + Alt + T` rodyti laiką, `Super + Ctrl + Alt + B` baterija, `Super + Ctrl + Alt + C` ekrano kopija |
@@ -34,7 +34,7 @@ Jei numatytasis variantas jums netinka (tarkime, norite `Super + Shift + S` ekra
 
 | Spartusis klavišas | Funkcija |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy meniu (programos ir visa kita) |
+| `Super + Space` | Collie meniu (programos ir visa kita) |
 | `Super + Alt + Space` | Programų tinklelis |
 | `Super + Escape` | Sistemos meniu (pristabdyti, paleisti iš naujo ir kt.) |
 | `Super + Ctrl + L` | Užrakinti kompiuterį |
@@ -171,7 +171,7 @@ Keiskite / pridėkite susiejimus faile `~/.config/hypr/bindings.lua`.
 | `Super + V` | Įklijuoti |
 | `Super + Ctrl + V` | Iškarpinės tvarkytuvė |
 
-Paprastai Linux sistemoje terminale kopijuoti ir įklijuoti reikia `Ctrl + Shift + C/V`, o visur kitur – `Ctrl + C/V`. Šie Omarchy suvienodinti iškarpinės spartieji klavišai veikia visur.
+Paprastai Linux sistemoje terminale kopijuoti ir įklijuoti reikia `Ctrl + Shift + C/V`, o visur kitur – `Ctrl + C/V`. Šie Collie suvienodinti iškarpinės spartieji klavišai veikia visur.
 
 ## Fiksavimas
 
@@ -192,7 +192,7 @@ Paprastai Linux sistemoje terminale kopijuoti ir įklijuoti reikia `Ctrl + Shift
 
 Ekrano įrašymų atveju spartusis klavišas pirmiausia paklausia, kokio garso norite, tada pradeda įrašyti. Paspauskite jį dar kartą, kad sustabdytumėte. Išsamesnės informacijos žr. [ekrano kopijos ir įrašymas](12-screenshots-recording.md).
 
-Visos fiksavimo parinktys taip pat pasiekiamos Omarchy meniu (`Super + Space`) skiltyje _Trigger > Capture_.
+Visos fiksavimo parinktys taip pat pasiekiamos Collie meniu (`Super + Space`) skiltyje _Trigger > Capture_.
 
 ## Pranešimai
 
@@ -214,9 +214,9 @@ Visos fiksavimo parinktys taip pat pasiekiamos Omarchy meniu (`Super + Space`) s
 | `Super + Backspace` | Įjungti / išjungti lango skaidrumą |
 | `Super + Ctrl + Backspace` | Įjungti / išjungti vieno lango kvadratinį kraštinių santykį |
 
-Papildomi fono paveikslėliai yra `~/.config/omarchy/backgrounds/<theme name>`. Taip pat pasiekiama Omarchy meniu per _Install > Style > Background_.
+Papildomi fono paveikslėliai yra `~/.config/collie/backgrounds/<theme name>`. Taip pat pasiekiama Collie meniu per _Install > Style > Background_.
 
-Visos stiliaus parinktys taip pat pasiekiamos Omarchy meniu (`Super + Space`) skiltyje _Style_.
+Visos stiliaus parinktys taip pat pasiekiamos Collie meniu (`Super + Space`) skiltyje _Style_.
 
 ## Perjungimai
 
@@ -317,7 +317,7 @@ Prefikso klavišas yra `Ctrl + Space` (`Ctrl + B` taip pat veikia). Šiuos susie
 
 ## Ghostty terminalas
 
-Ghostty terminalas įdiegiamas Omarchy meniu per _Install > Terminal_.
+Ghostty terminalas įdiegiamas Collie meniu per _Install > Terminal_.
 
 | Spartusis klavišas | Funkcija |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Galite naudoti `Super + Ctrl + E`, kad pamatytumėte visą jaustukų parinkiklį
 | `Shift + CapsLock Space N` | Jūsų vardas (kaip įvesta per sąranką) |
 | `Shift + CapsLock Space E` | Jūsų el. paštas (kaip įvesta per sąranką) |
 
-Galite pridėti daugiau savų, redaguodami `~/.XCompose`, tada terminale paleisdami `omarchy-restart-xcompose`, kad pakeitimai būtų pritaikyti.
+Galite pridėti daugiau savų, redaguodami `~/.XCompose`, tada terminale paleisdami `collie-restart-xcompose`, kad pakeitimai būtų pritaikyti.

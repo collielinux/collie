@@ -1,16 +1,16 @@
 # Tacaíocht do Mac
 
-Tá tacaíocht ionsuite in Omarchy do **Macanna Intel**. Tá cúpla teorainn aitheanta ann faoi láthair, ach fad is atá tú ar an eolas fúthu agus sásta leo; is féidir leat beatha nua a thabhairt do do shean-Mhacanna trí Omarchy a lódáil.
+Tá tacaíocht ionsuite in Collie do **Macanna Intel**. Tá cúpla teorainn aitheanta ann faoi láthair, ach fad is atá tú ar an eolas fúthu agus sásta leo; is féidir leat beatha nua a thabhairt do do shean-Mhacanna trí Collie a lódáil.
 
-Tabhair faoi deara nach dtacaítear go díreach faoi láthair le suiteáil ar Mac sraith-M. Is féidir leat tuilleadh a fháil amach faoi staid seo in #omarchy-on-other inár [Discord](https://discord.gg/tXFUdasqhY).
+Tabhair faoi deara nach dtacaítear go díreach faoi láthair le suiteáil ar Mac sraith-M. Is féidir leat tuilleadh a fháil amach faoi staid seo in #collie-on-other inár [Discord](https://discord.gg/tXFUdasqhY).
 
-I dtástáil shimplí, bhíomar in ann gnóthachain feidhmíochta 36% a bhaint amach ar MacBook Pro ó 2019 díreach trí Omarchy a shuiteáil.
+I dtástáil shimplí, bhíomar in ann gnóthachain feidhmíochta 36% a bhaint amach ar MacBook Pro ó 2019 díreach trí Collie a shuiteáil.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy a Shuiteáil ar Mac
+### Collie a Shuiteáil ar Mac
 
-Ní thacaíonn Omarchy faoi láthair ach le bheith mar an t-aon OS atá suiteáilte. Le linn na suiteála, scriosfar an tiomántán agus ní bheidh MacOS in ann tosú a thuilleadh.
+Ní thacaíonn Collie faoi láthair ach le bheith mar an t-aon OS atá suiteáilte. Le linn na suiteála, scriosfar an tiomántán agus ní bheidh MacOS in ann tosú a thuilleadh.
 
 Is féidir leat é a athchóiriú níos déanaí fós trí Internet Recovery más mian leat.
 
@@ -39,7 +39,7 @@ Aimsíonn an suiteálaí crua-earraí Mac agus cuireann sé na réitigh riachtan
 
 ### Teorainneacha Aitheanta
 
-Bíonn baill den phobal ag obair de shíor ar réitigh do na dúshláin seo agus mar sin má bhíonn fadhbanna agat leo seo, bí páirteach in #omarchy-on-other inár [Discord](https://discord.gg/tXFUdasqhY) agus féach an bhfuil aon mhodhanna cothrom le dáta ann chun iad seo a réiteach.
+Bíonn baill den phobal ag obair de shíor ar réitigh do na dúshláin seo agus mar sin má bhíonn fadhbanna agat leo seo, bí páirteach in #collie-on-other inár [Discord](https://discord.gg/tXFUdasqhY) agus féach an bhfuil aon mhodhanna cothrom le dáta ann chun iad seo a réiteach.
 
 #### Gléasanna le Slis T1
 

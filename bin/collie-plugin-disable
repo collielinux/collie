@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# collie:summary=Disable a shell plugin
+# collie:group=plugin
+# collie:args=<id>
+
+set -euo pipefail
+
+fail() {
+  echo "collie-plugin-disable: $*" >&2
+  exit 1
+}
+
+if [[ ${1:-} == "-h" || ${1:-} == "--help" ]]; then
+  echo "Usage: collie plugin disable <id>"
+  exit 0
+fi
+
+id="${1:-}"
+[[ -n $id ]] || fail "plugin id is required"
+
+result=$(collie-shell shell setPluginEnabled "$id" false)
+[[ $result == "ok" ]] ||
+  fail "plugin '$id' is not known; run: collie-shell shell rescanPlugins"
+
+echo "Disabled $id"

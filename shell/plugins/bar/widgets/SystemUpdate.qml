@@ -6,7 +6,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "omarchy.system-update"
+  moduleName: "collie.system-update"
 
   property bool updateAvailable: false
 
@@ -17,7 +17,7 @@ BarWidget {
   function clear() { updateAvailable = false }
 
   function runUpdate() {
-    if (root.bar) root.bar.run("omarchy-launch-floating-terminal-with-presentation omarchy-update")
+    if (root.bar) root.bar.run("collie-launch-floating-terminal-with-presentation collie-update")
   }
 
   visible: updateAvailable
@@ -25,7 +25,7 @@ BarWidget {
   implicitHeight: button.implicitHeight
 
   ShellIpc {
-    target: "omarchy.system-update"
+    target: "collie.system-update"
 
     function refresh(): void {
       root.broadcast("refresh")
@@ -38,7 +38,7 @@ BarWidget {
 
   Process {
     id: updateProc
-    command: ["omarchy-update-available"]
+    command: ["collie-update-available"]
     onExited: function(exitCode) {
       root.updateAvailable = exitCode === 0
     }

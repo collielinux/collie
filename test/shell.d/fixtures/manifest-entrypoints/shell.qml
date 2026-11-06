@@ -4,18 +4,18 @@ import Quickshell
 ShellRoot {
   id: root
 
-  readonly property string resultPath: Quickshell.env("OMARCHY_QML_TEST_RESULT")
-  readonly property string rootPath: Quickshell.env("OMARCHY_PATH")
+  readonly property string resultPath: Quickshell.env("COLLIE_QML_TEST_RESULT")
+  readonly property string rootPath: Quickshell.env("COLLIE_PATH")
   property var failures: []
   property var createdIds: []
   property var createdObjects: []
   property var panelBarIds: [
-    "omarchy.audio",
-    "omarchy.bluetooth",
-    "omarchy.monitor",
-    "omarchy.network",
-    "omarchy.power",
-    "omarchy.weather"
+    "collie.audio",
+    "collie.bluetooth",
+    "collie.monitor",
+    "collie.network",
+    "collie.power",
+    "collie.weather"
   ]
 
   function fail(message) {
@@ -44,7 +44,7 @@ ShellRoot {
 
   function manifests() {
     try {
-      return JSON.parse(Qt.atob(Quickshell.env("OMARCHY_QML_MANIFESTS") || "W10="))
+      return JSON.parse(Qt.atob(Quickshell.env("COLLIE_QML_MANIFESTS") || "W10="))
     } catch (error) {
       fail("manifest list failed to parse: " + error)
       return []
@@ -54,7 +54,7 @@ ShellRoot {
   function initialProperties(entry) {
     var props = {}
     if (entry.kind === "bar") {
-      props.omarchyPath = rootPath
+      props.colliePath = rootPath
       props.barWidgetRegistry = fakeBarWidgetRegistry
       props.barConfig = {
         position: "top",
@@ -72,7 +72,7 @@ ShellRoot {
 
   function injectProperties(item, entry) {
     if (!item) return
-    if ("omarchyPath" in item) item.omarchyPath = rootPath
+    if ("colliePath" in item) item.colliePath = rootPath
     if ("shell" in item) item.shell = mockShell
     if ("manifest" in item) item.manifest = entry.manifest
     if ("pluginRegistry" in item) item.pluginRegistry = mockPluginRegistry
@@ -155,7 +155,7 @@ ShellRoot {
     id: fakeBar
     property bool vertical: false
     property int barSize: 26
-    property string omarchyPath: root.rootPath
+    property string colliePath: root.rootPath
     property string fontFamily: "monospace"
     property color foreground: "white"
     property color background: "black"

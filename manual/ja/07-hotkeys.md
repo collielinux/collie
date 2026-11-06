@@ -8,7 +8,7 @@
 
 | プレーン | そこにあるもの | 例 |
 | --- | --- | --- |
-| `Super + key` | システム：ウィンドウ、ワークスペース、レイアウト、コアメニュー | `Super + Space` Omarchy メニュー、`Super + W` ウィンドウを閉じる、`Super + F` フルスクリーン |
+| `Super + key` | システム：ウィンドウ、ワークスペース、レイアウト、コアメニュー | `Super + Space` Collie メニュー、`Super + W` ウィンドウを閉じる、`Super + F` フルスクリーン |
 | `Super + Shift + key` | アプリ | `Super + Shift + B` ブラウザ、`Super + Shift + E` メール、`Super + Shift + N` エディター |
 | `Super + Ctrl + key` | パネルとシステムメニュー | `Super + Ctrl + A` オーディオ、`Super + Ctrl + N` ネットワーク、`Super + Ctrl + C` キャプチャメニュー |
 | `Super + Ctrl + Alt + key` | クイックアクションと通知 | `Super + Ctrl + Alt + T` 時刻を表示、`Super + Ctrl + Alt + B` バッテリー、`Super + Ctrl + Alt + C` スクリーンショット |
@@ -34,7 +34,7 @@
 
 | ホットキー                  | 機能              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy メニュー（アプリとその他すべて）    |
+| `Super + Space`           | Collie メニュー（アプリとその他すべて）    |
 | `Super + Alt + Space` | アプリグリッド |
 | `Super + Escape` | システムメニュー（サスペンド、再起動など）  |
 | `Super + Ctrl + L` | コンピュータをロック |
@@ -171,7 +171,7 @@
 | `Super + V`           | ペースト    |
 | `Super + Ctrl + V`           | クリップボードマネージャー    |
 
-通常 Linux では、ターミナルでコピー＆ペーストするには `Ctrl + Shift + C/V` が必要で、それ以外では `Ctrl + C/V` が必要です。これらの Omarchy のユニバーサルクリップボードホットキーはどこでも動作します。
+通常 Linux では、ターミナルでコピー＆ペーストするには `Ctrl + Shift + C/V` が必要で、それ以外では `Ctrl + C/V` が必要です。これらの Collie のユニバーサルクリップボードホットキーはどこでも動作します。
 
 ## キャプチャ
 
@@ -192,7 +192,7 @@
 
 画面録画では、ホットキーを押すとまずどの音声が欲しいか尋ねられ、次に録画が開始します。もう一度押すと停止します。詳細は [スクリーンショットと録画](12-screenshots-recording.md) を参照してください。
 
-すべてのキャプチャオプションは、Omarchy メニュー（`Super + Space`）の _Trigger > Capture_ からもアクセスできます。
+すべてのキャプチャオプションは、Collie メニュー（`Super + Space`）の _Trigger > Capture_ からもアクセスできます。
 
 ## 通知
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | ウィンドウの透明度を切り替え |
 | `Super + Ctrl + Backspace` | 単一ウィンドウの正方形アスペクトを切り替え |
 
-追加の背景画像は `~/.config/omarchy/backgrounds/<theme name>` にあります。Omarchy メニューの _Install > Style > Background_ からも利用できます。
+追加の背景画像は `~/.config/collie/backgrounds/<theme name>` にあります。Collie メニューの _Install > Style > Background_ からも利用できます。
 
-すべてのスタイルオプションは、Omarchy メニュー（`Super + Space`）の _Style_ からもアクセスできます。
+すべてのスタイルオプションは、Collie メニュー（`Super + Space`）の _Style_ からもアクセスできます。
 
 ## トグル
 
@@ -317,7 +317,7 @@
 
 ## Ghostty ターミナル
 
-Ghostty ターミナルは、Omarchy メニューの _Install > Terminal_ を使ってインストールします。
+Ghostty ターミナルは、Collie メニューの _Install > Terminal_ を使ってインストールします。
 
 | ホットキー                  | 機能              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty ターミナルは、Omarchy メニューの _Install > Terminal_ を使
 | `Shift + CapsLock Space N` | あなたの名前（セットアップ時に入力したもの）  |
 | `Shift + CapsLock Space E` | あなたのメールアドレス（セットアップ時に入力したもの）  |
 
-`~/.XCompose` を編集して自分のものをさらに追加できます。その後、ターミナルで `omarchy-restart-xcompose` を実行すると変更が反映されます。
+`~/.XCompose` を編集して自分のものをさらに追加できます。その後、ターミナルで `collie-restart-xcompose` を実行すると変更が反映されます。

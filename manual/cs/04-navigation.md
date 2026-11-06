@@ -1,8 +1,8 @@
 # Navigace
 
-Všechno v Omarchy se děje přes klávesnici — _VŠECHNO!_ Když se systém poprvé spustí, doslova neuděláte nic jen s myší. Můžete ale stisknout `Super + Space` a zobrazí se nabídka Omarchy, odkud už zvládnete skoro všechno.
+Všechno v Collie se děje přes klávesnici — _VŠECHNO!_ Když se systém poprvé spustí, doslova neuděláte nic jen s myší. Můžete ale stisknout `Super + Space` a zobrazí se nabídka Collie, odkud už zvládnete skoro všechno.
 
-Nabídka Omarchy ale většinu času ani nemá být hlavním způsobem, jak systém ovládat. Umíme to rychleji! Všechny nejdůležitější aplikace jsou vázané přímo na jednotlivé klávesové zkratky. Terminál spustíte pomocí `Super + Return` a prohlížeč pomocí `Super + Shift + Return`. Zkuste jedno po druhém a uvidíte kouzlo dlaždicového uspořádání Hyprland v akci:
+Nabídka Collie ale většinu času ani nemá být hlavním způsobem, jak systém ovládat. Umíme to rychleji! Všechny nejdůležitější aplikace jsou vázané přímo na jednotlivé klávesové zkratky. Terminál spustíte pomocí `Super + Return` a prohlížeč pomocí `Super + Shift + Return`. Zkuste jedno po druhém a uvidíte kouzlo dlaždicového uspořádání Hyprland v akci:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Můžete také přejít na celou obrazovku pomocí `Super + F`, nebo jen na celo
 
 ### Rozložení dwindle vs. scrolling
 
-Výchozí rozložení Omarchy se nazývá dwindle. Všechna okna, která otevřete na jedné pracovní ploše, udržuje neustále viditelná, i kdyby je muselo zmenšit.
+Výchozí rozložení Collie se nazývá dwindle. Všechna okna, která otevřete na jedné pracovní ploše, udržuje neustále viditelná, i kdyby je muselo zmenšit.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Plovoucí pracovní plocha funguje jako tradiční desktop: okna se překrývají a sami je přesouváte a měníte jejich velikost. Každé okno dostane titulkový pruh v barvách vašeho motivu, s tlačítky pro minimalizaci, maximalizaci a zavření. `Super + M` minimalizuje i aktivní okno. Minimalizované okno čeká v docku; kliknutím na jeho aplikaci ho přivedete zpět. Kliknutím okno přenesete do popředí. Velikost mu změníte z libovolného okraje nebo rohu. Dvojklikem na titulkový pruh okno maximalizujete, přičemž horní lišta zůstane viditelná, a dalším dvojklikem mu vrátíte původní velikost.
 
-Plovoucí pracovní plocha zobrazuje také dock, s vašimi připnutými aplikacemi, vším, co právě běží, a mřížkou všech aplikací za tlačítkem aplikací, kterou otevře také `Super + Alt + Space` a _Apps_ v nabídce Omarchy. Kliknutím pravým tlačítkem na aplikaci v mřížce, nebo stisknutím `Delete`, ji odinstalujete. Kliknutím na aplikaci ji otevřete, nebo přenesete její okno do popředí; dalším kliknutím procházíte její okna. Kliknutí prostředním tlačítkem otevře nové okno. Přetažením ikony podél docku ji přesunete; přetažením běžící aplikace mezi ostatní ji tam ponecháte. Kliknutím pravým tlačítkem aplikaci v docku ponecháte, odeberete ji z něj nebo ji ukončíte. Dock uhne oknu přes celou obrazovku. Kliknutím pravým tlačítkem na tlačítko aplikací dock přesunete k jinému okraji, nebo ho necháte skrývat, dokud ukazatel nedosáhne jeho okraje. Pozice je také pod _Appearance > Dock > Dock Position_ a `omarchy dock position left` a `omarchy dock autohide on` obojí nastaví z terminálu. Aplikace, které si v docku ponecháte, jsou vybledlé, dokud neběží.
+Plovoucí pracovní plocha zobrazuje také dock, s vašimi připnutými aplikacemi, vším, co právě běží, a mřížkou všech aplikací za tlačítkem aplikací, kterou otevře také `Super + Alt + Space` a _Apps_ v nabídce Collie. Kliknutím pravým tlačítkem na aplikaci v mřížce, nebo stisknutím `Delete`, ji odinstalujete. Kliknutím na aplikaci ji otevřete, nebo přenesete její okno do popředí; dalším kliknutím procházíte její okna. Kliknutí prostředním tlačítkem otevře nové okno. Přetažením ikony podél docku ji přesunete; přetažením běžící aplikace mezi ostatní ji tam ponecháte. Kliknutím pravým tlačítkem aplikaci v docku ponecháte, odeberete ji z něj nebo ji ukončíte. Dock uhne oknu přes celou obrazovku. Kliknutím pravým tlačítkem na tlačítko aplikací dock přesunete k jinému okraji, nebo ho necháte skrývat, dokud ukazatel nedosáhne jeho okraje. Pozice je také pod _Appearance > Dock > Dock Position_ a `collie dock position left` a `collie dock autohide on` obojí nastaví z terminálu. Aplikace, které si v docku ponecháte, jsou vybledlé, dokud neběží.
 
-Nové pracovní plochy, a všechny, kterým jste pomocí `Super + L` nedali vlastní rozložení, používají výchozí rozložení. Změna výchozího rozložení na něj přepne každou pracovní plochu bez oken, zatímco plocha, která na sobě okna má, si ponechá rozložení, které má. Okno minimalizované do docku se stále počítá jako okno na pracovní ploše, kterou opustilo. Vyberete ho pod _Appearance > Workspace Layout_: Tiling, Scrolling, nebo Floating. `omarchy-hyprland-workspace-layout-default scrolling` ho nastaví z terminálu.
+Nové pracovní plochy, a všechny, kterým jste pomocí `Super + L` nedali vlastní rozložení, používají výchozí rozložení. Změna výchozího rozložení na něj přepne každou pracovní plochu bez oken, zatímco plocha, která na sobě okna má, si ponechá rozložení, které má. Okno minimalizované do docku se stále počítá jako okno na pracovní ploše, kterou opustilo. Vyberete ho pod _Appearance > Workspace Layout_: Tiling, Scrolling, nebo Floating. `collie-hyprland-workspace-layout-default scrolling` ho nastaví z terminálu.
 
 ### Seskupování oken
 

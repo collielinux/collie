@@ -7,16 +7,16 @@
 # (Speedometer 3.1 scored 10). Keep the cores in the shallow WFI state
 # (state0) until NVIDIA fixes the table. This is a desktop on mains power;
 # idle draw goes up by an amount not yet measured.
-rules_dir=${OMARCHY_UDEV_RULES_DIR:-/etc/udev/rules.d}
-rules_file=$rules_dir/71-omarchy-gb10-cpuidle.rules
+rules_dir=${COLLIE_UDEV_RULES_DIR:-/etc/udev/rules.d}
+rules_file=$rules_dir/71-collie-gb10-cpuidle.rules
 
 # Root only touches the live CPUs; tests point an unprivileged run at fixtures.
 cpu_root=/sys/devices/system/cpu
-if (( EUID != 0 )) && [[ -n ${OMARCHY_SYS_ROOT:-} ]]; then
-  cpu_root=$OMARCHY_SYS_ROOT/devices/system/cpu
+if (( EUID != 0 )) && [[ -n ${COLLIE_SYS_ROOT:-} ]]; then
+  cpu_root=$COLLIE_SYS_ROOT/devices/system/cpu
 fi
 
-if omarchy-hw-aarch64-gb10; then
+if collie-hw-aarch64-gb10; then
   # The rule covers every later boot and any core that comes back online.
   mkdir -p "$rules_dir"
   cat >"$rules_file" <<'RULES'

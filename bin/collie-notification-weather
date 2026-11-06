@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# collie:summary=Toggle the current weather panel
+
+collie-shell shell toggle collie.weather

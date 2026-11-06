@@ -1,3 +1,3 @@
-if omarchy-hw-asus-rog; then
-  omarchy-pkg-add asusctl
+if collie-hw-asus-rog; then
+  collie-pkg-add asusctl
 fi

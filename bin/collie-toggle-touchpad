@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Enable, disable, or toggle the touchpad
+# collie:args=[on|off|toggle]
+
+exec collie-toggle-input-device touchpad "${1:-toggle}"

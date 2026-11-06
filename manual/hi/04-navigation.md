@@ -1,8 +1,8 @@
 # नेविगेशन
 
-Omarchy में सब कुछ कीबोर्ड के ज़रिए होता है — _सब कुछ!_ जब सिस्टम पहली बार शुरू होता है, तो आप सचमुच सिर्फ़ माउस से कुछ भी नहीं कर सकते। लेकिन आप `Super + Space` दबाकर Omarchy Menu सामने ला सकते हैं और यहाँ से आप लगभग सब कुछ कर सकते हैं।
+Collie में सब कुछ कीबोर्ड के ज़रिए होता है — _सब कुछ!_ जब सिस्टम पहली बार शुरू होता है, तो आप सचमुच सिर्फ़ माउस से कुछ भी नहीं कर सकते। लेकिन आप `Super + Space` दबाकर Collie Menu सामने ला सकते हैं और यहाँ से आप लगभग सब कुछ कर सकते हैं।
 
-लेकिन Omarchy menu ज़्यादातर समय सिस्टम चलाने का मुख्य तरीका बनने के लिए है ही नहीं। हम इससे भी तेज़ हो सकते हैं! सभी सबसे महत्वपूर्ण applications सीधे अलग-अलग hotkeys से जुड़े हैं। आप `Super + Return` से terminal शुरू करते हैं और `Super + Shift + Return` से browser। एक के बाद एक करके देखें, और आपको Hyprland की tiling का जादू काम करता दिखेगा:
+लेकिन Collie menu ज़्यादातर समय सिस्टम चलाने का मुख्य तरीका बनने के लिए है ही नहीं। हम इससे भी तेज़ हो सकते हैं! सभी सबसे महत्वपूर्ण applications सीधे अलग-अलग hotkeys से जुड़े हैं। आप `Super + Return` से terminal शुरू करते हैं और `Super + Shift + Return` से browser। एक के बाद एक करके देखें, और आपको Hyprland की tiling का जादू काम करता दिखेगा:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Omarchy में सब कुछ कीबोर्ड के ज़रिए 
 
 ### Dwindle बनाम scrolling layout
 
-Omarchy के default layout को dwindle कहा जाता है। यह एक workspace पर आपके द्वारा खोली गई सभी windows को हर समय दिखाई देता रखता है, भले ही इसके लिए उन्हें छोटा करना पड़े।
+Collie के default layout को dwindle कहा जाता है। यह एक workspace पर आपके द्वारा खोली गई सभी windows को हर समय दिखाई देता रखता है, भले ही इसके लिए उन्हें छोटा करना पड़े।
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 एक floating workspace एक पारंपरिक desktop की तरह काम करता है: windows overlap होती हैं, और आप उन्हें खुद move करते हैं और उनका आकार तय करते हैं। हर window को आपके theme के रंगों में एक titlebar मिलती है, जिसमें minimize, maximize और close करने के buttons होते हैं। `Super + M` focused window को भी minimize करता है। एक minimized window dock में प्रतीक्षा करती है; उसे वापस लाने के लिए उसके app पर click करें। किसी window को आगे लाने के लिए उस पर click करें। उसे किसी भी किनारे या कोने से resize करें। top bar को दिखाई देते रखते हुए window को maximize करने के लिए titlebar पर double-click करें, और उसका पुराना आकार वापस पाने के लिए फिर से ऐसा करें।
 
-एक floating workspace एक dock भी दिखाता है, जिसमें आपके pinned apps, चल रही हर चीज़, और apps button के पीछे हर app की एक grid होती है, जिसे `Super + Alt + Space` और Omarchy menu में _Apps_ भी खोलते हैं। grid पर किसी app को uninstall करने के लिए उस पर right-click करें, या `Delete` दबाएँ। किसी app को खोलने के लिए, या उसकी window को आगे लाने के लिए उस पर click करें; उसकी windows के बीच क्रम से जाने के लिए फिर से click करें। Middle-click एक नई window खोलता है। किसी icon को dock के साथ drag करके उसे move करें; किसी running app को दूसरों के बीच drag करने से वह वहाँ बना रहता है। किसी app को dock में रखने, उसे वहाँ से हटाने, या उसे quit करने के लिए right-click करें। dock एक fullscreen window के रास्ते से हट जाता है। dock को दूसरे किनारे पर ले जाने के लिए या pointer के उसके किनारे तक पहुँचने तक उसे छिपाए रखने के लिए apps button पर right-click करें। यह स्थिति _Appearance > Dock > Dock Position_ के तहत भी है, और `omarchy dock position left` और `omarchy dock autohide on` दोनों को terminal से set करते हैं। जिन apps को आप dock में रखते हैं वे तब faded रहते हैं जब वे चल नहीं रहे होते।
+एक floating workspace एक dock भी दिखाता है, जिसमें आपके pinned apps, चल रही हर चीज़, और apps button के पीछे हर app की एक grid होती है, जिसे `Super + Alt + Space` और Collie menu में _Apps_ भी खोलते हैं। grid पर किसी app को uninstall करने के लिए उस पर right-click करें, या `Delete` दबाएँ। किसी app को खोलने के लिए, या उसकी window को आगे लाने के लिए उस पर click करें; उसकी windows के बीच क्रम से जाने के लिए फिर से click करें। Middle-click एक नई window खोलता है। किसी icon को dock के साथ drag करके उसे move करें; किसी running app को दूसरों के बीच drag करने से वह वहाँ बना रहता है। किसी app को dock में रखने, उसे वहाँ से हटाने, या उसे quit करने के लिए right-click करें। dock एक fullscreen window के रास्ते से हट जाता है। dock को दूसरे किनारे पर ले जाने के लिए या pointer के उसके किनारे तक पहुँचने तक उसे छिपाए रखने के लिए apps button पर right-click करें। यह स्थिति _Appearance > Dock > Dock Position_ के तहत भी है, और `collie dock position left` और `collie dock autohide on` दोनों को terminal से set करते हैं। जिन apps को आप dock में रखते हैं वे तब faded रहते हैं जब वे चल नहीं रहे होते।
 
-नए workspaces, और वे सभी जिन्हें आपने `Super + L` से उनका अपना layout नहीं दिया है, default layout का उपयोग करते हैं। default बदलने से windows के बिना हर workspace उस पर reset हो जाता है, जबकि जिस पर windows हैं वह अपना मौजूदा layout बनाए रखता है। dock में minimized की गई window अभी भी उस workspace पर एक window के रूप में गिनी जाती है जिसे उसने छोड़ा था। इसे _Appearance > Workspace Layout_ के तहत चुनें: Tiling, Scrolling, या Floating। `omarchy-hyprland-workspace-layout-default scrolling` इसे terminal से set करता है।
+नए workspaces, और वे सभी जिन्हें आपने `Super + L` से उनका अपना layout नहीं दिया है, default layout का उपयोग करते हैं। default बदलने से windows के बिना हर workspace उस पर reset हो जाता है, जबकि जिस पर windows हैं वह अपना मौजूदा layout बनाए रखता है। dock में minimized की गई window अभी भी उस workspace पर एक window के रूप में गिनी जाती है जिसे उसने छोड़ा था। इसे _Appearance > Workspace Layout_ के तहत चुनें: Tiling, Scrolling, या Floating। `collie-hyprland-workspace-layout-default scrolling` इसे terminal से set करता है।
 
 ### Windows को group करना
 

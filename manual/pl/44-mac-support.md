@@ -1,16 +1,16 @@
 # Obsługa komputerów Mac
 
-Omarchy ma wbudowaną obsługę **komputerów Mac z procesorami Intel**. Obecnie istnieje kilka znanych ograniczeń, ale jeśli jesteś ich świadomy i Ci odpowiadają, możesz tchnąć nowe życie w swoje stare Maki, instalując na nich Omarchy.
+Collie ma wbudowaną obsługę **komputerów Mac z procesorami Intel**. Obecnie istnieje kilka znanych ograniczeń, ale jeśli jesteś ich świadomy i Ci odpowiadają, możesz tchnąć nowe życie w swoje stare Maki, instalując na nich Collie.
 
-Pamiętaj, że instalacja na Macu z chipem z serii M nie jest obecnie bezpośrednio obsługiwana. Więcej informacji o stanie prac w tym zakresie znajdziesz na kanale #omarchy-on-other na naszym [Discord](https://discord.gg/tXFUdasqhY).
+Pamiętaj, że instalacja na Macu z chipem z serii M nie jest obecnie bezpośrednio obsługiwana. Więcej informacji o stanie prac w tym zakresie znajdziesz na kanale #collie-on-other na naszym [Discord](https://discord.gg/tXFUdasqhY).
 
-W prostym teście udało nam się osiągnąć 36% wzrost wydajności na MacBooku Pro z 2019 roku już przez samo zainstalowanie Omarchy.
+W prostym teście udało nam się osiągnąć 36% wzrost wydajności na MacBooku Pro z 2019 roku już przez samo zainstalowanie Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instalowanie Omarchy na Macu
+### Instalowanie Collie na Macu
 
-Omarchy obecnie obsługuje wyłącznie instalację jako **jedyny** system operacyjny. Podczas instalacji dysk zostanie wyczyszczony, a MacOS nie będzie już mógł się uruchamiać.
+Collie obecnie obsługuje wyłącznie instalację jako **jedyny** system operacyjny. Podczas instalacji dysk zostanie wyczyszczony, a MacOS nie będzie już mógł się uruchamiać.
 
 Jeśli zechcesz, możesz go później nadal przywrócić za pomocą Internet Recovery.
 
@@ -39,7 +39,7 @@ Instalator wykrywa sprzęt Maca i automatycznie stosuje potrzebne poprawki: ster
 
 ### Znane ograniczenia
 
-Członkowie społeczności nieustannie pracują nad rozwiązaniami tych problemów, więc jeśli są one dla Ciebie kłopotliwe, dołącz do #omarchy-on-other na naszym [Discord](https://discord.gg/tXFUdasqhY) i sprawdź, czy istnieją jakieś aktualne metody ich rozwiązania.
+Członkowie społeczności nieustannie pracują nad rozwiązaniami tych problemów, więc jeśli są one dla Ciebie kłopotliwe, dołącz do #collie-on-other na naszym [Discord](https://discord.gg/tXFUdasqhY) i sprawdź, czy istnieją jakieś aktualne metody ich rozwiązania.
 
 #### Urządzenia z chipem T1
 

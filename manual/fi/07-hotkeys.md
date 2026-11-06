@@ -8,7 +8,7 @@ Jokainen pikanäppäin sijaitsee tasolla, jonka sen muokkausnäppäimet määrä
 
 | Taso | Mitä siellä on | Esimerkkejä |
 | --- | --- | --- |
-| `Super + key` | Järjestelmä: ikkunat, työtilat, asettelut ja ydinvalikot | `Super + Space` Omarchy-valikko, `Super + W` sulje ikkuna, `Super + F` koko näyttö |
+| `Super + key` | Järjestelmä: ikkunat, työtilat, asettelut ja ydinvalikot | `Super + Space` Collie-valikko, `Super + W` sulje ikkuna, `Super + F` koko näyttö |
 | `Super + Shift + key` | Sovellukset | `Super + Shift + B` selain, `Super + Shift + E` sähköposti, `Super + Shift + N` editori |
 | `Super + Ctrl + key` | Paneelit ja järjestelmävalikot | `Super + Ctrl + A` ääni, `Super + Ctrl + N` verkko, `Super + Ctrl + C` tallennusvalikko |
 | `Super + Ctrl + Alt + key` | Pikatoiminnot ja ilmoitukset | `Super + Ctrl + Alt + T` näytä aika, `Super + Ctrl + Alt + B` akku, `Super + Ctrl + Alt + C` kuvakaappaus |
@@ -34,7 +34,7 @@ Jos oletus ei sovi sinulle (vaikkapa haluat `Super + Shift + S` kuvakaappauksill
 
 | Pikanäppäin | Toiminto |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy-valikko (sovellukset ja kaikki muu) |
+| `Super + Space` | Collie-valikko (sovellukset ja kaikki muu) |
 | `Super + Alt + Space` | Sovellusruudukko |
 | `Super + Escape` | Järjestelmävalikko (keskeytys, uudelleenkäynnistys jne.) |
 | `Super + Ctrl + L` | Lukitse tietokone |
@@ -171,7 +171,7 @@ Muuta/lisää sidontoja tiedostossa `~/.config/hypr/bindings.lua`.
 | `Super + V` | Liitä |
 | `Super + Ctrl + V` | Leikepöydän hallinta |
 
-Yleensä Linuxissa tarvitset yhdistelmän `Ctrl + Shift + C/V` kopioimiseen ja liittämiseen terminaalissa ja yhdistelmän `Ctrl + C/V` tehdäksesi sen kaikkialla muualla. Nämä Omarchyn yhtenäiset leikepöydän pikanäppäimet toimivat kaikkialla.
+Yleensä Linuxissa tarvitset yhdistelmän `Ctrl + Shift + C/V` kopioimiseen ja liittämiseen terminaalissa ja yhdistelmän `Ctrl + C/V` tehdäksesi sen kaikkialla muualla. Nämä Collien yhtenäiset leikepöydän pikanäppäimet toimivat kaikkialla.
 
 ## Tallennus
 
@@ -192,7 +192,7 @@ Yleensä Linuxissa tarvitset yhdistelmän `Ctrl + Shift + C/V` kopioimiseen ja l
 
 Näytöntallennuksissa pikanäppäin kysyy ensin, mitä ääntä haluat, ja aloittaa sitten tallennuksen. Pysäytä painamalla sitä uudelleen. Katso lisätietoja kohdasta [kuvakaappaukset ja tallennus](12-screenshots-recording.md).
 
-Kaikki tallennusvaihtoehdot ovat käytettävissä myös kohdassa _Trigger > Capture_ Omarchy-valikossa (`Super + Space`).
+Kaikki tallennusvaihtoehdot ovat käytettävissä myös kohdassa _Trigger > Capture_ Collie-valikossa (`Super + Space`).
 
 ## Ilmoitukset
 
@@ -214,9 +214,9 @@ Kaikki tallennusvaihtoehdot ovat käytettävissä myös kohdassa _Trigger > Capt
 | `Super + Backspace` | Vaihda ikkunan läpinäkyvyys |
 | `Super + Ctrl + Backspace` | Vaihda yksittäisen ikkunan neliömäinen kuvasuhde |
 
-Ylimääräiset taustakuvat sijaitsevat kansiossa `~/.config/omarchy/backgrounds/<theme name>`. Saatavilla myös kohdassa _Install > Style > Background_ Omarchy-valikossa.
+Ylimääräiset taustakuvat sijaitsevat kansiossa `~/.config/collie/backgrounds/<theme name>`. Saatavilla myös kohdassa _Install > Style > Background_ Collie-valikossa.
 
-Kaikki tyylivaihtoehdot ovat käytettävissä myös kohdassa _Style_ Omarchy-valikossa (`Super + Space`).
+Kaikki tyylivaihtoehdot ovat käytettävissä myös kohdassa _Style_ Collie-valikossa (`Super + Space`).
 
 ## Kytkimet
 
@@ -317,7 +317,7 @@ Nämä funktiot on suoritettava Tmux-istunnon sisällä.
 
 ## Ghostty-terminaali
 
-Ghostty-terminaali asennetaan kohdassa _Install > Terminal_ Omarchy-valikon kautta.
+Ghostty-terminaali asennetaan kohdassa _Install > Terminal_ Collie-valikon kautta.
 
 | Pikanäppäin | Toiminto |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Voit käyttää yhdistelmää `Super + Ctrl + E` näyttääksesi täydellisen em
 | `Shift + CapsLock Space N` | Nimesi (kuten asennuksessa syötettiin) |
 | `Shift + CapsLock Space E` | Sähköpostisi (kuten asennuksessa syötettiin) |
 
-Voit lisätä omiasi muokkaamalla tiedostoa `~/.XCompose` ja suorittamalla sitten terminaalissa komennon `omarchy-restart-xcompose`, jotta muutokset tulevat käyttöön.
+Voit lisätä omiasi muokkaamalla tiedostoa `~/.XCompose` ja suorittamalla sitten terminaalissa komennon `collie-restart-xcompose`, jotta muutokset tulevat käyttöön.

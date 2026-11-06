@@ -1,8 +1,8 @@
 # Điều hướng
 
-Mọi thứ trong Omarchy đều diễn ra qua bàn phím — _MỌI THỨ!_ Khi hệ thống mới khởi động, bạn thực sự không thể làm được gì chỉ bằng chuột. Nhưng bạn có thể nhấn `Super + Space` để mở Omarchy Menu và từ đây bạn có thể làm gần như mọi thứ.
+Mọi thứ trong Collie đều diễn ra qua bàn phím — _MỌI THỨ!_ Khi hệ thống mới khởi động, bạn thực sự không thể làm được gì chỉ bằng chuột. Nhưng bạn có thể nhấn `Super + Space` để mở Collie Menu và từ đây bạn có thể làm gần như mọi thứ.
 
-Nhưng Omarchy Menu thậm chí không được dự định là cách chính để vận hành hệ thống trong hầu hết thời gian. Chúng ta có thể làm nhanh hơn thế! Tất cả các ứng dụng quan trọng nhất đều được gán trực tiếp vào từng phím tắt riêng. Bạn khởi động terminal bằng `Super + Return` và trình duyệt bằng `Super + Shift + Return`. Hãy thử làm cái này nối tiếp cái kia, và bạn sẽ thấy phép màu của cơ chế xếp lớp của Hyprland đang hoạt động:
+Nhưng Collie Menu thậm chí không được dự định là cách chính để vận hành hệ thống trong hầu hết thời gian. Chúng ta có thể làm nhanh hơn thế! Tất cả các ứng dụng quan trọng nhất đều được gán trực tiếp vào từng phím tắt riêng. Bạn khởi động terminal bằng `Super + Return` và trình duyệt bằng `Super + Shift + Return`. Hãy thử làm cái này nối tiếp cái kia, và bạn sẽ thấy phép màu của cơ chế xếp lớp của Hyprland đang hoạt động:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Bạn cũng có thể chuyển sang toàn màn hình bằng `Super + F` hoặc t
 
 ### Bố cục dwindle so với scrolling
 
-Bố cục mặc định của Omarchy được gọi là dwindle. Nó giữ cho tất cả các cửa sổ bạn mở trên một workspace luôn hiển thị, ngay cả khi phải thu nhỏ chúng xuống.
+Bố cục mặc định của Collie được gọi là dwindle. Nó giữ cho tất cả các cửa sổ bạn mở trên một workspace luôn hiển thị, ngay cả khi phải thu nhỏ chúng xuống.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Một workspace nổi hoạt động giống như một desktop truyền thống: các cửa sổ chồng lên nhau, và bạn tự di chuyển và thay đổi kích thước chúng. Mỗi cửa sổ có một thanh tiêu đề theo màu sắc chủ đề của bạn, với các nút để thu nhỏ, phóng to và đóng. `Super + M` cũng thu nhỏ cửa sổ đang được chọn. Một cửa sổ đã thu nhỏ sẽ chờ trong dock; hãy nhấp vào ứng dụng của nó để đưa nó trở lại. Nhấp vào một cửa sổ để đưa nó lên phía trước. Thay đổi kích thước nó từ bất kỳ cạnh hoặc góc nào. Nhấp đúp vào thanh tiêu đề để phóng to cửa sổ trong khi vẫn giữ thanh trên cùng trong tầm nhìn, và nhấp đúp lần nữa để lấy lại kích thước cũ của nó.
 
-Một workspace nổi cũng hiển thị một dock, với các ứng dụng đã ghim của bạn, mọi thứ đang chạy, và một lưới mọi ứng dụng nằm sau nút ứng dụng, mà `Super + Alt + Space` và _Apps_ trong Omarchy Menu cũng mở ra. Nhấp chuột phải vào một ứng dụng trên lưới, hoặc nhấn `Delete`, để gỡ cài đặt nó. Nhấp vào một ứng dụng để mở nó, hoặc để đưa cửa sổ của nó lên phía trước; nhấp lần nữa để luân chuyển qua các cửa sổ của nó. Nhấp chuột giữa sẽ mở một cửa sổ mới. Kéo một biểu tượng dọc theo dock để di chuyển nó; kéo một ứng dụng đang chạy vào giữa các ứng dụng khác sẽ giữ nó ở đó. Nhấp chuột phải để giữ một ứng dụng trong dock, lấy nó ra, hoặc thoát nó. Dock sẽ nhường chỗ cho một cửa sổ toàn màn hình. Nhấp chuột phải vào nút ứng dụng để di chuyển dock sang một cạnh khác hoặc để nó ẩn đi cho đến khi con trỏ chạm tới cạnh của nó. Vị trí cũng nằm trong _Appearance > Dock > Dock Position_, và `omarchy dock position left` và `omarchy dock autohide on` sẽ đặt cả hai từ terminal. Các ứng dụng bạn giữ trong dock sẽ mờ đi trong khi chúng không chạy.
+Một workspace nổi cũng hiển thị một dock, với các ứng dụng đã ghim của bạn, mọi thứ đang chạy, và một lưới mọi ứng dụng nằm sau nút ứng dụng, mà `Super + Alt + Space` và _Apps_ trong Collie Menu cũng mở ra. Nhấp chuột phải vào một ứng dụng trên lưới, hoặc nhấn `Delete`, để gỡ cài đặt nó. Nhấp vào một ứng dụng để mở nó, hoặc để đưa cửa sổ của nó lên phía trước; nhấp lần nữa để luân chuyển qua các cửa sổ của nó. Nhấp chuột giữa sẽ mở một cửa sổ mới. Kéo một biểu tượng dọc theo dock để di chuyển nó; kéo một ứng dụng đang chạy vào giữa các ứng dụng khác sẽ giữ nó ở đó. Nhấp chuột phải để giữ một ứng dụng trong dock, lấy nó ra, hoặc thoát nó. Dock sẽ nhường chỗ cho một cửa sổ toàn màn hình. Nhấp chuột phải vào nút ứng dụng để di chuyển dock sang một cạnh khác hoặc để nó ẩn đi cho đến khi con trỏ chạm tới cạnh của nó. Vị trí cũng nằm trong _Appearance > Dock > Dock Position_, và `collie dock position left` và `collie dock autohide on` sẽ đặt cả hai từ terminal. Các ứng dụng bạn giữ trong dock sẽ mờ đi trong khi chúng không chạy.
 
-Các workspace mới, và bất kỳ workspace nào bạn chưa tự gán bố cục bằng `Super + L`, sẽ dùng bố cục mặc định. Thay đổi bố cục mặc định sẽ đặt lại mọi workspace không có cửa sổ về bố cục đó, trong khi workspace có cửa sổ trên đó sẽ giữ bố cục mà nó đang có. Một cửa sổ đã thu nhỏ vào dock vẫn được tính là một cửa sổ trên workspace mà nó đã rời đi. Hãy chọn nó trong _Appearance > Workspace Layout_: Tiling, Scrolling, hoặc Floating. `omarchy-hyprland-workspace-layout-default scrolling` sẽ đặt nó từ terminal.
+Các workspace mới, và bất kỳ workspace nào bạn chưa tự gán bố cục bằng `Super + L`, sẽ dùng bố cục mặc định. Thay đổi bố cục mặc định sẽ đặt lại mọi workspace không có cửa sổ về bố cục đó, trong khi workspace có cửa sổ trên đó sẽ giữ bố cục mà nó đang có. Một cửa sổ đã thu nhỏ vào dock vẫn được tính là một cửa sổ trên workspace mà nó đã rời đi. Hãy chọn nó trong _Appearance > Workspace Layout_: Tiling, Scrolling, hoặc Floating. `collie-hyprland-workspace-layout-default scrolling` sẽ đặt nó từ terminal.
 
 ### Nhóm các cửa sổ
 

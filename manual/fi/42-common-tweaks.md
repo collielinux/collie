@@ -1,8 +1,8 @@
 # Yleisiä viilauksia
 
-Tämä on kokoelma yleisiä Omarchy-asetuksen räätälöintejä. Tiedä, että järjestelmäpäivitysten saattaa toisinaan olla välttämätöntä palauttaa tietyt määritykset alkuperäiseen tilaansa. Jos näin tapahtuu, muutoksesi eivät katoa, vaan ne siirretään samassa hakemistossa olevaan `.bak`-tiedostoon.
+Tämä on kokoelma yleisiä Collie-asetuksen räätälöintejä. Tiedä, että järjestelmäpäivitysten saattaa toisinaan olla välttämätöntä palauttaa tietyt määritykset alkuperäiseen tilaansa. Jos näin tapahtuu, muutoksesi eivät katoa, vaan ne siirretään samassa hakemistossa olevaan `.bak`-tiedostoon.
 
-Jos sotket jotain, voit palauttaa yksittäiset määritykset alkuperäisiin asetuksiinsa Omarchy-valikosta kohdasta _Päivitä > Määritykset_. Jos _todella_ sotket kaiken, voit nollata kaikki määritykset komennolla `omarchy-reinstall`.
+Jos sotket jotain, voit palauttaa yksittäiset määritykset alkuperäisiin asetuksiinsa Collie-valikosta kohdasta _Päivitä > Määritykset_. Jos _todella_ sotket kaiken, voit nollata kaikki määritykset komennolla `collie-reinstall`.
 
 ### Näytä kaikki ilmaisinalueen kuvakkeet koko ajan
 
@@ -10,7 +10,7 @@ Oletuksena ilmaisinalueen kuvakkeet, kuten Dropbox, 1password tai Steam, ovat pi
 
 ### Pyöristetyt ikkunankulmat
 
-Omarchyn oletusmuotoilu on kulmikas, mutta jos haluat pehmentää sitä hieman, voit muuttaa tiedostoa `~/.config/hypr/looknfeel.lua` niin, että rounding ei enää ole kommentoitu pois:
+Collien oletusmuotoilu on kulmikas, mutta jos haluat pehmentää sitä hieman, voit muuttaa tiedostoa `~/.config/hypr/looknfeel.lua` niin, että rounding ei enää ole kommentoitu pois:
 
 ```
 hl.config({

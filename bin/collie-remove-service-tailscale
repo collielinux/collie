@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# collie:summary=Remove Tailscale and its bar plugin.
+# collie:requires-sudo=true
+
+tailscale down 2>/dev/null || true
+systemctl --user disable --now collie-tailscale-receive.service 2>/dev/null || true
+sudo systemctl disable --now tailscaled.service 2>/dev/null || true
+collie-plugin-disable collie.tailscale
+collie-webapp-remove "Tailscale" 2>/dev/null || true
+collie-pkg-drop tailscale
+
+echo ""
+echo "Tailscale has been removed."

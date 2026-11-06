@@ -177,10 +177,10 @@ expect("a Zhipu key asks open.bigmodel.cn with the raw key, no Bearer",
 
 # The same key on the other platform is another account: its limits are kept
 # apart, per platform.
-write_json(config_home() / "omarchy" / "agents" / "zai.json", {"apiKey": "zhipu-key", "platform": "zai"})
+write_json(config_home() / "collie" / "agents" / "zai.json", {"apiKey": "zhipu-key", "platform": "zai"})
 with FakeHttp(mode="down"):
   other = collect("zai", "--force")
-(config_home() / "omarchy" / "agents" / "zai.json").unlink()
+(config_home() / "collie" / "agents" / "zai.json").unlink()
 with FakeHttp(mode="down"):
   kept = collect("zai", "--force")
 expect("Z.ai collector keeps one key's limits per platform",

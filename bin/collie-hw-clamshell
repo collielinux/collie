@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# collie:summary=Returns true when clamshell mode is active
+# collie:hidden=true
+
+# Clamshell = lid closed while driving one or more external monitors.
+collie-hw-laptop-closed && collie-hw-external-monitors

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "omarchy.menu",
-  "name": "Omarchy menu",
+  "id": "collie.menu",
+  "name": "Collie menu",
   "version": "1.0.0",
-  "author": "Omarchy",
-  "description": "Quickshell-powered Omarchy command menu",
+  "author": "Collie",
+  "description": "Quickshell-powered Collie command menu",
   "kinds": [
     "menu",
     "bar-widget"
@@ -15,8 +15,8 @@
     "barWidget": "BarWidget.qml"
   },
   "barWidget": {
-    "displayName": "Omarchy menu",
-    "description": "Launches the Omarchy menu",
+    "displayName": "Collie menu",
+    "description": "Launches the Collie menu",
     "category": "Compositor",
     "allowMultiple": false
   }

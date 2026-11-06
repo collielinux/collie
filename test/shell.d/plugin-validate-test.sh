@@ -39,7 +39,7 @@ JSON
 }
 
 validate() {
-  OMARCHY_PATH="$ROOT" "$ROOT/bin/omarchy-plugin-validate" "$1" 2>&1
+  COLLIE_PATH="$ROOT" "$ROOT/bin/collie-plugin-validate" "$1" 2>&1
 }
 
 # Every kind the shell knows how to load names the entry point it loads from.

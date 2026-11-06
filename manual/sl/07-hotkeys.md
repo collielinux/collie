@@ -8,7 +8,7 @@ Vsaka bližnjica je na ravni, ki jo določajo njene modifikacijske tipke, vsaka 
 
 | Raven | Kaj živi tam | Primeri |
 | --- | --- | --- |
-| `Super + key` | Sistem: okna, delovni prostori, postavitve in glavni meniji | `Super + Space` meni Omarchy, `Super + W` zapri okno, `Super + F` cel zaslon |
+| `Super + key` | Sistem: okna, delovni prostori, postavitve in glavni meniji | `Super + Space` meni Collie, `Super + W` zapri okno, `Super + F` cel zaslon |
 | `Super + Shift + key` | Aplikacije | `Super + Shift + B` brskalnik, `Super + Shift + E` e-pošta, `Super + Shift + N` urejevalnik |
 | `Super + Ctrl + key` | Plošče in sistemski meniji | `Super + Ctrl + A` zvok, `Super + Ctrl + N` omrežje, `Super + Ctrl + C` meni za zajem |
 | `Super + Ctrl + Alt + key` | Hitra dejanja in obvestila | `Super + Ctrl + Alt + T` pokaži čas, `Super + Ctrl + Alt + B` baterija, `Super + Ctrl + Alt + C` posnetek zaslona |
@@ -34,7 +34,7 @@ Nekaj bližnjic krši ta pravila, ker so priročne. `Shift` s puščico ali `Tab
 
 | Bližnjica | Funkcija |
 | ----------------------- | --------------------- |
-| `Super + Space` | Meni Omarchy (aplikacije in vse ostalo) |
+| `Super + Space` | Meni Collie (aplikacije in vse ostalo) |
 | `Super + Alt + Space` | Mreža aplikacij |
 | `Super + Escape` | Sistemski meni (zaustavitev, ponovni zagon itd.) |
 | `Super + Ctrl + L` | Zakleni računalnik |
@@ -171,7 +171,7 @@ Spremenite/dodajte vezave v `~/.config/hypr/bindings.lua`.
 | `Super + V` | Prilepi |
 | `Super + Ctrl + V` | Upravitelj odložišča |
 
-Običajno v Linuxu potrebujete `Ctrl + Shift + C/V`, da kopirate in prilepite v terminalu, in `Ctrl + C/V`, da to naredite povsod drugje. Te poenotene bližnjice odložišča v Omarchy delujejo povsod.
+Običajno v Linuxu potrebujete `Ctrl + Shift + C/V`, da kopirate in prilepite v terminalu, in `Ctrl + C/V`, da to naredite povsod drugje. Te poenotene bližnjice odložišča v Collie delujejo povsod.
 
 ## Zajem
 
@@ -192,7 +192,7 @@ Običajno v Linuxu potrebujete `Ctrl + Shift + C/V`, da kopirate in prilepite v 
 
 Pri snemanju zaslona vas bližnjica najprej vpraša, kateri zvok želite, nato začne snemati. Pritisnite jo znova, da ustavite. Za podrobnosti glejte [posnetki zaslona in snemanje](12-screenshots-recording.md).
 
-Vse možnosti zajema so dostopne tudi pod _Sproži > Zajem_ v meniju Omarchy (`Super + Space`).
+Vse možnosti zajema so dostopne tudi pod _Sproži > Zajem_ v meniju Collie (`Super + Space`).
 
 ## Obvestila
 
@@ -214,9 +214,9 @@ Vse možnosti zajema so dostopne tudi pod _Sproži > Zajem_ v meniju Omarchy (`S
 | `Super + Backspace` | Preklopi prosojnost okna |
 | `Super + Ctrl + Backspace` | Preklopi kvadratno razmerje za eno okno |
 
-Dodatne slike ozadja so v `~/.config/omarchy/backgrounds/<theme name>`. Na voljo tudi prek _Namesti > Slog > Ozadje_ v meniju Omarchy.
+Dodatne slike ozadja so v `~/.config/collie/backgrounds/<theme name>`. Na voljo tudi prek _Namesti > Slog > Ozadje_ v meniju Collie.
 
-Vse možnosti sloga so dostopne tudi pod _Slog_ v meniju Omarchy (`Super + Space`).
+Vse možnosti sloga so dostopne tudi pod _Slog_ v meniju Collie (`Super + Space`).
 
 ## Preklopi
 
@@ -317,7 +317,7 @@ Te funkcije je treba zagnati znotraj seje Tmux.
 
 ## Terminal Ghostty
 
-Terminal Ghostty namestite z _Namesti > Terminal_ prek menija Omarchy.
+Terminal Ghostty namestite z _Namesti > Terminal_ prek menija Collie.
 
 | Bližnjica | Funkcija |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Z `Super + Ctrl + E` lahko prikažete celoten izbirnik emojijev, ki bo izbiro da
 | `Shift + CapsLock Space N` | Vaše ime (kot ste ga vnesli pri nastavitvi) |
 | `Shift + CapsLock Space E` | Vaš e-poštni naslov (kot ste ga vnesli pri nastavitvi) |
 
-Več svojih lahko dodate z urejanjem `~/.XCompose`, nato pa v terminalu zaženete `omarchy-restart-xcompose`, da se spremembe uveljavijo.
+Več svojih lahko dodate z urejanjem `~/.XCompose`, nato pa v terminalu zaženete `collie-restart-xcompose`, da se spremembe uveljavijo.

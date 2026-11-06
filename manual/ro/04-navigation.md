@@ -1,8 +1,8 @@
 # Navigare
 
-Totul în Omarchy se întâmplă de la tastatură — _TOTUL!_ Când sistemul pornește prima dată, literalmente nu poți face nimic doar cu mouse-ul. Dar poți apăsa `Super + Space` pentru a afișa Omarchy Menu și de aici poți face aproape totul.
+Totul în Collie se întâmplă de la tastatură — _TOTUL!_ Când sistemul pornește prima dată, literalmente nu poți face nimic doar cu mouse-ul. Dar poți apăsa `Super + Space` pentru a afișa Collie Menu și de aici poți face aproape totul.
 
-Dar meniul Omarchy nici măcar nu este menit să fie principalul mod de a opera sistemul în majoritatea timpului. Putem fi mai rapizi de atât! Toate aplicațiile cele mai importante sunt legate direct de taste rapide individuale. Pornești terminalul cu `Super + Return` și un browser cu `Super + Shift + Return`. Încearcă să le faci una după alta și vei vedea magia dispunerii în mozaic a lui Hyprland în acțiune:
+Dar meniul Collie nici măcar nu este menit să fie principalul mod de a opera sistemul în majoritatea timpului. Putem fi mai rapizi de atât! Toate aplicațiile cele mai importante sunt legate direct de taste rapide individuale. Pornești terminalul cu `Super + Return` și un browser cu `Super + Shift + Return`. Încearcă să le faci una după alta și vei vedea magia dispunerii în mozaic a lui Hyprland în acțiune:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ De asemenea, poți trece pe tot ecranul cu `Super + F` sau chiar doar pe toată 
 
 ### Dispunerea dwindle vs. scrolling
 
-Dispunerea implicită a lui Omarchy se numește dwindle. Ea păstrează toate ferestrele pe care le deschizi pe un singur spațiu de lucru vizibile în permanență, chiar dacă trebuie să le micșoreze.
+Dispunerea implicită a lui Collie se numește dwindle. Ea păstrează toate ferestrele pe care le deschizi pe un singur spațiu de lucru vizibile în permanență, chiar dacă trebuie să le micșoreze.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Un spațiu de lucru plutitor funcționează ca un desktop tradițional: ferestrele se suprapun, iar tu le muți și le dimensionezi singur. Fiecare fereastră primește o bară de titlu în culorile temei tale, cu butoane pentru minimizare, maximizare și închidere. `Super + M` minimizează și fereastra focalizată. O fereastră minimizată așteaptă în dock; fă clic pe aplicația ei pentru a o readuce. Fă clic pe o fereastră pentru a o aduce în față. Redimensioneaz-o de pe orice margine sau colț. Fă dublu clic pe o bară de titlu pentru a maximiza fereastra păstrând bara superioară la vedere și din nou pentru a-i reda dimensiunea veche.
 
-Un spațiu de lucru plutitor arată și un dock, cu aplicațiile tale fixate, tot ce rulează și o grilă cu fiecare aplicație în spatele butonului de aplicații, pe care `Super + Alt + Space` și _Apps_ din meniul Omarchy îl deschid și ele. Fă clic dreapta pe o aplicație din grilă sau apasă `Delete` pentru a o dezinstala. Fă clic pe o aplicație pentru a o deschide sau pentru a-i aduce fereastra în față; fă clic din nou pentru a parcurge ciclic ferestrele ei. Clicul din mijloc deschide o fereastră nouă. Trage o pictogramă de-a lungul dock-ului pentru a o muta; tragerea unei aplicații care rulează printre celelalte o păstrează acolo. Fă clic dreapta pentru a păstra o aplicație în dock, a o scoate sau a o închide. Dock-ul se dă la o parte din calea unei ferestre pe tot ecranul. Fă clic dreapta pe butonul de aplicații pentru a muta dock-ul pe altă margine sau pentru a-l face să se ascundă până când indicatorul ajunge la marginea lui. Poziția se află și sub _Appearance > Dock > Dock Position_, iar `omarchy dock position left` și `omarchy dock autohide on` le setează pe amândouă dintr-un terminal. Aplicațiile pe care le păstrezi în dock sunt estompate cât timp nu rulează.
+Un spațiu de lucru plutitor arată și un dock, cu aplicațiile tale fixate, tot ce rulează și o grilă cu fiecare aplicație în spatele butonului de aplicații, pe care `Super + Alt + Space` și _Apps_ din meniul Collie îl deschid și ele. Fă clic dreapta pe o aplicație din grilă sau apasă `Delete` pentru a o dezinstala. Fă clic pe o aplicație pentru a o deschide sau pentru a-i aduce fereastra în față; fă clic din nou pentru a parcurge ciclic ferestrele ei. Clicul din mijloc deschide o fereastră nouă. Trage o pictogramă de-a lungul dock-ului pentru a o muta; tragerea unei aplicații care rulează printre celelalte o păstrează acolo. Fă clic dreapta pentru a păstra o aplicație în dock, a o scoate sau a o închide. Dock-ul se dă la o parte din calea unei ferestre pe tot ecranul. Fă clic dreapta pe butonul de aplicații pentru a muta dock-ul pe altă margine sau pentru a-l face să se ascundă până când indicatorul ajunge la marginea lui. Poziția se află și sub _Appearance > Dock > Dock Position_, iar `collie dock position left` și `collie dock autohide on` le setează pe amândouă dintr-un terminal. Aplicațiile pe care le păstrezi în dock sunt estompate cât timp nu rulează.
 
-Spațiile de lucru noi și oricare cărora nu le-ai dat o dispunere proprie cu `Super + L` folosesc dispunerea implicită. Schimbarea celei implicite resetează la ea fiecare spațiu de lucru fără ferestre, în timp ce unul cu ferestre pe el păstrează dispunerea pe care o are. O fereastră minimizată în dock contează în continuare ca o fereastră pe spațiul de lucru pe care l-a părăsit. Alege-o sub _Appearance > Workspace Layout_: Tiling, Scrolling sau Floating. `omarchy-hyprland-workspace-layout-default scrolling` o setează dintr-un terminal.
+Spațiile de lucru noi și oricare cărora nu le-ai dat o dispunere proprie cu `Super + L` folosesc dispunerea implicită. Schimbarea celei implicite resetează la ea fiecare spațiu de lucru fără ferestre, în timp ce unul cu ferestre pe el păstrează dispunerea pe care o are. O fereastră minimizată în dock contează în continuare ca o fereastră pe spațiul de lucru pe care l-a părăsit. Alege-o sub _Appearance > Workspace Layout_: Tiling, Scrolling sau Floating. `collie-hyprland-workspace-layout-default scrolling` o setează dintr-un terminal.
 
 ### Gruparea ferestrelor
 

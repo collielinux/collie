@@ -1,16 +1,16 @@
 # Mac-støtte
 
-Omarchy har innebygd støtte for **Intel-Mac-er**. Det finnes et par kjente begrensninger akkurat nå, men så lenge du er klar over dem og er OK med det, kan du blåse nytt liv i de gamle Mac-ene dine ved å installere Omarchy.
+Collie har innebygd støtte for **Intel-Mac-er**. Det finnes et par kjente begrensninger akkurat nå, men så lenge du er klar over dem og er OK med det, kan du blåse nytt liv i de gamle Mac-ene dine ved å installere Collie.
 
-Vær oppmerksom på at installasjon på en Mac med M-serien ikke støttes direkte på dette tidspunktet. Du kan finne ut mer om statusen for dette i #omarchy-on-other på vår [Discord](https://discord.gg/tXFUdasqhY).
+Vær oppmerksom på at installasjon på en Mac med M-serien ikke støttes direkte på dette tidspunktet. Du kan finne ut mer om statusen for dette i #collie-on-other på vår [Discord](https://discord.gg/tXFUdasqhY).
 
-I en enkel test klarte vi å oppnå 36 % bedre ytelse på en 2019 MacBook Pro bare ved å installere Omarchy.
+I en enkel test klarte vi å oppnå 36 % bedre ytelse på en 2019 MacBook Pro bare ved å installere Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Installere Omarchy på Mac
+### Installere Collie på Mac
 
-Omarchy støtter for øyeblikket bare å være det **eneste** operativsystemet som er installert. Under installasjonen blir disken slettet, og MacOS vil ikke lenger være oppstartbart.
+Collie støtter for øyeblikket bare å være det **eneste** operativsystemet som er installert. Under installasjonen blir disken slettet, og MacOS vil ikke lenger være oppstartbart.
 
 Du kan fortsatt gjenopprette det senere via Internet Recovery hvis du skulle ønske det.
 
@@ -39,7 +39,7 @@ Installasjonsprogrammet oppdager Mac-maskinvare og tar i bruk de nødvendige fik
 
 ### Kjente begrensninger
 
-Medlemmer av fellesskapet jobber hele tiden med løsninger på disse utfordringene, så hvis de er problematiske for deg, bli med i #omarchy-on-other på vår [Discord](https://discord.gg/tXFUdasqhY) og se om det finnes oppdaterte metoder for å løse dem.
+Medlemmer av fellesskapet jobber hele tiden med løsninger på disse utfordringene, så hvis de er problematiske for deg, bli med i #collie-on-other på vår [Discord](https://discord.gg/tXFUdasqhY) og se om det finnes oppdaterte metoder for å løse dem.
 
 #### Enheter med T1-brikke
 

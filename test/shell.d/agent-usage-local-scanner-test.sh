@@ -71,7 +71,7 @@ def turn(name, provider, model):
 
 
 def local_config(*providers):
-  write_json(config_home() / "omarchy" / "agents" / "local.json", {"providers": list(providers)})
+  write_json(config_home() / "collie" / "agents" / "local.json", {"providers": list(providers)})
 
 
 def local(*args):

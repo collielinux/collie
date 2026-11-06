@@ -4,15 +4,15 @@
 # stand-ins. No host sudo, package transaction, namespace root, or exploit runs.
 boundary_tmp=$(mktemp -d)
 trap 'rm -rf "$boundary_tmp"' EXIT
-export SUDO_TEST_ROOT="$boundary_tmp/omarchy"
+export SUDO_TEST_ROOT="$boundary_tmp/collie"
 export SUDO_TEST_LOG="$boundary_tmp/events"
 export SUDO_TEST_CACHE="$boundary_tmp/cache"
-export OMARCHY_PATH="$SUDO_TEST_ROOT"
+export COLLIE_PATH="$SUDO_TEST_ROOT"
 export SUDO_TEST_HOME="$boundary_tmp/home"
 # The machine the render reads its region marker from. It starts global; a test
-# writes etc/omarchy/region here to model a regional install, never the host's.
+# writes etc/collie/region here to model a regional install, never the host's.
 export SUDO_TEST_TARGET="$boundary_tmp/target"
-export OMARCHY_REGION_FILE="$SUDO_TEST_TARGET/etc/omarchy/region"
+export COLLIE_REGION_FILE="$SUDO_TEST_TARGET/etc/collie/region"
 mkdir -p "$SUDO_TEST_HOME" "$SUDO_TEST_TARGET/etc"
 mkdir -p "$SUDO_TEST_ROOT/bin" "$SUDO_TEST_ROOT/mock" "$SUDO_TEST_ROOT/default"
 : >"$SUDO_TEST_LOG"
@@ -25,10 +25,10 @@ source, target, name = map(Path,sys.argv[1:])
 p=target/name
 p.parent.mkdir(parents=True,exist_ok=True)
 s=(source/name).read_text().replace('$HOME', '$SUDO_TEST_HOME')
-for command in ['sudo','pkexec','pacman','omarchy-pkg-missing','systemd-inhibit','setpriv','snapper']:
+for command in ['sudo','pkexec','pacman','collie-pkg-missing','systemd-inhibit','setpriv','snapper']:
  s=s.replace('/usr/bin/'+command, str(target/'mock'/command))
 s=s.replace('PATH=/usr/bin:/usr/sbin:/bin:/sbin', 'PATH="'+str(target/'bin')+':/usr/bin:/usr/sbin:/bin:/sbin"')
-if name.name == 'omarchy-apply-pacman':
+if name.name == 'collie-apply-pacman':
  render_etc='etc="${4:-/}/etc"'
  assert s.count(render_etc)==1, 'render target lookup moved'
  s=s.replace(render_etc, 'etc="${4:-$SUDO_TEST_TARGET}/etc"')
@@ -37,19 +37,19 @@ p.chmod((source/name).stat().st_mode & 0o777)
 PY
 }
 
-copy_boundary_file bin/omarchy-security-functions
-copy_boundary_file bin/omarchy-update-pacman
+copy_boundary_file bin/collie-security-functions
+copy_boundary_file bin/collie-update-pacman
 copy_boundary_file install/helpers/pacman.sh
 # Channel changes copy the platform's templates; the copy itself is a stand-in.
 cp -r "$ROOT/default/pacman" "$SUDO_TEST_ROOT/default/"
 
 # Channel changes ask for the platform. x86 unless a test says otherwise, so no
 # test reads the host's hardware.
-cat >"$SUDO_TEST_ROOT/bin/omarchy-hw-platform" <<'STUB'
+cat >"$SUDO_TEST_ROOT/bin/collie-hw-platform" <<'STUB'
 #!/bin/bash
 echo "${SUDO_TEST_PLATFORM:-x86}"
 STUB
-chmod +x "$SUDO_TEST_ROOT/bin/omarchy-hw-platform"
+chmod +x "$SUDO_TEST_ROOT/bin/collie-hw-platform"
 
 cat >"$SUDO_TEST_ROOT/mock/sudo" <<'STUB'
 #!/bin/bash
@@ -98,14 +98,14 @@ set -euo pipefail
 step=${0##*/}
 printf 'step:%s %s\n' "$step" "$*" >>"$SUDO_TEST_LOG"
 if [[ $step == "systemd-run" ]]; then
-  # omarchy-update-pacman registers the transaction as a PID 1 scope on booted
+  # collie-update-pacman registers the transaction as a PID 1 scope on booted
   # hosts. Run the wrapped command in place so the pacman step still executes.
   while (( $# )) && [[ $1 == -* ]]; do shift; done
   exec "$@"
 fi
-# omarchy update shares one authorization with its post-update hook, mise and
+# collie update shares one authorization with its post-update hook, mise and
 # AUR builds, so none of them prompts again.
-if [[ $step == "omarchy-hook" && ${1:-} == "post-update" ]] || [[ $step == "omarchy-update-mise" || $step == "yay" ]]; then
+if [[ $step == "collie-hook" && ${1:-} == "post-update" ]] || [[ $step == "collie-update-mise" || $step == "yay" ]]; then
   [[ -e $SUDO_TEST_CACHE ]] || exit 94
 fi
 if [[ ${SUDO_TEST_FAIL_STEP:-} == "$step" ]]; then
@@ -117,13 +117,13 @@ if [[ ${SUDO_TEST_SIGNAL_STEP:-} == "$step" ]]; then
   exit 0
 fi
 case "$step" in
-  omarchy-update-system-pkgs|omarchy-update-keyring|omarchy-snapshot)
+  collie-update-system-pkgs|collie-update-keyring|collie-snapshot)
     sudo /usr/bin/true
     ;;
 esac
 STUB
 chmod +x "$SUDO_TEST_ROOT/bin/test-step"
-for step in omarchy-update-lock omarchy-update-requires-free-space omarchy-update-confirm omarchy-update-pkg-prune omarchy-snapshot omarchy-update-stay-awake omarchy-update-dev omarchy-update-boot omarchy-update-keyring omarchy-update-system-pkgs omarchy-migrate omarchy-hook omarchy-update-aur-pkgs omarchy-update-mise omarchy-update-orphan-pkgs omarchy-update-analyze-logs omarchy-shell omarchy-update-restart omarchy-pkg-aur-accessible omarchy-notification-dismiss omarchy-restart-shell pacman systemd-run cp yay; do
+for step in collie-update-lock collie-update-requires-free-space collie-update-confirm collie-update-pkg-prune collie-snapshot collie-update-stay-awake collie-update-dev collie-update-boot collie-update-keyring collie-update-system-pkgs collie-migrate collie-hook collie-update-aur-pkgs collie-update-mise collie-update-orphan-pkgs collie-update-analyze-logs collie-shell collie-update-restart collie-pkg-aur-accessible collie-notification-dismiss collie-restart-shell pacman systemd-run cp yay; do
   ln -s test-step "$SUDO_TEST_ROOT/bin/$step"
 done
 ln -s ../bin/test-step "$SUDO_TEST_ROOT/mock/pacman"

@@ -36,11 +36,11 @@ printf 'sudo %s\n' "$*" >>"$CALL_LOG"
 [[ ${TEST_SUDO_STATUS:-0} == 0 ]] || exit "$TEST_SUDO_STATUS"
 exec "$@"
 SH
-cat >"$scratch/bin/omarchy-notification-send" <<'SH'
+cat >"$scratch/bin/collie-notification-send" <<'SH'
 #!/bin/bash
 printf 'notify %s\n' "$*" >>"$CALL_LOG"
 SH
-cat >"$scratch/bin/omarchy-toggle" <<'SH'
+cat >"$scratch/bin/collie-toggle" <<'SH'
 #!/bin/bash
 printf 'toggle %s\n' "$*" >>"$CALL_LOG"
 SH
@@ -54,13 +54,13 @@ run() {
   local machine=$1 config_dir=$2
   shift 2
   : >"$CALL_LOG"
-  PATH="$scratch/hw/$machine/bin:$scratch/bin:$ROOT/bin:$PATH" OMARCHY_PATH="$ROOT" \
-    OMARCHY_PROC_ROOT="$scratch/hw/$machine/proc" OMARCHY_SYS_ROOT="$scratch/hw/$machine/sys" \
-    OMARCHY_SLEEP_CONFIG_DIR="$config_dir" "$@"
+  PATH="$scratch/hw/$machine/bin:$scratch/bin:$ROOT/bin:$PATH" COLLIE_PATH="$ROOT" \
+    COLLIE_PROC_ROOT="$scratch/hw/$machine/proc" COLLIE_SYS_ROOT="$scratch/hw/$machine/sys" \
+    COLLIE_SLEEP_CONFIG_DIR="$config_dir" "$@"
 }
 
 run spark "$scratch/spark" bash "$setup"
-config="$scratch/spark/omarchy-sleep-disabled.conf"
+config="$scratch/spark/collie-sleep-disabled.conf"
 [[ $(head -n 1 "$config") == "[Sleep]" ]] || fail "GB10 sleep settings are in the [Sleep] section"
 for setting in AllowSuspend AllowHibernation AllowSuspendThenHibernate AllowHybridSleep; do
   grep -Fxq "$setting=no" "$config" || fail "a GB10 disallows $setting"
@@ -81,7 +81,7 @@ for machine in spark n1x other; do
     mkdir -p "$scratch/hw/$machine/sys/devices/system/cpu/cpu3/cpuidle/state$state"
     echo 0 >"$scratch/hw/$machine/sys/devices/system/cpu/cpu3/cpuidle/state$state/disable"
   done
-  run "$machine" "$scratch/$machine-sleep" env OMARCHY_UDEV_RULES_DIR="$scratch/$machine-udev" \
+  run "$machine" "$scratch/$machine-sleep" env COLLIE_UDEV_RULES_DIR="$scratch/$machine-udev" \
     bash "$ROOT/install/hardware/gb10/cpuidle.sh"
 done
 idle_state() { cat "$scratch/hw/$1/sys/devices/system/cpu/cpu3/cpuidle/state$2/disable"; }
@@ -89,7 +89,7 @@ idle_state() { cat "$scratch/hw/$1/sys/devices/system/cpu/cpu3/cpuidle/state$2/d
 for state in 1 2 3; do
   [[ $(idle_state spark $state) == 1 ]] || fail "a GB10 turns off idle state$state"
 done
-[[ -f $scratch/spark-udev/71-omarchy-gb10-cpuidle.rules ]] || fail "a GB10 keeps the idle setting across boots"
+[[ -f $scratch/spark-udev/71-collie-gb10-cpuidle.rules ]] || fail "a GB10 keeps the idle setting across boots"
 for machine in n1x other; do
   [[ $(cat "$scratch/hw/$machine/sys/devices/system/cpu/cpu3/cpuidle"/state*/disable | sort -u) == 0 ]] ||
     fail "the $machine machine keeps its idle states"
@@ -97,16 +97,16 @@ for machine in n1x other; do
 done
 pass "a GB10 keeps its cores out of deep idle states and other machines keep theirs"
 
-run spark "$scratch/spark" omarchy-sleep-disabled || fail "sleep reads as disabled with the setting in place"
-run spark "$scratch/none" omarchy-sleep-disabled && fail "sleep reads as enabled without the setting"
-pass "omarchy-sleep-disabled follows the sleep setting"
+run spark "$scratch/spark" collie-sleep-disabled || fail "sleep reads as disabled with the setting in place"
+run spark "$scratch/none" collie-sleep-disabled && fail "sleep reads as enabled without the setting"
+pass "collie-sleep-disabled follows the sleep setting"
 
-run spark "$scratch/spark" bash "$ROOT/bin/omarchy-toggle-suspend"
+run spark "$scratch/spark" bash "$ROOT/bin/collie-toggle-suspend"
 ! grep -q '^toggle ' "$CALL_LOG" || fail "the suspend toggle does nothing while sleep is disabled"
 grep -q '^notify .*Suspend is turned off on this machine' "$CALL_LOG" ||
   fail "the suspend toggle says suspend is turned off"
 # Refuse sudo so a missing check cannot reach this machine's swap or boot files.
-hibernation=$(TEST_SUDO_STATUS=1 run spark "$scratch/spark" bash "$ROOT/bin/omarchy-hibernation-setup" 2>&1) ||
+hibernation=$(TEST_SUDO_STATUS=1 run spark "$scratch/spark" bash "$ROOT/bin/collie-hibernation-setup" 2>&1) ||
   fail "hibernation setup exits cleanly while sleep is disabled"
 [[ $hibernation == *"Hibernation is turned off on this machine"* ]] ||
   fail "hibernation setup says hibernation is turned off" "$hibernation"
@@ -116,16 +116,16 @@ pass "the suspend toggle and hibernation setup respect the disabled setting"
 
 # The Suspend and Hibernate rows run their real menu guards on the fixture
 # machines: hidden while the setting is in place, back once it is gone.
-menu="$ROOT/default/omarchy/omarchy-menu.jsonc"
+menu="$ROOT/default/collie/collie-menu.jsonc"
 
 guard() {
   grep -F "\"$1\"" "$menu" | sed -E 's/.*"when":"([^"]*)".*/\1/'
 }
-cat >"$scratch/bin/omarchy-toggle-enabled" <<'SH'
+cat >"$scratch/bin/collie-toggle-enabled" <<'SH'
 #!/bin/bash
 [[ ${TEST_SUSPEND_OFF:-0} == 1 ]]
 SH
-cat >"$scratch/bin/omarchy-hibernation-available" <<'SH'
+cat >"$scratch/bin/collie-hibernation-available" <<'SH'
 #!/bin/bash
 [[ ${TEST_HIBERNATION_OFF:-0} != 1 ]]
 SH

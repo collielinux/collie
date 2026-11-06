@@ -46,7 +46,7 @@ def signed_in(key="fw_test"):
   auth = home() / ".fireworks" / "auth.ini"
   auth.parent.mkdir(parents=True, exist_ok=True)
   auth.write_text(f"[default]\napi_key = {key}\naccount_id = example\n")
-  write_json(config_home() / "omarchy" / "agents" / "fireworks.json", {"accountId": "example", "fundedAmount": 20, "fundedAt": "2026-07-01"})
+  write_json(config_home() / "collie" / "agents" / "fireworks.json", {"accountId": "example", "fundedAmount": 20, "fundedAt": "2026-07-01"})
 
 
 def fireworks(*args, routes=None, mode="up", force=True, **env):

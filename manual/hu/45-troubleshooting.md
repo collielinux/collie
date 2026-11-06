@@ -2,23 +2,23 @@
 
 ### Elrontottam a rendszeremet egy frissítéssel!
 
-Először próbáld meg [visszaállítani a rendszeredet](47-system-snapshots.md) a legutóbbi frissítés előtti verzióra. Ha ez nem működik, használd az `omarchy-debug` parancsot, hogy megoszd a problémádat a #omarchy-help csatornán a Discordon. Ha pedig minden más kudarcot vall, az `omarchy-reinstall` paranccsal újratelepítheted az alapértelmezett konfigurációkat és csomagokat.
+Először próbáld meg [visszaállítani a rendszeredet](47-system-snapshots.md) a legutóbbi frissítés előtti verzióra. Ha ez nem működik, használd az `collie-debug` parancsot, hogy megoszd a problémádat a #collie-help csatornán a Discordon. Ha pedig minden más kudarcot vall, az `collie-reinstall` paranccsal újratelepítheted az alapértelmezett konfigurációkat és csomagokat.
 
 ### Miért olyan nagyok egyes alkalmazások a kijelzőmön?
 
-Az Omarchy 2x-es nagy felbontású kijelzőt feltételez, ezért a `GDK_SCALE` értékét 2-re állítja, amíg ki nem választasz egy méretezést a monitorpanelen. Ha 1x-es kijelződ van, és a GTK vagy X11 alkalmazások túlméretezve jelennek meg, válaszd az 1x-et neki a monitorpanelen, vagy add hozzá a `hl.env("GDK_SCALE", "1")` sort a `~/.config/hypr/monitors.lua` fájlhoz (majd indítsd újra minden túlméretezett alkalmazást). Lásd [a monitorokról szóló kézikönyvet](33-monitors.md).
+Az Collie 2x-es nagy felbontású kijelzőt feltételez, ezért a `GDK_SCALE` értékét 2-re állítja, amíg ki nem választasz egy méretezést a monitorpanelen. Ha 1x-es kijelződ van, és a GTK vagy X11 alkalmazások túlméretezve jelennek meg, válaszd az 1x-et neki a monitorpanelen, vagy add hozzá a `hl.env("GDK_SCALE", "1")` sort a `~/.config/hypr/monitors.lua` fájlhoz (majd indítsd újra minden túlméretezett alkalmazást). Lásd [a monitorokról szóló kézikönyvet](33-monitors.md).
 
 A Spotify esetében a `Ctrl + Minus` billentyűkombinációval kicsinyítheted a felületet (a `Ctrl + Plus` kombinációval pedig nagyobbra állíthatod).
 
 ### Miért szűntek meg működni az összes Super billentyűkombinációm?
 
-Néhány ASUS ROG és TUF laptopon az `Fn + Super` egy könnyen észrevétlen kombináció, amely egy firmware-szintű Windows-billentyű zárat kapcsol be és ki (játékhoz találták ki, hogy véletlenül se lépj ki egy játékból). Semmi nem jelzi a képernyőn, hogy ez megtörtént. Amíg a zár be van kapcsolva, a Super egyáltalán semmit nem küld — így minden Omarchy-kombináció, amely a Supert használja, egyszerűen leáll, és úgy tűnik, mintha a Hyprland romlott volna el.
+Néhány ASUS ROG és TUF laptopon az `Fn + Super` egy könnyen észrevétlen kombináció, amely egy firmware-szintű Windows-billentyű zárat kapcsol be és ki (játékhoz találták ki, hogy véletlenül se lépj ki egy játékból). Semmi nem jelzi a képernyőn, hogy ez megtörtént. Amíg a zár be van kapcsolva, a Super egyáltalán semmit nem küld — így minden Collie-kombináció, amely a Supert használja, egyszerűen leáll, és úgy tűnik, mintha a Hyprland romlott volna el.
 
 Nyomd meg egyszer az `Fn + Super` kombinációt, mielőtt elkezdenél kutakodni a `~/.config/hypr/` könyvtárban, és ha ez nem hozza vissza a Supert, nyomd meg még egyszer, hogy ne hagyd bekapcsolva a zárat. Ez nem az Fn-lock, amely csak azt változtatja meg, mit csinál az F-billentyűsor.
 
 ### A Wi-Fi, a Bluetooth, a hang vagy az érintőpad egyszerűen leállt
 
-Mielőtt újraindítanád a gépet, próbáld meg önmagában újraindítani a problémás alrendszert. Az Omarchy menüben az _Update > Hardware_ alatt megtalálod a Wi-Fi, Bluetooth, Audio és Trackpad lehetőségeket, és ezek egyikének újratöltése megoldja az „öt perce még működött” helyzetek többségét — egy Bluetooth-headsetet, amely nem akar újracsatlakozni, egy érintőpadot, amely felfüggesztés után meghalt, vagy a hangot, amely eltűnt, amikor kihúztál egy monitort.
+Mielőtt újraindítanád a gépet, próbáld meg önmagában újraindítani a problémás alrendszert. Az Collie menüben az _Update > Hardware_ alatt megtalálod a Wi-Fi, Bluetooth, Audio és Trackpad lehetőségeket, és ezek egyikének újratöltése megoldja az „öt perce még működött” helyzetek többségét — egy Bluetooth-headsetet, amely nem akar újracsatlakozni, egy érintőpadot, amely felfüggesztés után meghalt, vagy a hangot, amely eltűnt, amikor kihúztál egy monitort.
 
 ### Miért nem szólnak a külső hangszóróim?
 
@@ -26,7 +26,7 @@ Valószínűleg azért, mert nincsenek beállítva elsődleges kimenetként. Kat
 
 ### Furcsán szólnak a laptopom hangszórói
 
-Néhány laptopon az Omarchy automatikusan alkalmaz egy hangszóró-hangolást, amely korrigálja a beépített hangszórók frekvenciaválaszát. Az `omarchy audio tuning status` megmondja, aktív-e ilyen a gépeden, az `omarchy audio tuning off` pedig kikapcsolja, ha inkább nyersen szeretnéd hallani a hangszórókat.
+Néhány laptopon az Collie automatikusan alkalmaz egy hangszóró-hangolást, amely korrigálja a beépített hangszórók frekvenciaválaszát. Az `collie audio tuning status` megmondja, aktív-e ilyen a gépeden, az `collie audio tuning off` pedig kikapcsolja, ha inkább nyersen szeretnéd hallani a hangszórókat.
 
 ### Miért nem tudok bejelentkezni vagy sudo parancsot használni a jelszavammal?
 

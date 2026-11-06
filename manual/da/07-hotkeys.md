@@ -8,7 +8,7 @@ Hver genvejstast ligger på et plan, bestemt af dens modifikatortaster, og hvert
 
 | Plan | Hvad der hører hjemme der | Eksempler |
 | --- | --- | --- |
-| `Super + key` | Systemet: vinduer, arbejdsområder, layouts og kernemenuer | `Super + Space` Omarchy-menu, `Super + W` luk vindue, `Super + F` fuld skærm |
+| `Super + key` | Systemet: vinduer, arbejdsområder, layouts og kernemenuer | `Super + Space` Collie-menu, `Super + W` luk vindue, `Super + F` fuld skærm |
 | `Super + Shift + key` | Apps | `Super + Shift + B` browser, `Super + Shift + E` e-mail, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Paneler og systemmenuer | `Super + Ctrl + A` lyd, `Super + Ctrl + N` netværk, `Super + Ctrl + C` optagelsesmenu |
 | `Super + Ctrl + Alt + key` | Hurtige handlinger og meddelelser | `Super + Ctrl + Alt + T` vis klokkeslæt, `Super + Ctrl + Alt + B` batteri, `Super + Ctrl + Alt + C` skærmbillede |
@@ -34,7 +34,7 @@ Hvis en standard ikke passer dig (f.eks. hvis du vil have `Super + Shift + S` ti
 
 | Genvejstast | Funktion |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy-menu (apps og alt andet) |
+| `Super + Space` | Collie-menu (apps og alt andet) |
 | `Super + Alt + Space` | Appgitter |
 | `Super + Escape` | Systemmenu (dvale, genstart osv.) |
 | `Super + Ctrl + L` | Lås computer |
@@ -171,7 +171,7 @@ Skift/tilføj genveje i `~/.config/hypr/bindings.lua`.
 | `Super + V` | Sæt ind |
 | `Super + Ctrl + V` | Udklipsholderhåndtering |
 
-Normalt på Linux skal du bruge `Ctrl + Shift + C/V` for at kopiere og sætte ind i terminalen og `Ctrl + C/V` for at gøre det alle andre steder. Disse samlede Omarchy-genveje til udklipsholderen virker overalt.
+Normalt på Linux skal du bruge `Ctrl + Shift + C/V` for at kopiere og sætte ind i terminalen og `Ctrl + C/V` for at gøre det alle andre steder. Disse samlede Collie-genveje til udklipsholderen virker overalt.
 
 ## Optagelse
 
@@ -192,7 +192,7 @@ Normalt på Linux skal du bruge `Ctrl + Shift + C/V` for at kopiere og sætte in
 
 Ved skærmoptagelser spørger genvejstasten først, hvilken lyd du vil have, og starter derefter optagelsen. Tryk på den igen for at stoppe. Se [skærmbilleder og optagelse](12-screenshots-recording.md) for detaljerne.
 
-Alle optagelsesmuligheder er også tilgængelige under _Trigger > Capture_ i Omarchy-menuen (`Super + Space`).
+Alle optagelsesmuligheder er også tilgængelige under _Trigger > Capture_ i Collie-menuen (`Super + Space`).
 
 ## Notifikationer
 
@@ -214,9 +214,9 @@ Alle optagelsesmuligheder er også tilgængelige under _Trigger > Capture_ i Oma
 | `Super + Backspace` | Slå gennemsigtighed til/fra på et vindue |
 | `Super + Ctrl + Backspace` | Slå kvadratisk format for enkelt vindue til/fra |
 
-Ekstra baggrundsbilleder ligger i `~/.config/omarchy/backgrounds/<theme name>`. Også tilgængelig via _Install > Style > Background_ i Omarchy-menuen.
+Ekstra baggrundsbilleder ligger i `~/.config/collie/backgrounds/<theme name>`. Også tilgængelig via _Install > Style > Background_ i Collie-menuen.
 
-Alle stilmuligheder er også tilgængelige under _Style_ i Omarchy-menuen (`Super + Space`).
+Alle stilmuligheder er også tilgængelige under _Style_ i Collie-menuen (`Super + Space`).
 
 ## Til/fra
 
@@ -317,7 +317,7 @@ Disse funktioner skal køres inde i en Tmux-session.
 
 ## Ghostty Terminal
 
-Ghostty-terminal installeres med _Install > Terminal_ via Omarchy-menuen.
+Ghostty-terminal installeres med _Install > Terminal_ via Collie-menuen.
 
 | Genvejstast | Funktion |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Du kan bruge `Super + Ctrl + E` til at vise en komplet emoji-vælger, der lægge
 | `Shift + CapsLock Space N` | Dit navn (som indtastet under opsætning) |
 | `Shift + CapsLock Space E` | Din e-mail (som indtastet under opsætning) |
 
-Du kan tilføje flere af dine egne ved at redigere `~/.XCompose` og derefter køre `omarchy-restart-xcompose` i terminalen for at få ændringerne registreret.
+Du kan tilføje flere af dine egne ved at redigere `~/.XCompose` og derefter køre `collie-restart-xcompose` i terminalen for at få ændringerne registreret.

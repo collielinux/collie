@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Several accounts registered with `omarchy agent account`: the Claude and
+# Several accounts registered with `collie agent account`: the Claude and
 # Codex records list each one with its own plan and limits, asked with its
 # own sign-in, while the record's own fields describe the active account.
 # Grok's accounts are covered in its own test, and the registry's reading in
@@ -19,7 +19,7 @@ python3 - <<'PY'
 from agent_usage_fixtures import *
 
 sandbox()
-accounts = state_home() / "omarchy" / "agents" / "accounts"
+accounts = state_home() / "collie" / "agents" / "accounts"
 
 
 def credentials(directory, token, expires, tier):
@@ -118,7 +118,7 @@ PY
 # -------------------------------------------------------------------- codex
 
 home=$(new_home codex)
-accounts="$home/.local/state/omarchy/agents/accounts"
+accounts="$home/.local/state/collie/agents/accounts"
 mkdir -p "$home/.codex/sessions" "$accounts/codex/side"
 touch "$home/.codex/auth.json" "$accounts/codex/side/auth.json"
 cat >"$accounts/codex.json" <<JSON

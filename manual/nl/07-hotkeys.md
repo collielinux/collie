@@ -8,7 +8,7 @@ Elke sneltoets bevindt zich op een vlak, bepaald door de modificatietoetsen, en 
 
 | Vlak | Wat daar te vinden is | Voorbeelden |
 | --- | --- | --- |
-| `Super + key` | Het systeem: vensters, werkruimtes, lay-outs en kernmenu's | `Super + Space` Omarchy-menu, `Super + W` venster sluiten, `Super + F` volledig scherm |
+| `Super + key` | Het systeem: vensters, werkruimtes, lay-outs en kernmenu's | `Super + Space` Collie-menu, `Super + W` venster sluiten, `Super + F` volledig scherm |
 | `Super + Shift + key` | Apps | `Super + Shift + B` browser, `Super + Shift + E` e-mail, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panelen en systeemmenu's | `Super + Ctrl + A` audio, `Super + Ctrl + N` netwerk, `Super + Ctrl + C` menu voor vastleggen |
 | `Super + Ctrl + Alt + key` | Snelle acties en mededelingen | `Super + Ctrl + Alt + T` tijd tonen, `Super + Ctrl + Alt + B` batterij, `Super + Ctrl + Alt + C` schermafbeelding |
@@ -34,7 +34,7 @@ Als een standaardinstelling je niet bevalt (stel dat je `Super + Shift + S` wilt
 
 | Sneltoets                  | Functie              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy-menu (apps en al het andere)    |
+| `Super + Space`           | Collie-menu (apps en al het andere)    |
 | `Super + Alt + Space` | App-raster |
 | `Super + Escape` | Systeemmenu (sluimerstand, herstarten, enz.)  |
 | `Super + Ctrl + L` | Computer vergrendelen |
@@ -171,7 +171,7 @@ Wijzig/voeg bindingen toe in `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Plakken    |
 | `Super + Ctrl + V`           | Klembordbeheerder    |
 
-Normaal heb je op Linux `Ctrl + Shift + C/V` nodig om in de terminal te kopiëren en plakken en `Ctrl + C/V` om dat overal elders te doen. Deze uniforme klembordsneltoetsen van Omarchy werken overal.
+Normaal heb je op Linux `Ctrl + Shift + C/V` nodig om in de terminal te kopiëren en plakken en `Ctrl + C/V` om dat overal elders te doen. Deze uniforme klembordsneltoetsen van Collie werken overal.
 
 ## Vastleggen
 
@@ -192,7 +192,7 @@ Normaal heb je op Linux `Ctrl + Shift + C/V` nodig om in de terminal te kopiëre
 
 Bij schermopnames vraagt de sneltoets eerst welke audio je wilt en begint daarna met opnemen. Druk er nogmaals op om te stoppen. Zie [schermafbeeldingen en opnames](12-screenshots-recording.md) voor de details.
 
-Alle opties voor vastleggen zijn ook toegankelijk onder _Trigger > Capture_ in het Omarchy-menu (`Super + Space`).
+Alle opties voor vastleggen zijn ook toegankelijk onder _Trigger > Capture_ in het Collie-menu (`Super + Space`).
 
 ## Meldingen
 
@@ -214,9 +214,9 @@ Alle opties voor vastleggen zijn ook toegankelijk onder _Trigger > Capture_ in h
 | `Super + Backspace` | Transparantie op een venster schakelen |
 | `Super + Ctrl + Backspace` | Vierkante beeldverhouding voor één venster schakelen |
 
-Extra achtergrondafbeeldingen staan in `~/.config/omarchy/backgrounds/<theme name>`. Ook beschikbaar via _Install > Style > Background_ in het Omarchy-menu.
+Extra achtergrondafbeeldingen staan in `~/.config/collie/backgrounds/<theme name>`. Ook beschikbaar via _Install > Style > Background_ in het Collie-menu.
 
-Alle stijlopties zijn ook toegankelijk onder _Style_ in het Omarchy-menu (`Super + Space`).
+Alle stijlopties zijn ook toegankelijk onder _Style_ in het Collie-menu (`Super + Space`).
 
 ## Schakelopties
 
@@ -317,7 +317,7 @@ Deze functies moeten binnen een Tmux-sessie worden uitgevoerd.
 
 ## Ghostty Terminal
 
-De Ghostty-terminal wordt geïnstalleerd met _Install > Terminal_ via het Omarchy-menu.
+De Ghostty-terminal wordt geïnstalleerd met _Install > Terminal_ via het Collie-menu.
 
 | Sneltoets                  | Functie              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Je kunt `Super + Ctrl + E` gebruiken om een volledige emoji-kiezer te tonen die 
 | `Shift + CapsLock Space N` | Je naam (zoals ingevoerd tijdens de installatie)  |
 | `Shift + CapsLock Space E` | Je e-mail (zoals ingevoerd tijdens de installatie)  |
 
-Je kunt er zelf meer toevoegen door `~/.XCompose` te bewerken en daarna `omarchy-restart-xcompose` in de terminal uit te voeren, zodat de wijzigingen worden opgepikt.
+Je kunt er zelf meer toevoegen door `~/.XCompose` te bewerken en daarna `collie-restart-xcompose` in de terminal uit te voeren, zodat de wijzigingen worden opgepikt.

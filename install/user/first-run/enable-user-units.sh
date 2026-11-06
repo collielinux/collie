@@ -11,7 +11,7 @@
 
 set -euo pipefail
 
-omarchy-input-method configure --defaults || echo "Input method defaults deferred; run omarchy setup input after login." >&2
+collie-input-method configure --defaults || echo "Input method defaults deferred; run collie setup input after login." >&2
 
 systemctl --user daemon-reload
 
@@ -21,13 +21,13 @@ failed=0
 for unit in \
   bt-agent.service \
   owed.service \
-  omarchy-recover-internal-monitor.service \
-  omarchy-sleep-lock.service \
-  omarchy-migrate-notify.service \
-  omarchy-fcitx5.service \
-  omarchy-crash-watch.service; do
+  collie-recover-internal-monitor.service \
+  collie-sleep-lock.service \
+  collie-migrate-notify.service \
+  collie-fcitx5.service \
+  collie-crash-watch.service; do
   systemctl --user enable --now "$unit" || failed=1
 done
 
-omarchy-hook-install theme-set /usr/share/owe/10-owe-sync
+collie-hook-install theme-set /usr/share/owe/10-owe-sync
 exit "$failed"

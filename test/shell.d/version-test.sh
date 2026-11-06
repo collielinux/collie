@@ -10,16 +10,16 @@ trap 'rm -rf "$test_tmp"' EXIT
 stub_bin="$test_tmp/bin"
 mkdir -p "$stub_bin"
 
-# The edge channel installs omarchy-dev. Older builds did not declare
-# provides=(omarchy), so a query for plain omarchy finds nothing there.
+# The edge channel installs collie-dev. Older builds did not declare
+# provides=(omarchy), so a query for plain collie finds nothing there.
 cat >"$stub_bin/pacman" <<'STUB'
 #!/bin/bash
 [[ $1 == "-Q" ]] || exit 1
 shift
 for package in "$@"; do
-  case ",${OMARCHY_TEST_PACKAGES:-}," in
+  case ",${COLLIE_TEST_PACKAGES:-}," in
     *",$package,"*)
-      echo "$package ${OMARCHY_TEST_VERSION:-4.0.0-1}"
+      echo "$package ${COLLIE_TEST_VERSION:-4.0.0-1}"
       exit 0
       ;;
   esac
@@ -30,10 +30,10 @@ STUB
 chmod +x "$stub_bin/pacman"
 
 version() {
-  OMARCHY_TEST_PACKAGES="$1" \
-    OMARCHY_PATH="${2:-/usr/share/omarchy}" \
+  COLLIE_TEST_PACKAGES="$1" \
+    COLLIE_PATH="${2:-/usr/share/collie}" \
     PATH="$stub_bin:$PATH" \
-    "$ROOT/bin/omarchy-version"
+    "$ROOT/bin/collie-version"
 }
 
 [[ $(version omarchy) == "4.0.0-1" ]] || fail "version reports the stable package"
@@ -47,6 +47,6 @@ pass "version reports the edge package"
 pass "version reports a dev checkout"
 
 if version "" >/dev/null 2>&1; then
-  fail "version fails when no Omarchy package is installed"
+  fail "version fails when no Collie package is installed"
 fi
-pass "version fails when no Omarchy package is installed"
+pass "version fails when no Collie package is installed"

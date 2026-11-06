@@ -1,8 +1,8 @@
 # Temas
 
-O Omarchy inclui vinte e dois temas bonitos. Pode selecionar entre eles em _Aparência > Tema_ no Menu do Omarchy (`Super + Space`) ou ir diretamente para o seletor de temas com `Super + Ctrl + T`.
+O Collie inclui vinte e dois temas bonitos. Pode selecionar entre eles em _Aparência > Tema_ no Menu do Collie (`Super + Space`) ou ir diretamente para o seletor de temas com `Super + Ctrl + T`.
 
-Cada tema define o estilo do ambiente de trabalho, do terminal, do neovim, do ecrã de atividade (btop), do Chromium e de todo o shell do Omarchy: barra superior, menu, notificações, OSD e ecrã de bloqueio. (No Obsidian, tem de selecionar manualmente o tema do Omarchy em _Aparência > Temas_ dentro da aplicação).
+Cada tema define o estilo do ambiente de trabalho, do terminal, do neovim, do ecrã de atividade (btop), do Chromium e de todo o shell do Collie: barra superior, menu, notificações, OSD e ecrã de bloqueio. (No Obsidian, tem de selecionar manualmente o tema do Collie em _Aparência > Temas_ dentro da aplicação).
 
 Os temas têm um conjunto de imagens de fundo entre as quais pode escolher com `Super + Ctrl + W`.
 

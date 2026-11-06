@@ -8,7 +8,7 @@ Sérhver flýtilykill situr á plani, sem breytulyklarnir ákvarða, og hvert pl
 
 | Plan | Hvað býr þar | Dæmi |
 | --- | --- | --- |
-| `Super + key` | Kerfið: gluggar, vinnusvæði, framsetningar og kjarnavalmyndir | `Super + Space` Omarchy-valmynd, `Super + W` loka glugga, `Super + F` fullur skjár |
+| `Super + key` | Kerfið: gluggar, vinnusvæði, framsetningar og kjarnavalmyndir | `Super + Space` Collie-valmynd, `Super + W` loka glugga, `Super + F` fullur skjár |
 | `Super + Shift + key` | Forrit | `Super + Shift + B` vafri, `Super + Shift + E` tölvupóstur, `Super + Shift + N` ritill |
 | `Super + Ctrl + key` | Spjöld og kerfisvalmyndir | `Super + Ctrl + A` hljóð, `Super + Ctrl + N` net, `Super + Ctrl + C` tökuvalmynd |
 | `Super + Ctrl + Alt + key` | Flýtiaðgerðir og tilkynningar | `Super + Ctrl + Alt + T` sýna tíma, `Super + Ctrl + Alt + B` rafhlaða, `Super + Ctrl + Alt + C` skjáskot |
@@ -34,7 +34,7 @@ Ef sjálfgefið val hentar þér ekki (segjum að þú viljir `Super + Shift + S
 
 | Flýtilykill                  | Aðgerð              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy-valmynd (forrit og allt annað)    |
+| `Super + Space`           | Collie-valmynd (forrit og allt annað)    |
 | `Super + Alt + Space` | Forritarist |
 | `Super + Escape` | Kerfisvalmynd (setja í dvala, endurræsa o.s.frv.)  |
 | `Super + Ctrl + L` | Læsa tölvu |
@@ -171,7 +171,7 @@ Breyttu/bættu við bindingum í `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Líma    |
 | `Super + Ctrl + V`           | Klemmuspjaldsstjóri    |
 
-Venjulega á Linux þarftu `Ctrl + Shift + C/V` til að afrita'n'líma í skelinni og `Ctrl + C/V` til að gera það alls staðar annars staðar. Þessir sameinuðu klemmuspjaldsflýtilyklar Omarchy virka alls staðar.
+Venjulega á Linux þarftu `Ctrl + Shift + C/V` til að afrita'n'líma í skelinni og `Ctrl + C/V` til að gera það alls staðar annars staðar. Þessir sameinuðu klemmuspjaldsflýtilyklar Collie virka alls staðar.
 
 ## Taka
 
@@ -192,7 +192,7 @@ Venjulega á Linux þarftu `Ctrl + Shift + C/V` til að afrita'n'líma í skelin
 
 Við skjáupptökur spyr flýtilykillinn fyrst hvaða hljóð þú vilt, byrjar síðan upptöku. Ýttu á hann aftur til að stöðva. Sjá [skjáskot og upptaka](12-screenshots-recording.md) fyrir nánari upplýsingar.
 
-Allir tökukostir eru líka aðgengilegir undir _Trigger > Capture_ í Omarchy-valmyndinni (`Super + Space`).
+Allir tökukostir eru líka aðgengilegir undir _Trigger > Capture_ í Collie-valmyndinni (`Super + Space`).
 
 ## Tilkynningar
 
@@ -214,9 +214,9 @@ Allir tökukostir eru líka aðgengilegir undir _Trigger > Capture_ í Omarchy-v
 | `Super + Backspace` | Víxla gagnsæi á glugga |
 | `Super + Ctrl + Backspace` | Víxla ferningahlutfalli eins glugga |
 
-Aukabakgrunnsmyndir eru í `~/.config/omarchy/backgrounds/<theme name>`. Einnig aðgengilegt í gegnum _Install > Style > Background_ í Omarchy-valmyndinni.
+Aukabakgrunnsmyndir eru í `~/.config/collie/backgrounds/<theme name>`. Einnig aðgengilegt í gegnum _Install > Style > Background_ í Collie-valmyndinni.
 
-Allir stílkostir eru líka aðgengilegir undir _Style_ í Omarchy-valmyndinni (`Super + Space`).
+Allir stílkostir eru líka aðgengilegir undir _Style_ í Collie-valmyndinni (`Super + Space`).
 
 ## Víxlar
 
@@ -317,7 +317,7 @@ Forskeytislykillinn er `Ctrl + Space` (`Ctrl + B` virkar líka). Þú getur brey
 
 ## Ghostty-skel
 
-Ghostty-skel er sett upp með _Install > Terminal_ í gegnum Omarchy-valmyndina.
+Ghostty-skel er sett upp með _Install > Terminal_ í gegnum Collie-valmyndina.
 
 | Flýtilykill                  | Aðgerð              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty-skel er sett upp með _Install > Terminal_ í gegnum Omarchy-valmyndina.
 | `Shift + CapsLock Space N` | Nafnið þitt (eins og það var slegið inn við uppsetningu)  |
 | `Shift + CapsLock Space E` | Tölvupósturinn þinn (eins og hann var sleginn inn við uppsetningu)  |
 
-Þú getur bætt við fleirum með því að breyta `~/.XCompose` og keyra síðan `omarchy-restart-xcompose` í skelinni til að breytingarnar taki gildi.
+Þú getur bætt við fleirum með því að breyta `~/.XCompose` og keyra síðan `collie-restart-xcompose` í skelinni til að breytingarnar taki gildi.

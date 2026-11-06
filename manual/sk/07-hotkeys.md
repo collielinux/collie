@@ -8,7 +8,7 @@ Každá klávesová skratka sedí na jednej rovine určenej jej modifikátormi a
 
 | Rovina | Čo tam patrí | Príklady |
 | --- | --- | --- |
-| `Super + key` | Systém: okná, pracovné plochy, rozloženia a hlavné menu | `Super + Space` menu Omarchy, `Super + W` zatvoriť okno, `Super + F` celá obrazovka |
+| `Super + key` | Systém: okná, pracovné plochy, rozloženia a hlavné menu | `Super + Space` menu Collie, `Super + W` zatvoriť okno, `Super + F` celá obrazovka |
 | `Super + Shift + key` | Aplikácie | `Super + Shift + B` prehliadač, `Super + Shift + E` e-mail, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panely a systémové menu | `Super + Ctrl + A` zvuk, `Super + Ctrl + N` sieť, `Super + Ctrl + C` menu snímania |
 | `Super + Ctrl + Alt + key` | Rýchle akcie a oznámenia | `Super + Ctrl + Alt + T` zobraziť čas, `Super + Ctrl + Alt + B` batéria, `Super + Ctrl + Alt + C` snímka obrazovky |
@@ -34,7 +34,7 @@ Ak vám predvolená skratka nevyhovuje (povedzme, že chcete `Super + Shift + S`
 
 | Klávesová skratka                  | Funkcia              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu Omarchy (aplikácie a všetko ostatné)    |
+| `Super + Space`           | Menu Collie (aplikácie a všetko ostatné)    |
 | `Super + Alt + Space` | Mriežka aplikácií |
 | `Super + Escape` | Systémové menu (uspať, reštartovať atď.)  |
 | `Super + Ctrl + L` | Zamknúť počítač |
@@ -171,7 +171,7 @@ Zmeňte/pridajte väzby v `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Prilepiť    |
 | `Super + Ctrl + V`           | Správca schránky    |
 
-Na Linuxe zvyčajne potrebujete `Ctrl + Shift + C/V` na copy'n'paste v termináli a `Ctrl + C/V` na to všade inde. Tieto zjednotené klávesové skratky schránky v Omarchy fungujú všade.
+Na Linuxe zvyčajne potrebujete `Ctrl + Shift + C/V` na copy'n'paste v termináli a `Ctrl + C/V` na to všade inde. Tieto zjednotené klávesové skratky schránky v Collie fungujú všade.
 
 ## Snímanie
 
@@ -192,7 +192,7 @@ Na Linuxe zvyčajne potrebujete `Ctrl + Shift + C/V` na copy'n'paste v terminál
 
 Pri nahrávaní obrazovky sa skratka najprv opýta, aký zvuk chcete, a potom spustí nahrávanie. Stlačte ju znova na zastavenie. Podrobnosti nájdete v [snímky obrazovky a nahrávanie](12-screenshots-recording.md).
 
-Všetky možnosti snímania sú dostupné aj v _Spúšťač > Snímanie_ v menu Omarchy (`Super + Space`).
+Všetky možnosti snímania sú dostupné aj v _Spúšťač > Snímanie_ v menu Collie (`Super + Space`).
 
 ## Oznámenia
 
@@ -214,9 +214,9 @@ Všetky možnosti snímania sú dostupné aj v _Spúšťač > Snímanie_ v menu 
 | `Super + Backspace` | Prepnúť priehľadnosť okna |
 | `Super + Ctrl + Backspace` | Prepnúť štvorcový pomer strán jedného okna |
 
-Ďalšie obrázky pozadia sa nachádzajú v `~/.config/omarchy/backgrounds/<theme name>`. Dostupné aj cez _Inštalácia > Štýl > Pozadie_ v menu Omarchy.
+Ďalšie obrázky pozadia sa nachádzajú v `~/.config/collie/backgrounds/<theme name>`. Dostupné aj cez _Inštalácia > Štýl > Pozadie_ v menu Collie.
 
-Všetky možnosti štýlu sú dostupné aj v _Štýl_ v menu Omarchy (`Super + Space`).
+Všetky možnosti štýlu sú dostupné aj v _Štýl_ v menu Collie (`Super + Space`).
 
 ## Prepínače
 
@@ -317,7 +317,7 @@ Tieto funkcie musíte spustiť vnútri relácie Tmux.
 
 ## Terminál Ghostty
 
-Terminál Ghostty sa inštaluje pomocou _Inštalácia > Terminál_ cez menu Omarchy.
+Terminál Ghostty sa inštaluje pomocou _Inštalácia > Terminál_ cez menu Collie.
 
 | Klávesová skratka                  | Funkcia              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Pomocou `Super + Ctrl + E` môžete zobraziť kompletný výber emoji, ktorý vl
 | `Shift + CapsLock Space N` | Vaše meno (ako bolo zadané pri nastavení)  |
 | `Shift + CapsLock Space E` | Váš e-mail (ako bol zadaný pri nastavení)  |
 
-Ďalšie si môžete pridať úpravou `~/.XCompose`, potom spustite v termináli `omarchy-restart-xcompose`, aby sa zmeny načítali.
+Ďalšie si môžete pridať úpravou `~/.XCompose`, potom spustite v termináli `collie-restart-xcompose`, aby sa zmeny načítali.

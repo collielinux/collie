@@ -49,7 +49,7 @@ done
 
 # Adwaita and many app icons fill symbolic icons dark, which colorization
 # could not lift to a light bar foreground.
-cat >"$icons_dir/omarchy-test-tray-symbolic.svg" <<'SVG'
+cat >"$icons_dir/collie-test-tray-symbolic.svg" <<'SVG'
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><circle cx="8" cy="8" r="6.5" fill="#222222"/></svg>
 SVG
 
@@ -66,13 +66,13 @@ ShellRoot {
 
     Tray {
       id: tray
-      settings: ({ pinned: ["omarchy-test-tray"] })
+      settings: ({ pinned: ["collie-test-tray"] })
     }
 
     // TrayIcon is inline in Tray.qml, so find it by its shape and the mock's
     // icon name: other apps' tray icons may be in the same tray.
     function findIcon(item) {
-      if (item.symbolic !== undefined && String(item.icon).indexOf("/omarchy-test-tray-symbolic?") !== -1) return item
+      if (item.symbolic !== undefined && String(item.icon).indexOf("/collie-test-tray-symbolic?") !== -1) return item
       for (var i = 0; i < item.children.length; i++) {
         var found = findIcon(item.children[i])
         if (found) return found
@@ -117,14 +117,14 @@ ShellRoot {
 }
 QML
 
-OMARCHY_TRAY_ICON_NAME="omarchy-test-tray-symbolic" \
-OMARCHY_TRAY_ICON_THEME_PATH="$icons_dir" \
-OMARCHY_TRAY_MENU_EVENT_RESULT="$TMPDIR/event" \
-OMARCHY_TRAY_MENU_READY="$TMPDIR/ready" \
+COLLIE_TRAY_ICON_NAME="collie-test-tray-symbolic" \
+COLLIE_TRAY_ICON_THEME_PATH="$icons_dir" \
+COLLIE_TRAY_MENU_EVENT_RESULT="$TMPDIR/event" \
+COLLIE_TRAY_MENU_READY="$TMPDIR/ready" \
   python "$SHELL_TEST_DIR/fixtures/tray-menu-activation/mock-sni.py" >"$mock_log" 2>&1 &
 MOCK_PID=$!
 
-output=$(OMARCHY_PATH="$ROOT" \
+output=$(COLLIE_PATH="$ROOT" \
   HOME="$TMPDIR/home" \
   XDG_CONFIG_HOME="$TMPDIR/home/.config" \
   XDG_CACHE_HOME="$TMPDIR/home/.cache" \

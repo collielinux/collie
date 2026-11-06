@@ -30,8 +30,8 @@ wait $!
 SH
 chmod +x "$QML_FIXTURE_TMP/bin/gliff-server"
 
-OMARCHY_QML_TEST_STUB_PID="$QML_FIXTURE_TMP/stub.pid" \
-OMARCHY_QML_TEST_FRAME="$QML_FIXTURE_TMP/frame.png" \
+COLLIE_QML_TEST_STUB_PID="$QML_FIXTURE_TMP/stub.pid" \
+COLLIE_QML_TEST_FRAME="$QML_FIXTURE_TMP/frame.png" \
   run_qml_fixture remote-session "remote session service tracks a gliff-server session"
 
 [[ -s $QML_FIXTURE_TMP/frame.png ]] || fail "the fixture raised screencast events through grim"

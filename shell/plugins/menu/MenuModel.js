@@ -412,32 +412,32 @@ function displayRow(items, itemOrder, checkedResults, disabledResults, entry, de
 
 // Commands a `checked:` expression reads a value out of. Every sibling row
 // asks the same one -- Defaults > Browser has seven rows all comparing
-// against `omarchy-default-browser` -- so the batch runs it once and the rows
+// against `collie-default-browser` -- so the batch runs it once and the rows
 // read the captured answer.
 //
 // The capture has to be eager. These are read inside `$(...)`, and a value
 // cached while one expression runs lives in that subshell only, so a lazy
 // memo never survives to the expression after it.
 var GUARD_READERS = [
-  "omarchy-bar background",
-  "omarchy-bar get omarchy.power showPercentage",
-  "omarchy-bar get omarchy.clock format",
-  "omarchy-bar get omarchy.clock verticalFormat",
-  "omarchy-bar position",
-  "omarchy-channel-current",
-  "omarchy-default-agent",
-  "omarchy-default-browser",
-  "omarchy-default-editor",
-  "omarchy-default-terminal",
-  "omarchy-default-dictation",
-  "omarchy-dns",
-  "omarchy-dock autohide",
-  "omarchy-dock position",
-  "omarchy-hyprland-corners",
-  "omarchy-hyprland-window-transparency",
-  "omarchy-hyprland-workspace-layout-default",
-  "omarchy-shell notifications isDnd",
-  "omarchy-toggle-nightlight --status"
+  "collie-bar background",
+  "collie-bar get collie.power showPercentage",
+  "collie-bar get collie.clock format",
+  "collie-bar get collie.clock verticalFormat",
+  "collie-bar position",
+  "collie-channel-current",
+  "collie-default-agent",
+  "collie-default-browser",
+  "collie-default-editor",
+  "collie-default-terminal",
+  "collie-default-dictation",
+  "collie-dns",
+  "collie-dock autohide",
+  "collie-dock position",
+  "collie-hyprland-corners",
+  "collie-hyprland-window-transparency",
+  "collie-hyprland-workspace-layout-default",
+  "collie-shell notifications isDnd",
+  "collie-toggle-nightlight --status"
 ]
 
 // Package and command presence account for most of what the guards ask, and
@@ -482,41 +482,41 @@ function guardPackageSnapshot() {
     + " | awk '/^[A-Za-z]/ { provides = ($0 ~ /^Provides/); sub(/^[^:]*: /, \"\") }"
     + ' provides && $0 != "None" { n = split($0, p, " ");'
     + ' for (i = 1; i <= n; i++) { sub(/[<>=].*/, "", p[i]); print p[i] } }\' && echo /; } 2>/dev/null'
-  var stamp = 'stat -c "%d:%i:%.9Y:%.9Z" -- "$__omarchy_pkg_db/local" 2>/dev/null'
+  var stamp = 'stat -c "%d:%i:%.9Y:%.9Z" -- "$__collie_pkg_db/local" 2>/dev/null'
 
-  return '__omarchy_pkg_db=${OMARCHY_PACMAN_DB_PATH:-$(pacman-conf DBPath 2>/dev/null)} || __omarchy_pkg_db=""\n'
-    + '__omarchy_pkg_db=${__omarchy_pkg_db%/}\n'
-    + '__omarchy_pkg_cache=${XDG_RUNTIME_DIR:+$XDG_RUNTIME_DIR/omarchy-menu-packages}\n'
-    + '__omarchy_pkg_stamp=""\n'
-    + '[[ -z $__omarchy_pkg_db ]] || __omarchy_pkg_stamp=$(' + stamp + ') || __omarchy_pkg_stamp=""\n'
-    + '__omarchy_pkg_names=()\n'
-    + 'if [[ -n $__omarchy_pkg_cache && -n $__omarchy_pkg_stamp ]]'
-    + ' && { IFS= read -r __omarchy_pkg_line && [[ $__omarchy_pkg_line == "$__omarchy_pkg_stamp" ]]'
-    + ' && mapfile -t __omarchy_pkg_names; } 2>/dev/null <"$__omarchy_pkg_cache"; then :\n'
+  return '__collie_pkg_db=${COLLIE_PACMAN_DB_PATH:-$(pacman-conf DBPath 2>/dev/null)} || __collie_pkg_db=""\n'
+    + '__collie_pkg_db=${__collie_pkg_db%/}\n'
+    + '__collie_pkg_cache=${XDG_RUNTIME_DIR:+$XDG_RUNTIME_DIR/collie-menu-packages}\n'
+    + '__collie_pkg_stamp=""\n'
+    + '[[ -z $__collie_pkg_db ]] || __collie_pkg_stamp=$(' + stamp + ') || __collie_pkg_stamp=""\n'
+    + '__collie_pkg_names=()\n'
+    + 'if [[ -n $__collie_pkg_cache && -n $__collie_pkg_stamp ]]'
+    + ' && { IFS= read -r __collie_pkg_line && [[ $__collie_pkg_line == "$__collie_pkg_stamp" ]]'
+    + ' && mapfile -t __collie_pkg_names; } 2>/dev/null <"$__collie_pkg_cache"; then :\n'
     + 'else\n'
-    + '  __omarchy_pkg_names=()\n'
-    + '  [[ ! -e $__omarchy_pkg_db/db.lck ]] || __omarchy_pkg_stamp=""\n'
-    + '  mapfile -t __omarchy_pkg_names < <(' + build + ')\n'
-    + '  if ((${#__omarchy_pkg_names[@]})) && [[ ${__omarchy_pkg_names[-1]} == "/" ]]; then unset "__omarchy_pkg_names[-1]"; else __omarchy_pkg_stamp=""; fi\n'
-    + '  if [[ -n $__omarchy_pkg_cache && -n $__omarchy_pkg_stamp && ! -e $__omarchy_pkg_db/db.lck ]]'
-    + ' && [[ $(' + stamp + ') == "$__omarchy_pkg_stamp" ]]; then\n'
-    + '    { printf "%s\\n" "$__omarchy_pkg_stamp" "${__omarchy_pkg_names[@]}" >"$__omarchy_pkg_cache.$$"'
-    + ' && mv -f -- "$__omarchy_pkg_cache.$$" "$__omarchy_pkg_cache"; } 2>/dev/null'
-    + ' || rm -f -- "$__omarchy_pkg_cache.$$" 2>/dev/null || :\n'
+    + '  __collie_pkg_names=()\n'
+    + '  [[ ! -e $__collie_pkg_db/db.lck ]] || __collie_pkg_stamp=""\n'
+    + '  mapfile -t __collie_pkg_names < <(' + build + ')\n'
+    + '  if ((${#__collie_pkg_names[@]})) && [[ ${__collie_pkg_names[-1]} == "/" ]]; then unset "__collie_pkg_names[-1]"; else __collie_pkg_stamp=""; fi\n'
+    + '  if [[ -n $__collie_pkg_cache && -n $__collie_pkg_stamp && ! -e $__collie_pkg_db/db.lck ]]'
+    + ' && [[ $(' + stamp + ') == "$__collie_pkg_stamp" ]]; then\n'
+    + '    { printf "%s\\n" "$__collie_pkg_stamp" "${__collie_pkg_names[@]}" >"$__collie_pkg_cache.$$"'
+    + ' && mv -f -- "$__collie_pkg_cache.$$" "$__collie_pkg_cache"; } 2>/dev/null'
+    + ' || rm -f -- "$__collie_pkg_cache.$$" 2>/dev/null || :\n'
     + '  fi\n'
     + 'fi\n'
 }
 
 function guardHelpers() {
-  return 'declare -A __omarchy_pkgs=()\n'
+  return 'declare -A __collie_pkgs=()\n'
     + guardPackageSnapshot()
-    + 'for __omarchy_pkg in "${__omarchy_pkg_names[@]}"; do __omarchy_pkgs[$__omarchy_pkg]=1; done\n'
-    + '__omarchy_pkg_has() { [[ -n ${__omarchy_pkgs[$1]-} ]] && return 0; '
+    + 'for __collie_pkg in "${__collie_pkg_names[@]}"; do __collie_pkgs[$__collie_pkg]=1; done\n'
+    + '__collie_pkg_has() { [[ -n ${__collie_pkgs[$1]-} ]] && return 0; '
     + '[[ $1 == *[\\<\\>=]* ]] && { pacman -Q "$1" &>/dev/null; return; }; return 1; }\n'
-    + 'omarchy-pkg-present() { local p; for p in "$@"; do __omarchy_pkg_has "$p" || return 1; done; return 0; }\n'
-    + 'omarchy-pkg-missing() { local p; for p in "$@"; do __omarchy_pkg_has "$p" || return 0; done; return 1; }\n'
-    + 'omarchy-cmd-present() { local c; for c in "$@"; do command -v "$c" &>/dev/null || return 1; done; return 0; }\n'
-    + 'omarchy-cmd-missing() { local c; for c in "$@"; do command -v "$c" &>/dev/null || return 0; done; return 1; }\n'
+    + 'collie-pkg-present() { local p; for p in "$@"; do __collie_pkg_has "$p" || return 1; done; return 0; }\n'
+    + 'collie-pkg-missing() { local p; for p in "$@"; do __collie_pkg_has "$p" || return 0; done; return 1; }\n'
+    + 'collie-cmd-present() { local c; for c in "$@"; do command -v "$c" &>/dev/null || return 1; done; return 0; }\n'
+    + 'collie-cmd-missing() { local c; for c in "$@"; do command -v "$c" &>/dev/null || return 0; done; return 1; }\n'
 }
 
 // Substitute the captured answer into the expression rather than shadowing
@@ -539,8 +539,8 @@ function guardPrelude(guards) {
     // The guards arrive already substituted, so what marks a reader as wanted
     // is the slot standing in for it, not the call it replaced.
     if (guards.indexOf(guardReaderSlot(i)) < 0) continue
-    var value = "__omarchy_read_" + i
-    var fd = "__omarchy_read_fd_" + i
+    var value = "__collie_read_" + i
+    var fd = "__collie_read_fd_" + i
     start += "exec {" + fd + "}< <(" + GUARD_READERS[i] + " 2>/dev/null)\n"
     // `|| :` because read reports the EOF it stops at, and a login shell may
     // have turned on errexit.
@@ -553,7 +553,7 @@ function guardPrelude(guards) {
 }
 
 function guardReaderSlot(index) {
-  return "${__omarchy_read_" + index + "}"
+  return "${__collie_read_" + index + "}"
 }
 
 function substituteGuardReaders(expression) {
@@ -610,11 +610,11 @@ function guardScript(items) {
     groups[group] = (groups[group] || "") + lines[j]
   }
 
-  var script = guardPrelude(lines.join("")) + "__omarchy_groups=()\n"
-  for (var k = 0; k < groups.length; k++) script += "{\n" + groups[k] + "} &\n__omarchy_groups+=($!)\n"
-  return script + "__omarchy_failed=0\n"
-    + 'for __omarchy_group in "${__omarchy_groups[@]}"; do wait "$__omarchy_group" || __omarchy_failed=1; done\n'
-    + "((__omarchy_failed == 0))\n"
+  var script = guardPrelude(lines.join("")) + "__collie_groups=()\n"
+  for (var k = 0; k < groups.length; k++) script += "{\n" + groups[k] + "} &\n__collie_groups+=($!)\n"
+  return script + "__collie_failed=0\n"
+    + 'for __collie_group in "${__collie_groups[@]}"; do wait "$__collie_group" || __collie_failed=1; done\n'
+    + "((__collie_failed == 0))\n"
 }
 
 // An action that only asks this shell to summon one of its own plugins can be
@@ -622,7 +622,7 @@ function guardScript(items) {
 // bare call, such as a second command or a shell-expanded payload, is left to
 // bash.
 function summonAction(action) {
-  var match = /^omarchy-shell shell summon ([A-Za-z0-9._-]+)(?: '([^']*)')?$/.exec(String(action || ""))
+  var match = /^collie-shell shell summon ([A-Za-z0-9._-]+)(?: '([^']*)')?$/.exec(String(action || ""))
   if (!match) return null
   return { id: match[1], payload: match[2] || "{}" }
 }

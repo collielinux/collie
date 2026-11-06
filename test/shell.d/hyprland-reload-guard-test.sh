@@ -46,9 +46,9 @@ chmod 0755 "$fake_hyprctl"
 
 FAKE_HYPRCTL_LOG="$hyprctl_log" \
   HYPRCTL="$fake_hyprctl" \
-  OMARCHY_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
-  OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
-  "$ROOT/bin/omarchy-hyprland-reload-guard" pause 2>"$test_tmp/pause-stderr"
+  COLLIE_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
+  COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
+  "$ROOT/bin/collie-hyprland-reload-guard" pause 2>"$test_tmp/pause-stderr"
 
 state_file="$state_dir/$signature"
 [[ -f $state_file ]] || fail "reload guard stores Hyprland state on pause"
@@ -64,10 +64,10 @@ pass "reload guard skips dead Hyprland instances quietly"
 : >"$hyprctl_log"
 FAKE_HYPRCTL_LOG="$hyprctl_log" \
   HYPRCTL="$fake_hyprctl" \
-  OMARCHY_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
-  OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
-  OMARCHY_HYPRLAND_RELOAD_GUARD_PROC_ROOT="$test_tmp/proc" \
-  "$ROOT/bin/omarchy-hyprland-reload-guard" resume
+  COLLIE_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
+  COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
+  COLLIE_HYPRLAND_RELOAD_GUARD_PROC_ROOT="$test_tmp/proc" \
+  "$ROOT/bin/collie-hyprland-reload-guard" resume
 
 [[ ! -e $state_file ]] || fail "reload guard clears Hyprland state after resume"
 grep -F -- '--instance test-signature reload' "$hyprctl_log" >/dev/null || fail "reload guard forces one Hyprland reload after package transaction"
@@ -82,10 +82,10 @@ ln -s "/usr/bin/Hyprland (deleted)" "$proc_root/4242/exe"
 run_guard() {
   FAKE_HYPRCTL_LOG="$hyprctl_log" \
     HYPRCTL="$fake_hyprctl" \
-    OMARCHY_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
-    OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
-    OMARCHY_HYPRLAND_RELOAD_GUARD_PROC_ROOT="$proc_root" \
-    "$ROOT/bin/omarchy-hyprland-reload-guard" "$1"
+    COLLIE_HYPRLAND_RELOAD_GUARD_RUN_ROOT="$run_root" \
+    COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" \
+    COLLIE_HYPRLAND_RELOAD_GUARD_PROC_ROOT="$proc_root" \
+    "$ROOT/bin/collie-hyprland-reload-guard" "$1"
 }
 run_guard pause
 : >"$hyprctl_log"
@@ -99,14 +99,14 @@ pass "reload guard leaves a compositor whose binary was replaced paused until it
 # The modeless monitor recovery loop reloads on its own schedule, so it needs to
 # ask whether a transaction is in flight.
 rm -rf "$state_dir"
-OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/omarchy-hyprland-reload-guard" paused &&
+COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/collie-hyprland-reload-guard" paused &&
   fail "reload guard reports itself unpaused before any transaction"
 
 mkdir -p "$state_dir"
-OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/omarchy-hyprland-reload-guard" paused &&
+COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/collie-hyprland-reload-guard" paused &&
   fail "an empty state directory is not a paused transaction"
 
 touch "$state_dir/some-signature"
-OMARCHY_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/omarchy-hyprland-reload-guard" paused ||
+COLLIE_HYPRLAND_RELOAD_GUARD_STATE_DIR="$state_dir" "$ROOT/bin/collie-hyprland-reload-guard" paused ||
   fail "reload guard reports itself paused during a transaction"
 pass "reload guard reports whether a transaction is holding reloads"

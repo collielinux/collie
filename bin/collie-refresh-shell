@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# collie:summary=Reset shell.json to Collie defaults
+# collie:examples=collie refresh shell
+
+set -euo pipefail
+
+collie-refresh-config collie/shell.json
+collie-bar defaults
+
+collie-restart-shell

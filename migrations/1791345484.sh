@@ -1,7 +1,7 @@
 echo "Replace the Disk Usage TUI with Disktree"
 
-omarchy-pkg-add disktree-bin
-omarchy-pkg-drop dua-cli
+collie-pkg-add disktree-bin
+collie-pkg-drop dua-cli
 
 rm -f "$HOME/.local/share/applications/Disk Usage.desktop"
 if [[ -d $HOME/.local/share/applications ]]; then

@@ -1,7 +1,7 @@
-# The install progress screen: Omarchy's icon traced as setup progresses, with
+# The install progress screen: Collie's icon traced as setup progresses, with
 # the percentage, a status line and a tip beneath it.
 #
-# The ISO install dashboard and first-boot setup (omarchy-provision-owner) both
+# The ISO install dashboard and first-boot setup (collie-provision-owner) both
 # draw it, so an install that finishes on first boot continues on the screen it
 # started on. The ISO vendors this very file out of the runtime package it
 # bundles, as it does setup-form.sh, so the two can never draw it differently.
@@ -22,7 +22,7 @@ PROGRESS_ICON_ESCAPE=$'\033''\[[0-9;?]*[A-Za-z]'
 
 # The icon uses half-block glyphs, scaled to the terminal's actual cell aspect
 # ratio so its square silhouette stays square. No graphics protocol is needed.
-# Coordinates follow the 15 x 15 grid of Omarchy's icon.svg. Each segment
+# Coordinates follow the 15 x 15 grid of Collie's icon.svg. Each segment
 # paints the full stroke width, starting at the bottom middle of the outer ring.
 ICON_WIDTH=30
 ICON_COLUMN=2

@@ -1,12 +1,12 @@
 # Dualboot-installatie
 
-Je kunt Omarchy installeren op een enkele partitie naast Windows of andere installaties.
+Je kunt Collie installeren op een enkele partitie naast Windows of andere installaties.
 
 Deze installatiemethode wordt standaard nog steeds geleverd met LUKS-encryptie voor de partitie, dus in feite verschilt ze niet van een installatie op de volledige schijf en vereist ze alleen dat er vrije ruimte beschikbaar is op de schijf.
 
 ## Ruimte maken op Windows
 
-Om Omarchy naast Windows te installeren, typ je `disk management` in het startmenu en selecteer je de optie **Partities op harde schijf maken en formatteren**.
+Om Collie naast Windows te installeren, typ je `disk management` in het startmenu en selecteer je de optie **Partities op harde schijf maken en formatteren**.
 
  ![dual-boot-1](images/dual-boot-1.webp)
 
@@ -14,17 +14,17 @@ Zoek de juiste partitie, klik er met de rechtermuisknop op en kies **Volume verk
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Voer in met hoeveel je het volume wilt verkleinen. Let op: dit wordt de grootte van je toekomstige Omarchy-installatie, inclusief de bootpartitie.
+ Voer in met hoeveel je het volume wilt verkleinen. Let op: dit wordt de grootte van je toekomstige Collie-installatie, inclusief de bootpartitie.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Als je klaar bent, zou je iets als dit moeten zien, waarbij de sectie van 50GB in dit voorbeeld de plek is waar we Omarchy gaan installeren.
+Als je klaar bent, zou je iets als dit moeten zien, waarbij de sectie van 50GB in dit voorbeeld de plek is waar we Collie gaan installeren.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Omarchy installeren
+## Collie installeren
 
-Het installatieproces voor Omarchy is in feite hetzelfde als normaal. Nadat je je schijf hebt geselecteerd, krijg je de optie **Free space install**. Selecteer die optie om te voorkomen dat de volledige schijf wordt gewist.
+Het installatieproces voor Collie is in feite hetzelfde als normaal. Nadat je je schijf hebt geselecteerd, krijg je de optie **Free space install**. Selecteer die optie om te voorkomen dat de volledige schijf wordt gewist.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Bevestig dat alles er goed uitziet en wacht zoals normaal tot de installatie is 
 
 ## Andere installaties toevoegen aan de bootloader
 
-Als je klaar bent met je Omarchy-installatie, zul je merken dat de Limine-bootloader nu de standaard is. Hiermee kun je ook opties aan Limine toevoegen voor je andere installaties, zoals Windows.
+Als je klaar bent met je Collie-installatie, zul je merken dat de Limine-bootloader nu de standaard is. Hiermee kun je ook opties aan Limine toevoegen voor je andere installaties, zoals Windows.
 
-Om andere besturingssystemen toe te voegen, voer je `limine-scan` uit en volg je de prompts om de gewenste items toe te voegen aan je Limine-configuratie. Het bootmenu blijft standaard verborgen en start Omarchy na één seconde. Om Windows of een ander item te kiezen, druk je op een willekeurige toets zodra Limine start; wanneer het menu verschijnt, gebruik je de pijltjestoetsen om een item te selecteren en druk je op Enter. Als Omarchy start voordat je op een toets drukt, herstart je en probeer je het opnieuw. Als je _Setup > Direct Boot_ hebt ingeschakeld, slaat de firmware Limine volledig over, dus kies je Limine uit het bootmenu van je BIOS of voer je _Setup > Direct Boot_ opnieuw uit om het item te verwijderen.
+Om andere besturingssystemen toe te voegen, voer je `limine-scan` uit en volg je de prompts om de gewenste items toe te voegen aan je Limine-configuratie. Het bootmenu blijft standaard verborgen en start Collie na één seconde. Om Windows of een ander item te kiezen, druk je op een willekeurige toets zodra Limine start; wanneer het menu verschijnt, gebruik je de pijltjestoetsen om een item te selecteren en druk je op Enter. Als Collie start voordat je op een toets drukt, herstart je en probeer je het opnieuw. Als je _Setup > Direct Boot_ hebt ingeschakeld, slaat de firmware Limine volledig over, dus kies je Limine uit het bootmenu van je BIOS of voer je _Setup > Direct Boot_ opnieuw uit om het item te verwijderen.
 
 ## Bitlocker
 

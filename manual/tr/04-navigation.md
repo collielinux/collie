@@ -1,8 +1,8 @@
 # Gezinme
 
-Omarchy'de her şey klavye ile olur — _HER ŞEY!_ Sistem ilk başladığında, yalnızca fareyle kelimenin tam anlamıyla hiçbir şey yapamazsınız. Ama `Super + Space` tuşuna basarak Omarchy Menu'yü ortaya çıkarabilirsiniz ve buradan neredeyse her şeyi yapabilirsiniz.
+Collie'de her şey klavye ile olur — _HER ŞEY!_ Sistem ilk başladığında, yalnızca fareyle kelimenin tam anlamıyla hiçbir şey yapamazsınız. Ama `Super + Space` tuşuna basarak Collie Menu'yü ortaya çıkarabilirsiniz ve buradan neredeyse her şeyi yapabilirsiniz.
 
-Ama Omarchy menüsü, çoğu zaman sistemi çalıştırmanın ana yolu olarak bile tasarlanmamıştır. Bundan daha hızlı olabiliriz! En önemli uygulamaların tümü doğrudan ayrı kısayol tuşlarına bağlanmıştır. Terminali `Super + Return` ile ve bir tarayıcıyı `Super + Shift + Return` ile başlatırsınız. Birbiri ardına deneyin, Hyprland'in döşeme sihrini çalışırken göreceksiniz:
+Ama Collie menüsü, çoğu zaman sistemi çalıştırmanın ana yolu olarak bile tasarlanmamıştır. Bundan daha hızlı olabiliriz! En önemli uygulamaların tümü doğrudan ayrı kısayol tuşlarına bağlanmıştır. Terminali `Super + Return` ile ve bir tarayıcıyı `Super + Shift + Return` ile başlatırsınız. Birbiri ardına deneyin, Hyprland'in döşeme sihrini çalışırken göreceksiniz:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Ayrıca `Super + F` ile tam ekrana geçebilir veya hatta `Super + Alt + F` ile y
 
 ### Dwindle ile kaydırmalı düzen karşılaştırması
 
-Omarchy'nin varsayılan düzenine dwindle denir. Açtığınız tüm pencereleri tek bir çalışma alanında her zaman görünür tutar, bunun için onları küçültmesi gerekse bile.
+Collie'nin varsayılan düzenine dwindle denir. Açtığınız tüm pencereleri tek bir çalışma alanında her zaman görünür tutar, bunun için onları küçültmesi gerekse bile.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Yüzen bir çalışma alanı geleneksel bir masaüstü gibi çalışır: pencereler üst üste biner ve onları kendiniz taşıyıp boyutlandırırsınız. Her pencere, temanızın renklerinde, simge durumuna küçültme, ekranı kaplama ve kapatma düğmeleri olan bir başlık çubuğu alır. `Super + M` de odaklanan pencereyi simge durumuna küçültür. Simge durumuna küçültülmüş bir pencere dock'ta bekler; geri getirmek için uygulamasına tıklayın. Bir pencereyi öne getirmek için tıklayın. Onu herhangi bir kenardan veya köşeden yeniden boyutlandırın. Üst çubuğu görünür tutarken pencereyi ekranı kaplatmak için bir başlık çubuğuna çift tıklayın ve eski boyutunu geri almak için tekrar çift tıklayın.
 
-Yüzen bir çalışma alanı ayrıca, sabitlenmiş uygulamalarınız, çalışan her şey ve uygulamalar düğmesinin arkasındaki her uygulamanın bir ızgarası ile bir dock gösterir; bunu `Super + Alt + Space` ve Omarchy menüsündeki _Apps_ de açar. Onu kaldırmak için ızgaradaki bir uygulamaya sağ tıklayın veya `Delete` tuşuna basın. Açmak veya penceresini öne getirmek için bir uygulamaya tıklayın; pencereleri arasında geçiş yapmak için tekrar tıklayın. Orta tıklama yeni bir pencere açar. Taşımak için bir simgeyi dock boyunca sürükleyin; çalışan bir uygulamayı diğerlerinin arasına sürüklemek onu orada tutar. Bir uygulamayı dock'ta tutmak, onu çıkarmak veya ondan çıkmak için sağ tıklayın. Dock, tam ekran bir pencerenin yolundan çekilir. Dock'u başka bir kenara taşımak veya işaretçi onun kenarına ulaşana kadar gizlenmesini sağlamak için uygulamalar düğmesine sağ tıklayın. Konum ayrıca _Appearance > Dock > Dock Position_ altındadır ve `omarchy dock position left` ile `omarchy dock autohide on` her ikisini de bir terminalden ayarlar. Dock'ta tuttuğunuz uygulamalar çalışmadıkları sırada soluk görünür.
+Yüzen bir çalışma alanı ayrıca, sabitlenmiş uygulamalarınız, çalışan her şey ve uygulamalar düğmesinin arkasındaki her uygulamanın bir ızgarası ile bir dock gösterir; bunu `Super + Alt + Space` ve Collie menüsündeki _Apps_ de açar. Onu kaldırmak için ızgaradaki bir uygulamaya sağ tıklayın veya `Delete` tuşuna basın. Açmak veya penceresini öne getirmek için bir uygulamaya tıklayın; pencereleri arasında geçiş yapmak için tekrar tıklayın. Orta tıklama yeni bir pencere açar. Taşımak için bir simgeyi dock boyunca sürükleyin; çalışan bir uygulamayı diğerlerinin arasına sürüklemek onu orada tutar. Bir uygulamayı dock'ta tutmak, onu çıkarmak veya ondan çıkmak için sağ tıklayın. Dock, tam ekran bir pencerenin yolundan çekilir. Dock'u başka bir kenara taşımak veya işaretçi onun kenarına ulaşana kadar gizlenmesini sağlamak için uygulamalar düğmesine sağ tıklayın. Konum ayrıca _Appearance > Dock > Dock Position_ altındadır ve `collie dock position left` ile `collie dock autohide on` her ikisini de bir terminalden ayarlar. Dock'ta tuttuğunuz uygulamalar çalışmadıkları sırada soluk görünür.
 
-Yeni çalışma alanları ve `Super + L` ile kendine ait bir düzen vermedikleriniz varsayılan düzeni kullanır. Varsayılanı değiştirmek, penceresi olmayan her çalışma alanını ona sıfırlar; penceresi olan ise sahip olduğu düzeni korur. Dock'a simge durumuna küçültülmüş bir pencere, ayrıldığı çalışma alanında hâlâ bir pencere olarak sayılır. Bunu _Appearance > Workspace Layout_ altında seçin: Tiling, Scrolling veya Floating. `omarchy-hyprland-workspace-layout-default scrolling` bunu bir terminalden ayarlar.
+Yeni çalışma alanları ve `Super + L` ile kendine ait bir düzen vermedikleriniz varsayılan düzeni kullanır. Varsayılanı değiştirmek, penceresi olmayan her çalışma alanını ona sıfırlar; penceresi olan ise sahip olduğu düzeni korur. Dock'a simge durumuna küçültülmüş bir pencere, ayrıldığı çalışma alanında hâlâ bir pencere olarak sayılır. Bunu _Appearance > Workspace Layout_ altında seçin: Tiling, Scrolling veya Floating. `collie-hyprland-workspace-layout-default scrolling` bunu bir terminalden ayarlar.
 
 ### Pencereleri gruplama
 

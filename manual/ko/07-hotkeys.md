@@ -8,7 +8,7 @@
 
 | 평면 | 그곳에 있는 것 | 예시 |
 | --- | --- | --- |
-| `Super + key` | 시스템: 창, 워크스페이스, 레이아웃, 핵심 메뉴 | `Super + Space` Omarchy 메뉴, `Super + W` 창 닫기, `Super + F` 전체 화면 |
+| `Super + key` | 시스템: 창, 워크스페이스, 레이아웃, 핵심 메뉴 | `Super + Space` Collie 메뉴, `Super + W` 창 닫기, `Super + F` 전체 화면 |
 | `Super + Shift + key` | 앱 | `Super + Shift + B` 브라우저, `Super + Shift + E` 이메일, `Super + Shift + N` 편집기 |
 | `Super + Ctrl + key` | 패널과 시스템 메뉴 | `Super + Ctrl + A` 오디오, `Super + Ctrl + N` 네트워크, `Super + Ctrl + C` 캡처 메뉴 |
 | `Super + Ctrl + Alt + key` | 빠른 동작과 알림 | `Super + Ctrl + Alt + T` 시간 표시, `Super + Ctrl + Alt + B` 배터리, `Super + Ctrl + Alt + C` 스크린샷 |
@@ -34,7 +34,7 @@
 
 | 단축키                  | 기능              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy 메뉴(앱 및 그 밖의 모든 것)    |
+| `Super + Space`           | Collie 메뉴(앱 및 그 밖의 모든 것)    |
 | `Super + Alt + Space` | 앱 그리드 |
 | `Super + Escape` | 시스템 메뉴(절전, 재시작 등)  |
 | `Super + Ctrl + L` | 컴퓨터 잠그기 |
@@ -171,7 +171,7 @@
 | `Super + V`           | 붙여넣기    |
 | `Super + Ctrl + V`           | 클립보드 관리자    |
 
-보통 Linux에서는 터미널에서 copy'n'paste하려면 `Ctrl + Shift + C/V`가 필요하고, 그 밖의 모든 곳에서는 `Ctrl + C/V`를 써야 한다. Omarchy의 통합 클립보드 단축키는 어디서나 동작한다.
+보통 Linux에서는 터미널에서 copy'n'paste하려면 `Ctrl + Shift + C/V`가 필요하고, 그 밖의 모든 곳에서는 `Ctrl + C/V`를 써야 한다. Collie의 통합 클립보드 단축키는 어디서나 동작한다.
 
 ## 캡처
 
@@ -192,7 +192,7 @@
 
 화면 녹화 시, 이 단축키는 먼저 어떤 오디오를 원하는지 묻고 그 다음 녹화를 시작한다. 다시 누르면 중지된다. 자세한 내용은 [스크린샷과 녹화](12-screenshots-recording.md)를 참고해라.
 
-모든 캡처 옵션은 Omarchy 메뉴(`Super + Space`)의 _Trigger > Capture_에서도 접근할 수 있다.
+모든 캡처 옵션은 Collie 메뉴(`Super + Space`)의 _Trigger > Capture_에서도 접근할 수 있다.
 
 ## 알림
 
@@ -214,9 +214,9 @@
 | `Super + Backspace` | 창의 투명도 전환 |
 | `Super + Ctrl + Backspace` | 단일 창 정사각형 비율 전환 |
 
-추가 배경 이미지는 `~/.config/omarchy/backgrounds/<theme name>`에 있다. Omarchy 메뉴의 _Install > Style > Background_에서도 이용할 수 있다.
+추가 배경 이미지는 `~/.config/collie/backgrounds/<theme name>`에 있다. Collie 메뉴의 _Install > Style > Background_에서도 이용할 수 있다.
 
-모든 스타일 옵션은 Omarchy 메뉴(`Super + Space`)의 _Style_에서도 접근할 수 있다.
+모든 스타일 옵션은 Collie 메뉴(`Super + Space`)의 _Style_에서도 접근할 수 있다.
 
 ## 토글
 
@@ -317,7 +317,7 @@
 
 ## Ghostty Terminal
 
-Ghostty 터미널은 Omarchy 메뉴의 _Install > Terminal_을 이용해 설치한다.
+Ghostty 터미널은 Collie 메뉴의 _Install > Terminal_을 이용해 설치한다.
 
 | 단축키                  | 기능              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Ghostty 터미널은 Omarchy 메뉴의 _Install > Terminal_을 이용해 설치�
 | `Shift + CapsLock Space N` | 이름(설정 시 입력한 대로)  |
 | `Shift + CapsLock Space E` | 이메일(설정 시 입력한 대로)  |
 
-`~/.XCompose`를 편집해 직접 더 추가할 수 있으며, 그 다음 터미널에서 `omarchy-restart-xcompose`를 실행하면 변경 사항이 반영된다.
+`~/.XCompose`를 편집해 직접 더 추가할 수 있으며, 그 다음 터미널에서 `collie-restart-xcompose`를 실행하면 변경 사항이 반영된다.

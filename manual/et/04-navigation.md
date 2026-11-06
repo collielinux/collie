@@ -1,8 +1,8 @@
 # Navigeerimine
 
-Kõik Omarchys toimub klaviatuuri kaudu — _KÕIK!_ Kui süsteem esimest korda käivitub, ei saa sa sõna otseses mõttes ainult hiirega mitte midagi teha. Kuid sa saad vajutada `Super + Space`, et kuvada Omarchy menüü, ja siit saad teha peaaegu kõike.
+Kõik Collies toimub klaviatuuri kaudu — _KÕIK!_ Kui süsteem esimest korda käivitub, ei saa sa sõna otseses mõttes ainult hiirega mitte midagi teha. Kuid sa saad vajutada `Super + Space`, et kuvada Collie menüü, ja siit saad teha peaaegu kõike.
 
-Aga Omarchy menüü ei ole isegi mõeldud olema enamasti peamine viis süsteemi kasutada. Me saame sellest kiiremini! Kõik kõige olulisemad rakendused on seotud otse üksikute kiirklahvidega. Terminali käivitad klahvidega `Super + Return` ja brauseri klahvidega `Super + Shift + Return`. Proovi teha üht teise järel ja näed Hyprlandi plaatijas võlu tegevuses:
+Aga Collie menüü ei ole isegi mõeldud olema enamasti peamine viis süsteemi kasutada. Me saame sellest kiiremini! Kõik kõige olulisemad rakendused on seotud otse üksikute kiirklahvidega. Terminali käivitad klahvidega `Super + Return` ja brauseri klahvidega `Super + Shift + Return`. Proovi teha üht teise järel ja näed Hyprlandi plaatijas võlu tegevuses:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Sa saad minna ka täisekraanile klahvidega `Super + F` või isegi lihtsalt täis
 
 ### Dwindle vs keriv paigutus
 
-Omarchy vaikepaigutust nimetatakse dwindle. See hoiab kõik aknad, mille ühel tööruumil avad, kogu aeg nähtaval, isegi kui peab neid selleks väiksemaks kahandama.
+Collie vaikepaigutust nimetatakse dwindle. See hoiab kõik aknad, mille ühel tööruumil avad, kogu aeg nähtaval, isegi kui peab neid selleks väiksemaks kahandama.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Ujuv tööruum töötab nagu traditsiooniline töölaud: aknad kattuvad ning sa liigutad ja muudad nende suurust ise. Iga aken saab sinu teema värvides tiitliriba nuppudega minimeerimiseks, maksimeerimiseks ja sulgemiseks. `Super + M` minimeerib ka fookuses oleva akna. Minimeeritud aken ootab dokis; klõpsa selle rakendust, et see tagasi tuua. Klõpsa akent, et see ette tuua. Muuda selle suurust mis tahes servast või nurgast. Topeltklõpsa tiitliriba, et aken maksimeerida ülariba nähtaval hoides, ja uuesti, et selle vana suurus tagasi saada.
 
-Ujuval tööruumil kuvatakse ka dokk sinu kinnitatud rakendustega, kõigega, mis töötab, ja iga rakenduse ruudustikuga rakenduste nupu taga, mille avavad ka `Super + Alt + Space` ja Omarchy menüüs _Rakendused_. Paremklõpsa ruudustikul rakendust või vajuta `Delete`, et see desinstallida. Klõpsa rakendust, et see avada või selle aken ette tuua; klõpsa uuesti, et selle aknaid tsükliliselt läbi käia. Keskmine klõps avab uue akna. Lohista ikooni mööda dokki, et seda liigutada; töötava rakenduse lohistamine teiste sekka jätab selle sinna. Paremklõpsa, et rakendus dokis hoida, see sealt välja võtta või see lõpetada. Dokk annab täisekraaniaknale teed. Paremklõpsa rakenduste nuppu, et dokk teise serva liigutada või lasta sellel peituda, kuni kursor selle servani jõuab. Asukoht on ka _Välimus > Dokk > Doki asukoht_ all ning `omarchy dock position left` ja `omarchy dock autohide on` seavad mõlemad terminalist. Rakendused, mida dokis hoiad, on tuhmid, kui nad ei tööta.
+Ujuval tööruumil kuvatakse ka dokk sinu kinnitatud rakendustega, kõigega, mis töötab, ja iga rakenduse ruudustikuga rakenduste nupu taga, mille avavad ka `Super + Alt + Space` ja Collie menüüs _Rakendused_. Paremklõpsa ruudustikul rakendust või vajuta `Delete`, et see desinstallida. Klõpsa rakendust, et see avada või selle aken ette tuua; klõpsa uuesti, et selle aknaid tsükliliselt läbi käia. Keskmine klõps avab uue akna. Lohista ikooni mööda dokki, et seda liigutada; töötava rakenduse lohistamine teiste sekka jätab selle sinna. Paremklõpsa, et rakendus dokis hoida, see sealt välja võtta või see lõpetada. Dokk annab täisekraaniaknale teed. Paremklõpsa rakenduste nuppu, et dokk teise serva liigutada või lasta sellel peituda, kuni kursor selle servani jõuab. Asukoht on ka _Välimus > Dokk > Doki asukoht_ all ning `collie dock position left` ja `collie dock autohide on` seavad mõlemad terminalist. Rakendused, mida dokis hoiad, on tuhmid, kui nad ei tööta.
 
-Uued tööruumid ja kõik, millele sa pole klahvidega `Super + L` oma paigutust andnud, kasutavad vaikepaigutust. Vaikeseade muutmine lähtestab iga akendeta tööruumi sellele, samas kui akendega tööruum säilitab paigutuse, mis sellel on. Dokki minimeeritud aken loeb endiselt aknaks tööruumil, kust see lahkus. Vali see _Välimus > Tööruumi paigutus_ alt: Plaatimine, Kerimine või Ujuv. `omarchy-hyprland-workspace-layout-default scrolling` seab selle terminalist.
+Uued tööruumid ja kõik, millele sa pole klahvidega `Super + L` oma paigutust andnud, kasutavad vaikepaigutust. Vaikeseade muutmine lähtestab iga akendeta tööruumi sellele, samas kui akendega tööruum säilitab paigutuse, mis sellel on. Dokki minimeeritud aken loeb endiselt aknaks tööruumil, kust see lahkus. Vali see _Välimus > Tööruumi paigutus_ alt: Plaatimine, Kerimine või Ujuv. `collie-hyprland-workspace-layout-default scrolling` seab selle terminalist.
 
 ### Akende rühmitamine
 

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# collie:summary=Toggle screensaver availability
+
+collie-toggle screensaver-off
+
+if collie-toggle-enabled screensaver-off; then
+  collie-notification-send -g 󱄄 "$(collie-i18n screensaver.disabled)"
+else
+  collie-notification-send -g 󱄄 "$(collie-i18n screensaver.enabled)"
+fi

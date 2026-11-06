@@ -1,8 +1,8 @@
 # Navigatie
 
-Alles in Omarchy gebeurt via het toetsenbord — _ALLES!_ Wanneer het systeem voor het eerst start, kun je letterlijk niets doen met alleen de muis. Maar je kunt op `Super + Space` drukken om het Omarchy Menu te onthullen en van hieruit kun je zo ongeveer alles doen.
+Alles in Collie gebeurt via het toetsenbord — _ALLES!_ Wanneer het systeem voor het eerst start, kun je letterlijk niets doen met alleen de muis. Maar je kunt op `Super + Space` drukken om het Collie Menu te onthullen en van hieruit kun je zo ongeveer alles doen.
 
-Maar het Omarchy-menu is niet eens bedoeld om meestal de belangrijkste manier te zijn om het systeem te bedienen. We kunnen sneller dan dat! Alle belangrijkste applicaties zijn direct gebonden aan individuele sneltoetsen. Je start de terminal met `Super + Return` en een browser met `Super + Shift + Return`. Probeer het een na het ander te doen, en je zult de magie van Hyprland's tiling in actie zien:
+Maar het Collie-menu is niet eens bedoeld om meestal de belangrijkste manier te zijn om het systeem te bedienen. We kunnen sneller dan dat! Alle belangrijkste applicaties zijn direct gebonden aan individuele sneltoetsen. Je start de terminal met `Super + Return` en een browser met `Super + Shift + Return`. Probeer het een na het ander te doen, en je zult de magie van Hyprland's tiling in actie zien:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Je kunt ook volledig scherm gaan met `Super + F` of zelfs alleen volledige breed
 
 ### Dwindle vs scrollende indeling
 
-De standaardindeling van Omarchy heet dwindle. Die houdt alle vensters die je op een enkele werkruimte opent te allen tijde zichtbaar, zelfs als hij ze daarvoor moet verkleinen.
+De standaardindeling van Collie heet dwindle. Die houdt alle vensters die je op een enkele werkruimte opent te allen tijde zichtbaar, zelfs als hij ze daarvoor moet verkleinen.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Een zwevende werkruimte werkt als een traditioneel bureaublad: vensters overlappen, en je verplaatst en schaalt ze zelf. Elk venster krijgt een titelbalk in de kleuren van je thema, met knoppen om te minimaliseren, maximaliseren en sluiten. `Super + M` minimaliseert ook het gefocuste venster. Een geminimaliseerd venster wacht in het dock; klik op zijn app om hem terug te halen. Klik op een venster om het naar voren te brengen. Pas de grootte aan vanaf elke rand of hoek. Dubbelklik op een titelbalk om het venster te maximaliseren terwijl de bovenbalk in beeld blijft, en nogmaals om zijn oude grootte terug te krijgen.
 
-Een zwevende werkruimte toont ook een dock, met je vastgepinde apps, alles wat draait, en een raster van elke app achter de apps-knop, die `Super + Alt + Space` en _Apps_ in het Omarchy-menu ook openen. Klik met de rechtermuisknop op een app op het raster, of druk op `Delete`, om hem te deïnstalleren. Klik op een app om hem te openen, of om zijn venster naar voren te brengen; klik nogmaals om door zijn vensters te bladeren. Middelklik opent een nieuw venster. Sleep een pictogram langs het dock om het te verplaatsen; een draaiende app tussen de anderen slepen houdt hem daar. Klik met de rechtermuisknop om een app in het dock te houden, hem eruit te halen, of hem af te sluiten. Het dock gaat uit de weg voor een venster in volledig scherm. Klik met de rechtermuisknop op de apps-knop om het dock naar een andere rand te verplaatsen of hem te laten verbergen totdat de aanwijzer zijn rand bereikt. De positie staat ook onder _Appearance > Dock > Dock Position_, en `omarchy dock position left` en `omarchy dock autohide on` stellen beide in vanaf een terminal. Apps die je in het dock houdt, zijn vervaagd terwijl ze niet draaien.
+Een zwevende werkruimte toont ook een dock, met je vastgepinde apps, alles wat draait, en een raster van elke app achter de apps-knop, die `Super + Alt + Space` en _Apps_ in het Collie-menu ook openen. Klik met de rechtermuisknop op een app op het raster, of druk op `Delete`, om hem te deïnstalleren. Klik op een app om hem te openen, of om zijn venster naar voren te brengen; klik nogmaals om door zijn vensters te bladeren. Middelklik opent een nieuw venster. Sleep een pictogram langs het dock om het te verplaatsen; een draaiende app tussen de anderen slepen houdt hem daar. Klik met de rechtermuisknop om een app in het dock te houden, hem eruit te halen, of hem af te sluiten. Het dock gaat uit de weg voor een venster in volledig scherm. Klik met de rechtermuisknop op de apps-knop om het dock naar een andere rand te verplaatsen of hem te laten verbergen totdat de aanwijzer zijn rand bereikt. De positie staat ook onder _Appearance > Dock > Dock Position_, en `collie dock position left` en `collie dock autohide on` stellen beide in vanaf een terminal. Apps die je in het dock houdt, zijn vervaagd terwijl ze niet draaien.
 
-Nieuwe werkruimtes, en elke waaraan je geen eigen indeling hebt gegeven met `Super + L`, gebruiken de standaardindeling. Het wijzigen van de standaard zet elke werkruimte zonder vensters terug naar die indeling, terwijl een met vensters erop de indeling behoudt die hij heeft. Een venster dat naar het dock is geminimaliseerd, telt nog steeds als een venster op de werkruimte die het verliet. Kies hem onder _Appearance > Workspace Layout_: Tiling, Scrolling, of Floating. `omarchy-hyprland-workspace-layout-default scrolling` stelt hem in vanaf een terminal.
+Nieuwe werkruimtes, en elke waaraan je geen eigen indeling hebt gegeven met `Super + L`, gebruiken de standaardindeling. Het wijzigen van de standaard zet elke werkruimte zonder vensters terug naar die indeling, terwijl een met vensters erop de indeling behoudt die hij heeft. Een venster dat naar het dock is geminimaliseerd, telt nog steeds als een venster op de werkruimte die het verliet. Kies hem onder _Appearance > Workspace Layout_: Tiling, Scrolling, of Floating. `collie-hyprland-workspace-layout-default scrolling` stelt hem in vanaf een terminal.
 
 ### Vensters groeperen
 

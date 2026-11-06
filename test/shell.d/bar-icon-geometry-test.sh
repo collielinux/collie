@@ -297,7 +297,7 @@ ShellRoot {
     font.pixelSize: Style.bar.iconFont * 100
     text: bluetooth.text
   }
-  BarIconButton { id: menu; bar: testBar; text: "\ue900"; fontFamily: "omarchy" }
+  BarIconButton { id: menu; bar: testBar; text: "\ue900"; fontFamily: "collie" }
   BarIconButton { id: smallFont; bar: testBar; text: "\uf053"; fontSize: 8 }
   BarIconButton { id: largeFont; bar: testBar; text: "󰍹"; fontSize: 24 }
   BarIconButton { id: customSize; bar: testBar; text: "󰍹"; iconSize: 15 }
@@ -326,7 +326,7 @@ ShellRoot {
       Text {
         textFormat: Text.PlainText
         text: "\ue900"
-        font.family: "omarchy"
+        font.family: "collie"
         font.pixelSize: 15
         onRenderTypeChanged: root.customRenderType = renderType
       }
@@ -334,7 +334,7 @@ ShellRoot {
   }
   TextMetrics {
     id: customTextMetrics
-    font.family: "omarchy"
+    font.family: "collie"
     font.pixelSize: 15
     text: "\ue900"
   }
@@ -347,7 +347,7 @@ ShellRoot {
     verticalAlignment: Text.AlignVCenter
     textFormat: Text.PlainText
     text: "\ue900"
-    font.family: "omarchy"
+    font.family: "collie"
     font.pixelSize: 15
   }
   BarIconButton {

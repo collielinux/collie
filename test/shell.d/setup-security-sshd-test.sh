@@ -10,23 +10,23 @@ trap 'rm -rf "$test_dir"' EXIT
 stub_bin="$test_dir/bin"
 mkdir -p "$stub_bin"
 
-cat >"$stub_bin/omarchy-pkg-add" <<'STUB'
+cat >"$stub_bin/collie-pkg-add" <<'STUB'
 #!/bin/bash
 printf 'pkg %s\n' "$*" >>"${CALL_LOG:?}"
 STUB
-cat >"$stub_bin/omarchy-cmd-missing" <<'STUB'
+cat >"$stub_bin/collie-cmd-missing" <<'STUB'
 #!/bin/bash
 exit 1
 STUB
 cat >"$stub_bin/ufw" <<'STUB'
 #!/bin/bash
 printf 'ufw %s\n' "$*" >>"${CALL_LOG:?}"
-[[ -e ${TEST_ROOT:?}/etc/ssh/sshd_config.d/10-omarchy-hardening.conf ]] || echo "exposed before hardening" >>"$CALL_LOG"
+[[ -e ${TEST_ROOT:?}/etc/ssh/sshd_config.d/10-collie-hardening.conf ]] || echo "exposed before hardening" >>"$CALL_LOG"
 STUB
 cat >"$stub_bin/systemctl" <<'STUB'
 #!/bin/bash
 printf 'systemctl %s\n' "$*" >>"${CALL_LOG:?}"
-[[ -e ${TEST_ROOT:?}/etc/ssh/sshd_config.d/10-omarchy-hardening.conf ]] || echo "exposed before hardening" >>"$CALL_LOG"
+[[ -e ${TEST_ROOT:?}/etc/ssh/sshd_config.d/10-collie-hardening.conf ]] || echo "exposed before hardening" >>"$CALL_LOG"
 STUB
 cat >"$stub_bin/gum" <<'STUB'
 #!/bin/bash
@@ -95,7 +95,7 @@ run_setup() {
     SSHD_PASSWORD_AUTH="${SSHD_PASSWORD_AUTH:-no}" \
     SSHD_KBD_AUTH="${SSHD_KBD_AUTH:-no}" \
     PATH="$stub_bin:$PATH" \
-    bash "$ROOT/bin/omarchy-setup-security-sshd" --key="$key"
+    bash "$ROOT/bin/collie-setup-security-sshd" --key="$key"
 }
 
 # Nothing may listen or be opened while passwords could still be accepted.
@@ -109,18 +109,18 @@ assert_nothing_exposed() {
 }
 
 output=$(run_setup success)
-config="$test_dir/success/root/etc/ssh/sshd_config.d/10-omarchy-hardening.conf"
+config="$test_dir/success/root/etc/ssh/sshd_config.d/10-collie-hardening.conf"
 grep -qxF "PasswordAuthentication no" "$config" || fail "SSH setup disables password authentication"
 grep -qxF "KbdInteractiveAuthentication no" "$config" || fail "SSH setup disables keyboard-interactive authentication"
 grep -qxF "systemctl reload-or-restart sshd.service" "$test_dir/success.calls" || fail "SSH setup starts sshd with the validated config"
-grep -qxF "ufw limit 22/tcp comment omarchy-sshd" "$test_dir/success.calls" || fail "SSH setup opens the SSH port"
+grep -qxF "ufw limit 22/tcp comment collie-sshd" "$test_dir/success.calls" || fail "SSH setup opens the SSH port"
 ! grep -qxF "exposed before hardening" "$test_dir/success.calls" || fail "SSH setup starts sshd and opens the port only after passwords are off"
 grep -qxF "$public_key" "$test_dir/success/home/.ssh/authorized_keys" || fail "SSH setup writes the authorized key"
 grep -q "Password logins are off" <<<"$output" || fail "SSH setup reports hardening after it succeeds"
 pass "SSH setup authorizes a key and disables password logins"
 
 output=$(SSHD_DUMP_LOWERCASE=1 run_setup success-legacy)
-config="$test_dir/success-legacy/root/etc/ssh/sshd_config.d/10-omarchy-hardening.conf"
+config="$test_dir/success-legacy/root/etc/ssh/sshd_config.d/10-collie-hardening.conf"
 [[ -e $config ]] || fail "SSH setup accepts the lowercase sshd -T dump of OpenSSH 9.x"
 grep -q "Password logins are off" <<<"$output" || fail "SSH setup reports hardening on OpenSSH 9.x"
 pass "SSH setup verifies settings across sshd -T keyword casings"
@@ -128,7 +128,7 @@ pass "SSH setup verifies settings across sshd -T keyword casings"
 if SSHD_PASSWORD_AUTH=yes run_setup ineffective >"$test_dir/ineffective.output" 2>&1; then
   fail "SSH setup must fail when password authentication remains effective"
 fi
-[[ ! -e $test_dir/ineffective/root/etc/ssh/sshd_config.d/10-omarchy-hardening.conf ]] ||
+[[ ! -e $test_dir/ineffective/root/etc/ssh/sshd_config.d/10-collie-hardening.conf ]] ||
   fail "SSH setup removes an ineffective hardening config"
 assert_nothing_exposed ineffective
 ! grep -q "Password logins are off" "$test_dir/ineffective.output" ||
@@ -138,7 +138,7 @@ pass "SSH setup verifies the effective daemon settings"
 if SSHD_SYNTAX_VALID=0 run_setup invalid >"$test_dir/invalid.output" 2>&1; then
   fail "SSH setup must fail when sshd rejects its config"
 fi
-[[ ! -e $test_dir/invalid/root/etc/ssh/sshd_config.d/10-omarchy-hardening.conf ]] ||
+[[ ! -e $test_dir/invalid/root/etc/ssh/sshd_config.d/10-collie-hardening.conf ]] ||
   fail "SSH setup removes a rejected hardening config"
 assert_nothing_exposed invalid
 ! grep -q "Password logins are off" "$test_dir/invalid.output" ||
@@ -149,14 +149,14 @@ if run_setup rejected-key "not-a-key" >"$test_dir/rejected-key.output" 2>&1; the
   fail "SSH setup must fail when the key is rejected"
 fi
 assert_nothing_exposed rejected-key
-[[ ! -e $test_dir/rejected-key/root/etc/ssh/sshd_config.d/10-omarchy-hardening.conf ]] ||
+[[ ! -e $test_dir/rejected-key/root/etc/ssh/sshd_config.d/10-collie-hardening.conf ]] ||
   fail "SSH setup writes no hardening config without a key"
 pass "SSH setup starts nothing and opens nothing when no key is authorized"
 
 mkdir -p "$test_dir/cancelled/home" "$test_dir/cancelled/root"
 : >"$test_dir/cancelled.calls"
 if HOME="$test_dir/cancelled/home" TEST_ROOT="$test_dir/cancelled/root" CALL_LOG="$test_dir/cancelled.calls" \
-  PATH="$stub_bin:$ROOT/bin:$PATH" bash "$ROOT/bin/omarchy-setup-security-sshd" >/dev/null 2>&1; then
+  PATH="$stub_bin:$ROOT/bin:$PATH" bash "$ROOT/bin/collie-setup-security-sshd" >/dev/null 2>&1; then
   fail "SSH setup must fail when the key prompt is cancelled"
 fi
 grep -q "^gum choose" "$test_dir/cancelled.calls" || fail "SSH setup reaches the key prompt"

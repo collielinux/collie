@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# collie:summary=Select and set the system timezone
+# collie:group=menu
+# collie:name=timezone
+
+set -e
+
+timezone=$(timedatectl list-timezones | collie-menu-select "$(collie-i18n timezone.setTitle)" -- --width 520 --maxheight 520) || exit 1
+sudo timedatectl set-timezone "$timezone"
+collie-shell -q collie.clock refresh
+collie-notification-send "$(collie-i18n timezone.changed "$timezone")"

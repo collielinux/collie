@@ -8,7 +8,7 @@ Każdy skrót klawiszowy znajduje się na płaszczyźnie wyznaczonej przez jego 
 
 | Płaszczyzna | Co się tam znajduje | Przykłady |
 | --- | --- | --- |
-| `Super + key` | System: okna, obszary robocze, układy i główne menu | `Super + Space` menu Omarchy, `Super + W` zamknij okno, `Super + F` pełny ekran |
+| `Super + key` | System: okna, obszary robocze, układy i główne menu | `Super + Space` menu Collie, `Super + W` zamknij okno, `Super + F` pełny ekran |
 | `Super + Shift + key` | Aplikacje | `Super + Shift + B` przeglądarka, `Super + Shift + E` e-mail, `Super + Shift + N` edytor |
 | `Super + Ctrl + key` | Panele i menu systemowe | `Super + Ctrl + A` dźwięk, `Super + Ctrl + N` sieć, `Super + Ctrl + C` menu przechwytywania |
 | `Super + Ctrl + Alt + key` | Szybkie akcje i komunikaty | `Super + Ctrl + Alt + T` pokaż czas, `Super + Ctrl + Alt + B` bateria, `Super + Ctrl + Alt + C` zrzut ekranu |
@@ -34,7 +34,7 @@ Jeśli domyślny Ci nie pasuje (powiedzmy, że chcesz `Super + Shift + S` do zrz
 
 | Skrót klawiszowy | Funkcja |
 | --- | --- |
-| `Super + Space` | Menu Omarchy (aplikacje i wszystko inne) |
+| `Super + Space` | Menu Collie (aplikacje i wszystko inne) |
 | `Super + Alt + Space` | Siatka aplikacji |
 | `Super + Escape` | Menu systemowe (uśpij, uruchom ponownie itd.) |
 | `Super + Ctrl + L` | Zablokuj komputer |
@@ -171,7 +171,7 @@ Zmień/dodaj przypisania w `~/.config/hypr/bindings.lua`.
 | `Super + V` | Wklej |
 | `Super + Ctrl + V` | Menedżer schowka |
 
-Zwykle w Linuxie potrzebujesz `Ctrl + Shift + C/V`, żeby kopiować i wklejać w terminalu, oraz `Ctrl + C/V`, żeby robić to wszędzie indziej. Te ujednolicone skróty schowka Omarchy działają wszędzie.
+Zwykle w Linuxie potrzebujesz `Ctrl + Shift + C/V`, żeby kopiować i wklejać w terminalu, oraz `Ctrl + C/V`, żeby robić to wszędzie indziej. Te ujednolicone skróty schowka Collie działają wszędzie.
 
 ## Przechwytywanie
 
@@ -192,7 +192,7 @@ Zwykle w Linuxie potrzebujesz `Ctrl + Shift + C/V`, żeby kopiować i wklejać w
 
 W przypadku nagrań ekranu skrót najpierw pyta, jaki dźwięk chcesz, a potem zaczyna nagrywanie. Naciśnij go ponownie, aby zatrzymać. Zobacz [zrzuty ekranu i nagrywanie](12-screenshots-recording.md), aby poznać szczegóły.
 
-Wszystkie opcje przechwytywania są też dostępne w _Trigger > Capture_ w menu Omarchy (`Super + Space`).
+Wszystkie opcje przechwytywania są też dostępne w _Trigger > Capture_ w menu Collie (`Super + Space`).
 
 ## Powiadomienia
 
@@ -214,9 +214,9 @@ Wszystkie opcje przechwytywania są też dostępne w _Trigger > Capture_ w menu 
 | `Super + Backspace` | Przełącz przezroczystość okna |
 | `Super + Ctrl + Backspace` | Przełącz kwadratowe proporcje pojedynczego okna |
 
-Dodatkowe obrazy tła znajdują się w `~/.config/omarchy/backgrounds/<theme name>`. Dostępne także przez _Install > Style > Background_ w menu Omarchy.
+Dodatkowe obrazy tła znajdują się w `~/.config/collie/backgrounds/<theme name>`. Dostępne także przez _Install > Style > Background_ w menu Collie.
 
-Wszystkie opcje stylu są też dostępne w sekcji _Style_ w menu Omarchy (`Super + Space`).
+Wszystkie opcje stylu są też dostępne w sekcji _Style_ w menu Collie (`Super + Space`).
 
 ## Przełączniki
 
@@ -317,7 +317,7 @@ Te funkcje muszą być uruchamiane wewnątrz sesji Tmux.
 
 ## Ghostty Terminal
 
-Terminal Ghostty instaluje się za pomocą _Install > Terminal_ w menu Omarchy.
+Terminal Ghostty instaluje się za pomocą _Install > Terminal_ w menu Collie.
 
 | Skrót klawiszowy | Funkcja |
 | --- | --- |
@@ -408,4 +408,4 @@ Możesz użyć `Super + Ctrl + E`, aby pokazać kompletny wybierak emoji, który
 | `Shift + CapsLock Space N` | Twoje imię i nazwisko (podane podczas konfiguracji) |
 | `Shift + CapsLock Space E` | Twój e-mail (podany podczas konfiguracji) |
 
-Możesz dodać więcej własnych, edytując `~/.XCompose`, a potem uruchamiając `omarchy-restart-xcompose` w terminalu, aby zmiany zostały wczytane.
+Możesz dodać więcej własnych, edytując `~/.XCompose`, a potem uruchamiając `collie-restart-xcompose` w terminalu, aby zmiany zostały wczytane.

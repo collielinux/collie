@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# collie:summary=Open HEY webmail and translate mailto links
+# collie:args=[url]
+
+url="$1"
+web_url="https://app.hey.com"
+
+# Handle mailto: URLs
+if [[ $url =~ ^mailto: ]]; then
+  email=$(echo "$url" | sed 's/mailto://')
+  web_url="https://app.hey.com/messages/new?to=$email"
+fi
+
+exec collie-launch-webapp "$web_url"

@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-sleep_lock="$ROOT/bin/omarchy-system-sleep-lock"
+sleep_lock="$ROOT/bin/collie-system-sleep-lock"
 tmpdir=$(mktemp -d)
 trap 'rm -rf "$tmpdir"' EXIT
 
@@ -27,12 +27,12 @@ setup_scenario() {
 
   # Capture the desktop warning instead of firing a real one at whoever is
   # running the suite.
-  cat >"$mock_bin/omarchy-notification-send" <<SH
+  cat >"$mock_bin/collie-notification-send" <<SH
 #!/bin/bash
 
 printf '%s\n' "\$*" >>"$notify_log"
 SH
-  chmod +x "$mock_bin/omarchy-notification-send"
+  chmod +x "$mock_bin/collie-notification-send"
 }
 
 mock_logind_window() {
@@ -45,14 +45,14 @@ SH
 }
 
 mock_clamshell() {
-  cat >"$mock_bin/omarchy-hyprland-monitor-clamshell" <<SH
+  cat >"$mock_bin/collie-hyprland-monitor-clamshell" <<SH
 #!/bin/bash
 
 echo clamshell >>"\$CALL_LOG"
 sleep ${1:-0}
 touch "\$CALL_LOG.clamshell-done"
 SH
-  chmod +x "$mock_bin/omarchy-hyprland-monitor-clamshell"
+  chmod +x "$mock_bin/collie-hyprland-monitor-clamshell"
 }
 
 # Called with no budget to exercise the value derived from logind's window.
@@ -73,7 +73,7 @@ run_sleep_lock() {
 
 # A responsive shell locks immediately, even when the clamshell sync stalls.
 setup_scenario responsive
-cat >"$mock_bin/omarchy-shell" <<'SH'
+cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -83,7 +83,7 @@ elif [[ $* == "lock status" ]]; then
   printf '{"secure":true}\n'
 fi
 SH
-chmod +x "$mock_bin/omarchy-shell"
+chmod +x "$mock_bin/collie-shell"
 mock_clamshell 2
 
 run_sleep_lock 4000
@@ -108,7 +108,7 @@ pass "sleep lock bounds a stalled clamshell sync"
 # A shell that never secures the session must give up inside the budget rather
 # than hold logind's delay inhibitor open.
 setup_scenario never_secure
-cat >"$mock_bin/omarchy-shell" <<'SH'
+cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -118,7 +118,7 @@ elif [[ $* == "lock status" ]]; then
   printf '{"secure":false}\n'
 fi
 SH
-chmod +x "$mock_bin/omarchy-shell"
+chmod +x "$mock_bin/collie-shell"
 mock_clamshell
 
 run_sleep_lock 1500
@@ -148,7 +148,7 @@ pass "sleep lock keeps polling until the deadline"
 # A lock request that times out may never have landed, so the wait retries it
 # instead of suspending an unlocked session over one slow IPC call.
 setup_scenario retry_lock
-cat >"$mock_bin/omarchy-shell" <<'SH'
+cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -171,7 +171,7 @@ if [[ $* == "lock status" ]]; then
   fi
 fi
 SH
-chmod +x "$mock_bin/omarchy-shell"
+chmod +x "$mock_bin/collie-shell"
 mock_clamshell
 
 run_sleep_lock 4000
@@ -192,7 +192,7 @@ pass "sleep lock stops requesting once the lock lands"
 # that Quickshell is already securing the session, so do not spend the remaining
 # inhibitor budget sending the same request again.
 setup_scenario pending_lock
-cat >"$mock_bin/omarchy-shell" <<'SH'
+cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -210,7 +210,7 @@ if [[ $* == "lock status" ]]; then
   fi
 fi
 SH
-chmod +x "$mock_bin/omarchy-shell"
+chmod +x "$mock_bin/collie-shell"
 mock_clamshell
 
 run_sleep_lock 4000
@@ -230,7 +230,7 @@ pass "sleep lock does not retry an observed pending lock"
 # The shell reports a refusal on stdout with a zero exit, so a lock it can never
 # perform has to end the wait instead of burning the rest of the window on it.
 setup_scenario missing_pam
-cat >"$mock_bin/omarchy-shell" <<'SH'
+cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -239,7 +239,7 @@ if [[ $* == "lock lock" ]]; then
 fi
 exit 0
 SH
-chmod +x "$mock_bin/omarchy-shell"
+chmod +x "$mock_bin/collie-shell"
 mock_clamshell
 
 run_sleep_lock 4000
@@ -268,7 +268,7 @@ pass "sleep lock records the unlocked suspend in the journal"
 # A never-securing shell is the scenario that runs out the whole budget, so it
 # is also the one that shows which budget was derived.
 never_secures() {
-  cat >"$mock_bin/omarchy-shell" <<'SH'
+  cat >"$mock_bin/collie-shell" <<'SH'
 #!/bin/bash
 
 printf 'shell %s\n' "$*" >>"$CALL_LOG"
@@ -278,7 +278,7 @@ elif [[ $* == "lock status" ]]; then
   printf '{"secure":false,"requested":true,"pending":true,"sessionLocked":false}\n'
 fi
 SH
-  chmod +x "$mock_bin/omarchy-shell"
+  chmod +x "$mock_bin/collie-shell"
   mock_clamshell
 }
 

@@ -19,7 +19,7 @@ chmod +x "$test_tmp/bin/hyprctl"
 
 reload() {
   : >"$log"
-  env PATH="$test_tmp/bin:$PATH" HYPRCTL_LOG="$log" "$@" "$ROOT/bin/omarchy-restart-hyprctl"
+  env PATH="$test_tmp/bin:$PATH" HYPRCTL_LOG="$log" "$@" "$ROOT/bin/collie-restart-hyprctl"
 }
 
 reload env HYPRLAND_INSTANCE_SIGNATURE=abc_1_1

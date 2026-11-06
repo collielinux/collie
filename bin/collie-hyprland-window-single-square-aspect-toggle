@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# collie:summary=Toggle single-window square aspect ratio.
+
+case $(collie-hyprland-toggle single-window-aspect-ratio) in
+  on) collie-notification-send -g  "$(collie-i18n window.squareOn)" ;;
+  off) collie-notification-send -g  "$(collie-i18n window.squareOff)" ;;
+esac

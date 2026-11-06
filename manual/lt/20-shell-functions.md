@@ -1,6 +1,6 @@
 # Shell funkcijos
 
-Omarchy pristatoma su rinkiniu shell funkcijų, skirtų supaprastinti įprastas užduotis ir apibendrinti sudėtingus parametrų iškvietimus.
+Collie pristatoma su rinkiniu shell funkcijų, skirtų supaprastinti įprastas užduotis ir apibendrinti sudėtingus parametrų iškvietimus.
 
 ## Suspaudimas
 

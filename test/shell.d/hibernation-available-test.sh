@@ -9,7 +9,7 @@ trap 'rm -rf "$tmp_dir"' EXIT
 
 sys_power="$tmp_dir/power"
 swaps="$tmp_dir/swaps"
-resume_conf="$tmp_dir/omarchy_resume.conf"
+resume_conf="$tmp_dir/collie_resume.conf"
 
 mkdir -p "$sys_power"
 
@@ -25,10 +25,10 @@ write_swaps() {
 }
 
 hibernation_available() {
-  OMARCHY_SYS_POWER_PATH="$sys_power" \
-    OMARCHY_SWAPS_PATH="$swaps" \
-    OMARCHY_RESUME_CONF_PATH="$resume_conf" \
-    "$ROOT/bin/omarchy-hibernation-available"
+  COLLIE_SYS_POWER_PATH="$sys_power" \
+    COLLIE_SWAPS_PATH="$swaps" \
+    COLLIE_RESUME_CONF_PATH="$resume_conf" \
+    "$ROOT/bin/collie-hibernation-available"
 }
 
 printf '%s\n' '6871947673' >"$sys_power/image_size"

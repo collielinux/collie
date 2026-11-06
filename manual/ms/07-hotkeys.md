@@ -8,7 +8,7 @@ Setiap kekunci pintas berada pada satu satah, ditetapkan oleh pengubah suainya, 
 
 | Satah | Apa yang ada di situ | Contoh |
 | --- | --- | --- |
-| `Super + key` | Sistem: tetingkap, ruang kerja, susun atur dan menu teras | `Super + Space` menu Omarchy, `Super + W` tutup tetingkap, `Super + F` skrin penuh |
+| `Super + key` | Sistem: tetingkap, ruang kerja, susun atur dan menu teras | `Super + Space` menu Collie, `Super + W` tutup tetingkap, `Super + F` skrin penuh |
 | `Super + Shift + key` | Aplikasi | `Super + Shift + B` pelayar, `Super + Shift + E` e-mel, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panel dan menu sistem | `Super + Ctrl + A` audio, `Super + Ctrl + N` rangkaian, `Super + Ctrl + C` menu tangkapan |
 | `Super + Ctrl + Alt + key` | Tindakan pantas dan notis | `Super + Ctrl + Alt + T` tunjuk masa, `Super + Ctrl + Alt + B` bateri, `Super + Ctrl + Alt + C` tangkapan skrin |
@@ -34,7 +34,7 @@ Jika tetapan lalai tidak sesuai dengan anda (katakan anda mahu `Super + Shift + 
 
 | Kekunci Pintas                  | Fungsi              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu Omarchy (aplikasi dan segala-galanya)    |
+| `Super + Space`           | Menu Collie (aplikasi dan segala-galanya)    |
 | `Super + Alt + Space` | Grid aplikasi |
 | `Super + Escape` | Menu sistem (gantung, mulakan semula, dsb.)  |
 | `Super + Ctrl + L` | Kunci komputer |
@@ -171,7 +171,7 @@ Tukar/tambah ikatan dalam `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Tampal    |
 | `Super + Ctrl + V`           | Pengurus papan keratan    |
 
-Biasanya di Linux, anda perlu `Ctrl + Shift + C/V` untuk salin dan tampal dalam terminal dan `Ctrl + C/V` untuk melakukannya di tempat lain. Kekunci pintas papan keratan bersepadu Omarchy ini berfungsi di mana-mana.
+Biasanya di Linux, anda perlu `Ctrl + Shift + C/V` untuk salin dan tampal dalam terminal dan `Ctrl + C/V` untuk melakukannya di tempat lain. Kekunci pintas papan keratan bersepadu Collie ini berfungsi di mana-mana.
 
 ## Tangkapan
 
@@ -192,7 +192,7 @@ Biasanya di Linux, anda perlu `Ctrl + Shift + C/V` untuk salin dan tampal dalam 
 
 Dengan rakaman skrin, kekunci pintas terlebih dahulu bertanya audio mana yang anda mahu, kemudian mula merakam. Tekannya sekali lagi untuk berhenti. Lihat [tangkapan skrin dan rakaman](12-screenshots-recording.md) untuk butirannya.
 
-Semua pilihan tangkapan juga boleh diakses di bawah _Trigger > Capture_ dalam menu Omarchy (`Super + Space`).
+Semua pilihan tangkapan juga boleh diakses di bawah _Trigger > Capture_ dalam menu Collie (`Super + Space`).
 
 ## Pemberitahuan
 
@@ -214,9 +214,9 @@ Semua pilihan tangkapan juga boleh diakses di bawah _Trigger > Capture_ dalam me
 | `Super + Backspace` | Togol ketelusan pada tetingkap |
 | `Super + Ctrl + Backspace` | Togol aspek segi empat sama tetingkap tunggal |
 
-Imej latar belakang tambahan terdapat dalam `~/.config/omarchy/backgrounds/<theme name>`. Juga tersedia melalui _Install > Style > Background_ dalam menu Omarchy.
+Imej latar belakang tambahan terdapat dalam `~/.config/collie/backgrounds/<theme name>`. Juga tersedia melalui _Install > Style > Background_ dalam menu Collie.
 
-Semua pilihan gaya juga boleh diakses di bawah _Style_ dalam menu Omarchy (`Super + Space`).
+Semua pilihan gaya juga boleh diakses di bawah _Style_ dalam menu Collie (`Super + Space`).
 
 ## Togol
 
@@ -317,7 +317,7 @@ Fungsi ini mesti dijalankan di dalam sesi Tmux.
 
 ## Terminal Ghostty
 
-Terminal Ghostty dipasang menggunakan _Install > Terminal_ melalui menu Omarchy.
+Terminal Ghostty dipasang menggunakan _Install > Terminal_ melalui menu Collie.
 
 | Kekunci Pintas                  | Fungsi              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Anda boleh menggunakan `Super + Ctrl + E` untuk menunjukkan pemilih emoji lengka
 | `Shift + CapsLock Space N` | Nama anda (seperti dimasukkan semasa persediaan)  |
 | `Shift + CapsLock Space E` | E-mel anda (seperti dimasukkan semasa persediaan)  |
 
-Anda boleh menambah lebih banyak pelengkapan anda sendiri dengan mengedit `~/.XCompose`, kemudian menjalankan `omarchy-restart-xcompose` dalam terminal supaya perubahan tersebut dikesan.
+Anda boleh menambah lebih banyak pelengkapan anda sendiri dengan mengedit `~/.XCompose`, kemudian menjalankan `collie-restart-xcompose` dalam terminal supaya perubahan tersebut dikesan.

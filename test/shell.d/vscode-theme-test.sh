@@ -6,16 +6,16 @@ TEST_HOME=$(mktemp -d)
 trap 'rm -rf "$TEST_HOME"' EXIT
 
 FAKE_BIN="$TEST_HOME/bin"
-CURRENT_THEME="$TEST_HOME/.local/state/omarchy/current/theme"
+CURRENT_THEME="$TEST_HOME/.local/state/collie/current/theme"
 mkdir -p "$FAKE_BIN" "$CURRENT_THEME"
 
-cat >"$FAKE_BIN/omarchy-cmd-present" <<'EOF'
+cat >"$FAKE_BIN/collie-cmd-present" <<'EOF'
 #!/bin/bash
 printf '%s\n' "$1" >>"$EDITOR_PROBE_LOG"
 exit 1
 EOF
 
-cat >"$FAKE_BIN/omarchy-toggle-enabled" <<'EOF'
+cat >"$FAKE_BIN/collie-toggle-enabled" <<'EOF'
 #!/bin/bash
 exit 1
 EOF
@@ -33,7 +33,7 @@ EDITOR_PROBE_LOG="$TEST_HOME/editor-probes.log" \
   CURSOR_SHIM_CALLED="$TEST_HOME/cursor-shim-called" \
   PATH="$FAKE_BIN:$ROOT/bin:$PATH" \
   HOME="$TEST_HOME" \
-  "$ROOT/bin/omarchy-theme-set-vscode"
+  "$ROOT/bin/collie-theme-set-vscode"
 
 grep -Fxq '/usr/bin/cursor' "$TEST_HOME/editor-probes.log" || fail "VS Code theme sync probes the packaged Cursor executable"
 [[ ! -e $TEST_HOME/cursor-shim-called ]] || fail "VS Code theme sync ignores a PATH-provided Cursor Agent shim"
@@ -47,12 +47,12 @@ EXTENSIONS="$TEST_HOME/.vscode/extensions"
 EDITOR_LOG="$TEST_HOME/editor.log"
 mkdir -p "$EDITOR_BIN"
 
-cat >"$EDITOR_BIN/omarchy-cmd-present" <<'EOF'
+cat >"$EDITOR_BIN/collie-cmd-present" <<'EOF'
 #!/bin/bash
 [[ $1 == "code" ]]
 EOF
 
-cat >"$EDITOR_BIN/omarchy-toggle-enabled" <<'EOF'
+cat >"$EDITOR_BIN/collie-toggle-enabled" <<'EOF'
 #!/bin/bash
 exit 1
 EOF
@@ -73,7 +73,7 @@ run_vscode_sync() {
     LISTED_EXTENSIONS="${LISTED_EXTENSIONS:-}" \
     PATH="$EDITOR_BIN:$ROOT/bin:$PATH" \
     HOME="$TEST_HOME" \
-    "$ROOT/bin/omarchy-theme-set-vscode"
+    "$ROOT/bin/collie-theme-set-vscode"
 }
 
 editor_calls() {
@@ -108,15 +108,15 @@ LISTED_EXTENSIONS="bjarne.hackerman-omarchy" run_vscode_sync
 [[ $(editor_calls) == "--list-extensions" ]] || fail "VS Code theme sync asks the editor when it has no extension registry" "$(editor_calls)"
 pass "VS Code theme sync asks the editor when it has no extension registry"
 
-# omarchy-theme-set reports a retint that exits non-zero, so skipping an
+# collie-theme-set reports a retint that exits non-zero, so skipping an
 # editor by its toggle must still succeed.
 SKIP_BIN="$TEST_HOME/skip-bin"
 mkdir -p "$SKIP_BIN"
-cat >"$SKIP_BIN/omarchy-toggle-enabled" <<'EOF2'
+cat >"$SKIP_BIN/collie-toggle-enabled" <<'EOF2'
 #!/bin/bash
 [[ $1 == "skip-cursor-theme-changes" ]]
 EOF2
-chmod +x "$SKIP_BIN/omarchy-toggle-enabled"
+chmod +x "$SKIP_BIN/collie-toggle-enabled"
 EDITOR_PROBE_LOG="$TEST_HOME/editor-probes.log" PATH="$SKIP_BIN:$FAKE_BIN:$ROOT/bin:$PATH" HOME="$TEST_HOME" \
-  "$ROOT/bin/omarchy-theme-set-vscode" || fail "VS Code theme sync succeeds when the last editor is skipped by its toggle"
+  "$ROOT/bin/collie-theme-set-vscode" || fail "VS Code theme sync succeeds when the last editor is skipped by its toggle"
 pass "VS Code theme sync succeeds when the last editor is skipped by its toggle"

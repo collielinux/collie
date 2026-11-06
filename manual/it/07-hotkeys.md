@@ -8,7 +8,7 @@ Ogni scorciatoia si trova su un piano, definito dai suoi modificatori, e ogni pi
 
 | Piano | Cosa contiene | Esempi |
 | --- | --- | --- |
-| `Super + key` | Il sistema: finestre, workspace, layout e menu principali | `Super + Space` menu Omarchy, `Super + W` chiudi finestra, `Super + F` schermo intero |
+| `Super + key` | Il sistema: finestre, workspace, layout e menu principali | `Super + Space` menu Collie, `Super + W` chiudi finestra, `Super + F` schermo intero |
 | `Super + Shift + key` | App | `Super + Shift + B` browser, `Super + Shift + E` email, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Pannelli e menu di sistema | `Super + Ctrl + A` audio, `Super + Ctrl + N` rete, `Super + Ctrl + C` menu di acquisizione |
 | `Super + Ctrl + Alt + key` | Azioni rapide e avvisi | `Super + Ctrl + Alt + T` mostra l'ora, `Super + Ctrl + Alt + B` batteria, `Super + Ctrl + Alt + C` screenshot |
@@ -34,7 +34,7 @@ Se un'impostazione predefinita non ti va bene (ad esempio vuoi `Super + Shift + 
 
 | Scorciatoia | Funzione |
 | ----------------------- | --------------------- |
-| `Super + Space` | Menu Omarchy (app e tutto il resto) |
+| `Super + Space` | Menu Collie (app e tutto il resto) |
 | `Super + Alt + Space` | Griglia delle app |
 | `Super + Escape` | Menu di sistema (sospendi, riavvia, ecc.) |
 | `Super + Ctrl + L` | Blocca il computer |
@@ -171,7 +171,7 @@ Modifica/aggiungi associazioni in `~/.config/hypr/bindings.lua`.
 | `Super + V` | Incolla |
 | `Super + Ctrl + V` | Gestore appunti |
 
-Di solito su Linux serve `Ctrl + Shift + C/V` per copiare e incollare nel terminale e `Ctrl + C/V` per farlo ovunque altro. Queste scorciatoie unificate per gli appunti di Omarchy funzionano ovunque.
+Di solito su Linux serve `Ctrl + Shift + C/V` per copiare e incollare nel terminale e `Ctrl + C/V` per farlo ovunque altro. Queste scorciatoie unificate per gli appunti di Collie funzionano ovunque.
 
 ## Acquisizione
 
@@ -192,7 +192,7 @@ Di solito su Linux serve `Ctrl + Shift + C/V` per copiare e incollare nel termin
 
 Con le registrazioni dello schermo, la scorciatoia chiede prima quale audio vuoi, poi avvia la registrazione. Premila di nuovo per interromperla. Vedi [screenshot e registrazioni](12-screenshots-recording.md) per i dettagli.
 
-Tutte le opzioni di acquisizione sono accessibili anche in _Trigger > Acquisizione_ nel menu Omarchy (`Super + Space`).
+Tutte le opzioni di acquisizione sono accessibili anche in _Trigger > Acquisizione_ nel menu Collie (`Super + Space`).
 
 ## Notifiche
 
@@ -214,9 +214,9 @@ Tutte le opzioni di acquisizione sono accessibili anche in _Trigger > Acquisizio
 | `Super + Backspace` | Attiva/disattiva la trasparenza su una finestra |
 | `Super + Ctrl + Backspace` | Attiva/disattiva il rapporto quadrato per la singola finestra |
 
-Le immagini di sfondo aggiuntive si trovano in `~/.config/omarchy/backgrounds/<theme name>`. Disponibili anche tramite _Installa > Stile > Sfondo_ nel menu Omarchy.
+Le immagini di sfondo aggiuntive si trovano in `~/.config/collie/backgrounds/<theme name>`. Disponibili anche tramite _Installa > Stile > Sfondo_ nel menu Collie.
 
-Tutte le opzioni di stile sono accessibili anche in _Stile_ nel menu Omarchy (`Super + Space`).
+Tutte le opzioni di stile sono accessibili anche in _Stile_ nel menu Collie (`Super + Space`).
 
 ## Interruttori
 
@@ -317,7 +317,7 @@ Queste funzioni devono essere eseguite all'interno di una sessione Tmux.
 
 ## Terminale Ghostty
 
-Il terminale Ghostty si installa tramite _Installa > Terminale_ dal menu Omarchy.
+Il terminale Ghostty si installa tramite _Installa > Terminale_ dal menu Collie.
 
 | Scorciatoia | Funzione |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Puoi usare `Super + Ctrl + E` per mostrare un selettore emoji completo che copie
 | `Shift + CapsLock Space N` | Il tuo nome (come inserito durante la configurazione) |
 | `Shift + CapsLock Space E` | La tua email (come inserita durante la configurazione) |
 
-Puoi aggiungerne altri tuoi modificando `~/.XCompose`, poi eseguendo `omarchy-restart-xcompose` nel terminale per applicare le modifiche.
+Puoi aggiungerne altri tuoi modificando `~/.XCompose`, poi eseguendo `collie-restart-xcompose` nel terminale per applicare le modifiche.

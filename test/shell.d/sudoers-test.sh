@@ -16,12 +16,12 @@ trap 'rm -rf "$test_tmp"' EXIT
 # (which sudoers reads as "any arguments"), widens a grant and fails here. A new
 # drop-in needs a row: the grant it carries is reviewed here or nowhere.
 declare -A expected=(
-  [omarchy-dns]='%wheel ALL=(root) NOPASSWD: /usr/bin/omarchy-dns Cloudflare, /usr/bin/omarchy-dns Google, /usr/bin/omarchy-dns DHCP'
-  [omarchy-locale-generate]="%wheel ALL=(root) NOPASSWD: $(jq -r 'keys | sort | map("/usr/bin/omarchy-locale-generate " + .) | join(", ")' "$registry")"
-  [omarchy-passwd-tries]='Defaults passwd_tries=10'
-  [omarchy-sudo-timeout]='Defaults timestamp_timeout=10'
-  [omarchy-theme-browser]='%wheel ALL=(root) NOPASSWD: /usr/bin/omarchy-theme-set-browser-policy [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]'
-  [omarchy-tzupdate]='%wheel ALL=(root) NOPASSWD: /usr/bin/timedatectl ^set-timezone [A-Za-z0-9_+][A-Za-z0-9_+.-]*(/[A-Za-z0-9_+][A-Za-z0-9_+.-]*)*$'
+  [collie-dns]='%wheel ALL=(root) NOPASSWD: /usr/bin/collie-dns Cloudflare, /usr/bin/collie-dns Google, /usr/bin/collie-dns DHCP'
+  [collie-locale-generate]="%wheel ALL=(root) NOPASSWD: $(jq -r 'keys | sort | map("/usr/bin/collie-locale-generate " + .) | join(", ")' "$registry")"
+  [collie-passwd-tries]='Defaults passwd_tries=10'
+  [collie-sudo-timeout]='Defaults timestamp_timeout=10'
+  [collie-theme-browser]='%wheel ALL=(root) NOPASSWD: /usr/bin/collie-theme-set-browser-policy [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]'
+  [collie-tzupdate]='%wheel ALL=(root) NOPASSWD: /usr/bin/timedatectl ^set-timezone [A-Za-z0-9_+][A-Za-z0-9_+.-]*(/[A-Za-z0-9_+][A-Za-z0-9_+.-]*)*$'
 )
 
 rules_in() {
@@ -89,24 +89,24 @@ while IFS='|' read -r name verdict command args; do
     [[ $verdict == "refuse" ]] || fail "etc/sudoers.d/$name permits '$command $args'"
   fi
 done <<'ROWS'
-omarchy-tzupdate|permit|/usr/bin/timedatectl|set-timezone UTC
-omarchy-tzupdate|permit|/usr/bin/timedatectl|set-timezone America/Argentina/Buenos_Aires
-omarchy-tzupdate|permit|/usr/bin/timedatectl|set-timezone Etc/GMT+5
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone UTC -H host
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone -M machine UTC
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|-H host set-timezone UTC
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone ../../etc/shadow
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone /etc/localtime
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-timezone America//New_York
-omarchy-tzupdate|refuse|/usr/bin/timedatectl|set-ntp false
-omarchy-tzupdate|refuse|/usr/bin/tzupdate|
+collie-tzupdate|permit|/usr/bin/timedatectl|set-timezone UTC
+collie-tzupdate|permit|/usr/bin/timedatectl|set-timezone America/Argentina/Buenos_Aires
+collie-tzupdate|permit|/usr/bin/timedatectl|set-timezone Etc/GMT+5
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone UTC -H host
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone -M machine UTC
+collie-tzupdate|refuse|/usr/bin/timedatectl|-H host set-timezone UTC
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone ../../etc/shadow
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone /etc/localtime
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-timezone America//New_York
+collie-tzupdate|refuse|/usr/bin/timedatectl|set-ntp false
+collie-tzupdate|refuse|/usr/bin/tzupdate|
 ROWS
 pass "the timezone rule admits zone names and refuses everything else"
 
 # --- Root halves resolve helpers from a trusted PATH ---
 
-# Under sudo, a dev link (etc/sudoers.d/omarchy-dev-path) prepends a
+# Under sudo, a dev link (etc/sudoers.d/collie-dev-path) prepends a
 # user-writable checkout bin/ to secure_path, so each helper must pin PATH to
 # system directories once it holds root. Each runs as root inside a user and
 # mount namespace, with /etc bound to a scratch copy so nothing it writes or
@@ -148,42 +148,42 @@ SH
       fail "root $1 resolves system helpers from a trusted PATH, not the invocation PATH" "ran: $(tr '\n' ' ' <"$poison_ran")"
   }
 
-  # omarchy-dns with no argument only reads the DNS config.
+  # collie-dns with no argument only reads the DNS config.
   etc=$(scratch_etc dns)
-  as_root "$etc" "$ROOT/bin/omarchy-dns" </dev/null >/dev/null 2>&1 ||
-    fail "root omarchy-dns runs its read-only trusted-PATH probe"
-  assert_trusted_path omarchy-dns
+  as_root "$etc" "$ROOT/bin/collie-dns" </dev/null >/dev/null 2>&1 ||
+    fail "root collie-dns runs its read-only trusted-PATH probe"
+  assert_trusted_path collie-dns
 
-  # omarchy-locale-generate reads only the packaged registry and the real
+  # collie-locale-generate reads only the packaged registry and the real
   # locale.gen as root: the test overrides below would otherwise enable
   # sv_SE for a code the packaged registry does not know.
   etc=$(scratch_etc locale)
   printf '#sv_SE.UTF-8 UTF-8\n' >"$etc/locale.gen"
   printf '#sv_SE.UTF-8 UTF-8\n' >"$test_tmp/override.gen"
   printf '{"zz": {"locale": "sv_SE.UTF-8"}}\n' >"$test_tmp/override.json"
-  if OMARCHY_LOCALE_REGISTRY="$test_tmp/override.json" OMARCHY_LOCALE_GEN="$test_tmp/override.gen" \
-    as_root "$etc" "$ROOT/bin/omarchy-locale-generate" zz </dev/null >/dev/null 2>&1; then
-    fail "root omarchy-locale-generate ignores a caller's registry override"
+  if COLLIE_LOCALE_REGISTRY="$test_tmp/override.json" COLLIE_LOCALE_GEN="$test_tmp/override.gen" \
+    as_root "$etc" "$ROOT/bin/collie-locale-generate" zz </dev/null >/dev/null 2>&1; then
+    fail "root collie-locale-generate ignores a caller's registry override"
   fi
   [[ $(<"$test_tmp/override.gen") == "#sv_SE.UTF-8 UTF-8" && $(<"$etc/locale.gen") == "#sv_SE.UTF-8 UTF-8" ]] ||
-    fail "root omarchy-locale-generate ignores the caller's locale.gen and registry overrides"
-  assert_trusted_path omarchy-locale-generate
+    fail "root collie-locale-generate ignores the caller's locale.gen and registry overrides"
+  assert_trusted_path collie-locale-generate
 
   # A code the packaged registry knows gets as far as locale.gen, which has to
   # be /etc's, not the caller's. localedef then fails to add to the
   # host's locale archive, which it could do if the test ran as real root.
   if (( EUID == 0 )); then
     skip "running as root; skipping the root locale.gen override probe, whose localedef would add to this machine's locale archive"
-  elif [[ $(jq -r '.sv.locale // empty' /usr/share/omarchy/default/i18n/locales.json 2>/dev/null) == "sv_SE.UTF-8" ]]; then
-    OMARCHY_LOCALE_GEN="$test_tmp/override.gen" \
-      as_root "$etc" "$ROOT/bin/omarchy-locale-generate" sv </dev/null >/dev/null 2>&1 || true
+  elif [[ $(jq -r '.sv.locale // empty' /usr/share/collie/default/i18n/locales.json 2>/dev/null) == "sv_SE.UTF-8" ]]; then
+    COLLIE_LOCALE_GEN="$test_tmp/override.gen" \
+      as_root "$etc" "$ROOT/bin/collie-locale-generate" sv </dev/null >/dev/null 2>&1 || true
     [[ $(<"$test_tmp/override.gen") == "#sv_SE.UTF-8 UTF-8" && $(<"$etc/locale.gen") == "sv_SE.UTF-8 UTF-8" ]] ||
-      fail "root omarchy-locale-generate enables the locale in /etc/locale.gen, not the caller's" "$(<"$etc/locale.gen")"
+      fail "root collie-locale-generate enables the locale in /etc/locale.gen, not the caller's" "$(<"$etc/locale.gen")"
   else
-    skip "Omarchy's packaged locale registry is not installed; skipping the root locale.gen override probe"
+    skip "Collie's packaged locale registry is not installed; skipping the root locale.gen override probe"
   fi
 
-  # omarchy-theme-set-browser-policy writes its fixed policy directories: a
+  # collie-theme-set-browser-policy writes its fixed policy directories: a
   # planted color.json directory or symlink is replaced, a planted managed
   # directory symlink and a browser that is not installed are left alone.
   etc=$(scratch_etc browser)
@@ -192,22 +192,22 @@ SH
   printf 'original\n' >"$test_tmp/pwn"
   ln -s "$test_tmp/pwn" "$etc/brave/policies/managed/color.json"
   ln -s "$test_tmp/attacker" "$etc/opt/edge/policies/managed"
-  as_root "$etc" "$ROOT/bin/omarchy-theme-set-browser-policy" 1c2027 </dev/null >/dev/null 2>&1 ||
-    fail "root omarchy-theme-set-browser-policy writes the policy directories"
-  assert_trusted_path omarchy-theme-set-browser-policy
+  as_root "$etc" "$ROOT/bin/collie-theme-set-browser-policy" 1c2027 </dev/null >/dev/null 2>&1 ||
+    fail "root collie-theme-set-browser-policy writes the policy directories"
+  assert_trusted_path collie-theme-set-browser-policy
   for browser in chromium brave; do
     policy="$etc/$browser/policies/managed/color.json"
     [[ -f $policy && ! -L $policy ]] ||
-      fail "root omarchy-theme-set-browser-policy replaces a planted $browser color.json with a file"
+      fail "root collie-theme-set-browser-policy replaces a planted $browser color.json with a file"
     [[ $(jq -r .BrowserThemeColor "$policy") == "#1c2027" ]] ||
-      fail "root omarchy-theme-set-browser-policy writes the color into $browser's policy"
+      fail "root collie-theme-set-browser-policy writes the color into $browser's policy"
   done
   [[ $(<"$test_tmp/pwn") == "original" ]] ||
-    fail "root omarchy-theme-set-browser-policy does not write through a planted color.json symlink"
+    fail "root collie-theme-set-browser-policy does not write through a planted color.json symlink"
   [[ -z $(ls -A "$test_tmp/attacker") ]] ||
-    fail "root omarchy-theme-set-browser-policy skips a managed directory that is a symlink"
+    fail "root collie-theme-set-browser-policy skips a managed directory that is a symlink"
   [[ ! -e $etc/opt/chrome ]] ||
-    fail "root omarchy-theme-set-browser-policy does not create a policy root for a browser that is not installed"
+    fail "root collie-theme-set-browser-policy does not create a policy root for a browser that is not installed"
 
   pass "root helpers resolve system tools from a trusted PATH and honor no caller overrides"
 else
@@ -235,7 +235,7 @@ SH
 chmod +x "$stub_bin/pkexec"
 
 # sudo answers listings the way it would with STUB_DROPIN installed beside
-# Omarchy's blanket %wheel rule: every command is permitted, and only the long
+# Collie's blanket %wheel rule: every command is permitted, and only the long
 # listing (-l -l) prints the tags that show the drop-in's passwordless grant.
 # STUB_DROPIN empty stands for an install whose omarchy-settings predates it,
 # or a user outside %wheel. Anything else is the elevation itself, logged.
@@ -281,8 +281,8 @@ while IFS='|' read -r dropin command arg want; do
   if [[ $want == sudo* ]]; then
     # A dev-linked checkout elevates the packaged path like everyone else,
     # rather than handing sudo a path no rule can name.
-    got=$(OMARCHY_PATH="$test_tmp/checkout" elevation_for "$dropin" "$command" "$arg")
-    [[ $got == "$want" ]] || fail "$command $arg elevates the system install wherever OMARCHY_PATH points" "got: $got"
+    got=$(COLLIE_PATH="$test_tmp/checkout" elevation_for "$dropin" "$command" "$arg")
+    [[ $got == "$want" ]] || fail "$command $arg elevates the system install wherever COLLIE_PATH points" "got: $got"
 
     # Without the grant there is no terminal for sudo's prompt, so polkit asks.
     got=$(elevation_for "" "$command" "$arg")
@@ -290,12 +290,12 @@ while IFS='|' read -r dropin command arg want; do
       fail "$command $arg falls back to polkit where the sudoers grant is not installed" "got: $got"
   fi
 done <<'ROWS'
-omarchy-dns|omarchy-dns|Cloudflare|sudo /usr/bin/omarchy-dns Cloudflare
-omarchy-dns|omarchy-dns|Google|sudo /usr/bin/omarchy-dns Google
-omarchy-dns|omarchy-dns|DHCP|sudo /usr/bin/omarchy-dns DHCP
-omarchy-dns|omarchy-dns|cloudflare|sudo /usr/bin/omarchy-dns Cloudflare
-omarchy-dns|omarchy-dns|Custom|pkexec /usr/bin/omarchy-dns Custom
-omarchy-theme-browser|omarchy-theme-set-browser-policy|1c2027|sudo /usr/bin/omarchy-theme-set-browser-policy 1c2027
+collie-dns|collie-dns|Cloudflare|sudo /usr/bin/collie-dns Cloudflare
+collie-dns|collie-dns|Google|sudo /usr/bin/collie-dns Google
+collie-dns|collie-dns|DHCP|sudo /usr/bin/collie-dns DHCP
+collie-dns|collie-dns|cloudflare|sudo /usr/bin/collie-dns Cloudflare
+collie-dns|collie-dns|Custom|pkexec /usr/bin/collie-dns Custom
+collie-theme-browser|collie-theme-set-browser-policy|1c2027|sudo /usr/bin/collie-theme-set-browser-policy 1c2027
 ROWS
 pass "helpers take the passwordless sudo grant where it reaches and polkit elsewhere"
 
@@ -310,11 +310,11 @@ expect_rejected() {
 }
 
 for bad in "" 1C2027 abc12 abc1234 1c202g ../../etc/passwd "1c2027 1c2027" '$(id)' "1c2027;id" "#1c2027"; do
-  expect_rejected omarchy-theme-browser omarchy-theme-set-browser-policy "$bad"
+  expect_rejected collie-theme-browser collie-theme-set-browser-policy "$bad"
 done
-expect_rejected omarchy-theme-browser omarchy-theme-set-browser-policy 1c2027 ffffff
+expect_rejected collie-theme-browser collie-theme-set-browser-policy 1c2027 ffffff
 for bad in Quad9 "Cloudflare;id" "Cloudflare Google"; do
-  expect_rejected omarchy-dns omarchy-dns "$bad"
+  expect_rejected collie-dns collie-dns "$bad"
 done
-expect_rejected omarchy-dns omarchy-dns Cloudflare Google
+expect_rejected collie-dns collie-dns Cloudflare Google
 pass "helpers reject malformed arguments before elevating"

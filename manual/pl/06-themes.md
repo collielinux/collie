@@ -1,8 +1,8 @@
 # Motywy
 
-Omarchy zawiera dwadzieścia dwa piękne motywy. Możesz wybierać spośród nich przez _Wygląd > Motyw_ w Menu Omarchy (`Super + Space`) albo przejść bezpośrednio do wyboru motywu za pomocą `Super + Ctrl + T`.
+Collie zawiera dwadzieścia dwa piękne motywy. Możesz wybierać spośród nich przez _Wygląd > Motyw_ w Menu Collie (`Super + Space`) albo przejść bezpośrednio do wyboru motywu za pomocą `Super + Ctrl + T`.
 
-Każdy motyw stylizuje pulpit, terminal, Neovim, ekran aktywności (btop), Chromium oraz całą powłokę Omarchy: górny pasek, menu, powiadomienia, OSD i ekran blokady. (W przypadku Obsidian musisz ręcznie wybrać motyw Omarchy przez _Wygląd > Motywy_ wewnątrz aplikacji).
+Każdy motyw stylizuje pulpit, terminal, Neovim, ekran aktywności (btop), Chromium oraz całą powłokę Collie: górny pasek, menu, powiadomienia, OSD i ekran blokady. (W przypadku Obsidian musisz ręcznie wybrać motyw Collie przez _Wygląd > Motywy_ wewnątrz aplikacji).
 
 Motywy mają zestaw obrazów tła, spośród których możesz wybierać za pomocą `Super + Ctrl + W`.
 

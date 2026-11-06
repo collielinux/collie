@@ -1,5 +1,5 @@
 echo "Install Hype, the Markdown presentation app"
 
-if [[ ! -f $HOME/.local/state/omarchy/preinstalls-removed ]]; then
-  omarchy-pkg-add hype
+if [[ ! -f $HOME/.local/state/collie/preinstalls-removed ]]; then
+  collie-pkg-add hype
 fi

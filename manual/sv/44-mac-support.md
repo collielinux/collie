@@ -1,16 +1,16 @@
 # Mac-stöd
 
-Omarchy har inbyggt stöd för **Intel-Macs**. Det finns ett par kända begränsningar just nu, men så länge du är medveten om dem och är okej med dem kan du blåsa nytt liv i dina gamla Macs genom att installera Omarchy.
+Collie har inbyggt stöd för **Intel-Macs**. Det finns ett par kända begränsningar just nu, men så länge du är medveten om dem och är okej med dem kan du blåsa nytt liv i dina gamla Macs genom att installera Collie.
 
-Observera att installation på en Mac med M-serien inte stöds direkt för närvarande. Du kan läsa mer om läget för detta i #omarchy-on-other i vår [Discord](https://discord.gg/tXFUdasqhY).
+Observera att installation på en Mac med M-serien inte stöds direkt för närvarande. Du kan läsa mer om läget för detta i #collie-on-other i vår [Discord](https://discord.gg/tXFUdasqhY).
 
-I ett enkelt test lyckades vi uppnå 36% högre prestanda på en MacBook Pro från 2019 bara genom att installera Omarchy.
+I ett enkelt test lyckades vi uppnå 36% högre prestanda på en MacBook Pro från 2019 bara genom att installera Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Installera Omarchy på Mac
+### Installera Collie på Mac
 
-Omarchy stöder för närvarande bara att vara det **enda** operativsystemet installerat. Under installationen rensas enheten och MacOS kommer inte längre att gå att starta.
+Collie stöder för närvarande bara att vara det **enda** operativsystemet installerat. Under installationen rensas enheten och MacOS kommer inte längre att gå att starta.
 
 Du kan fortfarande återställa det senare via Internet Recovery om du vill.
 
@@ -39,7 +39,7 @@ Installationsprogrammet upptäcker Mac-hårdvara och tillämpar de nödvändiga 
 
 ### Kända begränsningar
 
-Medlemmar i communityn arbetar ständigt på lösningar på dessa utmaningar, så om dessa är problematiska för dig, gå med i #omarchy-on-other i vår [Discord](https://discord.gg/tXFUdasqhY) och se om det finns några aktuella metoder för att lösa dem.
+Medlemmar i communityn arbetar ständigt på lösningar på dessa utmaningar, så om dessa är problematiska för dig, gå med i #collie-on-other i vår [Discord](https://discord.gg/tXFUdasqhY) och se om det finns några aktuella metoder för att lösa dem.
 
 #### Enheter med T1-chip
 

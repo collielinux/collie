@@ -1,8 +1,8 @@
 # Navigáció
 
-Az Omarchyban minden billentyűzettel történik — _MINDEN!_ Amikor a rendszer először elindul, szó szerint semmit sem tudsz csinálni csak az egérrel. De megnyomhatod a `Super + Space` billentyűket az Omarchy menü előhozásához, és innen szinte mindent meg tudsz csinálni.
+Az Collieban minden billentyűzettel történik — _MINDEN!_ Amikor a rendszer először elindul, szó szerint semmit sem tudsz csinálni csak az egérrel. De megnyomhatod a `Super + Space` billentyűket az Collie menü előhozásához, és innen szinte mindent meg tudsz csinálni.
 
-De az Omarchy menünek a legtöbb esetben még csak nem is az a célja, hogy ez legyen a rendszer kezelésének fő módja. Ennél gyorsabbak is tudunk lenni! Az összes legfontosabb alkalmazás közvetlenül egyedi gyorsbillentyűkhöz van kötve. A terminált a `Super + Return`, a böngészőt pedig a `Super + Shift + Return` billentyűkkel indítod el. Próbáld ki őket egymás után, és működés közben fogod látni a Hyprland csempézésének varázsát:
+De az Collie menünek a legtöbb esetben még csak nem is az a célja, hogy ez legyen a rendszer kezelésének fő módja. Ennél gyorsabbak is tudunk lenni! Az összes legfontosabb alkalmazás közvetlenül egyedi gyorsbillentyűkhöz van kötve. A terminált a `Super + Return`, a böngészőt pedig a `Super + Shift + Return` billentyűkkel indítod el. Próbáld ki őket egymás után, és működés közben fogod látni a Hyprland csempézésének varázsát:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Teljes képernyős módba is válthatsz a `Super + F` billentyűkkel, vagy akár
 
 ### Dwindle vs scrolling elrendezés
 
-Az Omarchy alapértelmezett elrendezését dwindle-nek hívják. Minden ablakot, amit megnyitsz, folyamatosan láthatóan tart egyetlen munkaterületen, még akkor is, ha ehhez össze kell zsugorítania őket.
+Az Collie alapértelmezett elrendezését dwindle-nek hívják. Minden ablakot, amit megnyitsz, folyamatosan láthatóan tart egyetlen munkaterületen, még akkor is, ha ehhez össze kell zsugorítania őket.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Egy lebegő munkaterület úgy működik, mint egy hagyományos asztal: az ablakok átfedik egymást, és te mozgatod és méretezed őket. Minden ablak címsort kap a témád színeiben, minimalizáló, maximalizáló és bezáró gombokkal. A `Super + M` szintén minimalizálja a fókuszban lévő ablakot. Egy minimalizált ablak a dockban vár; kattints az alkalmazására, hogy visszahozd. Kattints egy ablakra, hogy előtérbe hozd. Bármelyik szélétől vagy sarkától átméretezheted. Kattints duplán egy címsorra, hogy maximalizáld az ablakot, miközben a felső sáv látható marad, és kattints duplán újra, hogy visszakapd a régi méretét.
 
-Egy lebegő munkaterület dockot is mutat, a rögzített alkalmazásaiddal, mindennel, ami éppen fut, és minden alkalmazás rácsával az alkalmazások gombja mögött, amelyet a `Super + Alt + Space` és az Omarchy menü _Apps_ eleme is megnyit. Kattints jobb gombbal egy alkalmazásra a rácson, vagy nyomd meg a `Delete` billentyűt, hogy eltávolítsd. Kattints egy alkalmazásra, hogy megnyisd, vagy hogy előtérbe hozd az ablakát; kattints újra, hogy végiglépegess az ablakain. A középső kattintás új ablakot nyit. Húzz egy ikont a dock mentén, hogy áthelyezd; ha egy futó alkalmazást a többi közé húzol, az ott tartja. Kattints jobb gombbal, hogy egy alkalmazást a dockban tarts, kivedd onnan, vagy kilépj belőle. A dock félreáll egy teljes képernyős ablak útjából. Kattints jobb gombbal az alkalmazások gombjára, hogy a dockot egy másik élre helyezd, vagy hogy rejtve maradjon, amíg a mutató el nem éri az élét. A pozíció az _Appearance > Dock > Dock Position_ alatt is elérhető, és az `omarchy dock position left` és az `omarchy dock autohide on` egy terminálból mindkettőt beállítja. Azok az alkalmazások, amelyeket a dockban tartasz, elhalványulnak, amíg nem futnak.
+Egy lebegő munkaterület dockot is mutat, a rögzített alkalmazásaiddal, mindennel, ami éppen fut, és minden alkalmazás rácsával az alkalmazások gombja mögött, amelyet a `Super + Alt + Space` és az Collie menü _Apps_ eleme is megnyit. Kattints jobb gombbal egy alkalmazásra a rácson, vagy nyomd meg a `Delete` billentyűt, hogy eltávolítsd. Kattints egy alkalmazásra, hogy megnyisd, vagy hogy előtérbe hozd az ablakát; kattints újra, hogy végiglépegess az ablakain. A középső kattintás új ablakot nyit. Húzz egy ikont a dock mentén, hogy áthelyezd; ha egy futó alkalmazást a többi közé húzol, az ott tartja. Kattints jobb gombbal, hogy egy alkalmazást a dockban tarts, kivedd onnan, vagy kilépj belőle. A dock félreáll egy teljes képernyős ablak útjából. Kattints jobb gombbal az alkalmazások gombjára, hogy a dockot egy másik élre helyezd, vagy hogy rejtve maradjon, amíg a mutató el nem éri az élét. A pozíció az _Appearance > Dock > Dock Position_ alatt is elérhető, és az `collie dock position left` és az `collie dock autohide on` egy terminálból mindkettőt beállítja. Azok az alkalmazások, amelyeket a dockban tartasz, elhalványulnak, amíg nem futnak.
 
-Az új munkaterületek, és minden olyan, amelynek nem adtál saját elrendezést a `Super + L` segítségével, az alapértelmezett elrendezést használják. Az alapértelmezett megváltoztatása minden ablak nélküli munkaterületet arra állít vissza, míg egy olyan, amelyen ablakok vannak, megtartja a meglévő elrendezését. Egy dockra minimalizált ablak továbbra is ablaknak számít azon a munkaterületen, amelyet elhagyott. Válaszd ki az _Appearance > Workspace Layout_ alatt: Tiling, Scrolling vagy Floating. Az `omarchy-hyprland-workspace-layout-default scrolling` egy terminálból állítja be.
+Az új munkaterületek, és minden olyan, amelynek nem adtál saját elrendezést a `Super + L` segítségével, az alapértelmezett elrendezést használják. Az alapértelmezett megváltoztatása minden ablak nélküli munkaterületet arra állít vissza, míg egy olyan, amelyen ablakok vannak, megtartja a meglévő elrendezését. Egy dockra minimalizált ablak továbbra is ablaknak számít azon a munkaterületen, amelyet elhagyott. Válaszd ki az _Appearance > Workspace Layout_ alatt: Tiling, Scrolling vagy Floating. Az `collie-hyprland-workspace-layout-default scrolling` egy terminálból állítja be.
 
 ### Ablakok csoportosítása
 

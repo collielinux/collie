@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# collie:summary=Control the Collie menu (toggle / summon / close / refresh)
+# collie:args=[toggle|summon|close|refresh|ping] [route]
+# collie:examples=collie menu | collie menu toggle system | collie menu summon appearance.theme | collie menu refresh
+
+# Thin wrapper around the standard plugin IPC surface. The menu is the
+# first-party `collie.menu` plugin; routes are passed as JSON payload.
+
+set -euo pipefail
+
+verb="${1-toggle}"
+route="${2-root}"
+
+menu_payload() {
+  jq -nc --arg menu "$1" '{ menu: $menu }'
+}
+
+case "$verb" in
+  toggle)
+    exec collie-shell shell toggle collie.menu "$(menu_payload "$route")"
+    ;;
+  summon)
+    exec collie-shell shell summon collie.menu "$(menu_payload "$route")"
+    ;;
+  close)
+    exec collie-shell shell hide collie.menu
+    ;;
+  refresh | ping)
+    exec collie-shell shell call collie.menu "$verb" "{}"
+    ;;
+  -h | --help | help)
+    cat <<USAGE
+Usage: collie menu [verb] [route]
+
+Verbs:
+  toggle [route]   Open the menu at <route>, or close it if already open. Default verb.
+  summon [route]   Always open the menu (no close-if-visible toggle).
+  close            Close the menu if it is visible.
+  refresh          Re-parse the menu JSONC files.
+  ping             Health check.
+
+Route is an item id (e.g. setup.power) or alias (e.g. power). Defaults to
+"root", which opens the top-level menu.
+USAGE
+    exit 0
+    ;;
+  *)
+    echo "collie-menu: unknown verb '$verb'. Try 'collie menu --help'." >&2
+    exit 2
+    ;;
+esac

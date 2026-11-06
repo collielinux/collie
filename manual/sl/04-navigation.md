@@ -1,8 +1,8 @@
 # Navigacija
 
-Vse v Omarchyju se dogaja prek tipkovnice — _VSE!_ Ko se sistem prvič zažene, z miško samo dobesedno ne moreš narediti ničesar. Lahko pa pritisneš `Super + Space`, da prikažeš meni Omarchy, in od tu lahko narediš skoraj vse.
+Vse v Collieju se dogaja prek tipkovnice — _VSE!_ Ko se sistem prvič zažene, z miško samo dobesedno ne moreš narediti ničesar. Lahko pa pritisneš `Super + Space`, da prikažeš meni Collie, in od tu lahko narediš skoraj vse.
 
-Vendar meni Omarchy večinoma sploh ni namenjen temu, da bi bil glavni način upravljanja sistema. Lahko smo hitrejši od tega! Vse najpomembnejše aplikacije so vezane neposredno na posamezne bližnjice. Terminal zaženeš s `Super + Return`, brskalnik pa s `Super + Shift + Return`. Poskusi eno za drugim in videl boš čarobnost tlakovanja v Hyprlandu v akciji:
+Vendar meni Collie večinoma sploh ni namenjen temu, da bi bil glavni način upravljanja sistema. Lahko smo hitrejši od tega! Vse najpomembnejše aplikacije so vezane neposredno na posamezne bližnjice. Terminal zaženeš s `Super + Return`, brskalnik pa s `Super + Shift + Return`. Poskusi eno za drugim in videl boš čarobnost tlakovanja v Hyprlandu v akciji:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Lahko greš tudi na cel zaslon s `Super + F` ali celo samo na celotno širino (p
 
 ### Postavitev dwindle proti drsni postavitvi
 
-Privzeta postavitev v Omarchyju se imenuje dwindle. Vsa okna, ki jih odpreš na enem delovnem prostoru, ohranja ves čas vidna, tudi če jih mora za to pomanjšati.
+Privzeta postavitev v Collieju se imenuje dwindle. Vsa okna, ki jih odpreš na enem delovnem prostoru, ohranja ves čas vidna, tudi če jih mora za to pomanjšati.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Plavajoči delovni prostor deluje kot tradicionalno namizje: okna se prekrivajo, premikaš in velikost jim spreminjaš sam. Vsako okno dobi naslovno vrstico v barvah tvoje teme, z gumbi za minimiziranje, maksimiziranje in zapiranje. `Super + M` minimizira tudi fokusirano okno. Minimizirano okno čaka v doku; klikni njegovo aplikacijo, da ga pripelješ nazaj. Klikni okno, da ga pripelješ v ospredje. Velikost mu spreminjaj s katerega koli roba ali kota. Dvoklikni naslovno vrstico, da maksimiziraš okno in pri tem obdržiš zgornjo vrstico v pogledu, in znova, da dobiš nazaj njegovo staro velikost.
 
-Plavajoči delovni prostor prikazuje tudi dok s tvojimi pripetimi aplikacijami, vsem, kar se izvaja, in mrežo vseh aplikacij za gumbom za aplikacije, ki ga odpreta tudi `Super + Alt + Space` in _Apps_ v meniju Omarchy. Z desno miškino tipko klikni aplikacijo na mreži ali pritisni `Delete`, da jo odstraniš. Klikni aplikacijo, da jo odpreš ali da pripelješ njeno okno v ospredje; klikni znova, da krožiš med njenimi okni. Srednji klik odpre novo okno. Povleci ikono vzdolž doka, da jo premakneš; če povlečeš aplikacijo, ki se izvaja, med druge, tam ostane. Z desno miškino tipko klikni, da aplikacijo obdržiš v doku, jo vzameš ven ali jo zapreš. Dok se umakne celozaslonskemu oknu. Z desno miškino tipko klikni gumb za aplikacije, da dok premakneš na drug rob ali da se skrije, dokler kazalec ne doseže njegovega roba. Položaj je tudi pod _Appearance > Dock > Dock Position_, `omarchy dock position left` in `omarchy dock autohide on` pa iz terminala nastavita oboje. Aplikacije, ki jih obdržiš v doku, so zbledele, dokler se ne izvajajo.
+Plavajoči delovni prostor prikazuje tudi dok s tvojimi pripetimi aplikacijami, vsem, kar se izvaja, in mrežo vseh aplikacij za gumbom za aplikacije, ki ga odpreta tudi `Super + Alt + Space` in _Apps_ v meniju Collie. Z desno miškino tipko klikni aplikacijo na mreži ali pritisni `Delete`, da jo odstraniš. Klikni aplikacijo, da jo odpreš ali da pripelješ njeno okno v ospredje; klikni znova, da krožiš med njenimi okni. Srednji klik odpre novo okno. Povleci ikono vzdolž doka, da jo premakneš; če povlečeš aplikacijo, ki se izvaja, med druge, tam ostane. Z desno miškino tipko klikni, da aplikacijo obdržiš v doku, jo vzameš ven ali jo zapreš. Dok se umakne celozaslonskemu oknu. Z desno miškino tipko klikni gumb za aplikacije, da dok premakneš na drug rob ali da se skrije, dokler kazalec ne doseže njegovega roba. Položaj je tudi pod _Appearance > Dock > Dock Position_, `collie dock position left` in `collie dock autohide on` pa iz terminala nastavita oboje. Aplikacije, ki jih obdržiš v doku, so zbledele, dokler se ne izvajajo.
 
-Novi delovni prostori in vsi, ki jim s `Super + L` nisi dal lastne postavitve, uporabljajo privzeto postavitev. Sprememba privzete postavitve ponastavi vsak delovni prostor brez oken nanjo, tisti z okni pa obdrži postavitev, ki jo ima. Okno, minimizirano v dok, še vedno šteje kot okno na delovnem prostoru, ki ga je zapustilo. Izberi jo pod _Appearance > Workspace Layout_: Tiling, Scrolling ali Floating. `omarchy-hyprland-workspace-layout-default scrolling` jo nastavi iz terminala.
+Novi delovni prostori in vsi, ki jim s `Super + L` nisi dal lastne postavitve, uporabljajo privzeto postavitev. Sprememba privzete postavitve ponastavi vsak delovni prostor brez oken nanjo, tisti z okni pa obdrži postavitev, ki jo ima. Okno, minimizirano v dok, še vedno šteje kot okno na delovnem prostoru, ki ga je zapustilo. Izberi jo pod _Appearance > Workspace Layout_: Tiling, Scrolling ali Floating. `collie-hyprland-workspace-layout-default scrolling` jo nastavi iz terminala.
 
 ### Združevanje oken v skupine
 

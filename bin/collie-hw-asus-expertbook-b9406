@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# collie:summary=Detect ASUS ExpertBook B9406 series laptops on Intel Panther Lake.
+
+collie-hw-match "B9406" && collie-hw-intel-ptl

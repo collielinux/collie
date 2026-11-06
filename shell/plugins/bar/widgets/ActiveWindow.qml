@@ -7,7 +7,7 @@ import qs.Ui
 
 BarWidget {
   id: root
-  moduleName: "omarchy.active-window"
+  moduleName: "collie.active-window"
 
 
   readonly property var toplevel: ToplevelManager.activeToplevel

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# collie:summary=Update the active Collie dev checkout
+
+set -euo pipefail
+
+[[ $COLLIE_PATH != "/usr/share/collie" ]] || exit 0
+
+if ! git -C "$COLLIE_PATH" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Error: COLLIE_PATH is not a git checkout: $COLLIE_PATH" >&2
+  exit 1
+fi
+
+upstream=$(git -C "$COLLIE_PATH" rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null || true)
+if [[ -z $upstream ]]; then
+  echo -e "\e[33m\nSkip Collie dev checkout update (current branch has no upstream)\e[0m"
+  exit 0
+fi
+
+echo -e "\e[32m\nUpdate Collie dev checkout\e[0m"
+# A filtered fetch makes a full clone blobless once; git saves the filter, so
+# pulls then only fetch the file contents the new checkout needs.
+remote=$(git -C "$COLLIE_PATH" for-each-ref --format='%(upstream:remotename)' "$(git -C "$COLLIE_PATH" symbolic-ref -q HEAD)")
+if git -C "$COLLIE_PATH" config "remote.$remote.url" >/dev/null && ! git -C "$COLLIE_PATH" config "remote.$remote.promisor" >/dev/null; then
+  git -C "$COLLIE_PATH" fetch --filter=blob:none "$remote"
+fi
+git -C "$COLLIE_PATH" pull --ff-only

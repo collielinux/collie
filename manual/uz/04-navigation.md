@@ -1,8 +1,8 @@
 # Navigatsiya
 
-Omarchy dagi hamma narsa klaviatura orqali amalga oshadi — _HAMMA NARSA!_ Tizim ilk bor ishga tushganda, sichqonchaning o'zi bilan tom ma'noda hech narsa qila olmaysiz. Ammo `Super + Space` tugmalarini bosib Omarchy Menu ni ochishingiz mumkin va shu yerdan deyarli hamma narsani qila olasiz.
+Collie dagi hamma narsa klaviatura orqali amalga oshadi — _HAMMA NARSA!_ Tizim ilk bor ishga tushganda, sichqonchaning o'zi bilan tom ma'noda hech narsa qila olmaysiz. Ammo `Super + Space` tugmalarini bosib Collie Menu ni ochishingiz mumkin va shu yerdan deyarli hamma narsani qila olasiz.
 
-Ammo Omarchy menyusi ko'p hollarda tizimni boshqarishning asosiy usuli bo'lishi ham mo'ljallanmagan. Bundan ham tezroq ishlashimiz mumkin! Eng muhim ilovalarning barchasi bevosita alohida tezkor tugmalarga biriktirilgan. Terminalni `Super + Return` bilan, brauzerni esa `Super + Shift + Return` bilan ishga tushirasiz. Birini ketidan ikkinchisini bajarib ko'ring, shunda Hyprland plitkalarining sehrini amalda ko'rasiz:
+Ammo Collie menyusi ko'p hollarda tizimni boshqarishning asosiy usuli bo'lishi ham mo'ljallanmagan. Bundan ham tezroq ishlashimiz mumkin! Eng muhim ilovalarning barchasi bevosita alohida tezkor tugmalarga biriktirilgan. Terminalni `Super + Return` bilan, brauzerni esa `Super + Shift + Return` bilan ishga tushirasiz. Birini ketidan ikkinchisini bajarib ko'ring, shunda Hyprland plitkalarining sehrini amalda ko'rasiz:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Shuningdek `Super + F` bilan to'liq ekranga o'tishingiz yoki hatto `Super + Alt 
 
 ### Dwindle bilan scrolling joylashuvi
 
-Omarchy ning standart joylashuvi dwindle deb ataladi. U bitta ish maydonida ochgan barcha oynalaringizni doimo ko'rinadigan holda saqlaydi, buning uchun ularni kichraytirishiga to'g'ri kelsa ham.
+Collie ning standart joylashuvi dwindle deb ataladi. U bitta ish maydonida ochgan barcha oynalaringizni doimo ko'rinadigan holda saqlaydi, buning uchun ularni kichraytirishiga to'g'ri kelsa ham.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Suzuvchi ish maydoni an'anaviy ish stoli kabi ishlaydi: oynalar ustma-ust tushadi va ularni o'zingiz ko'chirasiz hamda o'lchamini o'zingiz belgilaysiz. Har bir oyna mavzuingiz ranglaridagi sarlavha paneliga ega bo'ladi, unda kichraytirish, kattalashtirish va yopish tugmalari bo'ladi. `Super + M` ham fokusdagi oynani kichraytiradi. Kichraytirilgan oyna dock ichida kutadi; uni qaytarish uchun uning ilovasini bosing. Oynani oldinga chiqarish uchun uni bosing. Uning o'lchamini istalgan chetidan yoki burchagidan o'zgartiring. Yuqori panelni ko'rinadigan holda saqlab oynani kattalashtirish uchun sarlavha panelini ikki marta bosing, eski o'lchamini qaytarish uchun esa yana ikki marta bosing.
 
-Suzuvchi ish maydoni shuningdek dock ni ham ko'rsatadi, unda mahkamlangan ilovalaringiz, ishlayotgan hamma narsa va apps tugmasi ortidagi barcha ilovalar panjarasi bo'ladi, uni `Super + Alt + Space` hamda Omarchy menyusidagi _Apps_ ham ochadi. Ilovani o'chirib tashlash uchun panjaradagi ilovani o'ng tugma bilan bosing, yoki `Delete` tugmasini bosing. Ilovani ochish yoki uning oynasini oldinga chiqarish uchun uni bosing; uning oynalari bo'ylab aylanib o'tish uchun yana bosing. O'rta tugma bilan bosish yangi oyna ochadi. Belgini ko'chirish uchun uni dock bo'ylab sudrab o'tkazing; ishlayotgan ilovani boshqalar orasiga sudrab kiritish uni o'sha yerda saqlaydi. Ilovani dock da saqlash, undan olib tashlash yoki undan chiqish uchun o'ng tugmani bosing. Dock to'liq ekranli oyna yo'lidan chetga chiqadi. Dock ni boshqa chetga ko'chirish yoki ko'rsatgich uning chetiga yetmaguncha uni yashirib turish uchun apps tugmasini o'ng tugma bilan bosing. Joylashuv shuningdek _Appearance > Dock > Dock Position_ ostida ham bor, `omarchy dock position left` va `omarchy dock autohide on` esa ikkalasini ham terminaldan o'rnatadi. Dock da saqlaydigan ilovalaringiz ishlamayotgan paytda xira ko'rinadi.
+Suzuvchi ish maydoni shuningdek dock ni ham ko'rsatadi, unda mahkamlangan ilovalaringiz, ishlayotgan hamma narsa va apps tugmasi ortidagi barcha ilovalar panjarasi bo'ladi, uni `Super + Alt + Space` hamda Collie menyusidagi _Apps_ ham ochadi. Ilovani o'chirib tashlash uchun panjaradagi ilovani o'ng tugma bilan bosing, yoki `Delete` tugmasini bosing. Ilovani ochish yoki uning oynasini oldinga chiqarish uchun uni bosing; uning oynalari bo'ylab aylanib o'tish uchun yana bosing. O'rta tugma bilan bosish yangi oyna ochadi. Belgini ko'chirish uchun uni dock bo'ylab sudrab o'tkazing; ishlayotgan ilovani boshqalar orasiga sudrab kiritish uni o'sha yerda saqlaydi. Ilovani dock da saqlash, undan olib tashlash yoki undan chiqish uchun o'ng tugmani bosing. Dock to'liq ekranli oyna yo'lidan chetga chiqadi. Dock ni boshqa chetga ko'chirish yoki ko'rsatgich uning chetiga yetmaguncha uni yashirib turish uchun apps tugmasini o'ng tugma bilan bosing. Joylashuv shuningdek _Appearance > Dock > Dock Position_ ostida ham bor, `collie dock position left` va `collie dock autohide on` esa ikkalasini ham terminaldan o'rnatadi. Dock da saqlaydigan ilovalaringiz ishlamayotgan paytda xira ko'rinadi.
 
-Yangi ish maydonlari va `Super + L` bilan o'z joylashuvini bermagan har qanday ish maydoni standart joylashuvdan foydalanadi. Standartni o'zgartirish oynalari bo'lmagan har bir ish maydonini unga qayta o'rnatadi, oynalari bor maydon esa o'zida bor joylashuvni saqlaydi. Dock ga kichraytirilgan oyna hali ham u tark etgan ish maydonidagi oyna sifatida hisobga olinadi. Uni _Appearance > Workspace Layout_ ostida tanlang: Tiling, Scrolling yoki Floating. `omarchy-hyprland-workspace-layout-default scrolling` uni terminaldan o'rnatadi.
+Yangi ish maydonlari va `Super + L` bilan o'z joylashuvini bermagan har qanday ish maydoni standart joylashuvdan foydalanadi. Standartni o'zgartirish oynalari bo'lmagan har bir ish maydonini unga qayta o'rnatadi, oynalari bor maydon esa o'zida bor joylashuvni saqlaydi. Dock ga kichraytirilgan oyna hali ham u tark etgan ish maydonidagi oyna sifatida hisobga olinadi. Uni _Appearance > Workspace Layout_ ostida tanlang: Tiling, Scrolling yoki Floating. `collie-hyprland-workspace-layout-default scrolling` uni terminaldan o'rnatadi.
 
 ### Oynalarni guruhlash
 

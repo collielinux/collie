@@ -1,16 +1,16 @@
 # Mac-support
 
-Omarchy har indbygget understøttelse af **Intel Macs**. Der er et par kendte begrænsninger lige nu, men så længe du er klar over dem og er OK med dem, kan du puste nyt liv i dine gamle Macs ved at installere Omarchy.
+Collie har indbygget understøttelse af **Intel Macs**. Der er et par kendte begrænsninger lige nu, men så længe du er klar over dem og er OK med dem, kan du puste nyt liv i dine gamle Macs ved at installere Collie.
 
-Bemærk, at installation på en Mac med M-serie ikke er direkte understøttet på nuværende tidspunkt. Du kan finde ud af mere om, hvordan det står til med det, i #omarchy-on-other i vores [Discord](https://discord.gg/tXFUdasqhY).
+Bemærk, at installation på en Mac med M-serie ikke er direkte understøttet på nuværende tidspunkt. Du kan finde ud af mere om, hvordan det står til med det, i #collie-on-other i vores [Discord](https://discord.gg/tXFUdasqhY).
 
-I en simpel test kunne vi opnå en ydelsesforbedring på 36 % på en MacBook Pro fra 2019 bare ved at installere Omarchy.
+I en simpel test kunne vi opnå en ydelsesforbedring på 36 % på en MacBook Pro fra 2019 bare ved at installere Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Installation af Omarchy på Mac
+### Installation af Collie på Mac
 
-Omarchy understøtter i øjeblikket kun at være det **eneste** OS installeret. Under installationen bliver drevet slettet, og MacOS vil ikke længere kunne startes.
+Collie understøtter i øjeblikket kun at være det **eneste** OS installeret. Under installationen bliver drevet slettet, og MacOS vil ikke længere kunne startes.
 
 Du kan stadig gendanne det senere via Internet Recovery, hvis du skulle få lyst.
 
@@ -39,7 +39,7 @@ Installationsprogrammet registrerer Mac-hardwaren og anvender automatisk de nød
 
 ### Kendte begrænsninger
 
-Medlemmer af fællesskabet arbejder hele tiden på løsninger på disse udfordringer, så hvis de er et problem for dig, så kom med i #omarchy-on-other i vores [Discord](https://discord.gg/tXFUdasqhY) og se, om der findes opdaterede metoder til at løse dem.
+Medlemmer af fællesskabet arbejder hele tiden på løsninger på disse udfordringer, så hvis de er et problem for dig, så kom med i #collie-on-other i vores [Discord](https://discord.gg/tXFUdasqhY) og se, om der findes opdaterede metoder til at løse dem.
 
 #### Enheder med T1-chip
 

@@ -1,16 +1,16 @@
 # Mac desteği
 
-Omarchy, **Intel Mac**'ler için yerleşik desteğe sahiptir. Şu anda birkaç bilinen sınırlama var, ancak bunların farkında olduğunuz ve sizin için sorun olmadığı sürece; eski Mac'lerinize Omarchy yükleyerek onlara yeni bir soluk kazandırabilirsiniz.
+Collie, **Intel Mac**'ler için yerleşik desteğe sahiptir. Şu anda birkaç bilinen sınırlama var, ancak bunların farkında olduğunuz ve sizin için sorun olmadığı sürece; eski Mac'lerinize Collie yükleyerek onlara yeni bir soluk kazandırabilirsiniz.
 
-Lütfen şu anda M serisi bir Mac'e kurulumun doğrudan desteklenmediğini unutmayın. Bunun durumu hakkında daha fazla bilgiyi [Discord](https://discord.gg/tXFUdasqhY) sunucumuzdaki #omarchy-on-other kanalında bulabilirsiniz.
+Lütfen şu anda M serisi bir Mac'e kurulumun doğrudan desteklenmediğini unutmayın. Bunun durumu hakkında daha fazla bilgiyi [Discord](https://discord.gg/tXFUdasqhY) sunucumuzdaki #collie-on-other kanalında bulabilirsiniz.
 
-Basit bir testte, yalnızca Omarchy kurarak 2019 MacBook Pro'da %36 performans artışı elde edebildik.
+Basit bir testte, yalnızca Collie kurarak 2019 MacBook Pro'da %36 performans artışı elde edebildik.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy'yi Mac'e Kurma
+### Collie'yi Mac'e Kurma
 
-Omarchy şu anda kurulu **tek** işletim sistemi olmayı destekliyor. Kurulum sırasında sürücü silinecek ve MacOS artık başlatılamayacak.
+Collie şu anda kurulu **tek** işletim sistemi olmayı destekliyor. Kurulum sırasında sürücü silinecek ve MacOS artık başlatılamayacak.
 
 İsterseniz daha sonra Internet Recovery aracılığıyla onu geri yükleyebilirsiniz.
 
@@ -39,7 +39,7 @@ Kurulum programı Mac donanımını algılar ve gerekli düzeltmeleri otomatik o
 
 ### Bilinen Sınırlamalar
 
-Topluluk üyeleri bu zorluklara sürekli çözüm bulmak için çalışıyor, bu nedenle bunlar sizin için sorun oluşturuyorsa [Discord](https://discord.gg/tXFUdasqhY) sunucumuzdaki #omarchy-on-other kanalına katılın ve bunları çözmek için güncel yöntemler olup olmadığına bakın.
+Topluluk üyeleri bu zorluklara sürekli çözüm bulmak için çalışıyor, bu nedenle bunlar sizin için sorun oluşturuyorsa [Discord](https://discord.gg/tXFUdasqhY) sunucumuzdaki #collie-on-other kanalına katılın ve bunları çözmek için güncel yöntemler olup olmadığına bakın.
 
 #### T1 Çipli Cihazlar
 

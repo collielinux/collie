@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# collie:summary=Cycle to the next media source and transfer playback when the current source is playing
+# collie:args=[next|previous]
+# collie:examples=collie audio source switch | collie-audio-source-switch previous
+
+direction="${1:-next}"
+
+case "$direction" in
+  next)
+    collie-shell media sourceSwitch
+    ;;
+  previous)
+    collie-shell media sourceSwitchPrevious
+    ;;
+  *)
+    echo "Usage: collie-audio-source-switch [next|previous]" >&2
+    exit 1
+    ;;
+esac

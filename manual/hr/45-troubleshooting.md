@@ -2,23 +2,23 @@
 
 ### Pokvario sam sustav ažuriranjem!
 
-Prvo pokušajte [vratiti sustav](47-system-snapshots.md) na verziju prije nedavnog ažuriranja. Ako to ne uspije, upotrijebite `omarchy-debug` da biste svoj problem podijelili na #omarchy-help u Discordu. A ako sve to zakaže, možete ponovno instalirati zadane konfiguracije i pakete pomoću `omarchy-reinstall`.
+Prvo pokušajte [vratiti sustav](47-system-snapshots.md) na verziju prije nedavnog ažuriranja. Ako to ne uspije, upotrijebite `collie-debug` da biste svoj problem podijelili na #collie-help u Discordu. A ako sve to zakaže, možete ponovno instalirati zadane konfiguracije i pakete pomoću `collie-reinstall`.
 
 ### Zašto su neke aplikacije tako velike na mojem zaslonu?
 
-Omarchy pretpostavlja 2x zaslon visoke razlučivosti, pa `GDK_SCALE` postavlja na 2 dok ne odaberete skaliranje u ploči monitora. Ako ste na 1x zaslonu i GTK ili X11 aplikacije ispadnu prevelike, odaberite 1x za njega u ploči monitora ili dodajte `hl.env("GDK_SCALE", "1")` u `~/.config/hypr/monitors.lua` (a zatim ponovno pokrenite svaku aplikaciju koja je prevelika). Pogledajte [priručnik o monitorima](33-monitors.md).
+Collie pretpostavlja 2x zaslon visoke razlučivosti, pa `GDK_SCALE` postavlja na 2 dok ne odaberete skaliranje u ploči monitora. Ako ste na 1x zaslonu i GTK ili X11 aplikacije ispadnu prevelike, odaberite 1x za njega u ploči monitora ili dodajte `hl.env("GDK_SCALE", "1")` u `~/.config/hypr/monitors.lua` (a zatim ponovno pokrenite svaku aplikaciju koja je prevelika). Pogledajte [priručnik o monitorima](33-monitors.md).
 
 Za Spotify možete upotrijebiti `Ctrl + Minus` da smanjite sučelje (a `Ctrl + Plus` da ga povećate).
 
 ### Zašto su mi sve kombinacije tipki sa Super prestale raditi?
 
-Na nekim ASUS ROG i TUF prijenosnim računalima `Fn + Super` je kombinacija tipki koju je lako previdjeti, a njome se uključuje i isključuje firmversko zaključavanje Windows tipke (zamišljeno za igranje da slučajno ne izađete iz igre). Ništa na zaslonu ne govori vam da se to dogodilo. Dok je zaključavanje uključeno, Super uopće ništa ne šalje — pa svaka Omarchy kombinacija koja koristi Super jednostavno prestane raditi i izgleda kao da se Hyprland pokvario.
+Na nekim ASUS ROG i TUF prijenosnim računalima `Fn + Super` je kombinacija tipki koju je lako previdjeti, a njome se uključuje i isključuje firmversko zaključavanje Windows tipke (zamišljeno za igranje da slučajno ne izađete iz igre). Ništa na zaslonu ne govori vam da se to dogodilo. Dok je zaključavanje uključeno, Super uopće ništa ne šalje — pa svaka Collie kombinacija koja koristi Super jednostavno prestane raditi i izgleda kao da se Hyprland pokvario.
 
 Prije nego što krenete kopati po `~/.config/hypr/`, jednom pritisnite `Fn + Super`, a ako to ne vrati Super, pritisnite ga ponovno da zaključavanje ne ostane uključeno. To nije Fn-lock, koji mijenja samo što radi red F-tipki.
 
 ### Moji Wi-Fi, Bluetooth, zvuk ili trackpad upravo su prestali raditi
 
-Prije ponovnog pokretanja pokušajte zasebno ponovno pokrenuti podsustav koji pravi probleme. _Ažuriranje > Hardver_ u Omarchy izborniku ima Wi-Fi, Bluetooth, Zvuk i Trackpad, a ponovno učitavanje jednog od njih rješava većinu situacija tipa „radilo je prije pet minuta” — Bluetooth slušalice koje se neće ponovno povezati, trackpad koji je prestao raditi nakon suspendiranja, zvuk koji je nestao kad ste isključili monitor.
+Prije ponovnog pokretanja pokušajte zasebno ponovno pokrenuti podsustav koji pravi probleme. _Ažuriranje > Hardver_ u Collie izborniku ima Wi-Fi, Bluetooth, Zvuk i Trackpad, a ponovno učitavanje jednog od njih rješava većinu situacija tipa „radilo je prije pet minuta” — Bluetooth slušalice koje se neće ponovno povezati, trackpad koji je prestao raditi nakon suspendiranja, zvuk koji je nestao kad ste isključili monitor.
 
 ### Zašto moji vanjski zvučnici ne sviraju?
 
@@ -26,7 +26,7 @@ Vjerojatno zato što nisu postavljeni kao primarni izlaz. Kliknite ikonu zvučni
 
 ### Zvučnici mojeg prijenosnog računala zvuče čudno
 
-Na nekim prijenosnim računalima Omarchy automatski primjenjuje ugađanje zvučnika koje ispravlja frekvencijski odziv ugrađenih zvučnika. `omarchy audio tuning status` govori vam je li neko ugađanje aktivno na vašem računalu, a `omarchy audio tuning off` isključuje ga ako radije želite čuti sirov zvuk zvučnika.
+Na nekim prijenosnim računalima Collie automatski primjenjuje ugađanje zvučnika koje ispravlja frekvencijski odziv ugrađenih zvučnika. `collie audio tuning status` govori vam je li neko ugađanje aktivno na vašem računalu, a `collie audio tuning off` isključuje ga ako radije želite čuti sirov zvuk zvučnika.
 
 ### Zašto se ne mogu prijaviti ili koristiti sudo svojom lozinkom?
 

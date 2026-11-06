@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# collie:summary=Enable, disable, toggle, or recover mirroring the internal display to every external monitor
+# collie:args=<on|off|toggle|recover>
+
+TOGGLE="internal-monitor-mirror"
+TOGGLE_FLAG="$HOME/.local/state/collie/toggles/hypr/$TOGGLE.lua"
+DISABLE_TOGGLE="internal-monitor-disable"
+
+INTERNAL=$(collie-hyprland-monitor-laptop)
+# Every active external monitor shows the internal display, as a Mac mirrors
+# all its displays.
+mapfile -t EXTERNALS < <(hyprctl monitors -j | jq -r '.[] | select(.name | test("^(eDP|LVDS|DSI)-") | not).name')
+
+on() {
+  if (( ${#EXTERNALS[@]} == 0 )); then
+    collie-notification-send -g 󰍹 "$(collie-i18n monitor.noExternalForMirror)"
+    exit 1
+  fi
+
+  if [[ -z $INTERNAL ]]; then
+    collie-notification-send -g 󰍹 "$(collie-i18n monitor.noLaptopToMirror)"
+    exit 1
+  fi
+
+  # The names are written into generated Lua below, so only plain connector
+  # names may pass; a user-created headless output can carry any name.
+  for output in "$INTERNAL" "${EXTERNALS[@]}"; do
+    if [[ ! $output =~ ^[A-Za-z0-9._-]+$ ]]; then
+      collie-notification-send -g 󰍹 "$(collie-i18n monitor.unsafeName)"
+      exit 1
+    fi
+  done
+
+  collie-hyprland-toggle $DISABLE_TOGGLE off
+
+  if collie-hyprland-toggle-disabled $TOGGLE; then
+    for external in "${EXTERNALS[@]}"; do
+      printf 'hl.monitor({ output = "%s", mode = "preferred", position = "auto", scale = 1, mirror = "%s" })\n' "$external" "$INTERNAL"
+    done >"$TOGGLE_FLAG"
+    collie-restart-hyprctl
+  fi
+}
+
+off() {
+  if collie-hyprland-toggle-enabled $TOGGLE; then
+    collie-hyprland-toggle $TOGGLE off
+  fi
+}
+
+toggle() {
+  if collie-hyprland-toggle-enabled $TOGGLE; then
+    off
+  else
+    on
+  fi
+}
+
+recover() {
+  if ! collie-hyprland-monitor-external-active && collie-hyprland-toggle-enabled $TOGGLE; then
+    collie-hyprland-toggle $TOGGLE off
+  fi
+}
+
+case "$1" in
+  on) on ;;
+  off) off ;;
+  toggle) toggle ;;
+  recover) recover ;;
+  *)
+    echo "Usage: $(basename "$0") {on|off|toggle|recover}" >&2
+    exit 1
+    ;;
+esac

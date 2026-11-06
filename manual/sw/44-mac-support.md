@@ -1,16 +1,16 @@
 # Usaidizi wa Mac
 
-Omarchy ina usaidizi uliojengewa ndani kwa **Intel Macs**. Kuna mapungufu machache yanayojulikana kwa sasa, lakini mradi tu unayafahamu na uko sawa nayo; unaweza kuipa uhai mpya Mac zako za zamani kwa kupakia Omarchy.
+Collie ina usaidizi uliojengewa ndani kwa **Intel Macs**. Kuna mapungufu machache yanayojulikana kwa sasa, lakini mradi tu unayafahamu na uko sawa nayo; unaweza kuipa uhai mpya Mac zako za zamani kwa kupakia Collie.
 
-Tafadhali kumbuka kuwa kusakinisha kwenye Mac ya mfululizo wa M hakusaidiwi moja kwa moja kwa sasa. Unaweza kujua zaidi kuhusu hali ya hili katika #omarchy-on-other katika [Discord](https://discord.gg/tXFUdasqhY) yetu.
+Tafadhali kumbuka kuwa kusakinisha kwenye Mac ya mfululizo wa M hakusaidiwi moja kwa moja kwa sasa. Unaweza kujua zaidi kuhusu hali ya hili katika #collie-on-other katika [Discord](https://discord.gg/tXFUdasqhY) yetu.
 
-Katika jaribio rahisi, tuliweza kupata ongezeko la utendaji la 36% kwenye MacBook Pro ya 2019 kwa kusakinisha tu Omarchy.
+Katika jaribio rahisi, tuliweza kupata ongezeko la utendaji la 36% kwenye MacBook Pro ya 2019 kwa kusakinisha tu Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Kusakinisha Omarchy kwenye Mac
+### Kusakinisha Collie kwenye Mac
 
-Omarchy inasaidia tu kuwa **pekee** OS iliyosakinishwa kwa sasa. Wakati wa usakinishaji, diski itafutwa na MacOS haitaweza kuwashwa tena.
+Collie inasaidia tu kuwa **pekee** OS iliyosakinishwa kwa sasa. Wakati wa usakinishaji, diski itafutwa na MacOS haitaweza kuwashwa tena.
 
 Bado unaweza kuirejesha baadaye kupitia Internet Recovery ukipenda.
 
@@ -39,7 +39,7 @@ Kisakinishi hugundua vifaa vya Mac na kutumia marekebisho yanayohitajika kiotoma
 
 ### Mapungufu Yanayojulikana
 
-Wanachama wa jumuiya wanafanya kazi kila mara kutafuta suluhisho za changamoto hizi, kwa hivyo kama hizi ni tatizo kwako, jiunge na #omarchy-on-other katika [Discord](https://discord.gg/tXFUdasqhY) yetu na uone kama kuna mbinu zozote za kisasa za kuzitatua.
+Wanachama wa jumuiya wanafanya kazi kila mara kutafuta suluhisho za changamoto hizi, kwa hivyo kama hizi ni tatizo kwako, jiunge na #collie-on-other katika [Discord](https://discord.gg/tXFUdasqhY) yetu na uone kama kuna mbinu zozote za kisasa za kuzitatua.
 
 #### Vifaa vyenye Chip ya T1
 

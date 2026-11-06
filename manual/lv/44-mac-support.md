@@ -1,16 +1,16 @@
 # Mac atbalsts
 
-Omarchy ir iebūvēts atbalsts **Intel Mac** datoriem. Pašlaik ir pāris zināmi ierobežojumi, bet, kamēr tu tos apzinies un ar tiem samierinies; tu vari iedvest jaunu dzīvību savos vecajos Mac datoros, uzstādot Omarchy.
+Collie ir iebūvēts atbalsts **Intel Mac** datoriem. Pašlaik ir pāris zināmi ierobežojumi, bet, kamēr tu tos apzinies un ar tiem samierinies; tu vari iedvest jaunu dzīvību savos vecajos Mac datoros, uzstādot Collie.
 
-Lūdzu, ņem vērā, ka uzstādīšana M sērijas Mac datoros pašlaik netiek tieši atbalstīta. Vairāk par šī jautājuma stāvokli vari uzzināt kanālā #omarchy-on-other mūsu [Discord](https://discord.gg/tXFUdasqhY).
+Lūdzu, ņem vērā, ka uzstādīšana M sērijas Mac datoros pašlaik netiek tieši atbalstīta. Vairāk par šī jautājuma stāvokli vari uzzināt kanālā #collie-on-other mūsu [Discord](https://discord.gg/tXFUdasqhY).
 
-Vienkāršā testā mums izdevās panākt 36% veiktspējas pieaugumu 2019. gada MacBook Pro, tikai vien uzstādot Omarchy.
+Vienkāršā testā mums izdevās panākt 36% veiktspējas pieaugumu 2019. gada MacBook Pro, tikai vien uzstādot Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy uzstādīšana Mac datorā
+### Collie uzstādīšana Mac datorā
 
-Omarchy pašlaik atbalsta tikai situāciju, kad tā ir **vienīgā** uzstādītā OS. Uzstādīšanas laikā disks tiks izdzēsts, un MacOS vairs nebūs palaižams.
+Collie pašlaik atbalsta tikai situāciju, kad tā ir **vienīgā** uzstādītā OS. Uzstādīšanas laikā disks tiks izdzēsts, un MacOS vairs nebūs palaižams.
 
 Vēlāk to joprojām varēsi atjaunot, izmantojot Internet Recovery, ja vēlēsies.
 
@@ -39,7 +39,7 @@ Uzstādītājs nosaka Mac aparatūru un automātiski piemēro nepieciešamos lab
 
 ### Zināmie ierobežojumi
 
-Kopienas dalībnieki pastāvīgi strādā pie šo problēmu risinājumiem, tāpēc, ja tās tev traucē, pievienojies #omarchy-on-other mūsu [Discord](https://discord.gg/tXFUdasqhY) un noskaidro, vai ir kādas aktuālas to risināšanas metodes.
+Kopienas dalībnieki pastāvīgi strādā pie šo problēmu risinājumiem, tāpēc, ja tās tev traucē, pievienojies #collie-on-other mūsu [Discord](https://discord.gg/tXFUdasqhY) un noskaidro, vai ir kādas aktuālas to risināšanas metodes.
 
 #### Ierīces ar T1 mikroshēmu
 

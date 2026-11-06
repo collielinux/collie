@@ -7,7 +7,7 @@ import "Commons" as Commons
 ShellRoot {
   id: test
   property bool failed: false
-  readonly property string target: "omarchy.takeover-test"
+  readonly property string target: "collie.takeover-test"
 
   function check(ok, message) {
     if (!ok) {

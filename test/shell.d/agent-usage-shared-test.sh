@@ -27,7 +27,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.dont_write_bytecode = True
-sys.path.insert(0, os.path.join(os.environ["OMARCHY_PATH"], "shell", "plugins", "agents"))
+sys.path.insert(0, os.path.join(os.environ["COLLIE_PATH"], "shell", "plugins", "agents"))
 import collectors  # noqa: E402
 
 work = Path(os.environ["WORK"])
@@ -1322,7 +1322,7 @@ check("a session header nested deeper than the parser goes names no parent inste
 # --------------------------------------------------------------- accounts
 
 os.environ["XDG_STATE_HOME"] = str(work / "state")
-registry = work / "state" / "omarchy" / "agents" / "accounts" / "demo.json"
+registry = work / "state" / "collie" / "agents" / "accounts" / "demo.json"
 registry.parent.mkdir(parents=True)
 registry.write_text(json.dumps({"accounts": [{"id": "main", "primary": True}], "active": "main"}))
 check("a registry with one account adds nothing to the record", collectors.registered_accounts("demo") == [])

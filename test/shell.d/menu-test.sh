@@ -7,21 +7,21 @@ source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 run_node_test <<'JS'
 const fs = require('fs')
 const menu = requireFromRoot('shell/plugins/menu/MenuModel.js')
-const defaultMenuJsonc = fs.readFileSync(path.join(root, 'default/omarchy/omarchy-menu.jsonc'), 'utf8')
+const defaultMenuJsonc = fs.readFileSync(path.join(root, 'default/collie/collie-menu.jsonc'), 'utf8')
 
 assertDeepEqual(
-  menu.summonAction("omarchy-shell shell summon omarchy.speedtest"),
-  { id: 'omarchy.speedtest', payload: '{}' },
+  menu.summonAction("collie-shell shell summon collie.speedtest"),
+  { id: 'collie.speedtest', payload: '{}' },
   'menu runs a bare summon action in-process'
 )
 assertDeepEqual(
-  menu.summonAction(`omarchy-shell shell summon omarchy.image-picker '{"source":"themes"}'`),
-  { id: 'omarchy.image-picker', payload: '{"source":"themes"}' },
+  menu.summonAction(`collie-shell shell summon collie.image-picker '{"source":"themes"}'`),
+  { id: 'collie.image-picker', payload: '{"source":"themes"}' },
   'menu keeps a single-quoted summon payload'
 )
-assertEqual(menu.summonAction("omarchy-shell shell summon omarchy.speedtest && echo done"), null, 'menu leaves compound summon commands to bash')
-assertEqual(menu.summonAction(`omarchy-shell shell summon omarchy.x "$(id)"`), null, 'menu leaves shell-expanded payloads to bash')
-assertEqual(menu.summonAction("omarchy-theme-set nord"), null, 'menu leaves ordinary actions to bash')
+assertEqual(menu.summonAction("collie-shell shell summon collie.speedtest && echo done"), null, 'menu leaves compound summon commands to bash')
+assertEqual(menu.summonAction(`collie-shell shell summon collie.x "$(id)"`), null, 'menu leaves shell-expanded payloads to bash')
+assertEqual(menu.summonAction("collie-theme-set nord"), null, 'menu leaves ordinary actions to bash')
 
 const parsed = menu.parseMenuJsonc(`
 {
@@ -33,7 +33,7 @@ const parsed = menu.parseMenuJsonc(`
       "label": "Themes",
       "aliases": "theme",
       "description": "appearance colors",
-      "action": "omarchy-theme-set"
+      "action": "collie-theme-set"
     },
   },
 }
@@ -52,7 +52,7 @@ assertDeepEqual(
     title: '',
     target: '',
     description: 'appearance colors',
-    action: 'omarchy-theme-set',
+    action: 'collie-theme-set',
     provider: '',
     aliases: ['theme'],
     searchTerms: [],
@@ -65,7 +65,7 @@ assertDeepEqual(
 
 // A watched file read mid-write must keep the rows already there, never
 // replace them with nothing, or the menu opens empty until the shell restarts.
-const shippedMenu = fs.readFileSync(path.join(root, 'default/omarchy/omarchy-menu.jsonc'), 'utf8')
+const shippedMenu = fs.readFileSync(path.join(root, 'default/collie/collie-menu.jsonc'), 'utf8')
 const goodRows = menu.parseMenuJsonc(shippedMenu)
 assert(goodRows.length > 0, 'menu reads the shipped file')
 assertEqual(menu.keepMenuRows(goodRows, shippedMenu.slice(0, Math.floor(shippedMenu.length / 2)), true), goodRows, 'menu keeps its rows when the shipped file is read half-written')
@@ -111,7 +111,7 @@ assert(menu.isVisible(visibilityItems, visibilityOrder, {}, visibilityItems.dyna
 
 // `disabled:` is the softer guard: the row stays listed and only loses the
 // cursor, which is how an already-installed app keeps its place in Install.
-const installed = menu.normalizeItem('install.browser.zen', { label: 'Zen', disabled: 'omarchy-pkg-present zen-browser-bin', action: 'install-zen' })
+const installed = menu.normalizeItem('install.browser.zen', { label: 'Zen', disabled: 'collie-pkg-present zen-browser-bin', action: 'install-zen' })
 assert(menu.isVisible({ 'install.browser.zen': installed }, ['install.browser.zen'], { 'install.browser.zen': false }, installed), 'menu keeps a disabled row visible')
 assert(menu.isDisabled({ 'install.browser.zen': true }, installed), 'menu disables a row whose disabled: succeeded')
 assert(!menu.isDisabled({ 'install.browser.zen': false }, installed), 'menu leaves a row selectable when its disabled: failed')
@@ -210,7 +210,7 @@ assertEqual(menu.resolveRoute(rankBase.items, rankBase.itemOrder, 'toggles'), 't
 // Install rows dim what is already there through `disabled:` (docs/menu.md);
 // hiding one on a presence check makes installed software vanish from the
 // catalog it was installed from. Remove rows are the opposite.
-const presenceCheck = /omarchy-(pkg|cmd)-(present|missing)|\.desktop\b/
+const presenceCheck = /collie-(pkg|cmd)-(present|missing)|\.desktop\b/
 assertDeepEqual(
   defaultItems.filter(item => item.id.startsWith('install.') && item.action && presenceCheck.test(item.when)).map(item => item.id),
   [],
@@ -227,12 +227,12 @@ assert(
   const os = require('os')
   const { execFileSync } = require('child_process')
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'menu-bar-background-'))
-  fs.mkdirSync(path.join(home, '.config/omarchy'), { recursive: true })
+  fs.mkdirSync(path.join(home, '.config/collie'), { recursive: true })
   const checked = bar => {
-    fs.writeFileSync(path.join(home, '.config/omarchy/shell.json'), JSON.stringify({ bar }))
+    fs.writeFileSync(path.join(home, '.config/collie/shell.json'), JSON.stringify({ bar }))
     return ['opaque', 'glassy', 'clear'].filter(look => {
       try {
-        execFileSync('bash', ['-c', defaultById[`appearance.top-bar.background.${look}`].checked], { env: { ...process.env, HOME: home, OMARCHY_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
+        execFileSync('bash', ['-c', defaultById[`appearance.top-bar.background.${look}`].checked], { env: { ...process.env, HOME: home, COLLIE_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
         return true
       } catch (e) {
         return false
@@ -253,7 +253,7 @@ assert(
   const { execFileSync } = require('child_process')
   const stub = fs.mkdtempSync(path.join(os.tmpdir(), 'menu-dock-layout-'))
   const shown = layout => {
-    fs.writeFileSync(path.join(stub, 'omarchy-hyprland-workspace-layout-current'), `#!/bin/bash\necho ${layout}\n`, { mode: 0o755 })
+    fs.writeFileSync(path.join(stub, 'collie-hyprland-workspace-layout-current'), `#!/bin/bash\necho ${layout}\n`, { mode: 0o755 })
     try {
       execFileSync('bash', ['-c', defaultById['appearance.dock'].when], { env: { ...process.env, PATH: `${stub}:${process.env.PATH}` } })
       return true
@@ -272,12 +272,12 @@ assert(
   const os = require('os')
   const { execFileSync } = require('child_process')
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'menu-dock-autohide-'))
-  fs.mkdirSync(path.join(home, '.config/omarchy'), { recursive: true })
+  fs.mkdirSync(path.join(home, '.config/collie'), { recursive: true })
   const shown = dock => {
-    fs.writeFileSync(path.join(home, '.config/omarchy/shell.json'), JSON.stringify({ version: 1, dock }))
+    fs.writeFileSync(path.join(home, '.config/collie/shell.json'), JSON.stringify({ version: 1, dock }))
     return ['autohide', 'always-on'].filter(row => {
       try {
-        execFileSync('bash', ['-c', defaultById[`appearance.dock.${row}`].when], { env: { ...process.env, HOME: home, OMARCHY_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
+        execFileSync('bash', ['-c', defaultById[`appearance.dock.${row}`].when], { env: { ...process.env, HOME: home, COLLIE_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
         return true
       } catch (e) {
         return false
@@ -295,12 +295,12 @@ assert(
   const os = require('os')
   const { execFileSync } = require('child_process')
   const home = fs.mkdtempSync(path.join(os.tmpdir(), 'menu-dock-position-'))
-  fs.mkdirSync(path.join(home, '.config/omarchy'), { recursive: true })
+  fs.mkdirSync(path.join(home, '.config/collie'), { recursive: true })
   const checked = dock => {
-    fs.writeFileSync(path.join(home, '.config/omarchy/shell.json'), JSON.stringify({ version: 1, dock }))
+    fs.writeFileSync(path.join(home, '.config/collie/shell.json'), JSON.stringify({ version: 1, dock }))
     return ['top', 'bottom', 'left', 'right'].filter(position => {
       try {
-        execFileSync('bash', ['-c', defaultById[`appearance.dock.position.${position}`].checked], { env: { ...process.env, HOME: home, OMARCHY_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
+        execFileSync('bash', ['-c', defaultById[`appearance.dock.position.${position}`].checked], { env: { ...process.env, HOME: home, COLLIE_PATH: root, PATH: `${root}/bin:${process.env.PATH}` } })
         return true
       } catch (e) {
         return false
@@ -316,8 +316,8 @@ const clockModel = requireFromRoot('shell/plugins/panels/clock/Model.js')
 const clockRows = defaultItems.filter(item => item.parent === 'appearance.top-bar.indicators.clock')
 // Each row hands bash its format, so ask bash what it hands over.
 const clockRowFormats = key => clockRows
-  .filter(item => item.action.startsWith(`omarchy-bar set omarchy.clock ${key} `))
-  .map(item => require('child_process').execFileSync('bash', ['-c', item.action.replace(`omarchy-bar set omarchy.clock ${key} `, 'printf %s ')], { encoding: 'utf8' }))
+  .filter(item => item.action.startsWith(`collie-bar set collie.clock ${key} `))
+  .map(item => require('child_process').execFileSync('bash', ['-c', item.action.replace(`collie-bar set collie.clock ${key} `, 'printf %s ')], { encoding: 'utf8' }))
 assertDeepEqual(clockRowFormats('format'), clockModel.clockFormats(false), 'menu spells out every horizontal clock format')
 assertDeepEqual(clockRowFormats('verticalFormat'), clockModel.clockFormats(true), 'menu spells out every vertical clock format')
 
@@ -411,16 +411,16 @@ assert(
   'provider merge leaves rows belonging to another provider alone'
 )
 
-// Every glyph the menu draws in the Omarchy font is one the font carries. The
+// Every glyph the menu draws in the Collie font is one the font carries. The
 // ranges come from the font itself, so a new glyph needs no edit here.
 const fontRanges = require('child_process')
-  .execFileSync('fc-query', ['--format=%{charset}', path.join(root, 'default/fonts/omarchy/omarchy.ttf')], { encoding: 'utf8' })
+  .execFileSync('fc-query', ['--format=%{charset}', path.join(root, 'default/fonts/collie/collie.ttf')], { encoding: 'utf8' })
   .trim().split(/\s+/).map(range => range.split('-').map(hex => parseInt(hex, 16)))
-const fontGlyphRows = defaultItems.filter(item => item.iconFont === 'omarchy')
-assert(fontGlyphRows.length > 0, 'the menu draws some glyphs in the Omarchy font')
+const fontGlyphRows = defaultItems.filter(item => item.iconFont === 'collie')
+assert(fontGlyphRows.length > 0, 'the menu draws some glyphs in the Collie font')
 const missingGlyphs = fontGlyphRows
   .flatMap(item => [...item.icon].map(glyph => ({ id: item.id, code: glyph.codePointAt(0) })))
   .filter(({ code }) => !fontRanges.some(([start, end = start]) => code >= start && code <= end))
   .map(({ id, code }) => `${id} U+${code.toString(16)}`)
-assertDeepEqual(missingGlyphs, [], 'every menu glyph drawn in the Omarchy font is one the font carries')
+assertDeepEqual(missingGlyphs, [], 'every menu glyph drawn in the Collie font is one the font carries')
 JS

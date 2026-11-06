@@ -1,16 +1,16 @@
 # Mac-ondersteuning
 
-Omarchy heeft ingebouwde ondersteuning voor **Intel Macs**. Er zijn op dit moment een paar bekende beperkingen, maar zolang je daarvan op de hoogte bent en daarmee akkoord gaat, kun je je oude Macs nieuw leven inblazen door Omarchy erop te zetten.
+Collie heeft ingebouwde ondersteuning voor **Intel Macs**. Er zijn op dit moment een paar bekende beperkingen, maar zolang je daarvan op de hoogte bent en daarmee akkoord gaat, kun je je oude Macs nieuw leven inblazen door Collie erop te zetten.
 
-Let op: installeren op een M-series Mac wordt op dit moment niet direct ondersteund. Meer informatie over de stand van zaken vind je in #omarchy-on-other in onze [Discord](https://discord.gg/tXFUdasqhY).
+Let op: installeren op een M-series Mac wordt op dit moment niet direct ondersteund. Meer informatie over de stand van zaken vind je in #collie-on-other in onze [Discord](https://discord.gg/tXFUdasqhY).
 
-In een eenvoudige test wisten we 36% prestatiewinst te behalen op een MacBook Pro uit 2019, alleen al door Omarchy te installeren.
+In een eenvoudige test wisten we 36% prestatiewinst te behalen op een MacBook Pro uit 2019, alleen al door Collie te installeren.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy installeren op een Mac
+### Collie installeren op een Mac
 
-Omarchy ondersteunt op dit moment alleen dat het het **enige** geïnstalleerde besturingssysteem is. Tijdens de installatie wordt de schijf gewist en is MacOS daarna niet meer opstartbaar.
+Collie ondersteunt op dit moment alleen dat het het **enige** geïnstalleerde besturingssysteem is. Tijdens de installatie wordt de schijf gewist en is MacOS daarna niet meer opstartbaar.
 
 Je kunt het later alsnog herstellen via Internet Recovery als je dat wilt.
 
@@ -39,7 +39,7 @@ Het installatieprogramma detecteert Mac-hardware en past de benodigde fixes auto
 
 ### Bekende beperkingen
 
-Leden van de community werken voortdurend aan oplossingen voor deze uitdagingen, dus als dit voor jou problematisch is, ga dan naar #omarchy-on-other in onze [Discord](https://discord.gg/tXFUdasqhY) en kijk of er actuele methoden zijn om ze op te lossen.
+Leden van de community werken voortdurend aan oplossingen voor deze uitdagingen, dus als dit voor jou problematisch is, ga dan naar #collie-on-other in onze [Discord](https://discord.gg/tXFUdasqhY) en kijk of er actuele methoden zijn om ze op te lossen.
 
 #### Apparaten met T1-chip
 

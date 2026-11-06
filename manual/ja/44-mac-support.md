@@ -1,16 +1,16 @@
 # Mac サポート
 
-Omarchy には **Intel Mac** 向けのサポートが組み込まれています。現時点では既知の制限がいくつかありますが、それを把握し、問題ないのであれば、古い Mac に Omarchy を入れて新たな命を吹き込めます。
+Collie には **Intel Mac** 向けのサポートが組み込まれています。現時点では既知の制限がいくつかありますが、それを把握し、問題ないのであれば、古い Mac に Collie を入れて新たな命を吹き込めます。
 
-M シリーズ Mac へのインストールは、現時点では直接サポートされていないことに注意してください。その状況については、[Discord](https://discord.gg/tXFUdasqhY) の #omarchy-on-other で詳しく確認できます。
+M シリーズ Mac へのインストールは、現時点では直接サポートされていないことに注意してください。その状況については、[Discord](https://discord.gg/tXFUdasqhY) の #collie-on-other で詳しく確認できます。
 
-簡単なテストでは、2019 年製 MacBook Pro に Omarchy をインストールしただけで、36% のパフォーマンス向上を達成できました。
+簡単なテストでは、2019 年製 MacBook Pro に Collie をインストールしただけで、36% のパフォーマンス向上を達成できました。
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Mac に Omarchy をインストールする
+### Mac に Collie をインストールする
 
-Omarchy は現時点では、インストールされる**唯一**の OS であることのみをサポートしています。インストール中にドライブは消去され、MacOS は二度と起動できなくなります。
+Collie は現時点では、インストールされる**唯一**の OS であることのみをサポートしています。インストール中にドライブは消去され、MacOS は二度と起動できなくなります。
 
 後で Internet Recovery 経由で復元することは可能です。
 
@@ -39,7 +39,7 @@ Omarchy は現時点では、インストールされる**唯一**の OS であ�
 
 ### 既知の制限事項
 
-コミュニティのメンバーがこれらの課題の解決策に常に取り組んでいます。これらが問題になる場合は、[Discord](https://discord.gg/tXFUdasqhY) の #omarchy-on-other に参加し、最新の解決方法がないか確認してください。
+コミュニティのメンバーがこれらの課題の解決策に常に取り組んでいます。これらが問題になる場合は、[Discord](https://discord.gg/tXFUdasqhY) の #collie-on-other に参加し、最新の解決方法がないか確認してください。
 
 #### T1 チップ搭載デバイス
 

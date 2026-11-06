@@ -1,14 +1,14 @@
 # Efsta stikan
 
-Röndin efst á skjánum þínum er Omarchy-sláin. Hún er ekki áfest stöðuslá heldur hluti af Omarchy-skelinni, því eina langlífa Quickshell-ferli sem einnig teiknar valmyndina, tilkynningarnar, OSD-spjöldin og læsiskjáinn. Þess vegna þemast hún fullkomlega með öllu öðru og þess vegna opnast spjald samstundis í stað þess að ræsa nýtt forrit.
+Röndin efst á skjánum þínum er Collie-sláin. Hún er ekki áfest stöðuslá heldur hluti af Collie-skelinni, því eina langlífa Quickshell-ferli sem einnig teiknar valmyndina, tilkynningarnar, OSD-spjöldin og læsiskjáinn. Þess vegna þemast hún fullkomlega með öllu öðru og þess vegna opnast spjald samstundis í stað þess að ræsa nýtt forrit.
 
 Hún er líka eini hluti skjáborðsins sem er alltaf á skjánum, svo það er þess virði að vita hvað öll þessi litlu tákn gera.
 
 ## Hvað er á henni sjálfgefið
 
-Sláin hefur þrjá hluta. Til vinstri situr Omarchy-merkið (valmyndaræsarinn) og vinnusvæðavísarnir. Í miðjunni færðu stöðuvísana, klukkuna, Elsewhen (heimsklukku), veðrið og merki um Omarchy-uppfærslu. Til hægri: kerfisbakkan, lyklaborðsuppsetninguna (þegar fleiri en ein er stillt), umboð, bluetooth, net, hljóð, skjá og afl.
+Sláin hefur þrjá hluta. Til vinstri situr Collie-merkið (valmyndaræsarinn) og vinnusvæðavísarnir. Í miðjunni færðu stöðuvísana, klukkuna, Elsewhen (heimsklukku), veðrið og merki um Collie-uppfærslu. Til hægri: kerfisbakkan, lyklaborðsuppsetninguna (þegar fleiri en ein er stillt), umboð, bluetooth, net, hljóð, skjá og afl.
 
-Nokkrir þeirra birtast aðeins þegar þeir hafa eitthvað að segja. Lyklaborðsuppsetningin birtist aðeins ef þú hefur stillt fleiri en eina uppsetningu. Uppfærslumerkið birtist aðeins þegar Omarchy-uppfærsla bíður. Og umboðstáknið birtist í fyrsta skipti sem Omarchy finnur notkun gervigreindarkóðunar á vélinni (sjá [Gervigreind](17-ai.md)).
+Nokkrir þeirra birtast aðeins þegar þeir hafa eitthvað að segja. Lyklaborðsuppsetningin birtist aðeins ef þú hefur stillt fleiri en eina uppsetningu. Uppfærslumerkið birtist aðeins þegar Collie-uppfærsla bíður. Og umboðstáknið birtist í fyrsta skipti sem Collie finnur notkun gervigreindarkóðunar á vélinni (sjá [Gervigreind](17-ai.md)).
 
 ## Að smella um
 
@@ -16,7 +16,7 @@ Næstum hver bútur gerir eitthvað við vinstri, hægri og miðsmell, og nokkri
 
 | Bútur | Vinstri | Hægri | Miðja / skrun |
 | --- | --- | --- | --- |
-| Valmynd | Omarchy-valmynd | Nýr útstöð | — |
+| Valmynd | Collie-valmynd | Nýr útstöð | — |
 | Vinnusvæði | Beina fókus á það vinnusvæði á þessum skjá | — | Skrun: næsta/fyrra vinnusvæði |
 | Klukka | Dagatalsspjald | Skipta um snið merkisins | Miðja: tímabeltisval |
 | Veður | Veðurspáspspjald | Fullt veður sem tilkynning | Miðja: endurnýja |
@@ -29,7 +29,7 @@ Næstum hver bútur gerir eitthvað við vinstri, hægri og miðsmell, og nokkri
 | Margmiðlun | Spila/setja á pásu | Kápumyndarspjald | Miðja: næsta · skrun: fyrra/næsta |
 | Umboð | Umboðsspjald | Ræsa umboðið þitt | Miðja: næsta áskrift |
 | Bakki | Sveima til að sýna skúffuna | Hægri á örinni til að stjórna | — |
-| Omarchy-uppfærsla | Keyra uppfærsluna | — | — |
+| Collie-uppfærsla | Keyra uppfærsluna | — | — |
 
 Ekki er allt í þeirri töflu á slánni þinni úr kassanum. Margmiðlunarbúturinn (MPRIS sem er að spila núna, með skrunandi lagi og listamanni) og hljóðnemabúturinn eru báðir innbyggðir en slökktir sjálfgefið — bættu þeim við ef þú vilt þá, eins og lýst er hér að neðan.
 
@@ -66,7 +66,7 @@ Hvert spjald tekur við lyklaborðinu jafnt sem músinni: örvar færast, Return
 
 Tveir bútar í viðbót birtast á slánni aðeins þegar þú setur upp samsvarandi þjónustu úr **Install → Service**, og báðir eru þess virði að vita af því þeir gera meira en að tilkynna stöðu.
 
-**Tailscale**-spjaldið tengir og aftengir tailnet-ið, skiptir á milli reikninga og velur útgönguhnút (þínar eigin vélar og Mullvad-svæði birtast bæði í þeim lista). Það vafrar líka um vélarnar þínar — og með eina valda sendir `s` skrár til hennar yfir Taildrop, sem er fljótlegasta leiðin til að færa skrá í símann þinn eða aðra fartölvu. `c` afritar IP-tölu vélarinnar, `n` nafn hennar og `d` fullt DNS-nafn hennar. Það er líka sendingarhnappur á hverri vélaröð, ef þú vilt frekar smella. Sama hluturinn úr útstöðinni er `omarchy tailscale send <machine> [file...]`.
+**Tailscale**-spjaldið tengir og aftengir tailnet-ið, skiptir á milli reikninga og velur útgönguhnút (þínar eigin vélar og Mullvad-svæði birtast bæði í þeim lista). Það vafrar líka um vélarnar þínar — og með eina valda sendir `s` skrár til hennar yfir Taildrop, sem er fljótlegasta leiðin til að færa skrá í símann þinn eða aðra fartölvu. `c` afritar IP-tölu vélarinnar, `n` nafn hennar og `d` fullt DNS-nafn hennar. Það er líka sendingarhnappur á hverri vélaröð, ef þú vilt frekar smella. Sama hluturinn úr útstöðinni er `collie tailscale send <machine> [file...]`.
 
 **Dropbox**-spjaldið sér um innskráningu, sýnir hversu mikið geymslurými þú hefur notað og listar nýlega samstilltar skrár.
 
@@ -93,19 +93,19 @@ Ef þú vilt frekar velja úr valmynd hefur **Appearance → Menu Bar** staðset
 Sömu hlutir hafa skipanir, sem er það sem þú vilt fyrir [dotfiles](31-dotfiles.md) uppsetningu:
 
 ```bash
-omarchy bar position bottom
-omarchy bar background glassy  # opaque, glassy, none, or cycle
-omarchy bar move omarchy.weather --section centerBegin --index 0
-omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
-omarchy bar set omarchy.clock format "HH:mm"
-omarchy bar defaults          # back to the shipped layout
+collie bar position bottom
+collie bar background glassy  # opaque, glassy, none, or cycle
+collie bar move collie.weather --section centerBegin --index 0
+collie bar move collie.bluetooth --section tray  # into the tray's drawer
+collie bar set collie.clock format "HH:mm"
+collie bar defaults          # back to the shipped layout
 ```
 
-Til að bæta við eða fjarlægja bút alfarið skaltu nota viðbótaskipanirnar. `omarchy plugin list` prentar hvern bút sem skelin þekkir með auðkenni hans, og síðan:
+Til að bæta við eða fjarlægja bút alfarið skaltu nota viðbótaskipanirnar. `collie plugin list` prentar hvern bút sem skelin þekkir með auðkenni hans, og síðan:
 
 ```bash
-omarchy plugin enable omarchy.media --section centerEnd
-omarchy plugin disable omarchy.weather
+collie plugin enable collie.media --section centerEnd
+collie plugin disable collie.weather
 ```
 
 ## Að fela slána
@@ -114,7 +114,7 @@ omarchy plugin disable omarchy.weather
 
 ## Stillingaskráin
 
-Allt þetta er geymt í `~/.config/omarchy/shell.json`, undir `bar`-lyklinum. Hér er stytt útgáfa:
+Allt þetta er geymt í `~/.config/collie/shell.json`, undir `bar`-lyklinum. Hér er stytt útgáfa:
 
 ```json
 {
@@ -123,20 +123,20 @@ Allt þetta er geymt í `~/.config/omarchy/shell.json`, undir `bar`-lyklinum. H�
     "position": "top",
     "background": "opaque",
     "layout": {
-      "left": [{ "id": "omarchy.menu" }, { "id": "omarchy.workspaces" }],
-      "centerBegin": [{ "id": "omarchy.indicators" }],
-      "center": [{ "id": "omarchy.clock", "format": "HH:mm" }],
-      "centerEnd": [{ "id": "omarchy.weather" }],
-      "right": [{ "id": "omarchy.audio" }, { "id": "omarchy.power" }]
+      "left": [{ "id": "collie.menu" }, { "id": "collie.workspaces" }],
+      "centerBegin": [{ "id": "collie.indicators" }],
+      "center": [{ "id": "collie.clock", "format": "HH:mm" }],
+      "centerEnd": [{ "id": "collie.weather" }],
+      "right": [{ "id": "collie.audio" }, { "id": "collie.power" }]
     }
   }
 }
 ```
 
-Hver bútur er ein færsla í einum af fimm uppsetningarfylkjunum, og stillingar hans sitja innfelldar á þeirri færslu — það er engin sérstök stillingaskrá og ekkert `config`-undirhlut. `format`, `formatAlt` (það sem hægrismellur skiptir yfir í) og `verticalFormat` klukkunnar búa öll þar á `{ "id": "omarchy.clock" }`.
+Hver bútur er ein færsla í einum af fimm uppsetningarfylkjunum, og stillingar hans sitja innfelldar á þeirri færslu — það er engin sérstök stillingaskrá og ekkert `config`-undirhlut. `format`, `formatAlt` (það sem hægrismellur skiptir yfir í) og `verticalFormat` klukkunnar búa öll þar á `{ "id": "collie.clock" }`.
 
 `center` er kassinn í miðri slánni: allt í honum er miðjað á skjánum sem einn hópur. `centerBegin` og `centerEnd` hanga af hvorri hlið kassans, sem er hvernig klukkan helst dauðmiðjuð jafnvel þegar veðrið og uppfærslumerkið koma og fara. Settu fleiri en einn bút í `center` og þeir eru miðjaðir saman; skildu hann eftir tóman og `centerBegin` og `centerEnd` mætast í miðri slánni.
 
-Ein regla sem vert er að tileinka sér: **þegar þú átt þína eigin `shell.json` er hún frumheimildin**. Þangað til þú sérsníður eitthvað les skelin sjálfgefna skrá Omarchy. Um leið og þú dregur bút, keyrir `omarchy bar` eða breytir skránni sjálfur átt þú hana — það er engin djúp sameining, svo nýir sjálfgefnir bútar í framtíðarútgáfum Omarchy munu ekki birtast á slánni þinni sjálfkrafa. `omarchy bar defaults` setur afhentu uppsetninguna aftur hvenær sem þú vilt hreint borð.
+Ein regla sem vert er að tileinka sér: **þegar þú átt þína eigin `shell.json` er hún frumheimildin**. Þangað til þú sérsníður eitthvað les skelin sjálfgefna skrá Collie. Um leið og þú dregur bút, keyrir `collie bar` eða breytir skránni sjálfur átt þú hana — það er engin djúp sameining, svo nýir sjálfgefnir bútar í framtíðarútgáfum Collie munu ekki birtast á slánni þinni sjálfkrafa. `collie bar defaults` setur afhentu uppsetninguna aftur hvenær sem þú vilt hreint borð.
 
 Sama skrá geymir líka aðgerðaleysistíma þína á efsta stigi, utan `bar`-lykilsins: `idle.screensaver` og `idle.lock`, bæði í sekúndum frá því þú varðst aðgerðalaus. Svo sjálfgefni skjávörðurinn fer í gang eftir 150 sekúndur og læsingin eftir 300.

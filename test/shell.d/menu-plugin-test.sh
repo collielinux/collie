@@ -12,15 +12,15 @@ trap 'rm -rf "$TMPDIR"' EXIT
 STUB_DIR="$TMPDIR/stub"
 mkdir -p "$STUB_DIR"
 
-# The picker reads the plugin list from omarchy-plugin-list and hands what it
+# The picker reads the plugin list from collie-plugin-list and hands what it
 # decided to a verb-specific command, so stubbing both ends shows which plugin
 # a pick actually resolved to -- the thing a source-level check cannot see.
-cat >"$STUB_DIR/omarchy-plugin-list" <<'STUB'
+cat >"$STUB_DIR/collie-plugin-list" <<'STUB'
 #!/bin/bash
 cat "$FAKE_PLUGINS"
 STUB
 
-for command in omarchy-plugin-enable omarchy-plugin-disable; do
+for command in collie-plugin-enable collie-plugin-disable; do
   cat >"$STUB_DIR/$command" <<'STUB'
 #!/bin/bash
 printf '%s %s\n' "${0##*/}" "$*" >>"$FAKE_CALLS"
@@ -28,18 +28,18 @@ STUB
 done
 
 # Records the rows it was offered, then answers with the pick under test.
-cat >"$STUB_DIR/omarchy-menu-select" <<'STUB'
+cat >"$STUB_DIR/collie-menu-select" <<'STUB'
 #!/bin/bash
 cat >"$FAKE_ROWS"
 printf '%s\n' "$FAKE_PICK"
 STUB
 
-cat >"$STUB_DIR/omarchy-notification-send" <<'STUB'
+cat >"$STUB_DIR/collie-notification-send" <<'STUB'
 #!/bin/bash
 printf 'notification: %s\n' "$*" >>"$FAKE_CALLS"
 STUB
 
-cat >"$STUB_DIR/omarchy-launch-floating-terminal-with-presentation" <<'STUB'
+cat >"$STUB_DIR/collie-launch-floating-terminal-with-presentation" <<'STUB'
 #!/bin/bash
 printf 'terminal: %s\n' "$*" >>"$FAKE_CALLS"
 STUB
@@ -59,7 +59,7 @@ pick() {
     FAKE_CALLS="$TMPDIR/calls" \
     FAKE_ROWS="$TMPDIR/rows" \
     FAKE_PICK="$choice" \
-    "$ROOT/bin/omarchy-menu-plugin" "$verb" >/dev/null 2>&1
+    "$ROOT/bin/collie-menu-plugin" "$verb" >/dev/null 2>&1
 
   ROWS=$(cat "$TMPDIR/rows")
   CALLS=$(cat "$TMPDIR/calls")
@@ -69,21 +69,21 @@ pick() {
 # subtext and comes back with the selection, so the pick resolves by id.
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
-  {"id": "omarchy.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": true},
+  {"id": "collie.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": true},
   {"id": "tester.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": false}
 ]
 JSON
 
 pick enable "$(printf 'Clock\ttester.clock')"
-[[ $ROWS == *"$(printf 'Clock\tomarchy.clock')"* && $ROWS == *"$(printf 'Clock\ttester.clock')"* ]] \
+[[ $ROWS == *"$(printf 'Clock\tcollie.clock')"* && $ROWS == *"$(printf 'Clock\ttester.clock')"* ]] \
   || fail "picker offers the id as subtext on every row" "$ROWS"
 pass "picker offers the id as subtext on every row"
-[[ $CALLS == *"omarchy-plugin-enable tester.clock"* ]] \
+[[ $CALLS == *"collie-plugin-enable tester.clock"* ]] \
   || fail "picker acts on the row that was picked, not the one that shares its name" "$CALLS"
 pass "picker acts on the row that was picked, not the one that shares its name"
 
 pick remove "$(printf 'Clock\ttester.clock')"
-[[ $CALLS == *"omarchy-plugin-remove tester.clock"* ]] \
+[[ $CALLS == *"collie-plugin-remove tester.clock"* ]] \
   || fail "picker removes the plugin whose row was picked" "$CALLS"
 pass "picker removes the plugin whose row was picked"
 
@@ -91,16 +91,16 @@ pass "picker removes the plugin whose row was picked"
 # then hands the pick to the clone command, which opens the result in $EDITOR.
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
-  {"id": "omarchy.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true},
+  {"id": "collie.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true},
   {"id": "acme.weather", "name": "Weather", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": false}
 ]
 JSON
 
-pick clone "$(printf 'Clock\tomarchy.clock')"
+pick clone "$(printf 'Clock\tcollie.clock')"
 [[ $ROWS == *"Clock"* && $ROWS != *"Weather"* ]] ||
   fail "clone picker offers only built-in plugins" "$ROWS"
 pass "clone picker offers built-in plugins"
-[[ $CALLS == *"terminal: omarchy-plugin-clone omarchy.clock --edit"* ]] ||
+[[ $CALLS == *"terminal: collie-plugin-clone collie.clock --edit"* ]] ||
   fail "clone picker delegates cloning and editing to the clone command" "$CALLS"
 pass "clone picker clones and opens the personal plugin"
 
@@ -108,8 +108,8 @@ pass "clone picker clones and opens the personal plugin"
 # the source no longer belongs in Clone.
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
-  {"id": "omarchy.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true},
-  {"id": "tester.clock", "name": "My Clock", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": false, "clonedFrom": "omarchy.clock"}
+  {"id": "collie.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true},
+  {"id": "tester.clock", "name": "My Clock", "kinds": ["bar-widget"], "enabled": false, "active": false, "canDisable": true, "firstParty": false, "clonedFrom": "collie.clock"}
 ]
 JSON
 
@@ -123,11 +123,11 @@ pass "clone picker omits plugins already cloned locally"
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
   {"id": "acme.fancy", "name": "Fancy", "kinds": ["bar", "bar-widget"], "enabled": true, "active": true, "canDisable": false, "firstParty": false},
-  {"id": "omarchy.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true}
+  {"id": "collie.clock", "name": "Clock", "kinds": ["bar-widget"], "enabled": true, "active": false, "canDisable": true, "firstParty": true}
 ]
 JSON
 
-pick disable "$(printf 'Clock\tomarchy.clock')"
+pick disable "$(printf 'Clock\tcollie.clock')"
 [[ $ROWS == *"Clock"* && $ROWS != *"Fancy"* ]] \
   || fail "picker keeps a bar out of disable" "$ROWS"
 pass "picker keeps a bar out of disable"
@@ -135,12 +135,12 @@ pass "picker keeps a bar out of disable"
 # The bar in use is the row absent from enable; every other bar is one pick away.
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
-  {"id": "omarchy.bar", "name": "Bar", "kinds": ["bar"], "enabled": false, "active": false, "canDisable": false, "firstParty": true},
+  {"id": "collie.bar", "name": "Bar", "kinds": ["bar"], "enabled": false, "active": false, "canDisable": false, "firstParty": true},
   {"id": "tester.neon-bar", "name": "Neon Bar", "kinds": ["bar"], "enabled": true, "active": true, "canDisable": false, "firstParty": false}
 ]
 JSON
 
-pick enable "$(printf 'Bar\tomarchy.bar')"
+pick enable "$(printf 'Bar\tcollie.bar')"
 [[ $ROWS == *"Bar"* && $ROWS != *"Neon Bar"* ]] \
   || fail "picker offers every bar except the one already running" "$ROWS"
 pass "picker offers every bar except the one already running"
@@ -148,7 +148,7 @@ pass "picker offers every bar except the one already running"
 # Nothing the verb can act on is said out loud, not opened as an empty list.
 cat >"$TMPDIR/plugins.json" <<'JSON'
 [
-  {"id": "omarchy.bar", "name": "Bar", "kinds": ["bar"], "enabled": true, "active": true, "canDisable": false, "firstParty": true}
+  {"id": "collie.bar", "name": "Bar", "kinds": ["bar"], "enabled": true, "active": true, "canDisable": false, "firstParty": true}
 ]
 JSON
 

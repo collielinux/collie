@@ -1,0 +1,41 @@
+# Hyprland global shortcuts the Collie shell registers, one per line: a menu
+# route to toggle, a panel plugin to toggle, a volume or brightness key, or an
+# argument-free IPC call as target.method. A binding written as o.bind(keys,
+# description, { menu = "theme" }), { panel = "collie.emojis" },
+# { audio = "raise" }, { brightness = "raise" } or { ipc = "media.next" }
+# dispatches the matching shortcut straight to the shell, with no process to
+# spawn per keypress. Anything missing here still binds, through the
+# collie-menu, collie-shell, collie-audio-output-volume or
+# collie-brightness-display command instead.
+menu root
+menu apps
+menu capture
+menu toggle
+menu hardware
+menu system
+menu background
+menu theme
+menu share
+menu reminder-set
+panel collie.clipboard
+panel collie.emojis
+panel collie.audio
+panel collie.bluetooth
+panel collie.monitor
+panel collie.clock
+panel collie.elsewhen
+panel collie.network
+panel collie.power
+audio raise
+audio lower
+audio mute-toggle
+brightness raise
+brightness lower
+ipc media.playPause
+ipc media.next
+ipc media.previous
+ipc notifications.act
+ipc notifications.dismissOne
+ipc notifications.dismissAll
+ipc notifications.invokeLast
+ipc notifications.showHistory

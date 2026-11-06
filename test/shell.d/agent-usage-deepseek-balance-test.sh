@@ -63,7 +63,7 @@ record, http = deepseek()
 expect("DeepSeek collector --force asks past the reuse window", [http.count, record["balance"]["remaining"]], [1, 40.0], record)
 
 # The estimated ledger comes from fundedAmount, applied to a kept balance too.
-write_json(config_home() / "omarchy" / "agents" / "deepseek.json", {"fundedAmount": 50})
+write_json(config_home() / "collie" / "agents" / "deepseek.json", {"fundedAmount": 50})
 answer.update(total="8.15", currency="USD")
 record, _ = deepseek()
 expect("DeepSeek collector derives the estimated ledger from fundedAmount",

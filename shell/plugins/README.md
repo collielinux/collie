@@ -1,44 +1,44 @@
 # First-party plugins
 
-These plugins ship with Omarchy and are discovered by the shell at startup.
+These plugins ship with Collie and are discovered by the shell at startup.
 They use the same `manifest.json` contract as third-party plugins; the
 only difference is that the shell flags them with `__isFirstParty: true`.
 First-party non-bar plugins are enabled unless listed in `disabledPlugins[]`;
-`omarchy.bar` is the default bar option and becomes inactive only while another
+`collie.bar` is the default bar option and becomes inactive only while another
 `kind: "bar"` plugin is selected. Services and keep-loaded panels are mounted
 at startup; other panels, overlays, and menus are loaded on demand.
 
 User-installed plugins live alongside these conceptually but on disk under
-`~/.config/omarchy/plugins/<plugin-id>/` rather than in this directory.
+`~/.config/collie/plugins/<plugin-id>/` rather than in this directory.
 
 | Plugin        | id                        | kinds                   | entry point                           |
 |---------------|---------------------------|-------------------------|---------------------------------------|
-| Bar           | `omarchy.bar`             | `bar`                   | `bar/Bar.qml`                         |
-| Image picker  | `omarchy.image-picker`    | `overlay`               | `image-picker/ImagePicker.qml`        |
-| Emojis        | `omarchy.emojis`          | `overlay`               | `emojis/Emojis.qml`                   |
-| Clipboard mgr | `omarchy.clipboard`       | `overlay`               | `clipboard/Clipboard.qml`             |
-| Reminders     | `omarchy.reminders`       | `overlay`               | `reminders/ReminderFlow.qml`          |
-| Omarchy menu  | `omarchy.menu`            | `menu`, `bar-widget`    | `menu/Menu.qml`, `menu/BarWidget.qml` |
-| Notifications | `omarchy.notifications`   | `service`               | `notifications/Service.qml`           |
-| Audio         | `omarchy.audio`           | `bar-widget`            | `panels/audio/Panel.qml`              |
-| Bluetooth     | `omarchy.bluetooth`       | `bar-widget`            | `panels/bluetooth/Panel.qml`          |
-| Clock         | `omarchy.clock`           | `bar-widget`            | `panels/clock/BarWidget.qml`          |
-| Elsewhen      | `omarchy.elsewhen`        | `bar-widget`            | `panels/elsewhen/Panel.qml`           |
-| Monitor       | `omarchy.monitor`         | `bar-widget`            | `panels/monitor/Panel.qml`            |
-| Network       | `omarchy.network`         | `bar-widget`            | `panels/network/Panel.qml`            |
-| Power         | `omarchy.power`           | `bar-widget`            | `panels/power/Panel.qml`              |
-| Tailscale     | `omarchy.tailscale`       | `bar-widget`            | `panels/tailscale/Panel.qml`          |
-| Agents   | `omarchy.agents`     | `bar-widget`            | `agents/Panel.qml`               |
-| Weather       | `omarchy.weather`         | `bar-widget`            | `panels/weather/BarWidget.qml`        |
-| Media         | `omarchy.media`           | `service`, `bar-widget` | `services/media/Service.qml`, `services/media/BarWidget.qml` |
-| Battery       | `omarchy.battery`         | `service`               | `services/battery/Service.qml`        |
-| Idle          | `omarchy.idle`            | `service`               | `services/idle/Service.qml`           |
-| Night light   | `omarchy.nightlight`      | `service`               | `services/nightlight/Service.qml`     |
-| Remote session | `omarchy.remote-session` | `service`               | `services/remote-session/Service.qml` |
-| Lock screen   | `omarchy.lock`            | `service`               | `lock/Service.qml`                    |
-| OSD           | `omarchy.osd`             | `panel`                 | `osd/Osd.qml`                         |
-| Polkit agent  | `omarchy.polkit`          | `service`               | `polkit/PolkitAgent.qml`              |
-| Dock          | `omarchy.dock`            | `service`               | `dock/Dock.qml`                       |
+| Bar           | `collie.bar`             | `bar`                   | `bar/Bar.qml`                         |
+| Image picker  | `collie.image-picker`    | `overlay`               | `image-picker/ImagePicker.qml`        |
+| Emojis        | `collie.emojis`          | `overlay`               | `emojis/Emojis.qml`                   |
+| Clipboard mgr | `collie.clipboard`       | `overlay`               | `clipboard/Clipboard.qml`             |
+| Reminders     | `collie.reminders`       | `overlay`               | `reminders/ReminderFlow.qml`          |
+| Collie menu  | `collie.menu`            | `menu`, `bar-widget`    | `menu/Menu.qml`, `menu/BarWidget.qml` |
+| Notifications | `collie.notifications`   | `service`               | `notifications/Service.qml`           |
+| Audio         | `collie.audio`           | `bar-widget`            | `panels/audio/Panel.qml`              |
+| Bluetooth     | `collie.bluetooth`       | `bar-widget`            | `panels/bluetooth/Panel.qml`          |
+| Clock         | `collie.clock`           | `bar-widget`            | `panels/clock/BarWidget.qml`          |
+| Elsewhen      | `collie.elsewhen`        | `bar-widget`            | `panels/elsewhen/Panel.qml`           |
+| Monitor       | `collie.monitor`         | `bar-widget`            | `panels/monitor/Panel.qml`            |
+| Network       | `collie.network`         | `bar-widget`            | `panels/network/Panel.qml`            |
+| Power         | `collie.power`           | `bar-widget`            | `panels/power/Panel.qml`              |
+| Tailscale     | `collie.tailscale`       | `bar-widget`            | `panels/tailscale/Panel.qml`          |
+| Agents   | `collie.agents`     | `bar-widget`            | `agents/Panel.qml`               |
+| Weather       | `collie.weather`         | `bar-widget`            | `panels/weather/BarWidget.qml`        |
+| Media         | `collie.media`           | `service`, `bar-widget` | `services/media/Service.qml`, `services/media/BarWidget.qml` |
+| Battery       | `collie.battery`         | `service`               | `services/battery/Service.qml`        |
+| Idle          | `collie.idle`            | `service`               | `services/idle/Service.qml`           |
+| Night light   | `collie.nightlight`      | `service`               | `services/nightlight/Service.qml`     |
+| Remote session | `collie.remote-session` | `service`               | `services/remote-session/Service.qml` |
+| Lock screen   | `collie.lock`            | `service`               | `lock/Service.qml`                    |
+| OSD           | `collie.osd`             | `panel`                 | `osd/Osd.qml`                         |
+| Polkit agent  | `collie.polkit`          | `service`               | `polkit/PolkitAgent.qml`              |
+| Dock          | `collie.dock`            | `service`               | `dock/Dock.qml`                       |
 
 First-party bar-only widgets also carry manifests next to their QML files,
 e.g. `bar/widgets/Workspaces.manifest.json`. Rich popup widgets live in their
@@ -47,26 +47,26 @@ own plugin directories, each with its own `manifest.json`.
 ## Bar
 
 The built-in status bar and default full-bar option. Layout lives in the
-top-level `bar:` subtree of `~/.config/omarchy/shell.json` (with the shell
-providing [`config/omarchy/shell.json`](../../config/omarchy/shell.json) when
+top-level `bar:` subtree of `~/.config/collie/shell.json` (with the shell
+providing [`config/collie/shell.json`](../../config/collie/shell.json) when
 the user has no file). See [`bar/README.md`](bar/README.md) for the widget catalogue
 and customization schema.
 
 ## Image picker
 
-Fullscreen image-grid selector overlay. Used by `omarchy-menu-images`
-(wallpaper picker) and `omarchy-theme-switcher` (theme picker) and any
+Fullscreen image-grid selector overlay. Used by `collie-menu-images`
+(wallpaper picker) and `collie-theme-switcher` (theme picker) and any
 other caller that wants to present a directory of images with previews.
 
 Two ways to drive it:
 
-- Shell-level summon: `omarchy-shell shell summon omarchy.image-picker '<jsonPayload>'`.
+- Shell-level summon: `collie-shell shell summon collie.image-picker '<jsonPayload>'`.
   The payload can carry `imageDirs`, `imageRows`, `selectedImage`,
   `selectionFile`, `doneFile`, `showLabels`, `filterable`. Best for
   in-shell callers that already speak JSON.
-- Direct IPC target: `omarchy-shell image-selector open <imageDirs> <imageRowsB64> <selectedImage> <selectionFile> <doneFile> <showLabels> <filterable>`.
+- Direct IPC target: `collie-shell image-selector open <imageDirs> <imageRowsB64> <selectedImage> <selectionFile> <doneFile> <showLabels> <filterable>`.
   Positional args; `imageRowsB64` is base64-encoded so embedded newlines /
-  tabs survive the bash argv handoff. This is what `omarchy-menu-images`
+  tabs survive the bash argv handoff. This is what `collie-menu-images`
   uses. Colors come from the central shell theme singleton; there is no
   per-call override surface.
 
@@ -84,8 +84,8 @@ The carousel renders only the slices that fit on the screen plus one prefetch sl
 ## Lock screen
 
 Session-lock surface using Quickshell's native `WlSessionLock` and two
-separate PAM services: `omarchy-lock-password` for password auth and,
-only when fingerprints are enrolled, `omarchy-lock-fingerprint` for
+separate PAM services: `collie-lock-password` for password auth and,
+only when fingerprints are enrolled, `collie-lock-fingerprint` for
 fingerprint auth. It mirrors the previous lock screen field dimensions,
 colors, blurred wallpaper, placeholder, and Hyprland-driven corners.
 The plugin sets `keepLoaded: true` so a plugin hot-reload (for example
@@ -96,27 +96,27 @@ client while Hyprland still holds the session lock.
 
 Theme-aware authentication dialog for privileged actions. It uses
 Quickshell's native `Quickshell.Services.Polkit.PolkitAgent` backend and
-runs inside the long-lived `omarchy-shell` process, replacing the old
+runs inside the long-lived `collie-shell` process, replacing the old
 `polkit-gnome-authentication-agent-1` autostart.
 
 ## Dock
 
-App dock shown on floating workspaces, and hidden on tiled ones and behind a fullscreen window. Floating is not a Hyprland layout, so the dock reads each workspace's mode through `omarchy-hyprland-workspace-layout-current`, caches it, and is told to read again over `omarchy-shell omarchy.dock refresh` by the layout commands. `omarchy-shell omarchy.dock apps` toggles its grid of every app.
+App dock shown on floating workspaces, and hidden on tiled ones and behind a fullscreen window. Floating is not a Hyprland layout, so the dock reads each workspace's mode through `collie-hyprland-workspace-layout-current`, caches it, and is told to read again over `collie-shell collie.dock refresh` by the layout commands. `collie-shell collie.dock apps` toggles its grid of every app.
 
-Its settings live in the `dock:` subtree of `shell.json`: `position` (`top`, `bottom`, `left` or `right`) and `pinned` (desktop ids). A `shell.json` without pins uses the defaults. `omarchy dock` sets both.
+Its settings live in the `dock:` subtree of `shell.json`: `position` (`top`, `bottom`, `left` or `right`) and `pinned` (desktop ids). A `shell.json` without pins uses the defaults. `collie dock` sets both.
 
-## Omarchy menu
+## Collie menu
 
-Quickshell-powered Omarchy command menu.
+Quickshell-powered Collie command menu.
 The menu UI lives in `menu/Menu.qml` as a first-party `menu` plugin and is
-summoned through the shell (`omarchy-shell shell summon omarchy.menu ...`),
-so it shares the long-running `omarchy-shell` process instead of starting a
+summoned through the shell (`collie-shell shell summon collie.menu ...`),
+so it shares the long-running `collie-shell` process instead of starting a
 second Quickshell instance.
 
 The menu definition lives outside the shell host code:
 
-- defaults: `default/omarchy/omarchy-menu.jsonc`
-- user extensions: `~/.config/omarchy/extensions/omarchy-menu.jsonc`
+- defaults: `default/collie/collie-menu.jsonc`
+- user extensions: `~/.config/collie/extensions/collie-menu.jsonc`
 
 The shell parses both JSONC files at startup (with `watchChanges: true`
 so edits take effect without a restart), evaluates `when:` / `checked:`
@@ -127,4 +127,4 @@ keybind → IPC → visible path costs ~30ms cold.
 
 ## Coming soon
 
-- `omarchy.theme-switcher` — folds theme switching into the shell.
+- `collie.theme-switcher` — folds theme switching into the shell.

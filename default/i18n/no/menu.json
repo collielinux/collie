@@ -56,8 +56,8 @@
   "learn.keybindings": {
     "label": "Tastatursnarveier"
   },
-  "learn.omarchy": {
-    "label": "Omarchy"
+  "learn.collie": {
+    "label": "Collie"
   },
   "learn.hyprland": {
     "label": "Hyprland"
@@ -1061,8 +1061,8 @@
   "remove.development.elixir.phoenix": {
     "label": "Phoenix"
   },
-  "update.omarchy": {
-    "label": "Omarchy"
+  "update.collie": {
+    "label": "Collie"
   },
   "update.channel": {
     "label": "Kanal"

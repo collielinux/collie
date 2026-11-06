@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# collie:summary=Remove Voxtype dictation and its configuration
+# collie:requires-sudo=true
+
+set -e
+
+# Remove voxtype and its configurations.
+
+if collie-cmd-present voxtype; then
+  echo "Uninstall Voxtype to remove dictation."
+
+  # Remove services
+  systemctl --user disable --now voxtype.service 2>/dev/null || true
+  systemctl --user daemon-reload
+
+  # Remove packages and configs
+  collie-pkg-drop voxtype-bin
+  rm -rf ~/.config/voxtype
+  rm -rf ~/.local/share/voxtype
+  backend_config="${XDG_CONFIG_HOME:-$HOME/.config}/collie/defaults/dictation"
+  if [[ -f $backend_config && $(< "$backend_config") == "voxtype" ]]; then
+    rm "$backend_config"
+  fi
+  collie-restart-hyprctl
+else
+  echo "Voxtype was not installed."
+fi

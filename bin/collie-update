@@ -1,0 +1,155 @@
+#!/bin/bash
+
+# collie:summary=Update Collie and system packages
+# collie:alias=collie up
+# collie:args=[-y]
+# collie:examples=collie update | collie update -y
+# collie:requires-sudo=true
+
+set -e
+
+update_stay_awake_stopped=0
+sudo_keepalive_pid=""
+
+# Ask for the password once, then keep sudo's timestamp fresh so long package
+# downloads, migrations, hooks, and mise never outlast it and prompt again.
+# Authorize by running a command rather than sudo -v: under the default
+# verifypw=all, -v prompts even when passwordless sudo is enabled.
+authorize_update() {
+  sudo true || return 1
+
+  local update_pid=$$
+  (
+    [[ -z ${COLLIE_UPDATE_LOCK_FD:-} ]] || exec {COLLIE_UPDATE_LOCK_FD}>&-
+    sleep_pid=""
+    trap - EXIT HUP INT
+    trap '[[ -z $sleep_pid ]] || kill "$sleep_pid" 2>/dev/null; exit 0' TERM
+    while :; do
+      sleep 60 &
+      sleep_pid=$!
+      wait "$sleep_pid"
+      kill -0 "$update_pid" 2>/dev/null || exit 0
+      sudo -n true 2>/dev/null || exit 0
+    done
+  ) &
+  sudo_keepalive_pid=$!
+}
+
+end_update_authorization() {
+  if [[ -n $sudo_keepalive_pid ]]; then
+    kill "$sudo_keepalive_pid" 2>/dev/null || true
+    wait "$sudo_keepalive_pid" 2>/dev/null || true
+    sudo_keepalive_pid=""
+  fi
+}
+
+cleanup_update() {
+  local status=$?
+  trap - EXIT HUP INT TERM
+  end_update_authorization
+  if (( update_stay_awake_stopped == 0 )); then
+    collie-update-stay-awake stop || status=1
+  fi
+  exit "$status"
+}
+
+if [[ -z ${COLLIE_UPDATE_LOGGED:-} ]]; then
+  script_command=$(printf '%q ' "$0" "$@")
+  exec env COLLIE_UPDATE_LOGGED=1 script -qefc "$script_command" "/tmp/collie-update.log"
+fi
+
+if ! collie-update-lock held; then
+  exec collie-update-lock run "$0" "$@"
+fi
+
+trap 'echo ""; echo -e "\033[0;31mSomething went wrong during the update!\n\nPlease review the output above carefully, correct the error, and retry the update.\n\nIf you need assistance, get help from the community at https://omarchy.org/discord\033[0m"' ERR
+trap cleanup_update EXIT
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+collie-update-requires-free-space
+
+# -y skips the start confirmation and, unless the caller set
+# COLLIE_UPDATE_UNATTENDED itself, suppresses Collie confirmation prompts;
+# sudo authorization is still required. Interactive review steps report and
+# move on instead of waiting.
+[[ ${1:-} != "-y" ]] || export COLLIE_UPDATE_UNATTENDED=${COLLIE_UPDATE_UNATTENDED:-1}
+
+if [[ ${1:-} == "-y" ]] || collie-update-confirm; then
+  authorize_update
+
+  # Before the snapshot: the cache is on the snapshotted subvolume, so pruning
+  # after it frees nothing until that snapshot ages out.
+  collie-update-pkg-prune
+
+  # 127 means Snapper is deliberately absent. Any other failure already said
+  # what went wrong, and a missing snapshot is not worth blocking an update
+  # over, but it must not pass for one either.
+  collie-snapshot create || (($? == 127)) ||
+    echo -e "\e[33mContinuing the update without a snapshot.\e[0m" >&2
+
+  collie-update-stay-awake start
+
+  # Preserve the established development-checkout update ordering.
+  collie-update-dev
+  collie-update-keyring
+
+  # Migrations ship with the packages installed here and are written against
+  # them, so everything below waits on this finishing. An upgrade that stopped
+  # takes the update with it rather than migrating against what is still on disk.
+  collie-update-system-pkgs
+
+  # Migrations call the shell over IPC, so give them one running current code.
+  if collie-migrate --pending >/dev/null; then
+    collie-restart-shell || true
+  fi
+  collie-migrate
+  collie-update-orphan-pkgs -y
+
+  collie-update-analyze-logs
+
+  # The dev checkout was fast-forwarded and the full upgrade went through, so
+  # there is no Collie update left to show. Rechecking would download every
+  # sync database again and refetch the checkout only to hear the same.
+  collie-shell -q collie.system-update clear
+
+  # Service restart helpers can need sudo. The reboot-only phase below
+  # performs no privileged work.
+  collie-update-restart --services-only
+
+  collie-hook post-update
+  # Optional tool downloads must not skip boot verification or the reboot
+  # prompt after system packages have already been upgraded.
+  mise_updated=1
+  collie-update-mise || mise_updated=0
+
+  # AUR packages build against the upgraded system, so they go after it, and
+  # share the update's one authorization like every step before them.
+  collie-update-aur-pkgs
+
+  # The last sudo-capable step: the boot files every package step left, AUR
+  # packages' initramfs rebuilds included, must be shown to boot the updated
+  # system. Until it passes, the update neither finishes nor offers a reboot.
+  boot_verified=1
+  collie-update-boot || boot_verified=0
+  end_update_authorization
+
+  # The sleep inhibitor covers AUR builds, hooks and mise as well. Release it
+  # before offering a reboot: a confirmed reboot can terminate this
+  # process before its EXIT trap gets a chance to remove the persistent Stay
+  # Awake marker.
+  collie-update-stay-awake stop
+  update_stay_awake_stopped=1
+
+  if (( mise_updated == 0 )); then
+    echo -e "\e[33m\nSome mise tools could not be updated. Review the errors above and run 'collie update mise' to retry.\e[0m" >&2
+  fi
+
+  if (( boot_verified )); then
+    "$COLLIE_PATH/bin/collie-update-restart" --reboot-only
+  else
+    echo -e "\e[31m\nThe update is not finished: its boot files did not pass verification (see above). Do not reboot until collie update completes.\e[0m" >&2
+    exit 1
+  fi
+fi

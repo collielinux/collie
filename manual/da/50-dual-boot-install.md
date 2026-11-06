@@ -1,6 +1,6 @@
 # Installation med dual boot
 
-Du kan installere Omarchy på en enkelt partition ved siden af Windows eller andre installationer.
+Du kan installere Collie på en enkelt partition ved siden af Windows eller andre installationer.
 
 Denne installationsmetode leveres stadig med LUKS-kryptering af partitionen som standard, så den reelt ikke adskiller sig fra installation på hele drevet og blot kræver, at der er ledig plads tilgængelig på disken.
 
@@ -14,17 +14,17 @@ Find den relevante partition, højreklik, og vælg **Shrink Volume**.
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Indtast den mængde, du vil formindske drevet med. Bemærk, at dette bliver størrelsen på din fremtidige Omarchy-installation inklusive bootpartitionen.
+ Indtast den mængde, du vil formindske drevet med. Bemærk, at dette bliver størrelsen på din fremtidige Collie-installation inklusive bootpartitionen.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Når du er færdig, bør du se noget i retning af dette, hvor sektionen på 50GB er der, hvor vi installerer Omarchy i dette eksempel.
+Når du er færdig, bør du se noget i retning af dette, hvor sektionen på 50GB er der, hvor vi installerer Collie i dette eksempel.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Installation af Omarchy
+## Installation af Collie
 
-Installationsprocessen for Omarchy er reelt den samme som normalt. Når du har valgt din disk, får du muligheden **Free space install**. Vælg den mulighed for at undgå at slette hele disken.
+Installationsprocessen for Collie er reelt den samme som normalt. Når du har valgt din disk, får du muligheden **Free space install**. Vælg den mulighed for at undgå at slette hele disken.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Bekræft, at alt ser godt ud, og vent på, at installationen bliver færdig som 
 
 ## Tilføjelse af andre installationer til bootloaderen
 
-Når du er færdig med din Omarchy-installation, vil du bemærke, at Limine-bootloaderen nu er standard. Med den kan du også føje muligheder til Limine for dine andre installationer, såsom Windows.
+Når du er færdig med din Collie-installation, vil du bemærke, at Limine-bootloaderen nu er standard. Med den kan du også føje muligheder til Limine for dine andre installationer, såsom Windows.
 
-For at tilføje andre operativsystemer skal du køre `limine-scan` og følge anvisningerne for at føje de ønskede poster til din Limine-konfiguration. Bootmenuen forbliver skjult som standard og starter Omarchy efter ét sekund. For at vælge Windows eller en anden post skal du trykke på en vilkårlig tast, så snart Limine starter; når menuen vises, skal du bruge piletasterne til at vælge en post og trykke på Enter. Hvis Omarchy starter, før du når at trykke på en tast, skal du genstarte og prøve igen. Hvis du har slået _Setup > Direct Boot_ til, springer firmwaren Limine helt over, så vælg Limine i din BIOS-bootmenu, eller kør _Setup > Direct Boot_ igen for at fjerne posten.
+For at tilføje andre operativsystemer skal du køre `limine-scan` og følge anvisningerne for at føje de ønskede poster til din Limine-konfiguration. Bootmenuen forbliver skjult som standard og starter Collie efter ét sekund. For at vælge Windows eller en anden post skal du trykke på en vilkårlig tast, så snart Limine starter; når menuen vises, skal du bruge piletasterne til at vælge en post og trykke på Enter. Hvis Collie starter, før du når at trykke på en tast, skal du genstarte og prøve igen. Hvis du har slået _Setup > Direct Boot_ til, springer firmwaren Limine helt over, så vælg Limine i din BIOS-bootmenu, eller kør _Setup > Direct Boot_ igen for at fjerne posten.
 
 ## Bitlocker
 

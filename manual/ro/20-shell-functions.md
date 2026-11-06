@@ -1,6 +1,6 @@
 # Funcții de shell
 
-Omarchy vine cu un set de funcții de shell care simplifică sarcinile obișnuite și încapsulează apelurile întortocheate cu parametri.
+Collie vine cu un set de funcții de shell care simplifică sarcinile obișnuite și încapsulează apelurile întortocheate cu parametri.
 
 ## Compresie
 

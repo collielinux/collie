@@ -9,14 +9,14 @@ scratch=$(mktemp -d)
 trap 'rm -rf "$scratch"' EXIT
 
 bash -n "$setup" || fail "Surface Pro 11 hardware script has valid syntax"
-grep -Fxq 'run_logged "$OMARCHY_INSTALL/hardware/microsoft/surface-pro-11.sh"' "$ROOT/install/hardware/all.sh" ||
+grep -Fxq 'run_logged "$COLLIE_INSTALL/hardware/microsoft/surface-pro-11.sh"' "$ROOT/install/hardware/all.sh" ||
   fail "Surface Pro 11 setup runs with the other hardware scripts"
 
 require_platform_fixtures "the Surface Pro 11 setup"
 
 # The installer is offline, so the ISO's mirror must carry what the setup adds.
 for package in surface-pro-11-support iptsd surface-pro-11-sensors; do
-  grep -Fxq "$package" "$ROOT/install/omarchy-other.packages" ||
+  grep -Fxq "$package" "$ROOT/install/collie-other.packages" ||
     fail "the ISO can supply $package offline"
 done
 
@@ -24,15 +24,15 @@ run_setup() (
   set -eE
   local dir=$1
   PATH="$ROOT/bin:$PATH"
-  omarchy-hw-aarch64-qualcomm() { return 0; }
-  omarchy-pkg-add() { printf 'add %s\n' "$*" >>"$dir/packages.log"; }
+  collie-hw-aarch64-qualcomm() { return 0; }
+  collie-pkg-add() { printf 'add %s\n' "$*" >>"$dir/packages.log"; }
   surface-pro-11-sensors-extract() { printf 'extract\n' >>"$dir/packages.log"; return 1; }
   systemctl() { printf 'systemctl %s\n' "$*" >>"$dir/packages.log"; }
 
-  OMARCHY_PROC_ROOT="$dir/proc" \
-    OMARCHY_SURFACE_PRO11_MKINITCPIO_DIR="$dir/mkinitcpio.conf.d" \
-    OMARCHY_SURFACE_PRO11_UKI_CONFIG="$dir/kernel/uki.conf" \
-    OMARCHY_QUALCOMM_DTB_ROOT="$dir/dtbs" \
+  COLLIE_PROC_ROOT="$dir/proc" \
+    COLLIE_SURFACE_PRO11_MKINITCPIO_DIR="$dir/mkinitcpio.conf.d" \
+    COLLIE_SURFACE_PRO11_UKI_CONFIG="$dir/kernel/uki.conf" \
+    COLLIE_QUALCOMM_DTB_ROOT="$dir/dtbs" \
     source "$setup"
 )
 
@@ -50,10 +50,10 @@ printf 'MODULES=(pinctrl_tigerlake intel_lpss_pci 8250_dw)\n' >"$matching/mkinit
 cat >"$matching/kernel/uki.conf" <<'CONF'
 [UKI]
 Cmdline=@/etc/kernel/cmdline
-# BEGIN OMARCHY QUALCOMM DEVICE TREES
+# BEGIN COLLIE QUALCOMM DEVICE TREES
 [UKI]
 DeviceTreeAuto=/boot/dtbs/linux-omarchy/qcom/x1e80100-microsoft-denali-oled.dtb /boot/dtbs/linux-omarchy/qcom/x1e80100-crd.dtb
-# END OMARCHY QUALCOMM DEVICE TREES
+# END COLLIE QUALCOMM DEVICE TREES
 CONF
 run_setup "$matching" >/dev/null
 run_setup "$matching" >/dev/null
@@ -74,11 +74,11 @@ grep -Fxq 'Cmdline=@/etc/kernel/cmdline' "$matching/kernel/uki.conf" ||
   fail "no temporary UKI configuration is left behind"
 
 request="$scratch/boot-rebuild"
-(export OMARCHY_IMAGE_BOOT_REBUILD="$request" && run_setup "$matching" >/dev/null)
+(export COLLIE_IMAGE_BOOT_REBUILD="$request" && run_setup "$matching" >/dev/null)
 [[ ! -e $request ]] ||
   fail "an unchanged UKI configuration asks for no rebuild"
-printf '# BEGIN OMARCHY QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/qcom/x1e80100-crd.dtb\n# END OMARCHY QUALCOMM DEVICE TREES\n' >>"$matching/kernel/uki.conf"
-(export OMARCHY_IMAGE_BOOT_REBUILD="$request" && run_setup "$matching" >/dev/null)
+printf '# BEGIN COLLIE QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/qcom/x1e80100-crd.dtb\n# END COLLIE QUALCOMM DEVICE TREES\n' >>"$matching/kernel/uki.conf"
+(export COLLIE_IMAGE_BOOT_REBUILD="$request" && run_setup "$matching" >/dev/null)
 [[ -e $request ]] ||
   fail "a changed UKI configuration asks an image's first boot for the rebuild"
 
@@ -90,7 +90,7 @@ printf '# BEGIN OMARCHY QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/
     "$firmware_root/updates/ath12k/WCN7850/hw2.0/board.bin" \
     "$firmware_root/qcom/x1e80100/X1E80100-Microsoft-Surface-Pro-11-tplg.bin"
   MODULES=() FILES=()
-  OMARCHY_SURFACE_PRO11_FIRMWARE_ROOT="$firmware_root" \
+  COLLIE_SURFACE_PRO11_FIRMWARE_ROOT="$firmware_root" \
     source "$matching/mkinitcpio.conf.d/surface-pro-11-initramfs.conf"
 
   for module in msm dispcc_x1e80100 phy_qcom_edp panel_samsung_atna33xc20 ps883x qrtr qcom_pd_mapper pmic_glink_altmode surface_aggregator surface_hid; do
@@ -115,7 +115,7 @@ printf '# BEGIN OMARCHY QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/
 
   rm "$firmware_root/qcom/x1e80100/X1E80100-Microsoft-Surface-Pro-11-tplg.bin"
   FILES=()
-  OMARCHY_SURFACE_PRO11_FIRMWARE_ROOT="$firmware_root" \
+  COLLIE_SURFACE_PRO11_FIRMWARE_ROOT="$firmware_root" \
     source "$matching/mkinitcpio.conf.d/surface-pro-11-initramfs.conf"
   (( ${#FILES[@]} == 3 )) || fail "missing optional firmware is skipped instead of breaking the build"
 )
@@ -136,20 +136,20 @@ printf '[UKI]\nDeviceTreeAuto=/boot/dtbs/qcom/x1e80100-microsoft-denali-oled.dtb
 cp -p "$no_dtb/kernel/uki.conf" "$scratch/no-dtb-uki.conf"
 run_setup "$no_dtb" >/dev/null
 cmp -s "$scratch/no-dtb-uki.conf" "$no_dtb/kernel/uki.conf" ||
-  fail "without Omarchy's kernel the device-tree list is left as it is"
+  fail "without Collie's kernel the device-tree list is left as it is"
 grep -Fxq 'add surface-pro-11-support iptsd surface-pro-11-sensors' "$no_dtb/packages.log" ||
-  fail "the hardware support is added even before Omarchy's kernel is installed"
+  fail "the hardware support is added even before Collie's kernel is installed"
 
 stale_pin="$scratch/stale-pin"
 surface_pro11 "$stale_pin"
 run_setup "$stale_pin" >/dev/null
-printf '# BEGIN OMARCHY QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/qcom/x1e80100-crd.dtb\n# END OMARCHY QUALCOMM DEVICE TREES\n' >>"$stale_pin/kernel/uki.conf"
+printf '# BEGIN COLLIE QUALCOMM DEVICE TREES\n[UKI]\nDeviceTreeAuto=/boot/dtbs/qcom/x1e80100-crd.dtb\n# END COLLIE QUALCOMM DEVICE TREES\n' >>"$stale_pin/kernel/uki.conf"
 rm -r "$stale_pin/dtbs/linux-omarchy"
 run_setup "$stale_pin" >/dev/null
 ! grep -q '^DeviceTree=' "$stale_pin/kernel/uki.conf" ||
   fail "a pin to a device tree that is gone is removed, so the UKI still builds"
 grep -Fxq 'DeviceTreeAuto=/boot/dtbs/qcom/x1e80100-crd.dtb' "$stale_pin/kernel/uki.conf" ||
-  fail "without Omarchy's kernel the device-tree list dtb-uki.sh wrote is kept"
+  fail "without Collie's kernel the device-tree list dtb-uki.sh wrote is kept"
 
 renamed="$scratch/renamed"
 surface_pro11 "$renamed"

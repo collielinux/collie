@@ -1,1 +1,1 @@
-omarchy-input-method configure --seed
+collie-input-method configure --seed

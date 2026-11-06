@@ -8,7 +8,7 @@ Minden gyorsbillentyű egy síkon helyezkedik el, amelyet a módosítói határo
 
 | Sík | Mi tartozik ide | Példák |
 | --- | --- | --- |
-| `Super + key` | A rendszer: ablakok, munkaterületek, elrendezések és alapmenük | `Super + Space` Omarchy menü, `Super + W` ablak bezárása, `Super + F` teljes képernyő |
+| `Super + key` | A rendszer: ablakok, munkaterületek, elrendezések és alapmenük | `Super + Space` Collie menü, `Super + W` ablak bezárása, `Super + F` teljes képernyő |
 | `Super + Shift + key` | Alkalmazások | `Super + Shift + B` böngésző, `Super + Shift + E` e-mail, `Super + Shift + N` szerkesztő |
 | `Super + Ctrl + key` | Panelek és rendszermenük | `Super + Ctrl + A` hang, `Super + Ctrl + N` hálózat, `Super + Ctrl + C` rögzítés menü |
 | `Super + Ctrl + Alt + key` | Gyors műveletek és értesítések | `Super + Ctrl + Alt + T` idő megjelenítése, `Super + Ctrl + Alt + B` akkumulátor, `Super + Ctrl + Alt + C` képernyőkép |
@@ -34,7 +34,7 @@ Ha egy alapértelmezett nem felel meg neked (mondjuk a `Super + Shift + S` bille
 
 | Gyorsbillentyű                  | Funkció              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy menü (alkalmazások és minden más)    |
+| `Super + Space`           | Collie menü (alkalmazások és minden más)    |
 | `Super + Alt + Space` | Alkalmazásrács |
 | `Super + Escape` | Rendszermenü (felfüggesztés, újraindítás stb.)  |
 | `Super + Ctrl + L` | Számítógép zárolása |
@@ -171,7 +171,7 @@ Módosíts / adj hozzá kötéseket a `~/.config/hypr/bindings.lua` fájlban.
 | `Super + V`           | Beillesztés    |
 | `Super + Ctrl + V`           | Vágólapkezelő    |
 
-Linuxon általában `Ctrl + Shift + C/V` kell a másoláshoz és beillesztéshez a terminálban, és `Ctrl + C/V` mindenhol máshol. Ezek az egységes Omarchy vágólapos gyorsbillentyűk mindenhol működnek.
+Linuxon általában `Ctrl + Shift + C/V` kell a másoláshoz és beillesztéshez a terminálban, és `Ctrl + C/V` mindenhol máshol. Ezek az egységes Collie vágólapos gyorsbillentyűk mindenhol működnek.
 
 ## Rögzítés
 
@@ -192,7 +192,7 @@ Linuxon általában `Ctrl + Shift + C/V` kell a másoláshoz és beillesztéshez
 
 Képernyőfelvételeknél a gyorsbillentyű először megkérdezi, melyik hangot szeretnéd, majd elindítja a felvételt. Nyomd meg újra a leállításhoz. A részletekért lásd: [képernyőképek és felvétel](12-screenshots-recording.md).
 
-Minden rögzítési lehetőség elérhető az Omarchy menü (`Super + Space`) _Trigger > Capture_ pontja alatt is.
+Minden rögzítési lehetőség elérhető az Collie menü (`Super + Space`) _Trigger > Capture_ pontja alatt is.
 
 ## Értesítések
 
@@ -214,9 +214,9 @@ Minden rögzítési lehetőség elérhető az Omarchy menü (`Super + Space`) _T
 | `Super + Backspace` | Átlátszóság ki-/bekapcsolása egy ablakon |
 | `Super + Ctrl + Backspace` | Egyablakos négyzetes képarány ki-/bekapcsolása |
 
-További háttérképek a `~/.config/omarchy/backgrounds/<theme name>` mappában találhatók. Az Omarchy menü _Install > Style > Background_ pontján keresztül is elérhetők.
+További háttérképek a `~/.config/collie/backgrounds/<theme name>` mappában találhatók. Az Collie menü _Install > Style > Background_ pontján keresztül is elérhetők.
 
-Minden stílusbeállítás elérhető az Omarchy menü (`Super + Space`) _Style_ pontja alatt is.
+Minden stílusbeállítás elérhető az Collie menü (`Super + Space`) _Style_ pontja alatt is.
 
 ## Kapcsolók
 
@@ -317,7 +317,7 @@ Ezeket a függvényeket Tmux munkameneten belül kell futtatni.
 
 ## Ghostty terminál
 
-A Ghostty terminál az Omarchy menü _Install > Terminal_ pontjával telepíthető.
+A Ghostty terminál az Collie menü _Install > Terminal_ pontjával telepíthető.
 
 | Gyorsbillentyű                  | Funkció              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ A `Super + Ctrl + E` segítségével megjeleníthetsz egy teljes emoji-választ�
 | `Shift + CapsLock Space N` | A neved (ahogy a beállításkor megadtad)  |
 | `Shift + CapsLock Space E` | Az e-mail címed (ahogy a beállításkor megadtad)  |
 
-Továbbiakat is hozzáadhatsz a `~/.XCompose` szerkesztésével, majd a terminálban az `omarchy-restart-xcompose` futtatásával érvényesítheted a változtatásokat.
+Továbbiakat is hozzáadhatsz a `~/.XCompose` szerkesztésével, majd a terminálban az `collie-restart-xcompose` futtatásával érvényesítheted a változtatásokat.

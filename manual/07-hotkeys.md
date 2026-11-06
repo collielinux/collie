@@ -8,7 +8,7 @@ Every hotkey sits on a plane, set by its modifiers, and each plane has one job. 
 
 | Plane | What lives there | Examples |
 | --- | --- | --- |
-| `Super + key` | The system: windows, workspaces, layouts, and core menus | `Super + Space` Omarchy menu, `Super + W` close window, `Super + F` full screen |
+| `Super + key` | The system: windows, workspaces, layouts, and core menus | `Super + Space` Collie menu, `Super + W` close window, `Super + F` full screen |
 | `Super + Shift + key` | Apps | `Super + Shift + B` browser, `Super + Shift + E` email, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panels and system menus | `Super + Ctrl + A` audio, `Super + Ctrl + N` network, `Super + Ctrl + C` capture menu |
 | `Super + Ctrl + Alt + key` | Quick actions and notices | `Super + Ctrl + Alt + T` show time, `Super + Ctrl + Alt + B` battery, `Super + Ctrl + Alt + C` screenshot |
@@ -34,7 +34,7 @@ If a default doesn't suit you (say you want `Super + Shift + S` for screenshots 
 
 | Hotkey                  | Function              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy menu (apps and everything else)    |
+| `Super + Space`           | Collie menu (apps and everything else)    |
 | `Super + Alt + Space` | App grid |
 | `Super + Escape` | System menu (suspend, restart, etc)  |
 | `Super + Ctrl + L` | Lock computer |
@@ -171,7 +171,7 @@ Change/add bindings in `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Paste    |
 | `Super + Ctrl + V`           | Clipboard manager    |
 
-Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal and `Ctrl + C/V` to do it everywhere else. These Omarchy unified clipboard hotkeys work everywhere.
+Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal and `Ctrl + C/V` to do it everywhere else. These Collie unified clipboard hotkeys work everywhere.
 
 ## Capture
 
@@ -192,7 +192,7 @@ Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal 
 
 With screenrecordings, the hotkey first asks which audio you want, then starts recording. Hit it again to stop. See [screenshots and recording](12-screenshots-recording.md) for the details.
 
-All capture options are also accessible under _Trigger > Capture_ in the Omarchy menu (`Super + Space`).
+All capture options are also accessible under _Trigger > Capture_ in the Collie menu (`Super + Space`).
 
 ## Notifications
 
@@ -214,9 +214,9 @@ All capture options are also accessible under _Trigger > Capture_ in the Omarchy
 | `Super + Backspace` | Toggle transparency on a window |
 | `Super + Ctrl + Backspace` | Toggle single-window square aspect |
 
-Extra background images live in `~/.config/omarchy/backgrounds/<theme name>`. Also available via _Install > Style > Background_ in the Omarchy menu.
+Extra background images live in `~/.config/collie/backgrounds/<theme name>`. Also available via _Install > Style > Background_ in the Collie menu.
 
-All style options are also accessible under _Style_ in the Omarchy menu (`Super + Space`).
+All style options are also accessible under _Style_ in the Collie menu (`Super + Space`).
 
 ## Toggles
 
@@ -317,7 +317,7 @@ These functions must be run inside a Tmux session.
 
 ## Ghostty Terminal
 
-Ghostty terminal is installed using _Install > Terminal_ via the Omarchy menu.
+Ghostty terminal is installed using _Install > Terminal_ via the Collie menu.
 
 | Hotkey                  | Function              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ You can use `Super + Ctrl + E` to show a complete emoji picker that'll put the s
 | `Shift + CapsLock Space N` | Your name (as entered on setup)  |
 | `Shift + CapsLock Space E` | Your email (as entered on setup)  |
 
-You can add more of your own by editing `~/.XCompose`, then running `omarchy-restart-xcompose` in the terminal to get the changes picked up.
+You can add more of your own by editing `~/.XCompose`, then running `collie-restart-xcompose` in the terminal to get the changes picked up.

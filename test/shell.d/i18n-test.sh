@@ -24,7 +24,7 @@ assert(badRegistry.length === 0, 'every registry entry is complete with a UTF-8 
 // The English menu catalog must mirror the shipped menu definition, so a
 // relabeled row cannot leave translations pointing at stale English.
 const enMenu = readJson('en/menu.json')
-const menuItems = MenuModel.parseMenuJsonc(fs.readFileSync(path.join(root, 'default/omarchy/omarchy-menu.jsonc'), 'utf8'))
+const menuItems = MenuModel.parseMenuJsonc(fs.readFileSync(path.join(root, 'default/collie/collie-menu.jsonc'), 'utf8'))
 assertEqual(enMenu.root.label, 'Go', 'English menu catalog carries the injected root label')
 assert(menuItems.some((item) => item.id === 'setup.language' && item.provider === 'languages'), 'Setup > Language row uses the languages provider')
 const staleMenu = menuItems.filter((item) => !enMenu[item.id] || enMenu[item.id].label !== item.label || (item.title && enMenu[item.id].title !== item.title) || (item.description && enMenu[item.id].description !== item.description))
@@ -117,12 +117,12 @@ assert(unreferencedShell.length === 0, 'every shell catalog key is referenced', 
 const unknownShell = [...shellKeys].filter((key) => !Object.hasOwn(enShell, key))
 assert(unknownShell.length === 0, 'every referenced shell key exists in the English catalog', JSON.stringify(unknownShell))
 
-const cliKeyPattern = /omarchy-i18n (?:--count \S+ )?([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9]+)+)/g
+const cliKeyPattern = /collie-i18n (?:--count \S+ )?([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9]+)+)/g
 const cliKeys = collectKeys(path.join(root, 'bin'), [''], cliKeyPattern)
 for (const key of collectKeys(path.join(root, 'install'), ['.sh', '.hook'], cliKeyPattern)) cliKeys.add(key)
 for (const key of collectKeys(path.join(root, 'default'), ['.py'], cliKeyPattern)) cliKeys.add(key)
 for (const key of collectKeys(path.join(root, 'etc'), ['.jsonc'], cliKeyPattern)) cliKeys.add(key)
-for (const key of collectKeys(path.join(root, 'install/provisioning'), ['setup-form.sh'], /omarchy_form_text ([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9]+)+)/g)) cliKeys.add(key)
+for (const key of collectKeys(path.join(root, 'install/provisioning'), ['setup-form.sh'], /collie_form_text ([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9]+)+)/g)) cliKeys.add(key)
 const unreferencedCli = Object.keys(enCli).filter((key) => !cliKeys.has(key))
 assert(unreferencedCli.length === 0, 'every cli catalog key is referenced', JSON.stringify(unreferencedCli))
 const unknownCli = [...cliKeys].filter((key) => !Object.hasOwn(enCli, key))
@@ -186,7 +186,7 @@ const fencesOf = (text) => [...text.matchAll(/```[^\n]*\n([\s\S]*?)```/g)].map((
 const urlsOf = (text) => [...text.matchAll(/https?:\/\/[^\s)`]+/g)].map((m) => text[m.index - 1] === '(' ? m[0] : m[0].replace(/[.,;:!?]+$/, ''))
 const relDestsOf = (text) => [...text.matchAll(/\]\((?!<?https?:\/\/)([^)\s]+)/g)].map((m) => m[1])
 const protectedInlineOf = (text) => [...text.matchAll(/`([^`\n]+)`/g)].map((m) => m[1])
-  .filter((span) => /[/~$]/.test(span) || span.startsWith('omarchy ') || span.startsWith('omarchy-'))
+  .filter((span) => /[/~$]/.test(span) || span.startsWith('collie ') || span.startsWith('collie-'))
   .map((span) => span.replace(/<[^>]+>/g, '<>').replace(/\[[^\]]+\]/g, '[]'))
 function manualProblems(english, translatedText) {
   const problems = []
@@ -239,7 +239,7 @@ JS
 
 # --- Plural rules and number formatting agree between shell and CLI ---
 
-# Plural.js (shell) and plural.jq (omarchy-i18n) hold the same CLDR rules;
+# Plural.js (shell) and plural.jq (collie-i18n) hold the same CLDR rules;
 # compare every language over every count a UI is likely to show, and the
 # number formatting the two sides share.
 require_command jq
@@ -277,21 +277,21 @@ assertEqual(Numbers.format(13.5, 1, '٫', '۰'), '۱۳٫۵', 'formatNumber write
 assertEqual(Object.values(registry).filter((r) => typeof r.decimal !== 'string' || typeof r.zeroDigit !== 'string').length, 0, 'every registry entry says how it writes numbers')
 JS
 
-# --- omarchy-language and omarchy-i18n behavior ---
+# --- collie-language and collie-i18n behavior ---
 
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
-export OMARCHY_PATH=$ROOT
+export COLLIE_PATH=$ROOT
 export PATH="$ROOT/bin:$PATH"
-export OMARCHY_LANGUAGE_FILE=$work/language
-export OMARCHY_LOCALE_GEN=$work/locale.gen
-export OMARCHY_LOCALE_REGISTRY=$ROOT/default/i18n/locales.json
+export COLLIE_LANGUAGE_FILE=$work/language
+export COLLIE_LOCALE_GEN=$work/locale.gen
+export COLLIE_LOCALE_REGISTRY=$ROOT/default/i18n/locales.json
 export XDG_CONFIG_HOME=$work/config
-session_env=$XDG_CONFIG_HOME/uwsm/env.d/50-omarchy-language
-printf '#da_DK.UTF-8 UTF-8\n' >"$OMARCHY_LOCALE_GEN"
+session_env=$XDG_CONFIG_HOME/uwsm/env.d/50-collie-language
+printf '#da_DK.UTF-8 UTF-8\n' >"$COLLIE_LOCALE_GEN"
 
 # Stub the outside world: localedef records the locale it adds and lists those
-# as its archive, notifications record their text, and omarchy-language itself
+# as its archive, notifications record their text, and collie-language itself
 # is the real one via PATH.
 mkdir -p "$work/stubs"
 cat >"$work/stubs/localedef" <<'STUB'
@@ -302,7 +302,7 @@ if [[ $1 == "--list-archive" ]]; then
 fi
 echo "${@: -1}" >>"$LOCALE_GEN_LOG"
 STUB
-cat >"$work/stubs/omarchy-notification-send" <<'STUB'
+cat >"$work/stubs/collie-notification-send" <<'STUB'
 #!/bin/bash
 echo "$@" >>"$NOTIFY_LOG"
 STUB
@@ -316,16 +316,16 @@ cat >"$work/stubs/hyprctl" <<'STUB'
 #!/bin/bash
 echo "$@" >>"$SESSION_ENV_LOG"
 STUB
-cat >"$work/stubs/omarchy-restart-shell" <<'STUB'
+cat >"$work/stubs/collie-restart-shell" <<'STUB'
 #!/bin/bash
 echo "restart" >>"$SESSION_ENV_LOG"
 STUB
 # sudo and pkexec record which one elevated and what it ran, then run this
-# checkout's copy of it: omarchy-language asks for /usr/bin's, which is the
-# installed package's helper wherever Omarchy is installed. sudo answers the
+# checkout's copy of it: collie-language asks for /usr/bin's, which is the
+# installed package's helper wherever Collie is installed. sudo answers the
 # long listing (`sudo -n -l -l`) with the passwordless grant only when
 # TEST_SUDO_GRANT is set, the way a machine with
-# etc/sudoers.d/omarchy-locale-generate installed does.
+# etc/sudoers.d/collie-locale-generate installed does.
 cat >"$work/stubs/sudo" <<'STUB'
 #!/bin/bash
 if [[ $1 == "-n" && $2 == "-l" ]]; then
@@ -335,12 +335,12 @@ fi
 flag=""
 if [[ $1 == "-n" ]]; then flag=" -n"; shift; fi
 echo "sudo$flag $(basename "$1") $2" >>"$ELEVATE_LOG"
-exec "$OMARCHY_PATH/bin/$(basename "$1")" "${@:2}"
+exec "$COLLIE_PATH/bin/$(basename "$1")" "${@:2}"
 STUB
 cat >"$work/stubs/pkexec" <<'STUB'
 #!/bin/bash
 echo "pkexec $(basename "$1") $2" >>"$ELEVATE_LOG"
-exec "$OMARCHY_PATH/bin/$(basename "$1")" "${@:2}"
+exec "$COLLIE_PATH/bin/$(basename "$1")" "${@:2}"
 STUB
 chmod +x "$work/stubs/"*
 export PATH="$work/stubs:$PATH"
@@ -355,41 +355,41 @@ assert_bash_equal() {
   pass "$3"
 }
 
-assert_bash_equal "$(omarchy-language)" "en" "omarchy-language defaults to English with no language file"
-echo "bogus" >"$OMARCHY_LANGUAGE_FILE"
-assert_bash_equal "$(omarchy-language)" "en" "omarchy-language falls back to English for an unknown code"
-rm -f "$OMARCHY_LANGUAGE_FILE"
+assert_bash_equal "$(collie-language)" "en" "collie-language defaults to English with no language file"
+echo "bogus" >"$COLLIE_LANGUAGE_FILE"
+assert_bash_equal "$(collie-language)" "en" "collie-language falls back to English for an unknown code"
+rm -f "$COLLIE_LANGUAGE_FILE"
 
-list=$(omarchy-language list)
-assert_bash_equal "$(printf '%s\n' "$list" | wc -l)" "$(jq length "$ROOT/default/i18n/locales.json")" "omarchy-language list prints a row for every registered language"
-assert_bash_equal "$(printf '%s\n' "$list" | head -n 1 | cut -f2)" "en" "omarchy-language list puts English first"
-assert_bash_equal "$(omarchy-language locale da)" "da_DK.UTF-8" "omarchy-language locale maps da to its glibc locale"
+list=$(collie-language list)
+assert_bash_equal "$(printf '%s\n' "$list" | wc -l)" "$(jq length "$ROOT/default/i18n/locales.json")" "collie-language list prints a row for every registered language"
+assert_bash_equal "$(printf '%s\n' "$list" | head -n 1 | cut -f2)" "en" "collie-language list puts English first"
+assert_bash_equal "$(collie-language locale da)" "da_DK.UTF-8" "collie-language locale maps da to its glibc locale"
 
 # stdin is not a tty here, as when picked from the menu, and this machine has
 # no passwordless grant, so generating the locale asks through polkit.
-omarchy-language da </dev/null
-assert_bash_equal "$(cat "$ELEVATE_LOG")" "pkexec omarchy-locale-generate da" "without the grant, the menu generates the locale through pkexec"
-assert_bash_equal "$(cat "$OMARCHY_LANGUAGE_FILE")" "da" "omarchy-language persists the choice"
-assert_bash_equal "$(omarchy-language)" "da" "omarchy-language reads the persisted choice"
-assert_bash_equal "$(grep '^export LANG=' "$session_env")" "export LANG=da_DK.UTF-8" "omarchy-language sets the session LANG through uwsm for the next login"
-assert_bash_equal "$(cat "$SESSION_ENV_LOG")" $'eval hl.env("LANG", "da_DK.UTF-8", true)\nrestart' "omarchy-language hands the new LANG to Hyprland and services, then respawns the shell from it"
-assert_bash_equal "$(grep '^da_DK.UTF-8' "$OMARCHY_LOCALE_GEN")" "da_DK.UTF-8 UTF-8" "omarchy-language enables the locale in locale.gen"
-assert_bash_equal "$(cat "$LOCALE_GEN_LOG")" "da_DK.UTF-8" "omarchy-language generates the locale"
+collie-language da </dev/null
+assert_bash_equal "$(cat "$ELEVATE_LOG")" "pkexec collie-locale-generate da" "without the grant, the menu generates the locale through pkexec"
+assert_bash_equal "$(cat "$COLLIE_LANGUAGE_FILE")" "da" "collie-language persists the choice"
+assert_bash_equal "$(collie-language)" "da" "collie-language reads the persisted choice"
+assert_bash_equal "$(grep '^export LANG=' "$session_env")" "export LANG=da_DK.UTF-8" "collie-language sets the session LANG through uwsm for the next login"
+assert_bash_equal "$(cat "$SESSION_ENV_LOG")" $'eval hl.env("LANG", "da_DK.UTF-8", true)\nrestart' "collie-language hands the new LANG to Hyprland and services, then respawns the shell from it"
+assert_bash_equal "$(grep '^da_DK.UTF-8' "$COLLIE_LOCALE_GEN")" "da_DK.UTF-8 UTF-8" "collie-language enables the locale in locale.gen"
+assert_bash_equal "$(cat "$LOCALE_GEN_LOG")" "da_DK.UTF-8" "collie-language generates the locale"
 
-if omarchy-language xx </dev/null 2>/dev/null; then
-  fail "omarchy-language rejects unknown codes"
+if collie-language xx </dev/null 2>/dev/null; then
+  fail "collie-language rejects unknown codes"
 else
-  pass "omarchy-language rejects unknown codes"
+  pass "collie-language rejects unknown codes"
 fi
 
 da_changed=$(jq -r '."language.changed"' "$ROOT/default/i18n/da/cli.json" | sed 's/%1/Dansk/')
-assert_bash_equal "$(omarchy-i18n language.changed Dansk)" "$da_changed" "omarchy-i18n prints the current language with substitution"
-assert_bash_equal "$(omarchy-i18n missing.key)" "missing.key" "omarchy-i18n passes unknown keys through"
+assert_bash_equal "$(collie-i18n language.changed Dansk)" "$da_changed" "collie-i18n prints the current language with substitution"
+assert_bash_equal "$(collie-i18n missing.key)" "missing.key" "collie-i18n passes unknown keys through"
 
 grep -q "$da_changed" "$NOTIFY_LOG" && pass "the language-change notification arrives in the new language" || fail "the language-change notification arrives in the new language" "notify log: $(cat "$NOTIFY_LOG")"
 
 da_battery=$(jq -r '."battery.lowBody"' "$ROOT/default/i18n/da/cli.json" | sed 's/%1/12/')
-assert_bash_equal "$(omarchy-i18n battery.lowBody 12)" "$da_battery" "omarchy-i18n substitutes %1 and keeps a literal percent sign"
+assert_bash_equal "$(collie-i18n battery.lowBody 12)" "$da_battery" "collie-i18n substitutes %1 and keeps a literal percent sign"
 
 # Plural entries pick their form by count, and plain-number arguments take
 # the language's decimal separator and digits.
@@ -399,24 +399,24 @@ cp "$ROOT/default/i18n/plural.jq" "$ROOT/default/i18n/locales.json" "$plural_roo
 printf '{"files.count": {"one": "%%1 file", "other": "%%1 files"}, "power.rate": "%%1 W"}\n' >"$plural_root/default/i18n/en/cli.json"
 printf '{"files.count": {"one": "%%1 файл", "few": "%%1 файла", "many": "%%1 файлов", "other": "%%1 файла"}, "power.rate": "%%1 Вт"}\n' >"$plural_root/default/i18n/ru/cli.json"
 printf '{}\n' >"$plural_root/default/i18n/fa/cli.json"
-plural() { echo "$1" >"$work/plural-language"; OMARCHY_PATH=$plural_root OMARCHY_LANGUAGE_FILE=$work/plural-language omarchy-i18n "${@:2}"; }
-assert_bash_equal "$(plural en --count 1 files.count 1)" "1 file" "omarchy-i18n --count picks the English singular"
-assert_bash_equal "$(plural en --count 3 files.count 3)" "3 files" "omarchy-i18n --count picks the English plural"
-assert_bash_equal "$(plural ru --count 21 files.count 21) / $(plural ru --count 22 files.count 22) / $(plural ru --count 25 files.count 25)" "21 файл / 22 файла / 25 файлов" "omarchy-i18n --count follows Russian plural rules"
+plural() { echo "$1" >"$work/plural-language"; COLLIE_PATH=$plural_root COLLIE_LANGUAGE_FILE=$work/plural-language collie-i18n "${@:2}"; }
+assert_bash_equal "$(plural en --count 1 files.count 1)" "1 file" "collie-i18n --count picks the English singular"
+assert_bash_equal "$(plural en --count 3 files.count 3)" "3 files" "collie-i18n --count picks the English plural"
+assert_bash_equal "$(plural ru --count 21 files.count 21) / $(plural ru --count 22 files.count 22) / $(plural ru --count 25 files.count 25)" "21 файл / 22 файла / 25 файлов" "collie-i18n --count follows Russian plural rules"
 assert_bash_equal "$(plural ru files.count 5)" "5 файла" "a plural entry without --count reads its other form"
 assert_bash_equal "$(plural ru power.rate 13.1)" "13,1 Вт" "a number argument takes the language's decimal separator"
 assert_bash_equal "$(plural fa --count 2 files.count 13.5)" "۱۳٫۵ files" "a number argument takes the language's digits, with the English entry as fallback"
 assert_bash_equal "$(plural ru power.rate 10.0.0.1)" "10.0.0.1 Вт" "an argument that is not a plain number passes through"
-assert_bash_equal "$(plural ru --number 13.1) $(plural fa --number 13.5)" "13,1 ۱۳٫۵" "omarchy-i18n --number writes one number in the language"
+assert_bash_equal "$(plural ru --number 13.1) $(plural fa --number 13.5)" "13,1 ۱۳٫۵" "collie-i18n --number writes one number in the language"
 assert_bash_equal "$(plural en power.rate --foo) | $(plural en power.rate -n)" "--foo W | -n W" "an argument that starts with a dash is text, not a jq option"
 if plural en --count many files.count 2>/dev/null; then
-  fail "omarchy-i18n rejects a non-numeric count"
+  fail "collie-i18n rejects a non-numeric count"
 else
-  pass "omarchy-i18n rejects a non-numeric count"
+  pass "collie-i18n rejects a non-numeric count"
 fi
 
 da_changed_raw=$(jq -r '."language.changed"' "$ROOT/default/i18n/da/cli.json")
-assert_bash_equal "$(omarchy-i18n language.changed 'Research & Development')" "${da_changed_raw//%1/"Research & Development"}" "omarchy-i18n keeps ampersands in arguments literal"
+assert_bash_equal "$(collie-i18n language.changed 'Research & Development')" "${da_changed_raw//%1/"Research & Development"}" "collie-i18n keeps ampersands in arguments literal"
 
 # With the locale already generated, picking the language needs no
 # privilege at all: no password prompt, no localedef.
@@ -426,18 +426,18 @@ if [[ $1 == "-a" ]]; then printf 'en_US.utf8\nda_DK.utf8\n'; else echo "LANG=da_
 STUB
 chmod +x "$work/stubs/locale"
 : >"$LOCALE_GEN_LOG"; : >"$ELEVATE_LOG"; : >"$SESSION_ENV_LOG"
-rm -f "$OMARCHY_LANGUAGE_FILE"
-omarchy-language da </dev/null
-assert_bash_equal "$(cat "$OMARCHY_LANGUAGE_FILE")" "da" "already-applied locale switches without elevating"
+rm -f "$COLLIE_LANGUAGE_FILE"
+collie-language da </dev/null
+assert_bash_equal "$(cat "$COLLIE_LANGUAGE_FILE")" "da" "already-applied locale switches without elevating"
 assert_bash_equal "$(cat "$LOCALE_GEN_LOG")" "" "already-generated locale is not regenerated"
 assert_bash_equal "$(cat "$ELEVATE_LOG")" "" "no password prompt when nothing privileged is needed"
 assert_bash_equal "$(head -n 1 "$SESSION_ENV_LOG")" 'eval hl.env("LANG", "da_DK.UTF-8", true)' "an already-generated locale still reaches the session"
 
 # Switching back writes the new LANG over the old one rather than adding to it.
-omarchy-language en </dev/null
+collie-language en </dev/null
 assert_bash_equal "$(grep -c '^export LANG=' "$session_env") $(grep '^export LANG=' "$session_env")" "1 export LANG=en_US.UTF-8" "switching language replaces the session LANG"
 
-# With etc/sudoers.d/omarchy-locale-generate installed, a language whose locale
+# With etc/sudoers.d/collie-locale-generate installed, a language whose locale
 # isn't generated yet still switches from the menu without any password
 # prompt: the helper runs through sudo -n, never polkit.
 cat >"$work/stubs/locale" <<'STUB'
@@ -445,14 +445,14 @@ cat >"$work/stubs/locale" <<'STUB'
 if [[ $1 == "-a" ]]; then echo "en_US.utf8"; else echo "LANG=en_US.UTF-8"; fi
 STUB
 : >"$LOCALE_GEN_LOG"; : >"$ELEVATE_LOG"
-TEST_SUDO_GRANT=1 omarchy-language sv </dev/null
-assert_bash_equal "$(cat "$ELEVATE_LOG")" "sudo -n omarchy-locale-generate sv" "with the grant, a new language generates its locale without a password prompt"
+TEST_SUDO_GRANT=1 collie-language sv </dev/null
+assert_bash_equal "$(cat "$ELEVATE_LOG")" "sudo -n collie-locale-generate sv" "with the grant, a new language generates its locale without a password prompt"
 assert_bash_equal "$(cat "$LOCALE_GEN_LOG")" "sv_SE.UTF-8" "the passwordless helper generates the language's locale"
-assert_bash_equal "$(cat "$OMARCHY_LANGUAGE_FILE")" "sv" "the passwordless switch persists the choice"
+assert_bash_equal "$(cat "$COLLIE_LANGUAGE_FILE")" "sv" "the passwordless switch persists the choice"
 
 # A CJK language brings its glyph forms, and its input method where Fcitx
 # answers; without a session bus the switch still succeeds and says how.
-cjk_font=$XDG_CONFIG_HOME/fontconfig/conf.d/50-omarchy-input-method.conf
+cjk_font=$XDG_CONFIG_HOME/fontconfig/conf.d/50-collie-input-method.conf
 [[ ! -e $cjk_font ]] && pass "a non-CJK language leaves the CJK glyph forms alone" || fail "a non-CJK language leaves the CJK glyph forms alone"
 cat >"$work/stubs/busctl" <<'STUB'
 #!/bin/bash
@@ -461,11 +461,11 @@ exit 1
 STUB
 cp "$work/stubs/busctl" "$work/stubs/fcitx5-remote"
 chmod +x "$work/stubs/busctl" "$work/stubs/fcitx5-remote"
-cjk_output=$(TEST_SUDO_GRANT=1 omarchy-language ja </dev/null 2>&1) || fail "a CJK language switches without a reachable Fcitx" "$cjk_output"
-assert_bash_equal "$(cat "$OMARCHY_LANGUAGE_FILE")" "ja" "a CJK language switches without a reachable Fcitx"
+cjk_output=$(TEST_SUDO_GRANT=1 collie-language ja </dev/null 2>&1) || fail "a CJK language switches without a reachable Fcitx" "$cjk_output"
+assert_bash_equal "$(cat "$COLLIE_LANGUAGE_FILE")" "ja" "a CJK language switches without a reachable Fcitx"
 [[ $cjk_output == *"Setup > Keyboard > Input Methods"* ]] && pass "an input method that could not be added is named with where to add it" || fail "an input method that could not be added is named with where to add it" "$cjk_output"
 grep -q 'Noto Sans CJK JP' "$cjk_font" && pass "Japanese seeds Japanese glyph forms" || fail "Japanese seeds Japanese glyph forms"
-TEST_SUDO_GRANT=1 omarchy-language ko </dev/null 2>/dev/null
+TEST_SUDO_GRANT=1 collie-language ko </dev/null 2>/dev/null
 grep -q 'Noto Sans CJK JP' "$cjk_font" && pass "a second CJK language keeps the glyph forms already chosen" || fail "a second CJK language keeps the glyph forms already chosen"
 rm -f "$work/stubs/busctl" "$work/stubs/fcitx5-remote" "$cjk_font"
 
@@ -479,13 +479,13 @@ cat >"$work/stubs/locale" <<'STUB'
 #!/bin/bash
 if [[ $1 == "-a" ]]; then echo "en_US.utf8"; else echo "LANG=en_US.UTF-8"; fi
 STUB
-rm -f "$OMARCHY_LANGUAGE_FILE" "$session_env"
-if omarchy-language da </dev/null 2>/dev/null; then
+rm -f "$COLLIE_LANGUAGE_FILE" "$session_env"
+if collie-language da </dev/null 2>/dev/null; then
   fail "a cancelled password prompt fails the switch"
 else
   pass "a cancelled password prompt fails the switch"
 fi
-[[ ! -f $OMARCHY_LANGUAGE_FILE && ! -f $session_env ]] && pass "the choice is not persisted before the locale exists" || fail "the choice is not persisted before the locale exists"
+[[ ! -f $COLLIE_LANGUAGE_FILE && ! -f $session_env ]] && pass "the choice is not persisted before the locale exists" || fail "the choice is not persisted before the locale exists"
 
 # --- Translation sync tooling (scripts/i18n-sync.py) ---
 
@@ -506,7 +506,7 @@ assert_bash_equal "$extract_candidates" "0" "no embedded English literals await 
 # A miniature tree exercises staleness: one key changed in English, one
 # deleted from the translation, one manual chapter missing.
 fix=$work/fixture
-mkdir -p "$fix/default/i18n/en" "$fix/default/i18n/da" "$fix/default/omarchy" "$fix/manual" "$fix/shell" "$fix/bin"
+mkdir -p "$fix/default/i18n/en" "$fix/default/i18n/da" "$fix/default/collie" "$fix/manual" "$fix/shell" "$fix/bin"
 cat >"$fix/default/i18n/locales.json" <<'FIXJSON'
 {
   "en": {"name": "English", "englishName": "English", "formatLocale": "en-US", "locale": "en_US.UTF-8"},
@@ -516,7 +516,7 @@ FIXJSON
 printf '{\n  "a.one": "One",\n  "a.two": "Two"\n}\n' >"$fix/default/i18n/en/shell.json"
 printf '{}\n' >"$fix/default/i18n/en/cli.json"
 printf '{\n  "root": {\n    "label": "Go"\n  }\n}\n' >"$fix/default/i18n/en/menu.json"
-printf '{}\n' >"$fix/default/omarchy/omarchy-menu.jsonc"
+printf '{}\n' >"$fix/default/collie/collie-menu.jsonc"
 printf '{\n  "strings": [],\n  "files": []\n}\n' >"$fix/default/i18n/extract-allowlist.json"
 printf '{\n  "a.one": "En",\n  "a.two": "To"\n}\n' >"$fix/default/i18n/da/shell.json"
 printf '{}\n' >"$fix/default/i18n/da/cli.json"
@@ -542,18 +542,18 @@ assert_bash_equal "$scan_strings" '["Brand new string"]' "extract-scan finds emb
 # and a nil description or a commented-out bind adds nothing.
 mkdir -p "$fix/default/hypr/bindings"
 cat >"$fix/default/hypr/bindings/test.lua" <<'LUA'
-o.bind("SUPER + K", "Keybindings", "omarchy-menu-keybindings")
+o.bind("SUPER + K", "Keybindings", "collie-menu-keybindings")
 for workspace = 1, 9 do
   o.bind("SUPER + " .. tostring(workspace), "Switch to workspace " .. workspace, hl.dsp.focus({ workspace = tostring(workspace) }))
 end
-o.bind_hold("F9", "Start dictation", "omarchy-dictation start", "Stop dictation", "omarchy-dictation stop")
+o.bind_hold("F9", "Start dictation", "collie-dictation start", "Stop dictation", "collie-dictation stop")
 o.bind_toggle("SUPER + CTRL + N", "Toggle nightlight", "nightlight")
 o.bind(
   "SUPER + CTRL + code:10",
   "Bar panel " .. panel,
-  "omarchy-shell -q shell togglePanelAt right " .. panel
+  "collie-shell -q shell togglePanelAt right " .. panel
 )
-o.bind("switch:on:Lid Switch", nil, "omarchy-system-lid-close", { locked = true })
+o.bind("switch:on:Lid Switch", nil, "collie-system-lid-close", { locked = true })
 -- o.bind("SUPER + X", "Commented out", "true")
 LUA
 keybinding_texts=$(cd "$fix" && python3 -c 'import importlib.util,json,sys; from pathlib import Path; spec=importlib.util.spec_from_file_location("s", sys.argv[1]); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m); print(json.dumps(sorted(m.keybinding_descriptions(Path(".")))))' "$ROOT/scripts/i18n-sync.py")

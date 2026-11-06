@@ -8,7 +8,7 @@ Cada atajo está en un plano, definido por sus modificadores, y cada plano tiene
 
 | Plano | Qué vive ahí | Ejemplos |
 | --- | --- | --- |
-| `Super + key` | El sistema: ventanas, espacios de trabajo, diseños y menús principales | `Super + Space` menú de Omarchy, `Super + W` cerrar ventana, `Super + F` pantalla completa |
+| `Super + key` | El sistema: ventanas, espacios de trabajo, diseños y menús principales | `Super + Space` menú de Collie, `Super + W` cerrar ventana, `Super + F` pantalla completa |
 | `Super + Shift + key` | Aplicaciones | `Super + Shift + B` navegador, `Super + Shift + E` correo electrónico, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Paneles y menús del sistema | `Super + Ctrl + A` audio, `Super + Ctrl + N` red, `Super + Ctrl + C` menú de captura |
 | `Super + Ctrl + Alt + key` | Acciones rápidas y avisos | `Super + Ctrl + Alt + T` mostrar la hora, `Super + Ctrl + Alt + B` batería, `Super + Ctrl + Alt + C` captura de pantalla |
@@ -34,7 +34,7 @@ Si un atajo predeterminado no te conviene (digamos que quieres `Super + Shift + 
 
 | Atajo | Función |
 | ----------------------- | --------------------- |
-| `Super + Space` | Menú de Omarchy (aplicaciones y todo lo demás) |
+| `Super + Space` | Menú de Collie (aplicaciones y todo lo demás) |
 | `Super + Alt + Space` | Cuadrícula de aplicaciones |
 | `Super + Escape` | Menú del sistema (suspender, reiniciar, etc.) |
 | `Super + Ctrl + L` | Bloquear computadora |
@@ -171,7 +171,7 @@ Cambia/agrega combinaciones en `~/.config/hypr/bindings.lua`.
 | `Super + V` | Pegar |
 | `Super + Ctrl + V` | Administrador del portapapeles |
 
-Normalmente en Linux, necesitas `Ctrl + Shift + C/V` para copiar y pegar en la terminal y `Ctrl + C/V` para hacerlo en cualquier otro lugar. Estos atajos unificados del portapapeles de Omarchy funcionan en todas partes.
+Normalmente en Linux, necesitas `Ctrl + Shift + C/V` para copiar y pegar en la terminal y `Ctrl + C/V` para hacerlo en cualquier otro lugar. Estos atajos unificados del portapapeles de Collie funcionan en todas partes.
 
 ## Captura
 
@@ -192,7 +192,7 @@ Normalmente en Linux, necesitas `Ctrl + Shift + C/V` para copiar y pegar en la t
 
 Con las grabaciones de pantalla, el atajo primero pregunta qué audio quieres y luego empieza a grabar. Presiónalo de nuevo para detener. Consulta [capturas de pantalla y grabación](12-screenshots-recording.md) para ver los detalles.
 
-Todas las opciones de captura también están disponibles en _Activar > Captura_ en el menú de Omarchy (`Super + Space`).
+Todas las opciones de captura también están disponibles en _Activar > Captura_ en el menú de Collie (`Super + Space`).
 
 ## Notificaciones
 
@@ -214,9 +214,9 @@ Todas las opciones de captura también están disponibles en _Activar > Captura_
 | `Super + Backspace` | Alternar la transparencia en una ventana |
 | `Super + Ctrl + Backspace` | Alternar la relación de aspecto cuadrada de una sola ventana |
 
-Las imágenes de fondo adicionales están en `~/.config/omarchy/backgrounds/<theme name>`. También están disponibles en _Instalar > Estilo > Fondo_ en el menú de Omarchy.
+Las imágenes de fondo adicionales están en `~/.config/collie/backgrounds/<theme name>`. También están disponibles en _Instalar > Estilo > Fondo_ en el menú de Collie.
 
-Todas las opciones de estilo también están disponibles en _Estilo_ en el menú de Omarchy (`Super + Space`).
+Todas las opciones de estilo también están disponibles en _Estilo_ en el menú de Collie (`Super + Space`).
 
 ## Activar/desactivar
 
@@ -317,7 +317,7 @@ Estas funciones deben ejecutarse dentro de una sesión de Tmux.
 
 ## Terminal Ghostty
 
-La terminal Ghostty se instala con _Instalar > Terminal_ en el menú de Omarchy.
+La terminal Ghostty se instala con _Instalar > Terminal_ en el menú de Collie.
 
 | Atajo | Función |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Puedes usar `Super + Ctrl + E` para mostrar un selector completo de emojis que p
 | `Shift + CapsLock Space N` | Tu nombre (tal como lo ingresaste en la configuración) |
 | `Shift + CapsLock Space E` | Tu correo electrónico (tal como lo ingresaste en la configuración) |
 
-Puedes agregar más por tu cuenta editando `~/.XCompose` y luego ejecutando `omarchy-restart-xcompose` en la terminal para que se apliquen los cambios.
+Puedes agregar más por tu cuenta editando `~/.XCompose` y luego ejecutando `collie-restart-xcompose` en la terminal para que se apliquen los cambios.

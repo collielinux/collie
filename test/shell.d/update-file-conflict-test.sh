@@ -15,7 +15,7 @@ cat >"$stub_bin/sudo" <<'STUB'
 exec "$@"
 STUB
 
-# omarchy-update-pacman wraps the transaction in a real PID 1 scope; the tests
+# collie-update-pacman wraps the transaction in a real PID 1 scope; the tests
 # must stay inside the fixture, so drop the wrapper's options and run the command.
 cat >"$stub_bin/systemd-run" <<'STUB'
 #!/bin/bash
@@ -63,22 +63,22 @@ mkdir -p "$test_tmp/no-boot-package"
 # as root the cases before the platform ones get a dispatcher that registers
 # nothing, and the platform ones are skipped.
 if (( EUID == 0 )); then
-  printf '#!/bin/bash\nexit 0\n' >"$stub_bin/omarchy-lifecycle-dispatch"
-  chmod +x "$stub_bin/omarchy-lifecycle-dispatch"
+  printf '#!/bin/bash\nexit 0\n' >"$stub_bin/collie-lifecycle-dispatch"
+  chmod +x "$stub_bin/collie-lifecycle-dispatch"
 fi
 
 run_update() {
   local platform=${PLATFORM:-x86}
-  OMARCHY_REPLACED_DIR="$replaced" \
+  COLLIE_REPLACED_DIR="$replaced" \
     RETRY_FAILS="${RETRY_FAILS:-}" \
     RETRY_INSTALLS="${RETRY_INSTALLS:-}" \
     PACMAN_ATTEMPTS="$test_tmp/attempts" \
     CONFLICT_REPORT="$test_tmp/report" \
     OWNED_PATHS="${OWNED_PATHS:-}" \
-    OMARCHY_PROC_ROOT="$test_tmp/$platform/proc" \
-    OMARCHY_LIFECYCLE_ROOT="${LIFECYCLE_ROOT:-$test_tmp/no-boot-package}" \
+    COLLIE_PROC_ROOT="$test_tmp/$platform/proc" \
+    COLLIE_LIFECYCLE_ROOT="${LIFECYCLE_ROOT:-$test_tmp/no-boot-package}" \
     PATH="$stub_bin:$test_tmp/$platform/bin:$ROOT/bin:$PATH" \
-    bash "$ROOT/bin/omarchy-update-system-pkgs"
+    bash "$ROOT/bin/collie-update-system-pkgs"
 }
 
 # $1 blamed package, $2 path, $3 optional owning package.
@@ -107,7 +107,7 @@ fresh_work() {
 
 # An unowned path one of the packages is taking over.
 fresh_work
-stray="$work/omarchy-fcitx5.service"
+stray="$work/collie-fcitx5.service"
 echo "stray content" >"$stray"
 write_report omarchy-settings-dev "$stray"
 run_update >"$test_tmp/out" 2>"$test_tmp/err" ||
@@ -124,7 +124,7 @@ grep -qx "stray content" "$replaced$stray" ||
   fail "the replaced file is destroyed rather than kept out of the way"
 pass "the replaced file is quarantined outside the directory it came from"
 
-# A real fight between packages, not Omarchy's leftovers. pacman appends
+# A real fight between packages, not Collie's leftovers. pacman appends
 # "(owned by ...)" here.
 fresh_work
 echo "theirs" >"$stray"
@@ -151,24 +151,24 @@ pass "an owned path is left alone even when the report reads as unowned"
 # A name prefix is not a namespace; only the packages that own system paths.
 fresh_work
 echo "stray" >"$stray"
-write_report omarchy-chromium-bin "$stray"
+write_report collie-chromium-bin "$stray"
 if run_update >"$test_tmp/out" 2>"$test_tmp/err"; then
-  fail "an optional omarchy-prefixed package gets its conflicts auto-resolved"
+  fail "an optional collie-prefixed package gets its conflicts auto-resolved"
 fi
 pass "only the packages that own system paths get their conflicts resolved"
 
-# Not Omarchy's conflict to resolve.
+# Not Collie's conflict to resolve.
 fresh_work
 echo "stray" >"$stray"
 write_report some-other-pkg "$stray"
 if run_update >"$test_tmp/out" 2>"$test_tmp/err"; then
   fail "a conflict from an unrelated package is auto-resolved"
 fi
-pass "a conflict from a non-Omarchy package is left for a human"
+pass "a conflict from a non-Collie package is left for a human"
 
 # The path is used literally, so glob characters in a name mean nothing.
 fresh_work
-globby="$work/omarchy-[1].conf"
+globby="$work/collie-[1].conf"
 echo "globby" >"$globby"
 write_report omarchy-settings-dev "$globby"
 run_update >"$test_tmp/out" 2>"$test_tmp/err" ||
@@ -179,7 +179,7 @@ pass "a path whose name would act as a glob is moved literally"
 
 # A leftover directory is cleared the same way a file is.
 fresh_work
-conflict_dir="$work/omarchy-dir"
+conflict_dir="$work/collie-dir"
 mkdir -p "$conflict_dir"
 write_report omarchy-settings-dev "$conflict_dir"
 run_update >"$test_tmp/out" 2>"$test_tmp/err" ||
@@ -190,7 +190,7 @@ pass "a conflicting directory is moved away"
 
 # A space is legal in a package path; the parse must not truncate it.
 fresh_work
-spaced="$work/omarchy theme.conf"
+spaced="$work/collie theme.conf"
 echo "spaced" >"$spaced"
 write_report omarchy-settings-dev "$spaced"
 run_update >"$test_tmp/out" 2>"$test_tmp/err" ||
@@ -282,8 +282,8 @@ pass "a dangling symlink is restored rather than stranded in the quarantine"
 fresh_work
 echo "ours" >"$stray"
 write_report omarchy-settings-dev "$stray"
-if PATH="$stub_bin:$ROOT/bin:$PATH" OMARCHY_REPLACED_DIR="$replaced" \
-  bash "$ROOT/bin/omarchy-update-system-pkgs-when-conflicted" "$test_tmp/report" \
+if PATH="$stub_bin:$ROOT/bin:$PATH" COLLIE_REPLACED_DIR="$replaced" \
+  bash "$ROOT/bin/collie-update-system-pkgs-when-conflicted" "$test_tmp/report" \
   >"$test_tmp/out" 2>"$test_tmp/err"; then
   fail "the handler acts on a report handed to it outside an update"
 fi

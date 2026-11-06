@@ -1,16 +1,16 @@
 # Mac qo'llab-quvvatlovi
 
-Omarchy'da **Intel Macs** uchun ichki qo'llab-quvvatlov mavjud. Hozircha bir nechta ma'lum cheklovlar bor, lekin ularni bilsangiz va ular sizga ma'qul bo'lsa; eski Maclaringizga Omarchy yuklab, ularga yangi hayot bag'ishlashingiz mumkin.
+Collie'da **Intel Macs** uchun ichki qo'llab-quvvatlov mavjud. Hozircha bir nechta ma'lum cheklovlar bor, lekin ularni bilsangiz va ular sizga ma'qul bo'lsa; eski Maclaringizga Collie yuklab, ularga yangi hayot bag'ishlashingiz mumkin.
 
-E'tibor bering, M-seriyali Mac'ga o'rnatish hozirda bevosita qo'llab-quvvatlanmaydi. Bu boradagi holat haqida ko'proq ma'lumotni [Discord](https://discord.gg/tXFUdasqhY) serverimizdagi #omarchy-on-other kanalida topishingiz mumkin.
+E'tibor bering, M-seriyali Mac'ga o'rnatish hozirda bevosita qo'llab-quvvatlanmaydi. Bu boradagi holat haqida ko'proq ma'lumotni [Discord](https://discord.gg/tXFUdasqhY) serverimizdagi #collie-on-other kanalida topishingiz mumkin.
 
-Oddiy testda biz 2019-yilgi MacBook Pro'ga shunchaki Omarchy o'rnatish orqali 36% unumdorlik o'sishiga erisha oldik.
+Oddiy testda biz 2019-yilgi MacBook Pro'ga shunchaki Collie o'rnatish orqali 36% unumdorlik o'sishiga erisha oldik.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy'ni Mac'ga o'rnatish
+### Collie'ni Mac'ga o'rnatish
 
-Omarchy hozirda **yagona** o'rnatilgan OS bo'lishni qo'llab-quvvatlaydi. O'rnatish davomida disk to'liq o'chiriladi va MacOS endi yuklanmaydi.
+Collie hozirda **yagona** o'rnatilgan OS bo'lishni qo'llab-quvvatlaydi. O'rnatish davomida disk to'liq o'chiriladi va MacOS endi yuklanmaydi.
 
 Keyinroq xohlasangiz, uni Internet Recovery orqali tiklashingiz mumkin.
 
@@ -39,7 +39,7 @@ O'rnatuvchi Mac uskunasini aniqlaydi va kerakli tuzatishlarni avtomatik qo'llayd
 
 ### Ma'lum cheklovlar
 
-Hamjamiyat a'zolari bu muammolarning yechimlari ustida doimiy ishlashmoqda, shuning uchun bular siz uchun muammo bo'lsa, [Discord](https://discord.gg/tXFUdasqhY) serverimizdagi #omarchy-on-other kanaliga qo'shiling va ularni hal qilishning dolzarb usullari bor-yo'qligini ko'rib chiqing.
+Hamjamiyat a'zolari bu muammolarning yechimlari ustida doimiy ishlashmoqda, shuning uchun bular siz uchun muammo bo'lsa, [Discord](https://discord.gg/tXFUdasqhY) serverimizdagi #collie-on-other kanaliga qo'shiling va ularni hal qilishning dolzarb usullari bor-yo'qligini ko'rib chiqing.
 
 #### T1 chipli qurilmalar
 

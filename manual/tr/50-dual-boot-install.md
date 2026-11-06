@@ -1,6 +1,6 @@
 # Çift Önyükleme Kurulumu
 
-Omarchy'yi Windows'un veya diğer kurulumların yanına tek bir bölüme kurabilirsiniz.
+Collie'yi Windows'un veya diğer kurulumların yanına tek bir bölüme kurabilirsiniz.
 
 Bu kurulum yöntemi de bölüm için varsayılan olarak LUKS şifrelemesiyle gelir, bu yüzden aslında tam disk kurulumundan hiçbir farkı yoktur ve yalnızca diskte boş alan bulunmasını gerektirir.
 
@@ -14,17 +14,17 @@ Uygun bölümü bulun, sağ tıklayın ve **Birimi Küçült** seçeneğini seç
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Birimi ne kadar küçültmek istediğinizi girin. Bunun, önyükleme bölümü dahil olmak üzere gelecekteki Omarchy kurulumunuzun boyutu olacağını unutmayın.
+ Birimi ne kadar küçültmek istediğinizi girin. Bunun, önyükleme bölümü dahil olmak üzere gelecekteki Collie kurulumunuzun boyutu olacağını unutmayın.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-İşiniz bittiğinde buna benzer bir şey görmelisiniz; bu örnekte 50GB'lik bölüm, Omarchy'yi kuracağımız yerdir.
+İşiniz bittiğinde buna benzer bir şey görmelisiniz; bu örnekte 50GB'lik bölüm, Collie'yi kuracağımız yerdir.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Omarchy'yi Kurma
+## Collie'yi Kurma
 
-Omarchy kurulum süreci aslında normal kurulumla aynıdır. Diskinizi seçtikten sonra size **Boş alana kurulum** seçeneği sunulacaktır. Tüm diski silmeyi önlemek için bu seçeneği seçin.
+Collie kurulum süreci aslında normal kurulumla aynıdır. Diskinizi seçtikten sonra size **Boş alana kurulum** seçeneği sunulacaktır. Tüm diski silmeyi önlemek için bu seçeneği seçin.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Her şeyin doğru göründüğünü onaylayın ve kurulumun normal şekilde bitm
 
 ## Diğer Kurulumları Önyükleyiciye Ekleme
 
-Omarchy kurulumunuzu bitirdiğinizde, artık varsayılanın Limine önyükleyicisi olduğunu fark edeceksiniz. Bununla, Windows gibi diğer kurulumlarınız için de Limine'ye seçenekler ekleyebilirsiniz.
+Collie kurulumunuzu bitirdiğinizde, artık varsayılanın Limine önyükleyicisi olduğunu fark edeceksiniz. Bununla, Windows gibi diğer kurulumlarınız için de Limine'ye seçenekler ekleyebilirsiniz.
 
-Diğer işletim sistemlerini eklemek için `limine-scan` çalıştırın ve istediğiniz girdileri Limine yapılandırmanıza eklemek için yönergeleri izleyin. Önyükleme menüsü varsayılan olarak gizli kalır ve bir saniye sonra Omarchy'yi başlatır. Windows'u veya başka bir girdiyi seçmek için Limine başlar başlamaz herhangi bir tuşa basın; menü göründüğünde, bir girdi seçmek için ok tuşlarını kullanın ve Enter tuşuna basın. Siz bir tuşa basmadan Omarchy başlarsa, yeniden başlatın ve tekrar deneyin. _Setup > Direct Boot_ seçeneğini açtıysanız, donanım yazılımı Limine'yi tamamen atlar, bu yüzden BIOS önyükleme menünüzden Limine'yi seçin veya girdiyi kaldırmak için _Setup > Direct Boot_ seçeneğini tekrar çalıştırın.
+Diğer işletim sistemlerini eklemek için `limine-scan` çalıştırın ve istediğiniz girdileri Limine yapılandırmanıza eklemek için yönergeleri izleyin. Önyükleme menüsü varsayılan olarak gizli kalır ve bir saniye sonra Collie'yi başlatır. Windows'u veya başka bir girdiyi seçmek için Limine başlar başlamaz herhangi bir tuşa basın; menü göründüğünde, bir girdi seçmek için ok tuşlarını kullanın ve Enter tuşuna basın. Siz bir tuşa basmadan Collie başlarsa, yeniden başlatın ve tekrar deneyin. _Setup > Direct Boot_ seçeneğini açtıysanız, donanım yazılımı Limine'yi tamamen atlar, bu yüzden BIOS önyükleme menünüzden Limine'yi seçin veya girdiyi kaldırmak için _Setup > Direct Boot_ seçeneğini tekrar çalıştırın.
 
 ## Bitlocker
 

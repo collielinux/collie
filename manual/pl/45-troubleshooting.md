@@ -2,23 +2,23 @@
 
 ### Zepsułem system aktualizacją!
 
-Najpierw spróbuj [przywrócić system](47-system-snapshots.md) do wersji sprzed ostatniej aktualizacji. Jeśli to nie zadziała, użyj `omarchy-debug`, aby podzielić się swoim problemem na #omarchy-help na Discord. A jeśli to wszystko zawiedzie, możesz ponownie zainstalować domyślne konfiguracje i pakiety za pomocą `omarchy-reinstall`.
+Najpierw spróbuj [przywrócić system](47-system-snapshots.md) do wersji sprzed ostatniej aktualizacji. Jeśli to nie zadziała, użyj `collie-debug`, aby podzielić się swoim problemem na #collie-help na Discord. A jeśli to wszystko zawiedzie, możesz ponownie zainstalować domyślne konfiguracje i pakiety za pomocą `collie-reinstall`.
 
 ### Dlaczego niektóre aplikacje są tak duże na moim ekranie?
 
-Omarchy zakłada wyświetlacz o wysokiej rozdzielczości w skali 2x, więc ustawia `GDK_SCALE` na 2, dopóki nie wybierzesz skali w panelu monitora. Jeśli masz wyświetlacz 1x, a aplikacje GTK lub X11 wychodzą za duże, wybierz dla niego 1x w panelu monitora albo dodaj `hl.env("GDK_SCALE", "1")` do `~/.config/hypr/monitors.lua` (a potem uruchom ponownie każdą aplikację, która jest za duża). Zobacz [podręcznik dotyczący monitorów](33-monitors.md).
+Collie zakłada wyświetlacz o wysokiej rozdzielczości w skali 2x, więc ustawia `GDK_SCALE` na 2, dopóki nie wybierzesz skali w panelu monitora. Jeśli masz wyświetlacz 1x, a aplikacje GTK lub X11 wychodzą za duże, wybierz dla niego 1x w panelu monitora albo dodaj `hl.env("GDK_SCALE", "1")` do `~/.config/hypr/monitors.lua` (a potem uruchom ponownie każdą aplikację, która jest za duża). Zobacz [podręcznik dotyczący monitorów](33-monitors.md).
 
 W Spotify możesz użyć `Ctrl + Minus`, aby zmniejszyć interfejs (oraz `Ctrl + Plus`, aby go powiększyć).
 
 ### Dlaczego wszystkie moje skróty z klawiszem Super przestały działać?
 
-Na niektórych laptopach ASUS ROG i TUF `Fn + Super` to łatwy do przeoczenia skrót, który przełącza blokadę klawisza Windows na poziomie firmware (przeznaczoną do gier, żebyś przypadkiem nie wyszedł z gry). Nic na ekranie nie informuje, że to się stało. Gdy blokada jest włączona, Super nie emituje absolutnie nic — więc każdy skrót Omarchy używający Super po prostu przestaje działać i wygląda to tak, jakby zepsuł się Hyprland.
+Na niektórych laptopach ASUS ROG i TUF `Fn + Super` to łatwy do przeoczenia skrót, który przełącza blokadę klawisza Windows na poziomie firmware (przeznaczoną do gier, żebyś przypadkiem nie wyszedł z gry). Nic na ekranie nie informuje, że to się stało. Gdy blokada jest włączona, Super nie emituje absolutnie nic — więc każdy skrót Collie używający Super po prostu przestaje działać i wygląda to tak, jakby zepsuł się Hyprland.
 
 Naciśnij `Fn + Super` raz, zanim zaczniesz grzebać w `~/.config/hypr/`, a jeśli to nie przywróci Super, naciśnij to ponownie, żeby nie zostawić włączonej blokady. To nie jest Fn-lock, który zmienia tylko działanie rzędu klawiszy F.
 
 ### Moje Wi-Fi, Bluetooth, audio albo trackpad właśnie przestało działać
 
-Zanim zrestartujesz komputer, spróbuj zrestartować sam sprawiający problemy podsystem. _Update > Hardware_ w menu Omarchy zawiera Wi-Fi, Bluetooth, Audio i Trackpad, a ponowne załadowanie jednego z nich rozwiązuje większość sytuacji typu „działało pięć minut temu” — zestaw słuchawkowy Bluetooth, który nie chce się ponownie połączyć, trackpad, który przestał działać po uśpieniu, dźwięk, który zniknął po odłączeniu monitora.
+Zanim zrestartujesz komputer, spróbuj zrestartować sam sprawiający problemy podsystem. _Update > Hardware_ w menu Collie zawiera Wi-Fi, Bluetooth, Audio i Trackpad, a ponowne załadowanie jednego z nich rozwiązuje większość sytuacji typu „działało pięć minut temu” — zestaw słuchawkowy Bluetooth, który nie chce się ponownie połączyć, trackpad, który przestał działać po uśpieniu, dźwięk, który zniknął po odłączeniu monitora.
 
 ### Dlaczego moje głośniki zewnętrzne nie grają?
 
@@ -26,7 +26,7 @@ Prawdopodobnie dlatego, że nie są ustawione jako główne wyjście. Kliknij ik
 
 ### Głośniki w moim laptopie brzmią nie tak, jak powinny
 
-Na niektórych laptopach Omarchy automatycznie stosuje strojenie głośników, które koryguje charakterystykę częstotliwościową wbudowanych głośników. `omarchy audio tuning status` powie Ci, czy jest ono aktywne na Twojej maszynie, a `omarchy audio tuning off` je wyłączy, jeśli wolisz słyszeć głośniki bez korekty.
+Na niektórych laptopach Collie automatycznie stosuje strojenie głośników, które koryguje charakterystykę częstotliwościową wbudowanych głośników. `collie audio tuning status` powie Ci, czy jest ono aktywne na Twojej maszynie, a `collie audio tuning off` je wyłączy, jeśli wolisz słyszeć głośniki bez korekty.
 
 ### Dlaczego nie mogę zalogować się ani użyć sudo swoim hasłem?
 

@@ -1,16 +1,16 @@
 # Suport pentru Mac
 
-Omarchy are suport integrat pentru **Mac-uri Intel**. Există câteva limitări cunoscute în acest moment, dar cât timp le cunoști și ești de acord cu ele, poți da o nouă viață vechilor tale Mac-uri instalând Omarchy.
+Collie are suport integrat pentru **Mac-uri Intel**. Există câteva limitări cunoscute în acest moment, dar cât timp le cunoști și ești de acord cu ele, poți da o nouă viață vechilor tale Mac-uri instalând Collie.
 
-Reține că instalarea pe un Mac cu cip din seria M nu este acceptată direct în acest moment. Poți afla mai multe despre situația actuală în #omarchy-on-other de pe [Discord](https://discord.gg/tXFUdasqhY)-ul nostru.
+Reține că instalarea pe un Mac cu cip din seria M nu este acceptată direct în acest moment. Poți afla mai multe despre situația actuală în #collie-on-other de pe [Discord](https://discord.gg/tXFUdasqhY)-ul nostru.
 
-Într-un test simplu, am reușit să obținem câștiguri de performanță de 36% pe un MacBook Pro din 2019 doar instalând Omarchy.
+Într-un test simplu, am reușit să obținem câștiguri de performanță de 36% pe un MacBook Pro din 2019 doar instalând Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instalarea Omarchy pe Mac
+### Instalarea Collie pe Mac
 
-Omarchy acceptă în prezent doar instalarea ca **singurul** sistem de operare instalat. În timpul instalării, unitatea va fi ștearsă, iar MacOS nu va mai putea fi pornit.
+Collie acceptă în prezent doar instalarea ca **singurul** sistem de operare instalat. În timpul instalării, unitatea va fi ștearsă, iar MacOS nu va mai putea fi pornit.
 
 Poți totuși să îl restaurezi ulterior prin Internet Recovery, dacă vrei.
 
@@ -39,7 +39,7 @@ Programul de instalare detectează hardware-ul Mac și aplică automat corecții
 
 ### Limitări cunoscute
 
-Membrii comunității lucrează constant la soluții pentru aceste provocări, așa că, dacă acestea sunt o problemă pentru tine, alătură-te canalului #omarchy-on-other de pe [Discord](https://discord.gg/tXFUdasqhY)-ul nostru și vezi dacă există metode actualizate pentru rezolvarea lor.
+Membrii comunității lucrează constant la soluții pentru aceste provocări, așa că, dacă acestea sunt o problemă pentru tine, alătură-te canalului #collie-on-other de pe [Discord](https://discord.gg/tXFUdasqhY)-ul nostru și vezi dacă există metode actualizate pentru rezolvarea lor.
 
 #### Dispozitive cu cip T1
 

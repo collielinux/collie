@@ -1,14 +1,14 @@
 # Zgornja vrstica
 
-Pas vzdolž vrha zaslona je vrstica Omarchy. Ni privita statusna vrstica, ampak del lupine Omarchy, edinega dolgo živečega procesa Quickshell, ki riše tudi meni, obvestila, pojavna okna OSD in zaklenjeni zaslon. Zato se popolnoma ujema z vsem ostalim in zato se plošča odpre takoj, namesto da bi zagnala novo aplikacijo.
+Pas vzdolž vrha zaslona je vrstica Collie. Ni privita statusna vrstica, ampak del lupine Collie, edinega dolgo živečega procesa Quickshell, ki riše tudi meni, obvestila, pojavna okna OSD in zaklenjeni zaslon. Zato se popolnoma ujema z vsem ostalim in zato se plošča odpre takoj, namesto da bi zagnala novo aplikacijo.
 
 Je tudi edini del namizja, ki je vedno na zaslonu, zato je vredno vedeti, kaj počnejo vsi ti majhni glifi.
 
 ## Kaj je privzeto na njej
 
-Vrstica ima tri razdelke. Na levi sta logotip Omarchy (zaganjalnik menija) in kazalniki delovnih površin. Na sredini dobite kazalnike stanja, uro, Elsewhen (svetovno uro), vreme in značko za posodobitev Omarchy. Na desni: sistemska vrstica, postavitev tipkovnice (kadar je konfiguriranih več), agenti, bluetooth, omrežje, zvok, zaslon in napajanje.
+Vrstica ima tri razdelke. Na levi sta logotip Collie (zaganjalnik menija) in kazalniki delovnih površin. Na sredini dobite kazalnike stanja, uro, Elsewhen (svetovno uro), vreme in značko za posodobitev Collie. Na desni: sistemska vrstica, postavitev tipkovnice (kadar je konfiguriranih več), agenti, bluetooth, omrežje, zvok, zaslon in napajanje.
 
-Nekaj od teh se prikaže le, kadar imajo kaj povedati. Postavitev tipkovnice se prikaže le, če ste konfigurirali več postavitev. Značka za posodobitev se prikaže le, kadar čaka posodobitev Omarchy. Ikona agentov pa se prikaže prvič, ko Omarchy najde uporabo kodiranja z AI na napravi (glejte [AI](17-ai.md)).
+Nekaj od teh se prikaže le, kadar imajo kaj povedati. Postavitev tipkovnice se prikaže le, če ste konfigurirali več postavitev. Značka za posodobitev se prikaže le, kadar čaka posodobitev Collie. Ikona agentov pa se prikaže prvič, ko Collie najde uporabo kodiranja z AI na napravi (glejte [AI](17-ai.md)).
 
 ## Klikanje naokoli
 
@@ -16,7 +16,7 @@ Skoraj vsak pripomoček naredi nekaj ob levem, desnem in srednjem kliku, več pa
 
 | Pripomoček | Levi | Desni | Srednji / drsenje |
 | --- | --- | --- | --- |
-| Meni | Meni Omarchy | Nov terminal | — |
+| Meni | Meni Collie | Nov terminal | — |
 | Delovne površine | Osredotoči to delovno površino na tem monitorju | — | Drsenje: naslednja/prejšnja delovna površina |
 | Ura | Pojavno okno koledarja | Preklopi obliko oznake | Srednji: izbirnik časovnega pasu |
 | Vreme | Pojavno okno napovedi | Celotno vreme kot obvestilo | Srednji: osveži |
@@ -29,7 +29,7 @@ Skoraj vsak pripomoček naredi nekaj ob levem, desnem in srednjem kliku, več pa
 | Mediji | Predvajaj/premor | Pojavno okno z naslovnico | Srednji: naslednje · drsenje: prejšnje/naslednje |
 | Agenti | Plošča za agente | Zaženi svojega agenta | Srednji: naslednja naročnina |
 | Sistemska vrstica | Zadržite kazalec, da razkrijete predal | Desni klik na ševron za upravljanje | — |
-| Posodobitev Omarchy | Zaženi posodobitev | — | — |
+| Posodobitev Collie | Zaženi posodobitev | — | — |
 
 Ni vse v tej tabeli privzeto na vaši vrstici. Pripomoček za medije (MPRIS zdaj predvaja, s premikajočo se skladbo in izvajalcem) in pripomoček za mikrofon sta vgrajena, a privzeto izklopljena — dodajte ju, če ju želite, kot je opisano spodaj.
 
@@ -66,7 +66,7 @@ Vsaka plošča sprejme tipkovnico kot tudi miško: puščice se premikajo, Retur
 
 Še dva pripomočka se na vrstici prikažeta le, ko iz **Namesti → Storitev** namestite ustrezno storitev, in oba je vredno poznati, ker naredita več kot le poročata o stanju.
 
-Plošča **Tailscale** povezuje in prekinja tailnet, preklaplja med računi in izbere izhodno vozlišče (vaše lastne naprave in regije Mullvad so oboje na tem seznamu). Prebrska tudi vaše naprave — in ko je ena izbrana, `s` pošlje datoteke nanjo prek Taildrop, kar je najhitrejši način za premik datoteke na telefon ali drug prenosnik. `c` kopira IP naprave, `n` njeno ime in `d` njeno polno ime DNS. Na vsaki vrstici naprave je tudi gumb za pošiljanje, če raje klikate. Enako iz terminala je `omarchy tailscale send <machine> [file...]`.
+Plošča **Tailscale** povezuje in prekinja tailnet, preklaplja med računi in izbere izhodno vozlišče (vaše lastne naprave in regije Mullvad so oboje na tem seznamu). Prebrska tudi vaše naprave — in ko je ena izbrana, `s` pošlje datoteke nanjo prek Taildrop, kar je najhitrejši način za premik datoteke na telefon ali drug prenosnik. `c` kopira IP naprave, `n` njeno ime in `d` njeno polno ime DNS. Na vsaki vrstici naprave je tudi gumb za pošiljanje, če raje klikate. Enako iz terminala je `collie tailscale send <machine> [file...]`.
 
 Plošča **Dropbox** skrbi za prijavo, prikazuje, koliko prostora za shranjevanje ste porabili, in navede nedavno sinhronizirane datoteke.
 
@@ -93,19 +93,19 @@ Pripomoček, ki ga želite imeti pri roki, a ne vedno na očeh, lahko gre v pred
 Iste stvari imajo ukaze, kar želite za nastavitev [dotfiles](31-dotfiles.md):
 
 ```bash
-omarchy bar position bottom
-omarchy bar background glassy  # opaque, glassy, none, or cycle
-omarchy bar move omarchy.weather --section centerBegin --index 0
-omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
-omarchy bar set omarchy.clock format "HH:mm"
-omarchy bar defaults          # back to the shipped layout
+collie bar position bottom
+collie bar background glassy  # opaque, glassy, none, or cycle
+collie bar move collie.weather --section centerBegin --index 0
+collie bar move collie.bluetooth --section tray  # into the tray's drawer
+collie bar set collie.clock format "HH:mm"
+collie bar defaults          # back to the shipped layout
 ```
 
-Za dodajanje ali odstranjevanje pripomočka v celoti uporabite ukaze vtičnikov. `omarchy plugin list` izpiše vsak pripomoček, ki ga lupina pozna, z njegovim id, nato pa:
+Za dodajanje ali odstranjevanje pripomočka v celoti uporabite ukaze vtičnikov. `collie plugin list` izpiše vsak pripomoček, ki ga lupina pozna, z njegovim id, nato pa:
 
 ```bash
-omarchy plugin enable omarchy.media --section centerEnd
-omarchy plugin disable omarchy.weather
+collie plugin enable collie.media --section centerEnd
+collie plugin disable collie.weather
 ```
 
 ## Skrivanje vrstice
@@ -114,7 +114,7 @@ omarchy plugin disable omarchy.weather
 
 ## Konfiguracijska datoteka
 
-Vse je shranjeno v `~/.config/omarchy/shell.json`, pod ključem `bar`. Tukaj je okleščena različica:
+Vse je shranjeno v `~/.config/collie/shell.json`, pod ključem `bar`. Tukaj je okleščena različica:
 
 ```json
 {
@@ -123,20 +123,20 @@ Vse je shranjeno v `~/.config/omarchy/shell.json`, pod ključem `bar`. Tukaj je 
     "position": "top",
     "background": "opaque",
     "layout": {
-      "left": [{ "id": "omarchy.menu" }, { "id": "omarchy.workspaces" }],
-      "centerBegin": [{ "id": "omarchy.indicators" }],
-      "center": [{ "id": "omarchy.clock", "format": "HH:mm" }],
-      "centerEnd": [{ "id": "omarchy.weather" }],
-      "right": [{ "id": "omarchy.audio" }, { "id": "omarchy.power" }]
+      "left": [{ "id": "collie.menu" }, { "id": "collie.workspaces" }],
+      "centerBegin": [{ "id": "collie.indicators" }],
+      "center": [{ "id": "collie.clock", "format": "HH:mm" }],
+      "centerEnd": [{ "id": "collie.weather" }],
+      "right": [{ "id": "collie.audio" }, { "id": "collie.power" }]
     }
   }
 }
 ```
 
-Vsak pripomoček je en vnos v eni od petih tabel postavitve, njegove nastavitve pa sedijo neposredno na tem vnosu — ni ločene datoteke z nastavitvami in ni podobjekta `config`. `format`, `formatAlt` (na kar preklopi desni klik) in `verticalFormat` ure živijo tam na `{ "id": "omarchy.clock" }`.
+Vsak pripomoček je en vnos v eni od petih tabel postavitve, njegove nastavitve pa sedijo neposredno na tem vnosu — ni ločene datoteke z nastavitvami in ni podobjekta `config`. `format`, `formatAlt` (na kar preklopi desni klik) in `verticalFormat` ure živijo tam na `{ "id": "collie.clock" }`.
 
 `center` je okvir na sredini vrstice: vse v njem je na zaslonu na sredini kot ena skupina. `centerBegin` in `centerEnd` visita na obeh straneh okvirja, tako ura ostane točno na sredini, tudi ko vreme in značka za posodobitev prihajata in odhajata. Dajte več kot en pripomoček v `center` in bodo skupaj na sredini; pustite ga praznega in `centerBegin` ter `centerEnd` se srečata na sredini vrstice.
 
-Eno pravilo, ki si ga je vredno zapomniti: **ko imate svoj `shell.json`, je kanoničen**. Dokler ničesar ne prilagodite, lupina bere privzeto datoteko Omarchy. V trenutku, ko povlečete pripomoček, zaženete `omarchy bar` ali sami uredite datoteko, je vaša — ni globokega združevanja, zato se novi privzeti pripomočki v prihodnjih izdajah Omarchy ne bodo samodejno prikazali na vaši vrstici. `omarchy bar defaults` vrne privzeto postavitev, kadar koli želite čist začetek.
+Eno pravilo, ki si ga je vredno zapomniti: **ko imate svoj `shell.json`, je kanoničen**. Dokler ničesar ne prilagodite, lupina bere privzeto datoteko Collie. V trenutku, ko povlečete pripomoček, zaženete `collie bar` ali sami uredite datoteko, je vaša — ni globokega združevanja, zato se novi privzeti pripomočki v prihodnjih izdajah Collie ne bodo samodejno prikazali na vaši vrstici. `collie bar defaults` vrne privzeto postavitev, kadar koli želite čist začetek.
 
 Ista datoteka hrani tudi vaše čase nedejavnosti na zgornji ravni, zunaj ključa `bar`: `idle.screensaver` in `idle.lock`, oboje v sekundah od vaše nedejavnosti. Privzeti ohranjevalnik zaslona se tako vklopi pri 150 sekundah, zaklepanje pa pri 300.

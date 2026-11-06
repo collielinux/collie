@@ -1,6 +1,6 @@
 # Namestitev z dvojnim zagonom
 
-Omarchy lahko namestite na eno samo particijo poleg sistema Windows ali drugih namestitev.
+Collie lahko namestite na eno samo particijo poleg sistema Windows ali drugih namestitev.
 
 Ta način namestitve privzeto še vedno vključuje šifriranje particije z LUKS, zato se dejansko ne razlikuje od namestitve na celoten pogon in preprosto zahteva, da je na disku na voljo prosti prostor.
 
@@ -14,17 +14,17 @@ Poiščite ustrezno particijo, z desno tipko kliknite nanjo in izberite **Skrči
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Vnesite količino, za katero želite skrčiti nosilec. Upoštevajte, da bo to velikost vaše prihodnje namestitve Omarchy, vključno z zagonsko particijo.
+ Vnesite količino, za katero želite skrčiti nosilec. Upoštevajte, da bo to velikost vaše prihodnje namestitve Collie, vključno z zagonsko particijo.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Ko končate, bi morali videti nekaj podobnega temu, kjer je razdelek s 50GB tisti, kamor bomo v tem primeru namestili Omarchy.
+Ko končate, bi morali videti nekaj podobnega temu, kjer je razdelek s 50GB tisti, kamor bomo v tem primeru namestili Collie.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Namestitev Omarchy
+## Namestitev Collie
 
-Postopek namestitve Omarchy je dejansko enak običajnemu. Ko izberete disk, boste dobili možnost **Namestitev v prosti prostor**. Izberite to možnost, da preprečite izbris celotnega diska.
+Postopek namestitve Collie je dejansko enak običajnemu. Ko izberete disk, boste dobili možnost **Namestitev v prosti prostor**. Izberite to možnost, da preprečite izbris celotnega diska.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Potrdite, da je vse videti v redu, in počakajte, da se namestitev konča kot ob
 
 ## Dodajanje drugih namestitev v zagonski nalagalnik
 
-Ko končate namestitev Omarchy, boste opazili, da je zdaj privzeti zagonski nalagalnik Limine. Z njim lahko v Limine dodate tudi možnosti za druge namestitve, kot je Windows.
+Ko končate namestitev Collie, boste opazili, da je zdaj privzeti zagonski nalagalnik Limine. Z njim lahko v Limine dodate tudi možnosti za druge namestitve, kot je Windows.
 
-Če želite dodati druge operacijske sisteme, zaženite `limine-scan` in sledite pozivom, da želene vnose dodate v svojo konfiguracijo Limine. Zagonski meni privzeto ostane skrit in po eni sekundi zažene Omarchy. Če želite izbrati Windows ali drug vnos, pritisnite katero koli tipko takoj, ko se Limine zažene; ko se prikaže meni, s puščičnimi tipkami izberite vnos in pritisnite Enter. Če se Omarchy zažene, preden pritisnete tipko, znova zaženite računalnik in poskusite znova. Če ste vklopili _Setup > Direct Boot_, vdelana programska oprema Limine v celoti preskoči, zato Limine izberite v zagonskem meniju BIOS-a ali znova zaženite _Setup > Direct Boot_, da odstranite vnos.
+Če želite dodati druge operacijske sisteme, zaženite `limine-scan` in sledite pozivom, da želene vnose dodate v svojo konfiguracijo Limine. Zagonski meni privzeto ostane skrit in po eni sekundi zažene Collie. Če želite izbrati Windows ali drug vnos, pritisnite katero koli tipko takoj, ko se Limine zažene; ko se prikaže meni, s puščičnimi tipkami izberite vnos in pritisnite Enter. Če se Collie zažene, preden pritisnete tipko, znova zaženite računalnik in poskusite znova. Če ste vklopili _Setup > Direct Boot_, vdelana programska oprema Limine v celoti preskoči, zato Limine izberite v zagonskem meniju BIOS-a ali znova zaženite _Setup > Direct Boot_, da odstranite vnos.
 
 ## Bitlocker
 

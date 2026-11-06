@@ -8,7 +8,7 @@ Har bir tezkor tugma o'z modifikatorlari bilan belgilanadigan tekislikda joylash
 
 | Tekislik | U yerda nimalar joylashgan | Misollar |
 | --- | --- | --- |
-| `Super + key` | Tizim: oynalar, ish maydonlari, maketlar va asosiy menyular | `Super + Space` Omarchy menyusi, `Super + W` oynani yopish, `Super + F` to'liq ekran |
+| `Super + key` | Tizim: oynalar, ish maydonlari, maketlar va asosiy menyular | `Super + Space` Collie menyusi, `Super + W` oynani yopish, `Super + F` to'liq ekran |
 | `Super + Shift + key` | Ilovalar | `Super + Shift + B` brauzer, `Super + Shift + E` elektron pochta, `Super + Shift + N` muharrir |
 | `Super + Ctrl + key` | Panellar va tizim menyulari | `Super + Ctrl + A` audio, `Super + Ctrl + N` tarmoq, `Super + Ctrl + C` tasvirga olish menyusi |
 | `Super + Ctrl + Alt + key` | Tezkor amallar va bildirishnomalar | `Super + Ctrl + Alt + T` vaqtni ko'rsatish, `Super + Ctrl + Alt + B` batareya, `Super + Ctrl + Alt + C` skrinshot |
@@ -34,7 +34,7 @@ Agar standart variant sizga mos kelmasa (aytaylik, Windows dagi kabi skrinshotla
 
 | Tezkor tugma                  | Funksiya              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy menyusi (ilovalar va qolgan hamma narsa)    |
+| `Super + Space`           | Collie menyusi (ilovalar va qolgan hamma narsa)    |
 | `Super + Alt + Space` | Ilovalar panjarasi |
 | `Super + Escape` | Tizim menyusi (kutish rejimi, qayta ishga tushirish va hokazo)  |
 | `Super + Ctrl + L` | Kompyuterni qulflash |
@@ -171,7 +171,7 @@ Bog'lanishlarni `~/.config/hypr/bindings.lua` da o'zgartiring/qo'shing.
 | `Super + V`           | Joylashtirish    |
 | `Super + Ctrl + V`           | Almashuv buferi menejeri    |
 
-Odatda Linux da terminalda nusxalash va joylashtirish uchun `Ctrl + Shift + C/V`, boshqa hamma joyda buni qilish uchun esa `Ctrl + C/V` kerak bo'ladi. Ushbu Omarchy birlashtirilgan almashuv buferi tezkor tugmalari hamma joyda ishlaydi.
+Odatda Linux da terminalda nusxalash va joylashtirish uchun `Ctrl + Shift + C/V`, boshqa hamma joyda buni qilish uchun esa `Ctrl + C/V` kerak bo'ladi. Ushbu Collie birlashtirilgan almashuv buferi tezkor tugmalari hamma joyda ishlaydi.
 
 ## Tasvirga olish
 
@@ -192,7 +192,7 @@ Odatda Linux da terminalda nusxalash va joylashtirish uchun `Ctrl + Shift + C/V`
 
 Ekran yozuvlarida tezkor tugma avval qaysi audioni xohlashingizni so'raydi, keyin yozishni boshlaydi. To'xtatish uchun uni yana bosing. Tafsilotlar uchun [skrinshotlar va yozib olish](12-screenshots-recording.md) ga qarang.
 
-Barcha tasvirga olish variantlari Omarchy menyusidagi (`Super + Space`) _Trigger > Tasvirga olish_ ostida ham mavjud.
+Barcha tasvirga olish variantlari Collie menyusidagi (`Super + Space`) _Trigger > Tasvirga olish_ ostida ham mavjud.
 
 ## Bildirishnomalar
 
@@ -214,9 +214,9 @@ Barcha tasvirga olish variantlari Omarchy menyusidagi (`Super + Space`) _Trigger
 | `Super + Backspace` | Oynada shaffoflikni almashtirish |
 | `Super + Ctrl + Backspace` | Bitta oyna uchun kvadrat nisbatni almashtirish |
 
-Qo'shimcha fon rasmlari `~/.config/omarchy/backgrounds/<theme name>` da joylashgan. Omarchy menyusidagi _O'rnatish > Uslub > Fon_ orqali ham mavjud.
+Qo'shimcha fon rasmlari `~/.config/collie/backgrounds/<theme name>` da joylashgan. Collie menyusidagi _O'rnatish > Uslub > Fon_ orqali ham mavjud.
 
-Barcha uslub variantlari Omarchy menyusidagi (`Super + Space`) _Uslub_ ostida ham mavjud.
+Barcha uslub variantlari Collie menyusidagi (`Super + Space`) _Uslub_ ostida ham mavjud.
 
 ## Almashtirgichlar
 
@@ -317,7 +317,7 @@ Bu funksiyalar Tmux sessiyasi ichida ishga tushirilishi kerak.
 
 ## Ghostty Terminal
 
-Ghostty terminali Omarchy menyusi orqali _O'rnatish > Terminal_ yordamida o'rnatiladi.
+Ghostty terminali Collie menyusi orqali _O'rnatish > Terminal_ yordamida o'rnatiladi.
 
 | Tezkor tugma                  | Funksiya              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ To'liq emoji tanlagichni ko'rsatish uchun `Super + Ctrl + E` dan foydalanishingi
 | `Shift + CapsLock Space N` | Ismingiz (o'rnatishda kiritilganidek)  |
 | `Shift + CapsLock Space E` | Elektron pochtangiz (o'rnatishda kiritilganidek)  |
 
-`~/.XCompose` ni tahrirlash orqali o'zingiznikidan ko'proq qo'shishingiz mumkin, keyin o'zgarishlar qo'llanilishi uchun terminalda `omarchy-restart-xcompose` ni ishga tushiring.
+`~/.XCompose` ni tahrirlash orqali o'zingiznikidan ko'proq qo'shishingiz mumkin, keyin o'zgarishlar qo'llanilishi uchun terminalda `collie-restart-xcompose` ni ishga tushiring.

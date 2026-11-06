@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# collie:summary=Print the active Collie dev-link git branch
+# collie:hidden=true
+
+collie_path=${COLLIE_PATH:-/usr/share/collie}
+collie_path=${collie_path%/}
+
+[[ $collie_path != "/usr/share/collie" ]] || exit 1
+
+branch=$(git -C "$collie_path" branch --show-current 2>/dev/null || true)
+if [[ -z $branch ]]; then
+  hash=$(git -C "$collie_path" rev-parse --short HEAD 2>/dev/null || true)
+  [[ -n $hash ]] || exit 1
+  branch="detached@$hash"
+fi
+
+echo "$branch"

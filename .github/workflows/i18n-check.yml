@@ -10,7 +10,7 @@ on:
   pull_request:
     paths:
       - 'default/i18n/**'
-      - 'default/omarchy/omarchy-menu.jsonc'
+      - 'default/collie/collie-menu.jsonc'
       - 'shell/**'
       - 'bin/**'
       - 'install/**'

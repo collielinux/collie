@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# collie:summary=Uninstall Slack Desktop and clean up its theme integration
+# collie:hidden=true
+# collie:requires-sudo=true
+
+set -euo pipefail
+
+collie-pkg-drop slack-desktop
+override="$HOME/.local/share/applications/slack.desktop"
+if [[ -f $override ]] && grep -qE '^Exec=collie-launch-slack( |$)' "$override"; then
+  rm "$override"
+  update-desktop-database "${override%/*}"
+fi
+rm -rf "$HOME/.local/state/collie/slack"

@@ -13,8 +13,8 @@ require_command lua
 tmpdir=$(mktemp -d)
 trap 'rm -rf "$tmpdir"' EXIT
 
-mkdir -p "$tmpdir/state/omarchy/monitors"
-settings="$tmpdir/state/omarchy/monitors/settings"
+mkdir -p "$tmpdir/state/collie/monitors"
+settings="$tmpdir/state/collie/monitors/settings"
 
 cat >"$tmpdir/fake.lua" <<'LUA'
 package.path = os.getenv("ROOT") .. "/?.lua;" .. package.path
@@ -130,7 +130,7 @@ pass "monitor settings apply a saved rotation"
 printf '%s\t%s\t%s\t%s\n' "1920x1200@60" "0x0" "1" "LG Display 0x0804" >"$settings"
 run_lua '
 plug("eDP-1", "LG Display 0x0804", { width = 2880, height = 1800, refresh_rate = 120, scale = 2, x = 0, y = 0 })
-omarchy_monitor_panel_settings = false
+collie_monitor_panel_settings = false
 load_module()
 handlers["monitor.added"]({ name = "eDP-1" })
 o.monitor_settings.update_gdk_scale()

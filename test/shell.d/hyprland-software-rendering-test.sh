@@ -17,7 +17,7 @@ import importlib.machinery
 import importlib.util
 import os
 
-path = os.environ["ROOT"] + "/bin/omarchy-hw-software-rendering"
+path = os.environ["ROOT"] + "/bin/collie-hw-software-rendering"
 loader = importlib.machinery.SourceFileLoader("hw_software_rendering", path)
 spec = importlib.util.spec_from_loader(loader.name, loader)
 detector = importlib.util.module_from_spec(spec)
@@ -77,7 +77,7 @@ pass "the detector classifies renderers and DRM nodes as Hyprland does"
 stub_bin="$test_tmp/bin"
 mkdir -p "$stub_bin"
 
-cat >"$stub_bin/omarchy-hw-software-rendering" <<'SH'
+cat >"$stub_bin/collie-hw-software-rendering" <<'SH'
 #!/bin/bash
 # FAKE_STATUS lists the exit status of each probe in turn; the last repeats.
 # Mesa's noise about unopenable devices comes along on stderr, as on a Mac.
@@ -108,7 +108,7 @@ cat >"$stub_bin/logger" <<'SH'
 #!/bin/bash
 printf 'logger %s\n' "$*" >>"$FAKE_LOG"
 SH
-cat >"$stub_bin/omarchy-notification-send" <<'SH'
+cat >"$stub_bin/collie-notification-send" <<'SH'
 #!/bin/bash
 printf 'notify %s\n' "$*" >>"$FAKE_LOG"
 SH
@@ -119,7 +119,7 @@ cat >"$stub_bin/busctl" <<'SH'
 printf 'busctl\n' >>"$FAKE_LOG"
 [[ -n ${FAKE_SERVER_AFTER:-} ]] && (( $(grep -c '^busctl$' "$FAKE_LOG") > FAKE_SERVER_AFTER ))
 SH
-cat >"$stub_bin/omarchy-shell" <<'SH'
+cat >"$stub_bin/collie-shell" <<'SH'
 #!/bin/bash
 exit 0
 SH
@@ -127,15 +127,15 @@ chmod +x "$stub_bin"/*
 
 signature="test-signature"
 runtime="$test_tmp/run"
-marker="$runtime/hypr/$signature/omarchy-software-rendering"
+marker="$runtime/hypr/$signature/collie-software-rendering"
 log="$test_tmp/log"
 
 run_session_start() {
   : >"$log"
-  HOME="$test_tmp/home" PATH="$stub_bin:$ROOT/bin:$PATH" OMARCHY_PATH="$ROOT" \
+  HOME="$test_tmp/home" PATH="$stub_bin:$ROOT/bin:$PATH" COLLIE_PATH="$ROOT" \
     XDG_RUNTIME_DIR="$runtime" HYPRLAND_INSTANCE_SIGNATURE="$signature" FAKE_LOG="$log" \
     FAKE_STATUS="$1" FAKE_RENDERER="${2:-}" FAKE_ANIMATIONS="${3:-false}" FAKE_SERVER_AFTER="${4-0}" \
-    "$ROOT/bin/omarchy-hyprland-software-rendering" 2>"$test_tmp/stderr"
+    "$ROOT/bin/collie-hyprland-software-rendering" 2>"$test_tmp/stderr"
   [[ ! -s $test_tmp/stderr ]] || fail "Mesa's complaints stay out of the session log" "$(cat "$test_tmp/stderr")"
 }
 
@@ -148,7 +148,7 @@ reset_session
 run_session_start 0 "llvmpipe (LLVM 21.1.0, 128 bits)" false
 [[ $(cat "$marker") == "llvmpipe (LLVM 21.1.0, 128 bits)" ]] || fail "a CPU-rendered session is marked with its renderer"
 grep -Fxq "hyprctl reload" "$log" || fail "marking the session reloads Hyprland" "$(cat "$log")"
-grep -Fq "logger -t omarchy Hyprland renders on the CPU (llvmpipe (LLVM 21.1.0, 128 bits)), so animations" "$log" || fail "the journal says why animations are off" "$(cat "$log")"
+grep -Fq "logger -t collie Hyprland renders on the CPU (llvmpipe (LLVM 21.1.0, 128 bits)), so animations" "$log" || fail "the journal says why animations are off" "$(cat "$log")"
 grep -Fq "notify --app-name Software Rendering -g 󰘚 -u normal -t 30000 Animations off without a GPU No GPU in use, so animations, blur and shadows are off." "$log" || fail "a notification says why animations are off" "$(cat "$log")"
 pass "a session that renders on the CPU is marked, reloaded and explained"
 
@@ -168,8 +168,8 @@ pass "the notice shows once per machine"
 
 # A VM install already turned animations off with the toggle: no notice.
 reset_session
-mkdir -p "$test_tmp/home/.local/state/omarchy/toggles/hypr"
-cp "$ROOT/default/hypr/toggles/no-animations.lua" "$test_tmp/home/.local/state/omarchy/toggles/hypr/"
+mkdir -p "$test_tmp/home/.local/state/collie/toggles/hypr"
+cp "$ROOT/default/hypr/toggles/no-animations.lua" "$test_tmp/home/.local/state/collie/toggles/hypr/"
 run_session_start 0 "llvmpipe (LLVM 21.1.0, 128 bits)" false
 if grep -q "^notify" "$log"; then
   fail "no notice where animations were already off by choice" "$(cat "$log")"
@@ -179,8 +179,8 @@ pass "no notice where animations were already off by choice"
 # Animations turned back on in Appearance: the session is marked, but nothing
 # reloads and nothing is announced.
 reset_session
-mkdir -p "$test_tmp/home/.local/state/omarchy/toggles"
-touch "$test_tmp/home/.local/state/omarchy/toggles/animations-without-gpu"
+mkdir -p "$test_tmp/home/.local/state/collie/toggles"
+touch "$test_tmp/home/.local/state/collie/toggles/animations-without-gpu"
 run_session_start 0 "llvmpipe (LLVM 21.1.0, 128 bits)" false
 [[ -f $marker ]] || fail "a session with animations turned back on is still marked"
 if grep -q "^hyprctl reload\|^notify" "$log"; then
@@ -202,7 +202,7 @@ run_session_start 0 "llvmpipe (LLVM 23.1.4, 128 bits)" garbage
 if grep -q "^notify\|keeping the animations" "$log"; then
   fail "an unreadable animations setting is neither announced nor logged as an override" "$(cat "$log")"
 fi
-grep -Fq "logger -t omarchy -p user.debug Hyprland renders on the CPU (llvmpipe (LLVM 23.1.4, 128 bits)), but its animations, blur or shadows setting couldn't be read" "$log" ||
+grep -Fq "logger -t collie -p user.debug Hyprland renders on the CPU (llvmpipe (LLVM 23.1.4, 128 bits)), but its animations, blur or shadows setting couldn't be read" "$log" ||
   fail "an unreadable animations setting is logged as such" "$(cat "$log")"
 pass "an unreadable animations setting after the reload is logged, not guessed"
 
@@ -210,10 +210,10 @@ pass "an unreadable animations setting after the reload is logged, not guessed"
 # names exactly what the user kept.
 reset_session
 : >"$log"
-HOME="$test_tmp/home" PATH="$stub_bin:$ROOT/bin:$PATH" OMARCHY_PATH="$ROOT" \
+HOME="$test_tmp/home" PATH="$stub_bin:$ROOT/bin:$PATH" COLLIE_PATH="$ROOT" \
   XDG_RUNTIME_DIR="$runtime" HYPRLAND_INSTANCE_SIGNATURE="$signature" FAKE_LOG="$log" \
   FAKE_STATUS=0 FAKE_RENDERER="llvmpipe (LLVM 23.1.4, 128 bits)" FAKE_ANIMATIONS=false FAKE_BLUR=true FAKE_SERVER_AFTER=0 \
-  "$ROOT/bin/omarchy-hyprland-software-rendering" 2>/dev/null
+  "$ROOT/bin/collie-hyprland-software-rendering" 2>/dev/null
 if grep -q "^notify" "$log"; then
   fail "no notice claims blur is off when the user kept it on" "$(cat "$log")"
 fi
@@ -240,13 +240,13 @@ done
 grep -Fq "Couldn't read Hyprland's GL renderer" "$log" || fail "an unreadable renderer is logged" "$(cat "$log")"
 pass "a GPU or unreadable renderer leaves the session alone"
 
-# Replays the order hyprland.lua loads things in: Omarchy's defaults, the
+# Replays the order hyprland.lua loads things in: Collie's defaults, the
 # software-rendering defaults, then a saved toggle. Prints the final
 # animations, blur and shadow settings.
 run_config() {
-  HOME="$test_tmp/home" XDG_RUNTIME_DIR="$runtime" HYPRLAND_INSTANCE_SIGNATURE="$signature" OMARCHY_PATH="$ROOT" \
+  HOME="$test_tmp/home" XDG_RUNTIME_DIR="$runtime" HYPRLAND_INSTANCE_SIGNATURE="$signature" COLLIE_PATH="$ROOT" \
     TOGGLE="${1:-}" lua - <<'LUA'
-package.path = os.getenv("OMARCHY_PATH") .. "/?.lua;" .. package.path
+package.path = os.getenv("COLLIE_PATH") .. "/?.lua;" .. package.path
 local values = {}
 local function merge(target, source)
   for key, value in pairs(source) do
@@ -273,7 +273,7 @@ require("default.hypr.helpers")
 hl.config({ animations = { enabled = true }, decoration = { blur = { enabled = false }, shadow = { enabled = false } } })
 require("default.hypr.software-rendering")
 if os.getenv("TOGGLE") ~= "" then
-  dofile(os.getenv("OMARCHY_PATH") .. "/default/hypr/toggles/" .. os.getenv("TOGGLE") .. ".lua")
+  dofile(os.getenv("COLLIE_PATH") .. "/default/hypr/toggles/" .. os.getenv("TOGGLE") .. ".lua")
 end
 print(string.format("animations=%s blur=%s shadow=%s", tostring(values.animations.enabled),
   tostring(values.decoration.blur.enabled), tostring(values.decoration.shadow.enabled)))
@@ -288,7 +288,7 @@ expect_config() {
 }
 
 reset_session
-expect_config "animations=true blur=false shadow=false" "a GPU session keeps Omarchy's defaults"
+expect_config "animations=true blur=false shadow=false" "a GPU session keeps Collie's defaults"
 expect_config "animations=true blur=true shadow=false" "a GPU session keeps the Glassy bar's blur" bar-glassy
 expect_config "animations=true blur=true shadow=false" "a GPU session keeps Glassy windows' blur" window-glassy
 pass "a GPU session is unchanged, Glassy toggles included"
@@ -299,8 +299,8 @@ expect_config "animations=false blur=false shadow=false" "a CPU session turns of
 expect_config "animations=false blur=false shadow=false" "a CPU session turns off Glassy windows' blur" window-glassy
 pass "a CPU session turns off animations, blur and shadows, Glassy toggles included"
 
-mkdir -p "$test_tmp/home/.local/state/omarchy/toggles"
-touch "$test_tmp/home/.local/state/omarchy/toggles/animations-without-gpu"
+mkdir -p "$test_tmp/home/.local/state/collie/toggles"
+touch "$test_tmp/home/.local/state/collie/toggles/animations-without-gpu"
 expect_config "animations=true blur=false shadow=false" "Appearance turns animations back on in a CPU session"
 expect_config "animations=true blur=true shadow=false" "Appearance brings the Glassy bar's blur back in a CPU session" bar-glassy
 pass "turning animations on in Appearance lifts the CPU session's defaults"

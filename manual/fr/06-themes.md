@@ -1,8 +1,8 @@
 # Thèmes
 
-Omarchy est livré avec vingt-deux magnifiques thèmes. Vous pouvez choisir entre eux via _Apparence > Thème_ dans le menu Omarchy (`Super + Space`) ou accéder directement au sélecteur de thèmes avec `Super + Ctrl + T`.
+Collie est livré avec vingt-deux magnifiques thèmes. Vous pouvez choisir entre eux via _Apparence > Thème_ dans le menu Collie (`Super + Space`) ou accéder directement au sélecteur de thèmes avec `Super + Ctrl + T`.
 
-Chaque thème habille le bureau, le terminal, neovim, l'écran d'activité (btop), Chromium et l'ensemble du shell Omarchy : la barre supérieure, le menu, les notifications, l'OSD et l'écran de verrouillage. (Pour Obsidian, vous devez sélectionner manuellement le thème Omarchy via _Apparence > Thèmes_ dans l'application).
+Chaque thème habille le bureau, le terminal, neovim, l'écran d'activité (btop), Chromium et l'ensemble du shell Collie : la barre supérieure, le menu, les notifications, l'OSD et l'écran de verrouillage. (Pour Obsidian, vous devez sélectionner manuellement le thème Collie via _Apparence > Thèmes_ dans l'application).
 
 Les thèmes disposent d'un ensemble d'images d'arrière-plan parmi lesquelles vous pouvez choisir avec `Super + Ctrl + W`.
 

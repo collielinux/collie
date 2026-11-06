@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-command="$ROOT/bin/omarchy-windows-key"
+command="$ROOT/bin/collie-windows-key"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 
@@ -18,7 +18,7 @@ pathlib.Path(sys.argv[1]).write_bytes(b"MSDM" + b"\x00" * 52 + sys.argv[2].encod
 }
 
 run_helper() {
-  OMARCHY_MSDM_PATH=$1 PATH="$ROOT/bin:$PATH" "$command"
+  COLLIE_MSDM_PATH=$1 PATH="$ROOT/bin:$PATH" "$command"
 }
 
 key="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
@@ -33,12 +33,12 @@ cat >"$tmp/bin/strings" <<'EOF'
 exit 0
 EOF
 chmod +x "$tmp/bin/strings"
-output=$(PATH="$tmp/bin:$ROOT/bin:$PATH" OMARCHY_MSDM_PATH="$tmp/msdm" "$command")
+output=$(PATH="$tmp/bin:$ROOT/bin:$PATH" COLLIE_MSDM_PATH="$tmp/msdm" "$command")
 [[ $output == "$key" ]] || fail "windows key helper falls back to cat when strings finds nothing" "actual: $output"
 pass "windows key helper falls back to cat when strings finds nothing"
 
 write_msdm "$tmp/empty" "no-product-key-here"
-if OMARCHY_MSDM_PATH="$tmp/empty" PATH="$ROOT/bin:$PATH" "$command" >"$tmp/out" 2>"$tmp/err"; then
+if COLLIE_MSDM_PATH="$tmp/empty" PATH="$ROOT/bin:$PATH" "$command" >"$tmp/out" 2>"$tmp/err"; then
   fail "windows key helper fails when the table has no key"
 fi
 [[ ! -s $tmp/out && -s $tmp/err ]] ||
@@ -46,7 +46,7 @@ fi
 pass "windows key helper reports a missing key"
 missing_key_err=$(<"$tmp/err")
 
-if OMARCHY_MSDM_PATH="$tmp/missing" PATH="$ROOT/bin:$PATH" "$command" >"$tmp/out" 2>"$tmp/err"; then
+if COLLIE_MSDM_PATH="$tmp/missing" PATH="$ROOT/bin:$PATH" "$command" >"$tmp/out" 2>"$tmp/err"; then
   fail "windows key helper fails when firmware has no MSDM table"
 fi
 [[ ! -s $tmp/out && -s $tmp/err && $(<"$tmp/err") != "$missing_key_err" ]] ||

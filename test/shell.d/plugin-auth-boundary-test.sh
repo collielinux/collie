@@ -42,10 +42,10 @@ vm.runInContext(
   store
 )
 const service = { destroy() {} }
-store.put('omarchy.lock', service)
-store.destroy('omarchy.lock')
+store.put('collie.lock', service)
+store.destroy('collie.lock')
 assert(
-  !store.has('omarchy.lock') && store.isTrusted('omarchy.lock'),
+  !store.has('collie.lock') && store.isTrusted('collie.lock'),
   'authentication classification survives service teardown'
 )
 JS
@@ -125,9 +125,9 @@ tr '\n\r\t' '   ' <<<"$bar_entry_shell" |
   fail "built-in clones in replacement bars cannot summon their existing auxiliary UI"
 qml_matches "$shell_qml" 'shell\.pluginCloneMaySummon\( *currentManifest\( *\), *requestedId *\)' ||
   fail "built-in clones cannot summon their existing auxiliary UI"
-qml_matches "$shell_qml" '"omarchy\.media": *\["omarchy\.osd"\]' ||
+qml_matches "$shell_qml" '"collie\.media": *\["collie\.osd"\]' ||
   fail "media clones cannot summon their existing OSD target"
-qml_matches "$shell_qml" '"omarchy\.network": *\["omarchy\.speedtest", *"omarchy\.wifiqr"\]' ||
+qml_matches "$shell_qml" '"collie\.network": *\["collie\.speedtest", *"collie\.wifiqr"\]' ||
   fail "network clones cannot summon their existing auxiliary panels"
 pass "built-in service and widget clones retain narrow configuration and UI integration"
 

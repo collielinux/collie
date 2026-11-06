@@ -1,8 +1,8 @@
 # Temaer
 
-Omarchy leveres med toogtyve smukke temaer. Du kan vælge mellem dem via _Udseende > Tema_ i Omarchy-menuen (`Super + Space`) eller hoppe direkte til temavælgeren med `Super + Ctrl + T`.
+Collie leveres med toogtyve smukke temaer. Du kan vælge mellem dem via _Udseende > Tema_ i Collie-menuen (`Super + Space`) eller hoppe direkte til temavælgeren med `Super + Ctrl + T`.
 
-Hvert tema styler skrivebordet, terminalen, neovim, aktivitetsskærmen (btop), Chromium og hele Omarchy-skallen: øverste bjælke, menu, notifikationer, OSD og låseskærmen. (Til Obsidian skal du manuelt vælge Omarchy-temaet via _Udseende > Temaer_ inde i appen).
+Hvert tema styler skrivebordet, terminalen, neovim, aktivitetsskærmen (btop), Chromium og hele Collie-skallen: øverste bjælke, menu, notifikationer, OSD og låseskærmen. (Til Obsidian skal du manuelt vælge Collie-temaet via _Udseende > Temaer_ inde i appen).
 
 Temaer har et sæt baggrundsbilleder, som du kan vælge imellem med `Super + Ctrl + W`.
 

@@ -8,7 +8,7 @@ Katrs īsinājumtaustiņš atrodas uz plaknes, ko nosaka tā modificētāji, un 
 
 | Plakne | Kas tur atrodas | Piemēri |
 | --- | --- | --- |
-| `Super + key` | Sistēma: logi, darbvietas, izkārtojumi un galvenās izvēlnes | `Super + Space` Omarchy izvēlne, `Super + W` aizvērt logu, `Super + F` pilnekrāna režīms |
+| `Super + key` | Sistēma: logi, darbvietas, izkārtojumi un galvenās izvēlnes | `Super + Space` Collie izvēlne, `Super + W` aizvērt logu, `Super + F` pilnekrāna režīms |
 | `Super + Shift + key` | Lietotnes | `Super + Shift + B` pārlūks, `Super + Shift + E` e-pasts, `Super + Shift + N` redaktors |
 | `Super + Ctrl + key` | Paneļi un sistēmas izvēlnes | `Super + Ctrl + A` audio, `Super + Ctrl + N` tīkls, `Super + Ctrl + C` uzņemšanas izvēlne |
 | `Super + Ctrl + Alt + key` | Ātrās darbības un paziņojumi | `Super + Ctrl + Alt + T` rādīt laiku, `Super + Ctrl + Alt + B` baterija, `Super + Ctrl + Alt + C` ekrānuzņēmums |
@@ -34,7 +34,7 @@ Ja noklusējums jums neder (teiksim, vēlaties `Super + Shift + S` ekrānuzņēm
 
 | Īsinājumtaustiņš                  | Funkcija              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy izvēlne (lietotnes un viss pārējais)    |
+| `Super + Space`           | Collie izvēlne (lietotnes un viss pārējais)    |
 | `Super + Alt + Space` | Lietotņu režģis |
 | `Super + Escape` | Sistēmas izvēlne (apturēt, restartēt utt.)  |
 | `Super + Ctrl + L` | Bloķēt datoru |
@@ -171,7 +171,7 @@ Mainiet/pievienojiet īsinājumtaustiņus failā `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Ielīmēt    |
 | `Super + Ctrl + V`           | Starpliktuves pārvaldnieks    |
 
-Parasti Linux sistēmā, lai kopētu un ielīmētu terminālī, vajag `Ctrl + Shift + C/V`, un `Ctrl + C/V`, lai to darītu visur citur. Šie Omarchy vienotie starpliktuves īsinājumtaustiņi darbojas visur.
+Parasti Linux sistēmā, lai kopētu un ielīmētu terminālī, vajag `Ctrl + Shift + C/V`, un `Ctrl + C/V`, lai to darītu visur citur. Šie Collie vienotie starpliktuves īsinājumtaustiņi darbojas visur.
 
 ## Uzņemšana
 
@@ -192,7 +192,7 @@ Parasti Linux sistēmā, lai kopētu un ielīmētu terminālī, vajag `Ctrl + Sh
 
 Ar ekrāna ierakstiem īsinājumtaustiņš vispirms jautā, kuru audio vēlaties, pēc tam sāk ierakstu. Nospiediet to vēlreiz, lai apturētu. Sīkāk skatiet [ekrānuzņēmumi un ierakstīšana](12-screenshots-recording.md).
 
-Visas uzņemšanas opcijas ir pieejamas arī zem _Trigger > Capture_ Omarchy izvēlnē (`Super + Space`).
+Visas uzņemšanas opcijas ir pieejamas arī zem _Trigger > Capture_ Collie izvēlnē (`Super + Space`).
 
 ## Paziņojumi
 
@@ -214,9 +214,9 @@ Visas uzņemšanas opcijas ir pieejamas arī zem _Trigger > Capture_ Omarchy izv
 | `Super + Backspace` | Pārslēgt loga caurspīdīgumu |
 | `Super + Ctrl + Backspace` | Pārslēgt viena loga kvadrātisku malu attiecību |
 
-Papildu fona attēli atrodas `~/.config/omarchy/backgrounds/<theme name>`. Pieejams arī caur _Install > Style > Background_ Omarchy izvēlnē.
+Papildu fona attēli atrodas `~/.config/collie/backgrounds/<theme name>`. Pieejams arī caur _Install > Style > Background_ Collie izvēlnē.
 
-Visas stila opcijas ir pieejamas arī zem _Style_ Omarchy izvēlnē (`Super + Space`).
+Visas stila opcijas ir pieejamas arī zem _Style_ Collie izvēlnē (`Super + Space`).
 
 ## Pārslēgšanas
 
@@ -317,7 +317,7 @@ Prefiksa taustiņš ir `Ctrl + Space` (`Ctrl + B` arī darbojas). Šos īsināju
 
 ## Ghostty terminālis
 
-Ghostty terminālis tiek instalēts, izmantojot _Install > Terminal_ caur Omarchy izvēlni.
+Ghostty terminālis tiek instalēts, izmantojot _Install > Terminal_ caur Collie izvēlni.
 
 | Īsinājumtaustiņš                  | Funkcija              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Varat izmantot `Super + Ctrl + E`, lai parādītu pilnu emocijzīmju izvēli, ka
 | `Shift + CapsLock Space N` | Jūsu vārds (kā ievadīts iestatīšanas laikā)  |
 | `Shift + CapsLock Space E` | Jūsu e-pasts (kā ievadīts iestatīšanas laikā)  |
 
-Varat pievienot vēl savus, rediģējot `~/.XCompose`, pēc tam palaižot `omarchy-restart-xcompose` terminālī, lai izmaiņas tiktu uztvertas.
+Varat pievienot vēl savus, rediģējot `~/.XCompose`, pēc tam palaižot `collie-restart-xcompose` terminālī, lai izmaiņas tiktu uztvertas.

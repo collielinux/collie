@@ -1,6 +1,6 @@
 # Dual Boot ස්ථාපනය
 
-ඔබට Windows හෝ වෙනත් ස්ථාපනයන් සමඟ තනි partition එකක Omarchy ස්ථාපනය කළ හැකිය.
+ඔබට Windows හෝ වෙනත් ස්ථාපනයන් සමඟ තනි partition එකක Collie ස්ථාපනය කළ හැකිය.
 
 මෙම ස්ථාපන ක්‍රමය තවමත් පෙරනිමියෙන් partition එක සඳහා LUKS encryption සමඟ එන බැවින් එය ප්‍රායෝගිකව සම්පූර්ණ drive එකක් භාවිතා කිරීමට වඩා වෙනස් නොවේ. අවශ්‍ය වන්නේ disk එකේ free space ප්‍රමාණයක් තිබීම පමණි.
 
@@ -14,17 +14,17 @@ Windows සමඟ ස්ථාපනය කිරීමට, start menu එකේ
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- ඔබට volume එක shrink කිරීමට අවශ්‍ය ප්‍රමාණය ඇතුළත් කරන්න. මෙය boot partition එක ඇතුළුව ඔබේ අනාගත Omarchy ස්ථාපනයේ ප්‍රමාණය වන බව සලකන්න.
+ ඔබට volume එක shrink කිරීමට අවශ්‍ය ප්‍රමාණය ඇතුළත් කරන්න. මෙය boot partition එක ඇතුළුව ඔබේ අනාගත Collie ස්ථාපනයේ ප්‍රමාණය වන බව සලකන්න.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-ඔබ අවසන් කළ පසු, මෙම උදාහරණයේ Omarchy ස්ථාපනය කරන 50GB කොටස පෙන්වන මෙවැනි දෙයක් ඔබට දැකිය යුතුය.
+ඔබ අවසන් කළ පසු, මෙම උදාහරණයේ Collie ස්ථාපනය කරන 50GB කොටස පෙන්වන මෙවැනි දෙයක් ඔබට දැකිය යුතුය.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Omarchy ස්ථාපනය කිරීම
+## Collie ස්ථාපනය කිරීම
 
-Omarchy සඳහා වන ස්ථාපන ක්‍රියාවලිය ප්‍රායෝගිකව සාමාන්‍ය ආකාරයටම සිදු වේ. ඔබ ඔබේ disk එක තෝරා ගත් පසු, ඔබට **Free space install** යන විකල්පය ලැබෙනු ඇත. සම්පූර්ණ disk එකම wipe වීම වැළැක්වීමට එම විකල්පය තෝරන්න.
+Collie සඳහා වන ස්ථාපන ක්‍රියාවලිය ප්‍රායෝගිකව සාමාන්‍ය ආකාරයටම සිදු වේ. ඔබ ඔබේ disk එක තෝරා ගත් පසු, ඔබට **Free space install** යන විකල්පය ලැබෙනු ඇත. සම්පූර්ණ disk එකම wipe වීම වැළැක්වීමට එම විකල්පය තෝරන්න.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Omarchy සඳහා වන ස්ථාපන ක්‍රියාවලිය
 
 ## Bootloader එකට වෙනත් ස්ථාපනයන් එකතු කිරීම
 
-ඔබ Omarchy ස්ථාපනය අවසන් කළ පසු, Limine bootloader එක දැන් පෙරනිමිය බව ඔබට පෙනෙනු ඇත. මෙය සමඟ, Windows වැනි ඔබේ වෙනත් ස්ථාපනයන් සඳහාද ඔබට Limine වෙත විකල්ප එකතු කළ හැකිය.
+ඔබ Collie ස්ථාපනය අවසන් කළ පසු, Limine bootloader එක දැන් පෙරනිමිය බව ඔබට පෙනෙනු ඇත. මෙය සමඟ, Windows වැනි ඔබේ වෙනත් ස්ථාපනයන් සඳහාද ඔබට Limine වෙත විකල්ප එකතු කළ හැකිය.
 
-වෙනත් operating systems එකතු කිරීමට, `limine-scan` ධාවනය කර ඔබට අවශ්‍ය entries ඔබේ Limine config එකට එකතු කිරීමට prompts අනුගමනය කරන්න. Boot menu එක පෙරනිමියෙන් සැඟවී පවතින අතර තත්පරයකින් Omarchy ආරම්භ වේ. Windows හෝ වෙනත් entry එකක් තෝරා ගැනීමට, Limine ආරම්භ වූ වහාම ඕනෑම යතුරක් ඔබන්න; menu එක දිස් වූ විට, entry එකක් තේරීමට arrow keys භාවිතා කර Enter ඔබන්න. ඔබ යතුරක් ඔබන්නට පෙර Omarchy ආරම්භ වුවහොත්, restart කර නැවත උත්සාහ කරන්න. ඔබ _Setup > Direct Boot_ සක්‍රිය කළේ නම්, firmware එක Limine සම්පූර්ණයෙන්ම මඟ හරිනු ඇත, එබැවින් ඔබේ BIOS boot menu එකෙන් Limine තෝරන්න හෝ entry එක ඉවත් කිරීමට නැවත _Setup > Direct Boot_ ධාවනය කරන්න.
+වෙනත් operating systems එකතු කිරීමට, `limine-scan` ධාවනය කර ඔබට අවශ්‍ය entries ඔබේ Limine config එකට එකතු කිරීමට prompts අනුගමනය කරන්න. Boot menu එක පෙරනිමියෙන් සැඟවී පවතින අතර තත්පරයකින් Collie ආරම්භ වේ. Windows හෝ වෙනත් entry එකක් තෝරා ගැනීමට, Limine ආරම්භ වූ වහාම ඕනෑම යතුරක් ඔබන්න; menu එක දිස් වූ විට, entry එකක් තේරීමට arrow keys භාවිතා කර Enter ඔබන්න. ඔබ යතුරක් ඔබන්නට පෙර Collie ආරම්භ වුවහොත්, restart කර නැවත උත්සාහ කරන්න. ඔබ _Setup > Direct Boot_ සක්‍රිය කළේ නම්, firmware එක Limine සම්පූර්ණයෙන්ම මඟ හරිනු ඇත, එබැවින් ඔබේ BIOS boot menu එකෙන් Limine තෝරන්න හෝ entry එක ඉවත් කිරීමට නැවත _Setup > Direct Boot_ ධාවනය කරන්න.
 
 ## Bitlocker
 

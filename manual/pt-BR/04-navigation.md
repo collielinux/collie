@@ -1,8 +1,8 @@
 # Navegação
 
-Tudo no Omarchy acontece pelo teclado — _TUDO!_ Quando o sistema inicia pela primeira vez, você literalmente não consegue fazer nada só com o mouse. Mas você pode pressionar `Super + Space` para revelar o Menu do Omarchy e, a partir daí, pode fazer praticamente tudo.
+Tudo no Collie acontece pelo teclado — _TUDO!_ Quando o sistema inicia pela primeira vez, você literalmente não consegue fazer nada só com o mouse. Mas você pode pressionar `Super + Space` para revelar o Menu do Collie e, a partir daí, pode fazer praticamente tudo.
 
-Mas o menu do Omarchy nem sequer foi pensado para ser a principal forma de operar o sistema na maior parte do tempo. Dá para ser mais rápido que isso! Todos os aplicativos mais importantes estão vinculados diretamente a teclas de atalho individuais. Você abre o terminal com `Super + Return` e um navegador com `Super + Shift + Return`. Experimente fazer um depois do outro e você verá a mágica do tiling do Hyprland em ação:
+Mas o menu do Collie nem sequer foi pensado para ser a principal forma de operar o sistema na maior parte do tempo. Dá para ser mais rápido que isso! Todos os aplicativos mais importantes estão vinculados diretamente a teclas de atalho individuais. Você abre o terminal com `Super + Return` e um navegador com `Super + Shift + Return`. Experimente fazer um depois do outro e você verá a mágica do tiling do Hyprland em ação:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Você também pode entrar em tela cheia com `Super + F` ou até mesmo apenas em 
 
 ### Layout dwindle vs. de rolagem
 
-O layout padrão do Omarchy é chamado de dwindle. Ele mantém todas as janelas que você abre em uma única área de trabalho visíveis o tempo todo, mesmo que precise encolhê-las.
+O layout padrão do Collie é chamado de dwindle. Ele mantém todas as janelas que você abre em uma única área de trabalho visíveis o tempo todo, mesmo que precise encolhê-las.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Uma área de trabalho flutuante funciona como uma área de trabalho tradicional: as janelas se sobrepõem, e você as move e dimensiona por conta própria. Cada janela recebe uma barra de título nas cores do seu tema, com botões para minimizar, maximizar e fechar. `Super + M` também minimiza a janela em foco. Uma janela minimizada aguarda no dock; clique em seu aplicativo para trazê-la de volta. Clique em uma janela para trazê-la para frente. Redimensione-a a partir de qualquer borda ou canto. Clique duas vezes em uma barra de título para maximizar a janela mantendo a barra superior visível, e novamente para recuperar seu tamanho antigo.
 
-Uma área de trabalho flutuante também mostra um dock, com seus aplicativos fixados, tudo o que está em execução e uma grade de todos os aplicativos atrás do botão de aplicativos, que `Super + Alt + Space` e _Aplicativos_ no menu do Omarchy também abrem. Clique com o botão direito em um aplicativo na grade, ou pressione `Delete`, para desinstalá-lo. Clique em um aplicativo para abri-lo, ou para trazer sua janela para frente; clique novamente para alternar entre suas janelas. Clique com o botão do meio para abrir uma nova janela. Arraste um ícone ao longo do dock para movê-lo; arrastar um aplicativo em execução para entre os outros o mantém ali. Clique com o botão direito para manter um aplicativo no dock, removê-lo dele ou encerrá-lo. O dock sai do caminho de uma janela em tela cheia. Clique com o botão direito no botão de aplicativos para mover o dock para outra borda ou fazê-lo se esconder até que o ponteiro alcance sua borda. A posição também está em _Aparência > Dock > Posição do Dock_, e `omarchy dock position left` e `omarchy dock autohide on` definem ambos a partir de um terminal. Os aplicativos que você mantém no dock ficam esmaecidos enquanto não estão em execução.
+Uma área de trabalho flutuante também mostra um dock, com seus aplicativos fixados, tudo o que está em execução e uma grade de todos os aplicativos atrás do botão de aplicativos, que `Super + Alt + Space` e _Aplicativos_ no menu do Collie também abrem. Clique com o botão direito em um aplicativo na grade, ou pressione `Delete`, para desinstalá-lo. Clique em um aplicativo para abri-lo, ou para trazer sua janela para frente; clique novamente para alternar entre suas janelas. Clique com o botão do meio para abrir uma nova janela. Arraste um ícone ao longo do dock para movê-lo; arrastar um aplicativo em execução para entre os outros o mantém ali. Clique com o botão direito para manter um aplicativo no dock, removê-lo dele ou encerrá-lo. O dock sai do caminho de uma janela em tela cheia. Clique com o botão direito no botão de aplicativos para mover o dock para outra borda ou fazê-lo se esconder até que o ponteiro alcance sua borda. A posição também está em _Aparência > Dock > Posição do Dock_, e `collie dock position left` e `collie dock autohide on` definem ambos a partir de um terminal. Os aplicativos que você mantém no dock ficam esmaecidos enquanto não estão em execução.
 
-Novas áreas de trabalho, e qualquer uma à qual você não tenha dado um layout próprio com `Super + L`, usam o layout padrão. Alterar o padrão redefine para ele todas as áreas de trabalho sem janelas, enquanto uma com janelas mantém o layout que tem. Uma janela minimizada para o dock ainda conta como uma janela na área de trabalho de onde saiu. Escolha-o em _Aparência > Layout da Área de Trabalho_: Mosaico, Rolagem ou Flutuante. `omarchy-hyprland-workspace-layout-default scrolling` define isso a partir de um terminal.
+Novas áreas de trabalho, e qualquer uma à qual você não tenha dado um layout próprio com `Super + L`, usam o layout padrão. Alterar o padrão redefine para ele todas as áreas de trabalho sem janelas, enquanto uma com janelas mantém o layout que tem. Uma janela minimizada para o dock ainda conta como uma janela na área de trabalho de onde saiu. Escolha-o em _Aparência > Layout da Área de Trabalho_: Mosaico, Rolagem ou Flutuante. `collie-hyprland-workspace-layout-default scrolling` define isso a partir de um terminal.
 
 ### Agrupando janelas
 

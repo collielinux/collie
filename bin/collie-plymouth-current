@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# collie:summary=Show which theme is styling the Plymouth boot screen
+# collie:examples=collie plymouth current
+
+# collie-plymouth-set installs the theme's unlock.png as a byte-for-byte
+# copy of logo.png, so matching it back identifies the current theme.
+installed_logo=/usr/share/plymouth/themes/collie/logo.png
+
+if cmp -s "$COLLIE_PATH/default/plymouth/logo.png" "$installed_logo"; then
+  echo default
+  exit
+fi
+
+collie-plymouth-list | while read -r name; do
+  if cmp -s "$(collie-theme-dir "$name")/unlock.png" "$installed_logo"; then
+    echo "$name"
+    exit
+  fi
+done

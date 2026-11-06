@@ -1,16 +1,16 @@
 # Suport per a Mac
 
-Omarchy inclou suport integrat per als **Mac amb Intel**. De moment hi ha un parell de limitacions conegudes, però mentre en siguis conscient i t'hi conformis, pots donar una nova vida als teus Mac antics instal·lant-hi Omarchy.
+Collie inclou suport integrat per als **Mac amb Intel**. De moment hi ha un parell de limitacions conegudes, però mentre en siguis conscient i t'hi conformis, pots donar una nova vida als teus Mac antics instal·lant-hi Collie.
 
-Tingues en compte que, de moment, la instal·lació en un Mac amb xip de la sèrie M no té suport directe. Pots saber-ne més sobre l'estat d'això a #omarchy-on-other, al nostre [Discord](https://discord.gg/tXFUdasqhY).
+Tingues en compte que, de moment, la instal·lació en un Mac amb xip de la sèrie M no té suport directe. Pots saber-ne més sobre l'estat d'això a #collie-on-other, al nostre [Discord](https://discord.gg/tXFUdasqhY).
 
-En una prova senzilla, vam aconseguir un 36% més de rendiment en un MacBook Pro del 2019 només instal·lant-hi Omarchy.
+En una prova senzilla, vam aconseguir un 36% més de rendiment en un MacBook Pro del 2019 només instal·lant-hi Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instal·lar Omarchy en un Mac
+### Instal·lar Collie en un Mac
 
-Omarchy, de moment, només admet ser l'**únic** sistema operatiu instal·lat. Durant la instal·lació, el disc s'esborrarà i MacOS ja no es podrà arrencar.
+Collie, de moment, només admet ser l'**únic** sistema operatiu instal·lat. Durant la instal·lació, el disc s'esborrarà i MacOS ja no es podrà arrencar.
 
 Tot i així, si vols, el pots restaurar més endavant mitjançant Internet Recovery.
 
@@ -39,7 +39,7 @@ L'instal·lador detecta el maquinari del Mac i aplica automàticament les correc
 
 ### Limitacions conegudes
 
-Els membres de la comunitat treballen constantment en solucions per a aquests problemes, així que si et suposen un problema, uneix-te a #omarchy-on-other al nostre [Discord](https://discord.gg/tXFUdasqhY) i mira si hi ha mètodes actualitzats per resoldre'ls.
+Els membres de la comunitat treballen constantment en solucions per a aquests problemes, així que si et suposen un problema, uneix-te a #collie-on-other al nostre [Discord](https://discord.gg/tXFUdasqhY) i mira si hi ha mètodes actualitzats per resoldre'ls.
 
 #### Dispositius amb xip T1
 

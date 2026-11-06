@@ -1,4 +1,4 @@
 echo "Replace terminaltexteffects with ttfx"
 
-omarchy-pkg-add ttfx
-omarchy-pkg-drop python-terminaltexteffects
+collie-pkg-add ttfx
+collie-pkg-drop python-terminaltexteffects

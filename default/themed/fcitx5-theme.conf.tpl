@@ -1,8 +1,8 @@
 [Metadata]
-Name=Omarchy
+Name=Collie
 Version=1
-Author=Omarchy
-Description=Generated from the current Omarchy theme
+Author=Collie
+Description=Generated from the current Collie theme
 ScaleWithDPI=True
 
 [InputPanel]

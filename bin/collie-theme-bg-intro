@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# collie:summary=Enable or disable background intros
+# collie:args=<enable|disable|toggle|status>
+# collie:examples=collie theme bg intro toggle | collie theme bg intro disable
+
+set -euo pipefail
+
+toggle="$HOME/.local/state/collie/toggles/background-intros-off"
+case ${1:-} in
+  enable)
+    rm -f "$toggle"
+    collie-notification-send "$(collie-i18n theme.backgroundIntros)" "$(collie-i18n common.enabled)"
+    ;;
+  disable)
+    mkdir -p "$(dirname "$toggle")"
+    touch "$toggle"
+    collie-notification-send "$(collie-i18n theme.backgroundIntros)" "$(collie-i18n common.disabled)"
+    ;;
+  toggle)
+    if [[ -f $toggle ]]; then
+      collie-theme-bg-intro enable
+    else
+      collie-theme-bg-intro disable
+    fi
+    ;;
+  status)
+    [[ ! -f $toggle ]]
+    ;;
+  *)
+    echo "Usage: collie-theme-bg-intro <enable|disable|toggle|status>" >&2
+    exit 1
+    ;;
+esac

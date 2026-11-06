@@ -1,16 +1,16 @@
 # Dukungan Mac
 
-Omarchy memiliki dukungan bawaan untuk **Mac Intel**. Saat ini ada beberapa keterbatasan yang diketahui, tetapi selama Anda menyadarinya dan tidak masalah dengan hal itu; Anda bisa memberikan kehidupan baru pada Mac lama Anda dengan memasang Omarchy.
+Collie memiliki dukungan bawaan untuk **Mac Intel**. Saat ini ada beberapa keterbatasan yang diketahui, tetapi selama Anda menyadarinya dan tidak masalah dengan hal itu; Anda bisa memberikan kehidupan baru pada Mac lama Anda dengan memasang Collie.
 
-Harap diperhatikan bahwa pemasangan di Mac seri M saat ini tidak didukung secara langsung. Anda bisa mengetahui lebih lanjut tentang keadaan hal ini di #omarchy-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami.
+Harap diperhatikan bahwa pemasangan di Mac seri M saat ini tidak didukung secara langsung. Anda bisa mengetahui lebih lanjut tentang keadaan hal ini di #collie-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami.
 
-Dalam sebuah pengujian sederhana, kami berhasil mencapai peningkatan performa sebesar 36% pada MacBook Pro 2019 hanya dengan menginstal Omarchy.
+Dalam sebuah pengujian sederhana, kami berhasil mencapai peningkatan performa sebesar 36% pada MacBook Pro 2019 hanya dengan menginstal Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Menginstal Omarchy di Mac
+### Menginstal Collie di Mac
 
-Omarchy saat ini hanya mendukung menjadi **satu-satunya** OS yang terinstal. Selama pemasangan, drive akan dihapus total dan MacOS tidak akan bisa di-boot lagi.
+Collie saat ini hanya mendukung menjadi **satu-satunya** OS yang terinstal. Selama pemasangan, drive akan dihapus total dan MacOS tidak akan bisa di-boot lagi.
 
 Anda tetap bisa memulihkannya nanti melalui Internet Recovery jika mau.
 
@@ -39,7 +39,7 @@ Pemasang mendeteksi perangkat keras Mac dan menerapkan perbaikan yang diperlukan
 
 ### Keterbatasan yang Diketahui
 
-Anggota komunitas terus-menerus mengerjakan solusi untuk tantangan-tantangan ini, jadi jika hal-hal ini bermasalah bagi Anda, bergabunglah dengan #omarchy-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami dan lihat apakah ada metode terbaru untuk mengatasinya.
+Anggota komunitas terus-menerus mengerjakan solusi untuk tantangan-tantangan ini, jadi jika hal-hal ini bermasalah bagi Anda, bergabunglah dengan #collie-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami dan lihat apakah ada metode terbaru untuk mengatasinya.
 
 #### Perangkat dengan Chip T1
 

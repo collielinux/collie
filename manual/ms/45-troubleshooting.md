@@ -2,23 +2,23 @@
 
 ### Sistem saya rosak selepas kemas kini!
 
-Cuba dulu [pulihkan sistem anda](47-system-snapshots.md) ke versi sebelum kemas kini terbaharu anda. Jika itu tidak berjaya, gunakan `omarchy-debug` untuk berkongsi masalah anda di #omarchy-help dalam Discord. Dan jika semuanya gagal, anda boleh memasang semula konfigurasi dan pakej lalai menggunakan `omarchy-reinstall`.
+Cuba dulu [pulihkan sistem anda](47-system-snapshots.md) ke versi sebelum kemas kini terbaharu anda. Jika itu tidak berjaya, gunakan `collie-debug` untuk berkongsi masalah anda di #collie-help dalam Discord. Dan jika semuanya gagal, anda boleh memasang semula konfigurasi dan pakej lalai menggunakan `collie-reinstall`.
 
 ### Mengapa sesetengah aplikasi kelihatan begitu besar pada paparan saya?
 
-Omarchy menganggap paparan beresolusi tinggi 2x, jadi ia menetapkan `GDK_SCALE` kepada 2 sehingga anda memilih skala dalam panel monitor. Jika anda menggunakan paparan 1x dan aplikasi GTK atau X11 kelihatan terlalu besar, pilih 1x untuk paparan itu dalam panel monitor, atau tambah `hl.env("GDK_SCALE", "1")` pada `~/.config/hypr/monitors.lua` (kemudian mulakan semula mana-mana aplikasi yang terlalu besar). Lihat [manual tentang monitor](33-monitors.md).
+Collie menganggap paparan beresolusi tinggi 2x, jadi ia menetapkan `GDK_SCALE` kepada 2 sehingga anda memilih skala dalam panel monitor. Jika anda menggunakan paparan 1x dan aplikasi GTK atau X11 kelihatan terlalu besar, pilih 1x untuk paparan itu dalam panel monitor, atau tambah `hl.env("GDK_SCALE", "1")` pada `~/.config/hypr/monitors.lua` (kemudian mulakan semula mana-mana aplikasi yang terlalu besar). Lihat [manual tentang monitor](33-monitors.md).
 
 Untuk Spotify, anda boleh menggunakan `Ctrl + Minus` untuk mengecilkan UI (dan `Ctrl + Plus` untuk membesarkannya).
 
 ### Mengapa semua ikatan kekunci Super saya berhenti berfungsi?
 
-Pada sesetengah komputer riba ASUS ROG dan TUF, `Fn + Super` ialah gabungan kekunci yang mudah terlepas pandang yang menogol kunci kekunci Windows perisian tegar (bertujuan untuk permainan supaya anda tidak terkeluar daripada permainan secara tidak sengaja). Tiada apa-apa pada skrin yang memberitahu anda ia telah berlaku. Semasa kunci itu aktif, Super tidak mengeluarkan apa-apa langsung — jadi setiap ikatan Omarchy yang menggunakan Super akan berhenti begitu sahaja, dan ia kelihatan seperti Hyprland yang rosak.
+Pada sesetengah komputer riba ASUS ROG dan TUF, `Fn + Super` ialah gabungan kekunci yang mudah terlepas pandang yang menogol kunci kekunci Windows perisian tegar (bertujuan untuk permainan supaya anda tidak terkeluar daripada permainan secara tidak sengaja). Tiada apa-apa pada skrin yang memberitahu anda ia telah berlaku. Semasa kunci itu aktif, Super tidak mengeluarkan apa-apa langsung — jadi setiap ikatan Collie yang menggunakan Super akan berhenti begitu sahaja, dan ia kelihatan seperti Hyprland yang rosak.
 
 Tekan `Fn + Super` sekali sebelum anda mengutak-atik `~/.config/hypr/`, dan jika itu tidak mengembalikan Super, tekan sekali lagi supaya anda tidak membiarkan kunci itu kekal aktif. Ini bukan Fn-lock, yang hanya mengubah fungsi baris kekunci F.
 
 ### Wi-Fi, Bluetooth, audio, atau pad jejak saya tiba-tiba berhenti berfungsi
 
-Sebelum anda but semula, cuba mulakan semula subsistem yang bermasalah itu secara berasingan. _Update > Hardware_ dalam menu Omarchy mempunyai Wi-Fi, Bluetooth, Audio, dan Trackpad, dan memuat semula salah satu daripadanya menyelesaikan kebanyakan situasi "tadi elok sahaja lima minit lepas" — set kepala Bluetooth yang enggan menyambung semula, pad jejak yang mati selepas suspend, bunyi yang hilang apabila anda mencabut monitor.
+Sebelum anda but semula, cuba mulakan semula subsistem yang bermasalah itu secara berasingan. _Update > Hardware_ dalam menu Collie mempunyai Wi-Fi, Bluetooth, Audio, dan Trackpad, dan memuat semula salah satu daripadanya menyelesaikan kebanyakan situasi "tadi elok sahaja lima minit lepas" — set kepala Bluetooth yang enggan menyambung semula, pad jejak yang mati selepas suspend, bunyi yang hilang apabila anda mencabut monitor.
 
 ### Mengapa pembesar suara luaran saya tidak berbunyi?
 
@@ -26,7 +26,7 @@ Mungkin kerana ia tidak ditetapkan sebagai output utama. Klik ikon pembesar suar
 
 ### Pembesar suara komputer riba saya berbunyi pelik
 
-Pada sesetengah komputer riba, Omarchy secara automatik menggunakan penalaan pembesar suara yang membetulkan respons frekuensi pembesar suara terbina dalam. `omarchy audio tuning status` memberitahu anda sama ada penalaan itu aktif pada mesin anda, dan `omarchy audio tuning off` mematikannya jika anda lebih suka mendengar pembesar suara dalam keadaan asal.
+Pada sesetengah komputer riba, Collie secara automatik menggunakan penalaan pembesar suara yang membetulkan respons frekuensi pembesar suara terbina dalam. `collie audio tuning status` memberitahu anda sama ada penalaan itu aktif pada mesin anda, dan `collie audio tuning off` mematikannya jika anda lebih suka mendengar pembesar suara dalam keadaan asal.
 
 ### Mengapa saya tidak boleh log masuk atau sudo dengan kata laluan saya?
 

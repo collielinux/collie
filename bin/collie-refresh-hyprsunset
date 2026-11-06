@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Overwrite the user config for hyprsunset with the Collie default and restart the service.
+
+collie-refresh-config hypr/hyprsunset.conf
+collie-restart-hyprsunset

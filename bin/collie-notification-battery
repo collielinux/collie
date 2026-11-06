@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# collie:summary=Show the current battery status notification
+
+collie-notification-send -g 󰁹 -u low "$(collie-battery-status)"

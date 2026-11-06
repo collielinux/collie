@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# collie:summary=Print the directory holding a theme, preferring a user-installed copy
+# collie:args=<theme-name>
+# collie:examples=collie theme dir tokyo-night
+
+theme="${1:-}"
+
+if [[ -z $theme ]]; then
+  echo "Usage: collie-theme-dir <theme-name>" >&2
+  exit 1
+fi
+
+if [[ -d $HOME/.config/collie/themes/$theme ]]; then
+  echo "$HOME/.config/collie/themes/$theme"
+else
+  echo "$COLLIE_PATH/themes/$theme"
+fi

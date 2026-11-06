@@ -1,14 +1,14 @@
 # Yläpalkki
 
-Näyttösi yläreunassa kulkeva kaistale on Omarchy-palkki. Se ei ole kylkeen pultattu tilapalkki, vaan osa Omarchy-kuorta, sitä yhtä pitkään käynnissä olevaa Quickshell-prosessia, joka piirtää myös valikon, ilmoitukset, OSD-ponnahdusikkunat ja lukitusnäytön. Siksi sen teema sopii täydellisesti kaikkeen muuhun ja siksi paneeli aukeaa välittömästi sen sijaan, että käynnistäisi uuden sovelluksen.
+Näyttösi yläreunassa kulkeva kaistale on Collie-palkki. Se ei ole kylkeen pultattu tilapalkki, vaan osa Collie-kuorta, sitä yhtä pitkään käynnissä olevaa Quickshell-prosessia, joka piirtää myös valikon, ilmoitukset, OSD-ponnahdusikkunat ja lukitusnäytön. Siksi sen teema sopii täydellisesti kaikkeen muuhun ja siksi paneeli aukeaa välittömästi sen sijaan, että käynnistäisi uuden sovelluksen.
 
 Se on myös työpöydän ainoa osa, joka on aina näytöllä, joten kannattaa tietää, mitä kaikki ne pienet kuvakkeet tekevät.
 
 ## Mitä siinä on oletuksena
 
-Palkissa on kolme osiota. Vasemmalla ovat Omarchy-logo (valikon käynnistin) ja työtilojen ilmaisimet. Keskellä saat tilailmaisimet, kellon, Elsewhenin (maailmankellon), sään ja Omarchy-päivitysmerkin. Oikealla: järjestelmälokero, näppäimistöasettelu (kun useampi kuin yksi on määritetty), agentit, bluetooth, verkko, ääni, näyttö ja virta.
+Palkissa on kolme osiota. Vasemmalla ovat Collie-logo (valikon käynnistin) ja työtilojen ilmaisimet. Keskellä saat tilailmaisimet, kellon, Elsewhenin (maailmankellon), sään ja Collie-päivitysmerkin. Oikealla: järjestelmälokero, näppäimistöasettelu (kun useampi kuin yksi on määritetty), agentit, bluetooth, verkko, ääni, näyttö ja virta.
 
-Muutama niistä näkyy vain, kun niillä on jotain sanottavaa. Näppäimistöasettelu näkyy vain, jos olet määrittänyt useamman kuin yhden asettelun. Päivitysmerkki näkyy vain, kun Omarchy-päivitys odottaa. Ja agenttien kuvake ilmestyy, kun Omarchy löytää ensimmäisen kerran koneelta tekoälykoodauksen käyttöä (katso [Tekoäly](17-ai.md)).
+Muutama niistä näkyy vain, kun niillä on jotain sanottavaa. Näppäimistöasettelu näkyy vain, jos olet määrittänyt useamman kuin yhden asettelun. Päivitysmerkki näkyy vain, kun Collie-päivitys odottaa. Ja agenttien kuvake ilmestyy, kun Collie löytää ensimmäisen kerran koneelta tekoälykoodauksen käyttöä (katso [Tekoäly](17-ai.md)).
 
 ## Klikkailu ympäriinsä
 
@@ -16,7 +16,7 @@ Lähes jokainen widgetti tekee jotain vasemmalla, oikealla ja keskinapilla, ja u
 
 | Widgetti | Vasen | Oikea | Keskinappi / vieritys |
 | --- | --- | --- | --- |
-| Valikko | Omarchy-valikko | Uusi pääte | — |
+| Valikko | Collie-valikko | Uusi pääte | — |
 | Työtilat | Tuo kyseinen työtila tälle näytölle | — | Vieritys: seuraava/edellinen työtila |
 | Kello | Kalenteriponnahdusikkuna | Vaihda otsikon muotoa | Keskinappi: aikavyöhykkeen valitsin |
 | Sää | Ennusteponnahdusikkuna | Täysi sää ilmoituksena | Keskinappi: päivitä |
@@ -29,7 +29,7 @@ Lähes jokainen widgetti tekee jotain vasemmalla, oikealla ja keskinapilla, ja u
 | Media | Toista/tauko | Kansikuvan ponnahdusikkuna | Keskinappi: seuraava · vieritys: edellinen/seuraava |
 | Agentit | Agenttipaneeli | Käynnistä agenttisi | Keskinappi: seuraava tilaus |
 | Lokero | Paljasta laatikko viemällä hiiri päälle | Hallitse nuolesta oikealla napilla | — |
-| Omarchy-päivitys | Suorita päivitys | — | — |
+| Collie-päivitys | Suorita päivitys | — | — |
 
 Kaikki tuossa taulukossa oleva ei ole palkissasi heti valmiina. Mediawidgetti (MPRIS nyt soi, vierivällä kappaleella ja artistilla) ja mikrofoniwidgetti ovat molemmat sisäänrakennettuja mutta oletuksena pois päältä — lisää ne, jos haluat ne, kuten alla kuvataan.
 
@@ -66,7 +66,7 @@ Jokainen paneeli ottaa vastaan myös näppäimistön hiiren ohella: nuolet liikk
 
 Kaksi widgettiä lisää ilmestyy palkkiin vasta, kun asennat vastaavan palvelun kohdasta **Asenna → Palvelu**, ja kummatkin kannattaa tuntea, koska ne tekevät muutakin kuin raportoivat tilaa.
 
-**Tailscale**-paneeli yhdistää ja katkaisee tailnetin, vaihtaa tilien välillä ja valitsee poistumissolmun (omat koneesi ja Mullvad-alueet näkyvät kumpikin siinä luettelossa). Se selaa myös koneitasi — ja yhdellä valittuna `s` lähettää sille tiedostoja Taildropilla, mikä on nopein tapa siirtää tiedosto puhelimeesi tai toiselle kannettavalle. `c` kopioi koneen IP:n, `n` sen nimen ja `d` sen täyden DNS-nimen. Jokaisella konerivillä on myös lähetyspainike, jos klikkaat mieluummin. Sama asia päätteestä on `omarchy tailscale send <machine> [file...]`.
+**Tailscale**-paneeli yhdistää ja katkaisee tailnetin, vaihtaa tilien välillä ja valitsee poistumissolmun (omat koneesi ja Mullvad-alueet näkyvät kumpikin siinä luettelossa). Se selaa myös koneitasi — ja yhdellä valittuna `s` lähettää sille tiedostoja Taildropilla, mikä on nopein tapa siirtää tiedosto puhelimeesi tai toiselle kannettavalle. `c` kopioi koneen IP:n, `n` sen nimen ja `d` sen täyden DNS-nimen. Jokaisella konerivillä on myös lähetyspainike, jos klikkaat mieluummin. Sama asia päätteestä on `collie tailscale send <machine> [file...]`.
 
 **Dropbox**-paneeli hoitaa kirjautumisen, näyttää, kuinka paljon tallennustilaa olet käyttänyt, ja luetteloi äskettäin synkronoidut tiedostot.
 
@@ -93,19 +93,19 @@ Jos valitset mieluummin valikosta, kohdassa **Ulkoasu → Valikkopalkki** on sij
 Samat asiat saa komentoina, mikä on se, mitä haluat [dotfiles](31-dotfiles.md)-asennukseen:
 
 ```bash
-omarchy bar position bottom
-omarchy bar background glassy  # opaque, glassy, none, or cycle
-omarchy bar move omarchy.weather --section centerBegin --index 0
-omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
-omarchy bar set omarchy.clock format "HH:mm"
-omarchy bar defaults          # back to the shipped layout
+collie bar position bottom
+collie bar background glassy  # opaque, glassy, none, or cycle
+collie bar move collie.weather --section centerBegin --index 0
+collie bar move collie.bluetooth --section tray  # into the tray's drawer
+collie bar set collie.clock format "HH:mm"
+collie bar defaults          # back to the shipped layout
 ```
 
-Lisätäksesi tai poistaaksesi widgetin kokonaan käytä liitännäiskomentoja. `omarchy plugin list` tulostaa jokaisen kuoren tunteman widgetin sen id:n kanssa, ja sitten:
+Lisätäksesi tai poistaaksesi widgetin kokonaan käytä liitännäiskomentoja. `collie plugin list` tulostaa jokaisen kuoren tunteman widgetin sen id:n kanssa, ja sitten:
 
 ```bash
-omarchy plugin enable omarchy.media --section centerEnd
-omarchy plugin disable omarchy.weather
+collie plugin enable collie.media --section centerEnd
+collie plugin disable collie.weather
 ```
 
 ## Palkin piilottaminen
@@ -114,7 +114,7 @@ omarchy plugin disable omarchy.weather
 
 ## Asetustiedosto
 
-Kaikki se on tallennettu tiedostoon `~/.config/omarchy/shell.json`, avaimen `bar` alle. Tässä on karsittu versio:
+Kaikki se on tallennettu tiedostoon `~/.config/collie/shell.json`, avaimen `bar` alle. Tässä on karsittu versio:
 
 ```json
 {
@@ -123,20 +123,20 @@ Kaikki se on tallennettu tiedostoon `~/.config/omarchy/shell.json`, avaimen `bar
     "position": "top",
     "background": "opaque",
     "layout": {
-      "left": [{ "id": "omarchy.menu" }, { "id": "omarchy.workspaces" }],
-      "centerBegin": [{ "id": "omarchy.indicators" }],
-      "center": [{ "id": "omarchy.clock", "format": "HH:mm" }],
-      "centerEnd": [{ "id": "omarchy.weather" }],
-      "right": [{ "id": "omarchy.audio" }, { "id": "omarchy.power" }]
+      "left": [{ "id": "collie.menu" }, { "id": "collie.workspaces" }],
+      "centerBegin": [{ "id": "collie.indicators" }],
+      "center": [{ "id": "collie.clock", "format": "HH:mm" }],
+      "centerEnd": [{ "id": "collie.weather" }],
+      "right": [{ "id": "collie.audio" }, { "id": "collie.power" }]
     }
   }
 }
 ```
 
-Jokainen widgetti on yksi merkintä yhdessä viidestä asettelutaulukosta, ja sen asetukset ovat suoraan siinä merkinnässä — erillistä asetustiedostoa ei ole eikä `config`-aliobjektia ole. Kellon `format`, `formatAlt` (se, mihin oikean napin klikkaus vaihtaa) ja `verticalFormat` elävät kaikki juuri siinä kohdassa `{ "id": "omarchy.clock" }`.
+Jokainen widgetti on yksi merkintä yhdessä viidestä asettelutaulukosta, ja sen asetukset ovat suoraan siinä merkinnässä — erillistä asetustiedostoa ei ole eikä `config`-aliobjektia ole. Kellon `format`, `formatAlt` (se, mihin oikean napin klikkaus vaihtaa) ja `verticalFormat` elävät kaikki juuri siinä kohdassa `{ "id": "collie.clock" }`.
 
 `center` on laatikko palkin keskellä: kaikki siinä on keskitetty näytölle yhtenä ryhmänä. `centerBegin` ja `centerEnd` roikkuvat laatikon kummaltakin puolelta, ja siten kello pysyy täsmälleen keskellä sään ja päivitysmerkin tullessa ja mennessä. Laita `center`-kohtaan useampi kuin yksi widgetti ja ne keskitetään yhdessä; jätä se tyhjäksi ja `centerBegin` ja `centerEnd` kohtaavat palkin keskellä.
 
-Yksi sisäistämisen arvoinen sääntö: **kun sinulla on oma `shell.json`, se on kanoninen**. Kunnes mukautat mitään, kuori lukee Omarchyn oletustiedoston. Heti kun vedät widgettiä, suoritat `omarchy bar` -komennon tai muokkaat tiedostoa itse, omistat sen — syvää yhdistämistä ei ole, joten uudet oletuswidgetit tulevissa Omarchy-julkaisuissa eivät ilmesty palkkiisi automaattisesti. `omarchy bar defaults` laittaa toimitetun asettelun takaisin aina, kun haluat puhtaan pöydän.
+Yksi sisäistämisen arvoinen sääntö: **kun sinulla on oma `shell.json`, se on kanoninen**. Kunnes mukautat mitään, kuori lukee Collien oletustiedoston. Heti kun vedät widgettiä, suoritat `collie bar` -komennon tai muokkaat tiedostoa itse, omistat sen — syvää yhdistämistä ei ole, joten uudet oletuswidgetit tulevissa Collie-julkaisuissa eivät ilmesty palkkiisi automaattisesti. `collie bar defaults` laittaa toimitetun asettelun takaisin aina, kun haluat puhtaan pöydän.
 
 Sama tiedosto pitää myös käyttämättömyysaikasi ylimmällä tasolla, avaimen `bar` ulkopuolella: `idle.screensaver` ja `idle.lock`, kumpikin sekunteina siitä, kun menit käyttämättömäksi. Oletusnäytönsäästäjä käynnistyy siis 150 sekunnissa ja lukko 300:ssa.

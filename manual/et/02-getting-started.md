@@ -1,10 +1,10 @@
 # Alustamine
 
-Omarchy installimiseks kasutatakse ISO-t. Saad valida täisketta installi, mis võtab üle kogu ketta, või vaba ruumi installi, mis paigutab Omarchy kettal eraldamata ruumi — nii teed topeltkäivituse koos Windowsi või mõne muu OS-iga (vt [topeltkäivituse installimine](50-dual-boot-install.md) — pane tähele, et pead kõigepealt Windowsis BitLockeri välja lülitama). Mõlemal juhul on install vaikimisi täieliku krüpteerimisega ja täisketta valik pühib valitud ketta tühjaks, nii et tee kindlasti varukoopia, enne kui olemasolevat ketast kasutad!
+Collie installimiseks kasutatakse ISO-t. Saad valida täisketta installi, mis võtab üle kogu ketta, või vaba ruumi installi, mis paigutab Collie kettal eraldamata ruumi — nii teed topeltkäivituse koos Windowsi või mõne muu OS-iga (vt [topeltkäivituse installimine](50-dual-boot-install.md) — pane tähele, et pead kõigepealt Windowsis BitLockeri välja lülitama). Mõlemal juhul on install vaikimisi täieliku krüpteerimisega ja täisketta valik pühib valitud ketta tühjaks, nii et tee kindlasti varukoopia, enne kui olemasolevat ketast kasutad!
 
-[Laadi kõigepealt alla Omarchy ISO](https://omarchy.org/), pane see USB-mälupulgale (kasuta Windowsis [Rufus](https://rufus.ie/), Macis [balenaEtcher](https://etcher.balena.io/) või Linuxis [caligula](https://github.com/ifd3f/caligula)) ja käivita arvuti sellelt mälupulgalt.
+[Laadi kõigepealt alla Collie ISO](https://omarchy.org/), pane see USB-mälupulgale (kasuta Windowsis [Rufus](https://rufus.ie/), Macis [balenaEtcher](https://etcher.balena.io/) või Linuxis [caligula](https://github.com/ifd3f/caligula)) ja käivita arvuti sellelt mälupulgalt.
 
-_Pead BIOS-is Secure Boot ja/või TPM välja lülitama. Pead need välja lülitama, et saaksid Omarchy installida. Need on Microsofti turvasüsteemid, mis on mõeldud Windowsile ja Microsoftiga seotud Linuxi distributsioonidele._
+_Pead BIOS-is Secure Boot ja/või TPM välja lülitama. Pead need välja lülitama, et saaksid Collie installida. Need on Microsofti turvasüsteemid, mis on mõeldud Windowsile ja Microsoftiga seotud Linuxi distributsioonidele._
 
 Seejärel vasta konfiguratsiooniküsimustele ja kinnita need nii:
 
@@ -14,7 +14,7 @@ Seejärel vali installimiseks ketas ja istu mugavalt sisse ning vaata installiet
 
  ![install-done](images/install-done.webp)
 
-Nüüd oled Omarchyks valmis!
+Nüüd oled Collieks valmis!
 
 ### Kasuta juhtmega või 2.4ghz klaviatuuri!
 
@@ -22,22 +22,22 @@ Täisketta krüpteerimine ei lase sul käivitamisel Bluetoothi klaviatuurilt par
 
 ### Installimine teisele omanikule
 
-Kui seadistad masinat kellelegi teisele — pereliikmele, uuele töötajale, ostjale — ei tohiks sa nende eest isiklikele küsimustele vastata. Vajuta installeri kõige esimesel ekraanil (klaviatuuri valik) `Ctrl + C` ja Omarchy pakub selle asemel võimalust valmistada masin ette teisele omanikule. Süsteem installitakse kohe, kuid kogu isiklik seadistus — klaviatuuripaigutus, kasutajanimi, parool — lükatakse edasi ajani, mil masin esimest korda käivitub. Ketas on endiselt vaikimisi krüpteeritud ja paroolist, mille uus omanik sellel esimesel käivitamisel valib, saab ka krüpteerimisparool. (Masina, mida oled juba kasutanud, saab üle anda ka ilma uuesti installimata — vt [arvuti lähtestamine](48-security.md).)
+Kui seadistad masinat kellelegi teisele — pereliikmele, uuele töötajale, ostjale — ei tohiks sa nende eest isiklikele küsimustele vastata. Vajuta installeri kõige esimesel ekraanil (klaviatuuri valik) `Ctrl + C` ja Collie pakub selle asemel võimalust valmistada masin ette teisele omanikule. Süsteem installitakse kohe, kuid kogu isiklik seadistus — klaviatuuripaigutus, kasutajanimi, parool — lükatakse edasi ajani, mil masin esimest korda käivitub. Ketas on endiselt vaikimisi krüpteeritud ja paroolist, mille uus omanik sellel esimesel käivitamisel valib, saab ka krüpteerimisparool. (Masina, mida oled juba kasutanud, saab üle anda ka ilma uuesti installimata — vt [arvuti lähtestamine](48-security.md).)
 
 ### Järelevalveta installimised
 
-ISO saab installida ka täiesti iseseisvalt — ilma klaviatuuri ja viisardita — kui selle konfiguratsioon antakse talle teisel kettal. Nii tasub Omarchyt käsitleda VM-ide ja masinaparkide baaskujutisena. Vt [järelevalveta installimised](51-unattended-installs.md).
+ISO saab installida ka täiesti iseseisvalt — ilma klaviatuuri ja viisardita — kui selle konfiguratsioon antakse talle teisel kettal. Nii tasub Colliet käsitleda VM-ide ja masinaparkide baaskujutisena. Vt [järelevalveta installimised](51-unattended-installs.md).
 
 ### Krüpteerimiseta installimised
 
-Omarchy installitakse vaikimisi krüpteerimisega. See on turvaline ja vastutustundlik valik iga arvuti puhul, mis võib kaduda või varastatud saada. Sa ei taha, et keegi, kellel on sinu riistvarale juurdepääs, saaks ligi sinu andmetele!
+Collie installitakse vaikimisi krüpteerimisega. See on turvaline ja vastutustundlik valik iga arvuti puhul, mis võib kaduda või varastatud saada. Sa ei taha, et keegi, kellel on sinu riistvarale juurdepääs, saaks ligi sinu andmetele!
 
-Ent eriolukordades, näiteks Omarchy kauginstallide puhul kaitstud arvutites või äravisatavate, tundlikke andmeid mittesisaldavate installide puhul, võid tahta installida ilma krüpteerimiseta. Krüpteerimiseta installile lülitumiseks saad ketta vormindamise kinnitusel vajutada `Ctrl + C`.
+Ent eriolukordades, näiteks Collie kauginstallide puhul kaitstud arvutites või äravisatavate, tundlikke andmeid mittesisaldavate installide puhul, võid tahta installida ilma krüpteerimiseta. Krüpteerimiseta installile lülitumiseks saad ketta vormindamise kinnitusel vajutada `Ctrl + C`.
 
 ### Keel
 
-Omarchy räägib 50 keelt — sama valikut nagu omarchy.org — ja vaikekeel on inglise keel. Vahetamiseks ava Omarchy menüü ja mine _Seadistus > Keel_ või käivita terminalis `omarchy language <code>` (`omarchy language list` näitab koode). Menüü, töölaud ja Omarchy enda teatised vahetavad keelt kohe ja iga rakendus, mille sa pärast seda avad, järgib seda samuti. Juba avatud rakendused vahetavad keelt, kui sa need taaskäivitad.
+Collie räägib 50 keelt — sama valikut nagu omarchy.org — ja vaikekeel on inglise keel. Vahetamiseks ava Collie menüü ja mine _Seadistus > Keel_ või käivita terminalis `collie language <code>` (`collie language list` näitab koode). Menüü, töölaud ja Collie enda teatised vahetavad keelt kohe ja iga rakendus, mille sa pärast seda avad, järgib seda samuti. Juba avatud rakendused vahetavad keelt, kui sa need taaskäivitad.
 
 ### Abi, kui jääd hätta
 
-Kui jääd hätta, leiad tavaliselt kellegi, kes on nõus aitama, [kogukonna Discordi](https://omarchy.org/discord) _#omarchy-help_ kanalil.
+Kui jääd hätta, leiad tavaliselt kellegi, kes on nõus aitama, [kogukonna Discordi](https://omarchy.org/discord) _#collie-help_ kanalil.

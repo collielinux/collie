@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Compatibility wrapper for collie-migrate-notify.
+# collie:hidden=true
+
+exec collie-migrate-notify "$@"

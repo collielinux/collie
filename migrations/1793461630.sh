@@ -1,6 +1,6 @@
-echo "Move each monitor's workspace blocks and scaling log into ~/.local/state/omarchy/monitors"
+echo "Move each monitor's workspace blocks and scaling log into ~/.local/state/collie/monitors"
 
-state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/omarchy"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/collie"
 mkdir -p "$state_dir/monitors"
 
 # The blocks give every monitor back its own workspaces when it's plugged in,

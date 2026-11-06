@@ -11,11 +11,11 @@ stub_bin="$test_tmp/bin"
 calls="$test_tmp/calls.log"
 modprobe_dir="$test_tmp/modprobe.d"
 sys_module="$test_tmp/sys-module"
-conf="$modprobe_dir/omarchy-toprow.conf"
+conf="$modprobe_dir/collie-toprow.conf"
 mkdir -p "$stub_bin" "$modprobe_dir" "$sys_module/hid_asus" "$sys_module/hid_apple/parameters"
 printf '3\n' >"$sys_module/hid_apple/parameters/fnmode"
 
-cat >"$stub_bin/omarchy-hw-aarch64-apple" <<'SH'
+cat >"$stub_bin/collie-hw-aarch64-apple" <<'SH'
 #!/bin/bash
 exit 1
 SH
@@ -34,9 +34,9 @@ SH
 chmod +x "$stub_bin"/*
 
 toprow() {
-  OMARCHY_MODPROBE_DIR="$modprobe_dir" OMARCHY_SYS_MODULE="$sys_module" \
-    OMARCHY_TOPROW_REBUILD_PENDING="$test_tmp/rebuild-pending" PATH="$stub_bin:$PATH" TEST_LOG="$calls" \
-    bash "$ROOT/bin/omarchy-keyboard-toprow" "$@"
+  COLLIE_MODPROBE_DIR="$modprobe_dir" COLLIE_SYS_MODULE="$sys_module" \
+    COLLIE_TOPROW_REBUILD_PENDING="$test_tmp/rebuild-pending" PATH="$stub_bin:$PATH" TEST_LOG="$calls" \
+    bash "$ROOT/bin/collie-keyboard-toprow" "$@"
 }
 
 # Before anything is chosen, the top row reports what the loaded driver booted
@@ -55,11 +55,11 @@ printf '2\n' >"$apple_only/hid_apple/parameters/fnmode"
 [[ $(sys_module="$apple_only" toprow) == "fnkeys" ]] || fail "toprow reports an Apple-style keyboard without the ASUS drivers"
 pass "toprow reports the booted mode before anything is chosen"
 
-# Omarchy's own earlier file goes; an administrator's own stays and is overridden.
+# Collie's own earlier file goes; an administrator's own stays and is overridden.
 printf 'options hid_apple fnmode=2\n' >"$modprobe_dir/hid_apple.conf"
 printf 'options hid_asus fnlock_default=1\n' >"$modprobe_dir/hid_asus.conf"
 toprow mediakeys >/dev/null
-[[ ! -e $modprobe_dir/hid_apple.conf && -e $modprobe_dir/hid_asus.conf ]] || fail "toprow replaces only Omarchy's earlier files"
+[[ ! -e $modprobe_dir/hid_apple.conf && -e $modprobe_dir/hid_asus.conf ]] || fail "toprow replaces only Collie's earlier files"
 grep -qx 'options asus_wmi fnlock_default=0' "$conf" || fail "toprow mediakeys sets every host-kept Fn-lock" "$(cat "$conf")"
 [[ $(<"$sys_module/hid_apple/parameters/fnmode") == "1" ]] || fail "toprow switches hid_apple right away"
 [[ $(<"$calls") == "rebuild" && $(toprow) == "mediakeys" ]] || fail "toprow mediakeys rebuilds the boot image for a loaded keyboard driver" "$(cat "$calls")"

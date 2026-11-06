@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# collie:summary=Enable, disable, or toggle the touch functionality of the screen
+# collie:args=[on|off|toggle]
+
+exec collie-toggle-input-device touchscreen "${1:-toggle}"

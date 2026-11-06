@@ -2,23 +2,23 @@
 
 ### Jag förstörde mitt system med en uppdatering!
 
-Försök först att [återställa systemet](47-system-snapshots.md) till versionen före din senaste uppdatering. Om det inte fungerar, använd `omarchy-debug` för att dela med dig av ditt problem på #omarchy-help i Discord. Och om allt det misslyckas kan du installera om standardkonfigurationerna och paketen med `omarchy-reinstall`.
+Försök först att [återställa systemet](47-system-snapshots.md) till versionen före din senaste uppdatering. Om det inte fungerar, använd `collie-debug` för att dela med dig av ditt problem på #collie-help i Discord. Och om allt det misslyckas kan du installera om standardkonfigurationerna och paketen med `collie-reinstall`.
 
 ### Varför är vissa appar så stora på min skärm?
 
-Omarchy förutsätter en högupplöst skärm på 2x, så det sätter `GDK_SCALE` till 2 tills du väljer en skala i bildskärmspanelen. Om du har en 1x-skärm och GTK- eller X11-appar visas för stora, välj 1x för den i bildskärmspanelen, eller lägg till `hl.env("GDK_SCALE", "1")` i `~/.config/hypr/monitors.lua` (och starta sedan om alla appar som är för stora). Se [manualen om bildskärmar](33-monitors.md).
+Collie förutsätter en högupplöst skärm på 2x, så det sätter `GDK_SCALE` till 2 tills du väljer en skala i bildskärmspanelen. Om du har en 1x-skärm och GTK- eller X11-appar visas för stora, välj 1x för den i bildskärmspanelen, eller lägg till `hl.env("GDK_SCALE", "1")` i `~/.config/hypr/monitors.lua` (och starta sedan om alla appar som är för stora). Se [manualen om bildskärmar](33-monitors.md).
 
 För Spotify kan du använda `Ctrl + Minus` för att förminska gränssnittet (och `Ctrl + Plus` för att göra det större).
 
 ### Varför slutade alla mina bindningar med Super-tangenten att fungera?
 
-På vissa bärbara datorer från ASUS ROG och TUF är `Fn + Super` en kombination som är lätt att missa och som växlar ett firmware-lås för Windows-tangenten (till för spel, så att du inte lämnar ett spel av misstag). Ingenting på skärmen talar om att det har hänt. Medan låset är på avger Super ingenting alls — så varje bindning i Omarchy som använder Super slutar bara fungera, och det ser ut som att Hyprland gick sönder.
+På vissa bärbara datorer från ASUS ROG och TUF är `Fn + Super` en kombination som är lätt att missa och som växlar ett firmware-lås för Windows-tangenten (till för spel, så att du inte lämnar ett spel av misstag). Ingenting på skärmen talar om att det har hänt. Medan låset är på avger Super ingenting alls — så varje bindning i Collie som använder Super slutar bara fungera, och det ser ut som att Hyprland gick sönder.
 
 Tryck på `Fn + Super` en gång innan du gräver i `~/.config/hypr/`, och om det inte får tillbaka Super, tryck en gång till så att du inte lämnar låset på. Det här är inte Fn-lock, som bara ändrar vad F-tangentsraden gör.
 
 ### Min Wi-Fi, Bluetooth, mitt ljud eller min styrplatta slutade precis att fungera
 
-Innan du startar om, försök att starta om bara det kränkande delsystemet för sig självt. _Update > Hardware_ i Omarchy-menyn har Wi-Fi, Bluetooth, Audio och Trackpad, och att ladda om en av dem löser majoriteten av ”det fungerade för fem minuter sedan”-situationerna — ett Bluetooth-headset som inte vill återansluta, en styrplatta som dog efter viloläge, ljud som försvann när du kopplade ur en bildskärm.
+Innan du startar om, försök att starta om bara det kränkande delsystemet för sig självt. _Update > Hardware_ i Collie-menyn har Wi-Fi, Bluetooth, Audio och Trackpad, och att ladda om en av dem löser majoriteten av ”det fungerade för fem minuter sedan”-situationerna — ett Bluetooth-headset som inte vill återansluta, en styrplatta som dog efter viloläge, ljud som försvann när du kopplade ur en bildskärm.
 
 ### Varför spelar mina externa högtalare inte upp något?
 
@@ -26,7 +26,7 @@ Förmodligen för att de inte är inställda som primär utgång. Klicka på hö
 
 ### Högtalarna i min bärbara dator låter fel
 
-På vissa bärbara datorer tillämpar Omarchy automatiskt en högtalarjustering som korrigerar frekvensresponsen hos de inbyggda högtalarna. `omarchy audio tuning status` talar om för dig om en sådan är aktiv på din maskin, och `omarchy audio tuning off` stänger av den om du hellre vill höra högtalarna råa.
+På vissa bärbara datorer tillämpar Collie automatiskt en högtalarjustering som korrigerar frekvensresponsen hos de inbyggda högtalarna. `collie audio tuning status` talar om för dig om en sådan är aktiv på din maskin, och `collie audio tuning off` stänger av den om du hellre vill höra högtalarna råa.
 
 ### Varför kan jag inte logga in eller använda sudo med mitt lösenord?
 

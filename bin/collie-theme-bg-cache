@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# collie:summary=Cache background switcher thumbnails for the current theme
+
+theme_name=$(cat "$HOME/.local/state/collie/current/theme.name" 2>/dev/null)
+
+collie-menu-images \
+  --cache-only \
+  "$HOME/.local/state/collie/current/theme/backgrounds" \
+  "$HOME/.config/collie/backgrounds/$theme_name"

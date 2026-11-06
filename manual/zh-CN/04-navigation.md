@@ -1,8 +1,8 @@
 # 导航
 
-在 Omarchy 中，一切都通过键盘完成——_一切！_ 系统刚启动时，你真的没法只靠鼠标做任何事。但你可以按下 `Super + Space` 唤出 Omarchy 菜单，从这里你可以完成几乎所有事情。
+在 Collie 中，一切都通过键盘完成——_一切！_ 系统刚启动时，你真的没法只靠鼠标做任何事。但你可以按下 `Super + Space` 唤出 Collie 菜单，从这里你可以完成几乎所有事情。
 
-但 Omarchy 菜单甚至本就不该是大多数时间操作该系统的主要方式。我们可以比那更快！所有最重要的应用都直接绑定到了单独的快捷键上。你用 `Super + Return` 启动终端，用 `Super + Shift + Return` 启动浏览器。试着依次打开它们，你就会看到 Hyprland 平铺布局的魔力在实际运行：
+但 Collie 菜单甚至本就不该是大多数时间操作该系统的主要方式。我们可以比那更快！所有最重要的应用都直接绑定到了单独的快捷键上。你用 `Super + Return` 启动终端，用 `Super + Shift + Return` 启动浏览器。试着依次打开它们，你就会看到 Hyprland 平铺布局的魔力在实际运行：
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@
 
 ### Dwindle 与滚动布局
 
-Omarchy 的默认布局名为 dwindle。它让单个工作区上打开的所有窗口始终全部可见，哪怕必须把它们缩小。
+Collie 的默认布局名为 dwindle。它让单个工作区上打开的所有窗口始终全部可见，哪怕必须把它们缩小。
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 浮动工作区的工作方式就像传统桌面：窗口互相重叠，由你自己移动和调整大小。每个窗口都会有一个使用你的主题配色的标题栏，上面带有最小化、最大化和关闭按钮。`Super + M` 也会最小化聚焦的窗口。最小化的窗口会停留在 dock 中；点击它的应用即可将它恢复。点击窗口可将其带到前面。从任意边缘或角落调整它的大小。双击标题栏可以将窗口最大化同时保持顶栏可见，再次双击则恢复到它原来的大小。
 
-浮动工作区还会显示一个 dock，其中包含你固定的应用、所有正在运行的应用，以及 apps 按钮后面的全部应用网格，`Super + Alt + Space` 和 Omarchy 菜单中的 _Apps_ 也能打开它。在网格上右键点击某个应用，或者按下 `Delete`，即可卸载它。点击某个应用即可打开它，或者将其窗口带到前面；再次点击会在它的窗口之间循环切换。中键点击会打开一个新窗口。沿着 dock 拖动图标即可移动它；将一个正在运行的应用拖到其他应用之间会让它保留在那里。右键点击可将某个应用保留在 dock 中、从中移除，或者退出它。dock 会为全屏窗口让路。右键点击 apps 按钮可将 dock 移到另一个边缘，或者让它隐藏起来直到指针到达其边缘所在位置。这个位置也在 _Appearance > Dock > Dock Position_ 中，而 `omarchy dock position left` 和 `omarchy dock autohide on` 可以从终端设置这两项。你保留在 dock 中的应用在未运行时会显示为变淡状态。
+浮动工作区还会显示一个 dock，其中包含你固定的应用、所有正在运行的应用，以及 apps 按钮后面的全部应用网格，`Super + Alt + Space` 和 Collie 菜单中的 _Apps_ 也能打开它。在网格上右键点击某个应用，或者按下 `Delete`，即可卸载它。点击某个应用即可打开它，或者将其窗口带到前面；再次点击会在它的窗口之间循环切换。中键点击会打开一个新窗口。沿着 dock 拖动图标即可移动它；将一个正在运行的应用拖到其他应用之间会让它保留在那里。右键点击可将某个应用保留在 dock 中、从中移除，或者退出它。dock 会为全屏窗口让路。右键点击 apps 按钮可将 dock 移到另一个边缘，或者让它隐藏起来直到指针到达其边缘所在位置。这个位置也在 _Appearance > Dock > Dock Position_ 中，而 `collie dock position left` 和 `collie dock autohide on` 可以从终端设置这两项。你保留在 dock 中的应用在未运行时会显示为变淡状态。
 
-新的工作区，以及任何你没有用 `Super + L` 为其单独指定布局的工作区，都会使用默认布局。更改默认布局会将每个没有窗口的工作区重置为该布局，而有窗口的工作区则保留它现有的布局。最小化到 dock 的窗口仍算作它离开的那个工作区上的窗口。在 _Appearance > Workspace Layout_ 下选择它：Tiling、Scrolling 或 Floating。`omarchy-hyprland-workspace-layout-default scrolling` 可以从终端设置它。
+新的工作区，以及任何你没有用 `Super + L` 为其单独指定布局的工作区，都会使用默认布局。更改默认布局会将每个没有窗口的工作区重置为该布局，而有窗口的工作区则保留它现有的布局。最小化到 dock 的窗口仍算作它离开的那个工作区上的窗口。在 _Appearance > Workspace Layout_ 下选择它：Tiling、Scrolling 或 Floating。`collie-hyprland-workspace-layout-default scrolling` 可以从终端设置它。
 
 ### 窗口分组
 

@@ -1,8 +1,8 @@
 # Temos
 
-Omarchy pateikiama su dvidešimt dviem gražiomis temomis. Jas galite pasirinkti per _Išvaizda > Tema_ Omarchy Menu (`Super + Space`) arba tiesiai pereiti prie temų pasirinkimo paspaudę `Super + Ctrl + T`.
+Collie pateikiama su dvidešimt dviem gražiomis temomis. Jas galite pasirinkti per _Išvaizda > Tema_ Collie Menu (`Super + Space`) arba tiesiai pereiti prie temų pasirinkimo paspaudę `Super + Ctrl + T`.
 
-Kiekviena tema stilizuoja darbalaukį, terminalą, neovim, aktyvumo ekraną (btop), Chromium ir visą Omarchy apvalkalą: viršutinę juostą, meniu, pranešimus, OSD ir užrakinimo ekraną. (Obsidian programoje Omarchy temą turite pasirinkti rankiniu būdu per _Išvaizda > Temos_ pačioje programoje).
+Kiekviena tema stilizuoja darbalaukį, terminalą, neovim, aktyvumo ekraną (btop), Chromium ir visą Collie apvalkalą: viršutinę juostą, meniu, pranešimus, OSD ir užrakinimo ekraną. (Obsidian programoje Collie temą turite pasirinkti rankiniu būdu per _Išvaizda > Temos_ pačioje programoje).
 
 Temos turi foninių paveikslėlių rinkinį, iš kurio galite rinktis paspaudę `Super + Ctrl + W`.
 

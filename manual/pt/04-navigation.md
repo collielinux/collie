@@ -1,8 +1,8 @@
 # Navegação
 
-Tudo no Omarchy acontece através do teclado — _TUDO!_ Quando o sistema arranca pela primeira vez, literalmente não consegues fazer nada só com o rato. Mas podes premir `Super + Space` para revelar o Menu Omarchy e, a partir daqui, podes fazer praticamente tudo.
+Tudo no Collie acontece através do teclado — _TUDO!_ Quando o sistema arranca pela primeira vez, literalmente não consegues fazer nada só com o rato. Mas podes premir `Super + Space` para revelar o Menu Collie e, a partir daqui, podes fazer praticamente tudo.
 
-Mas o menu Omarchy nem sequer foi pensado para ser a forma principal de operar o sistema a maior parte do tempo. Conseguimos ser mais rápidos do que isso! Todas as aplicações mais importantes estão associadas diretamente a teclas de atalho individuais. Arrancas o terminal com `Super + Return` e um navegador com `Super + Shift + Return`. Experimenta fazer um a seguir ao outro e vais ver a magia do tiling do Hyprland em ação:
+Mas o menu Collie nem sequer foi pensado para ser a forma principal de operar o sistema a maior parte do tempo. Conseguimos ser mais rápidos do que isso! Todas as aplicações mais importantes estão associadas diretamente a teclas de atalho individuais. Arrancas o terminal com `Super + Return` e um navegador com `Super + Shift + Return`. Experimenta fazer um a seguir ao outro e vais ver a magia do tiling do Hyprland em ação:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Também podes passar para ecrã inteiro com `Super + F`, ou apenas para largura 
 
 ### Layout dwindle vs scrolling
 
-O layout predefinido do Omarchy chama-se dwindle. Mantém todas as janelas que abres num único espaço de trabalho visíveis a todo o momento, mesmo que tenha de as encolher.
+O layout predefinido do Collie chama-se dwindle. Mantém todas as janelas que abres num único espaço de trabalho visíveis a todo o momento, mesmo que tenha de as encolher.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Um espaço de trabalho flutuante funciona como um ambiente de trabalho tradicional: as janelas sobrepõem-se e és tu a movê-las e a dimensioná-las. Cada janela recebe uma barra de título com as cores do teu tema, com botões para minimizar, maximizar e fechar. `Super + M` também minimiza a janela em foco. Uma janela minimizada fica à espera na dock; clica na respetiva aplicação para a trazer de volta. Clica numa janela para a trazer para a frente. Redimensiona-a a partir de qualquer extremidade ou canto. Faz duplo clique numa barra de título para maximizar a janela mantendo a barra superior visível, e outra vez para recuperar o tamanho antigo.
 
-Um espaço de trabalho flutuante também mostra uma dock, com as tuas aplicações fixadas, tudo o que está a ser executado e uma grelha de todas as aplicações por detrás do botão de aplicações, que `Super + Alt + Space` e _Apps_ no menu Omarchy também abrem. Clica com o botão direito numa aplicação na grelha, ou prime `Delete`, para a desinstalar. Clica numa aplicação para a abrir, ou para trazer a respetiva janela para a frente; clica outra vez para percorrer ciclicamente as suas janelas. Um clique com o botão do meio abre uma nova janela. Arrasta um ícone ao longo da dock para o mover; arrastar uma aplicação em execução para entre as outras mantém-na lá. Clica com o botão direito para manter uma aplicação na dock, retirá-la de lá ou sair dela. A dock sai do caminho de uma janela em ecrã inteiro. Clica com o botão direito no botão de aplicações para mover a dock para outra extremidade ou para fazer com que se oculte até o ponteiro chegar à respetiva extremidade. A posição também está em _Appearance > Dock > Dock Position_, e `omarchy dock position left` e `omarchy dock autohide on` definem ambas a partir de um terminal. As aplicações que manténs na dock ficam esbatidas enquanto não estiverem a ser executadas.
+Um espaço de trabalho flutuante também mostra uma dock, com as tuas aplicações fixadas, tudo o que está a ser executado e uma grelha de todas as aplicações por detrás do botão de aplicações, que `Super + Alt + Space` e _Apps_ no menu Collie também abrem. Clica com o botão direito numa aplicação na grelha, ou prime `Delete`, para a desinstalar. Clica numa aplicação para a abrir, ou para trazer a respetiva janela para a frente; clica outra vez para percorrer ciclicamente as suas janelas. Um clique com o botão do meio abre uma nova janela. Arrasta um ícone ao longo da dock para o mover; arrastar uma aplicação em execução para entre as outras mantém-na lá. Clica com o botão direito para manter uma aplicação na dock, retirá-la de lá ou sair dela. A dock sai do caminho de uma janela em ecrã inteiro. Clica com o botão direito no botão de aplicações para mover a dock para outra extremidade ou para fazer com que se oculte até o ponteiro chegar à respetiva extremidade. A posição também está em _Appearance > Dock > Dock Position_, e `collie dock position left` e `collie dock autohide on` definem ambas a partir de um terminal. As aplicações que manténs na dock ficam esbatidas enquanto não estiverem a ser executadas.
 
-Os novos espaços de trabalho, e qualquer um a que não tenhas dado um layout próprio com `Super + L`, usam o layout predefinido. Alterar a predefinição repõe nela todos os espaços de trabalho sem janelas, enquanto um com janelas mantém o layout que tem. Uma janela minimizada para a dock continua a contar como uma janela no espaço de trabalho que deixou. Escolhe-o em _Appearance > Workspace Layout_: Tiling, Scrolling ou Floating. `omarchy-hyprland-workspace-layout-default scrolling` define-o a partir de um terminal.
+Os novos espaços de trabalho, e qualquer um a que não tenhas dado um layout próprio com `Super + L`, usam o layout predefinido. Alterar a predefinição repõe nela todos os espaços de trabalho sem janelas, enquanto um com janelas mantém o layout que tem. Uma janela minimizada para a dock continua a contar como uma janela no espaço de trabalho que deixou. Escolhe-o em _Appearance > Workspace Layout_: Tiling, Scrolling ou Floating. `collie-hyprland-workspace-layout-default scrolling` define-o a partir de um terminal.
 
 ### Agrupar janelas
 

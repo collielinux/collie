@@ -8,7 +8,7 @@ Nasa isang plano ang bawat hotkey, na itinatakda ng mga modifier nito, at may ii
 
 | Plano | Ano ang nandito | Mga Halimbawa |
 | --- | --- | --- |
-| `Super + key` | Ang sistema: mga window, workspace, layout, at pangunahing menu | `Super + Space` menu ng Omarchy, `Super + W` isara ang window, `Super + F` full screen |
+| `Super + key` | Ang sistema: mga window, workspace, layout, at pangunahing menu | `Super + Space` menu ng Collie, `Super + W` isara ang window, `Super + F` full screen |
 | `Super + Shift + key` | Mga app | `Super + Shift + B` browser, `Super + Shift + E` email, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Mga panel at menu ng sistema | `Super + Ctrl + A` audio, `Super + Ctrl + N` network, `Super + Ctrl + C` capture menu |
 | `Super + Ctrl + Alt + key` | Mga mabilisang aksyon at abiso | `Super + Ctrl + Alt + T` ipakita ang oras, `Super + Ctrl + Alt + B` baterya, `Super + Ctrl + Alt + C` screenshot |
@@ -34,7 +34,7 @@ Kung hindi angkop sa iyo ang isang default (halimbawa ay gusto mo ng `Super + Sh
 
 | Hotkey                  | Tungkulin              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu ng Omarchy (mga app at lahat ng iba pa)    |
+| `Super + Space`           | Menu ng Collie (mga app at lahat ng iba pa)    |
 | `Super + Alt + Space` | Grid ng mga app |
 | `Super + Escape` | Menu ng sistema (suspend, restart, atbp.)  |
 | `Super + Ctrl + L` | I-lock ang computer |
@@ -171,7 +171,7 @@ Baguhin/magdagdag ng mga binding sa `~/.config/hypr/bindings.lua`.
 | `Super + V`           | I-paste    |
 | `Super + Ctrl + V`           | Tagapamahala ng clipboard    |
 
-Karaniwan sa Linux, kailangan mo ng `Ctrl + Shift + C/V` para mag-copy'n'paste sa terminal at `Ctrl + C/V` para gawin ito saanman. Gumagana saanman ang mga pinag-isang clipboard hotkey na ito ng Omarchy.
+Karaniwan sa Linux, kailangan mo ng `Ctrl + Shift + C/V` para mag-copy'n'paste sa terminal at `Ctrl + C/V` para gawin ito saanman. Gumagana saanman ang mga pinag-isang clipboard hotkey na ito ng Collie.
 
 ## Pag-capture
 
@@ -192,7 +192,7 @@ Karaniwan sa Linux, kailangan mo ng `Ctrl + Shift + C/V` para mag-copy'n'paste s
 
 Sa mga screenrecording, tatanungin ka muna ng hotkey kung aling audio ang gusto mo, pagkatapos ay magsisimula ang recording. Pindutin ito ulit para huminto. Tingnan ang [mga screenshot at recording](12-screenshots-recording.md) para sa mga detalye.
 
-Maa-access din ang lahat ng opsyon sa pag-capture sa ilalim ng _Trigger > Capture_ sa menu ng Omarchy (`Super + Space`).
+Maa-access din ang lahat ng opsyon sa pag-capture sa ilalim ng _Trigger > Capture_ sa menu ng Collie (`Super + Space`).
 
 ## Mga abiso
 
@@ -214,9 +214,9 @@ Maa-access din ang lahat ng opsyon sa pag-capture sa ilalim ng _Trigger > Captur
 | `Super + Backspace` | I-toggle ang transparency sa isang window |
 | `Super + Ctrl + Backspace` | I-toggle ang square aspect ng iisang window |
 
-Nasa `~/.config/omarchy/backgrounds/<theme name>` ang mga karagdagang background image. Maa-access din sa pamamagitan ng _Install > Style > Background_ sa menu ng Omarchy.
+Nasa `~/.config/collie/backgrounds/<theme name>` ang mga karagdagang background image. Maa-access din sa pamamagitan ng _Install > Style > Background_ sa menu ng Collie.
 
-Maa-access din ang lahat ng opsyon sa estilo sa ilalim ng _Style_ sa menu ng Omarchy (`Super + Space`).
+Maa-access din ang lahat ng opsyon sa estilo sa ilalim ng _Style_ sa menu ng Collie (`Super + Space`).
 
 ## Mga toggle
 
@@ -317,7 +317,7 @@ Dapat patakbuhin ang mga function na ito sa loob ng Tmux session.
 
 ## Ghostty Terminal
 
-Ini-install ang Ghostty terminal gamit ang _Install > Terminal_ sa pamamagitan ng menu ng Omarchy.
+Ini-install ang Ghostty terminal gamit ang _Install > Terminal_ sa pamamagitan ng menu ng Collie.
 
 | Hotkey                  | Tungkulin              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Maaari mong gamitin ang `Super + Ctrl + E` para magpakita ng kumpletong emoji pi
 | `Shift + CapsLock Space N` | Ang pangalan mo (gaya ng inilagay sa setup)  |
 | `Shift + CapsLock Space E` | Ang email mo (gaya ng inilagay sa setup)  |
 
-Maaari kang magdagdag ng sarili mo pa sa pamamagitan ng pag-edit sa `~/.XCompose`, pagkatapos ay patakbuhin ang `omarchy-restart-xcompose` sa terminal para makuha ang mga pagbabago.
+Maaari kang magdagdag ng sarili mo pa sa pamamagitan ng pag-edit sa `~/.XCompose`, pagkatapos ay patakbuhin ang `collie-restart-xcompose` sa terminal para makuha ang mga pagbabago.

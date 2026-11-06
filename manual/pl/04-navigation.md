@@ -1,8 +1,8 @@
 # Nawigacja
 
-Wszystko w Omarchy dzieje się za pomocą klawiatury — _WSZYSTKO!_ Gdy system uruchamia się po raz pierwszy, dosłownie nic nie zrobisz samą myszą. Ale możesz wcisnąć `Super + Space`, aby odsłonić Menu Omarchy, a stamtąd możesz zrobić niemal wszystko.
+Wszystko w Collie dzieje się za pomocą klawiatury — _WSZYSTKO!_ Gdy system uruchamia się po raz pierwszy, dosłownie nic nie zrobisz samą myszą. Ale możesz wcisnąć `Super + Space`, aby odsłonić Menu Collie, a stamtąd możesz zrobić niemal wszystko.
 
-Ale menu Omarchy przez większość czasu nie ma być nawet głównym sposobem obsługi systemu. Potrafimy szybciej! Wszystkie najważniejsze aplikacje są przypisane bezpośrednio do pojedynczych skrótów klawiszowych. Terminal uruchamiasz za pomocą `Super + Return`, a przeglądarkę za pomocą `Super + Shift + Return`. Spróbuj zrobić jedno po drugim, a zobaczysz magię kafelkowania Hyprland w akcji:
+Ale menu Collie przez większość czasu nie ma być nawet głównym sposobem obsługi systemu. Potrafimy szybciej! Wszystkie najważniejsze aplikacje są przypisane bezpośrednio do pojedynczych skrótów klawiszowych. Terminal uruchamiasz za pomocą `Super + Return`, a przeglądarkę za pomocą `Super + Shift + Return`. Spróbuj zrobić jedno po drugim, a zobaczysz magię kafelkowania Hyprland w akcji:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Możesz też przejść na pełny ekran za pomocą `Super + F` albo nawet tylko n
 
 ### Układ dwindle a układ przewijany
 
-Domyślny układ Omarchy nazywa się dwindle. Utrzymuje wszystkie okna otwarte na pojedynczym obszarze roboczym widoczne przez cały czas, nawet jeśli musi je pomniejszyć.
+Domyślny układ Collie nazywa się dwindle. Utrzymuje wszystkie okna otwarte na pojedynczym obszarze roboczym widoczne przez cały czas, nawet jeśli musi je pomniejszyć.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Pływający obszar roboczy działa jak tradycyjny pulpit: okna się nakładają, a ty samodzielnie je przesuwasz i zmieniasz ich rozmiar. Każde okno otrzymuje pasek tytułu w kolorach twojego motywu, z przyciskami do minimalizowania, maksymalizowania i zamykania. `Super + M` również minimalizuje aktywne okno. Zminimalizowane okno czeka w docku; kliknij jego aplikację, aby je przywrócić. Kliknij okno, aby wysunąć je na przód. Zmieniaj jego rozmiar z dowolnej krawędzi lub rogu. Kliknij dwukrotnie pasek tytułu, aby zmaksymalizować okno przy zachowaniu widocznego górnego paska, i ponownie, aby przywrócić jego dawny rozmiar.
 
-Pływający obszar roboczy pokazuje też dock, z twoimi przypiętymi aplikacjami, wszystkim, co jest uruchomione, oraz siatką każdej aplikacji za przyciskiem aplikacji, który otwierają też `Super + Alt + Space` oraz _Aplikacje_ w menu Omarchy. Kliknij prawym przyciskiem myszy aplikację na siatce lub wciśnij `Delete`, aby ją odinstalować. Kliknij aplikację, aby ją otworzyć albo wysunąć jej okno na przód; kliknij ponownie, aby przełączać cyklicznie jej okna. Kliknięcie środkowym przyciskiem otwiera nowe okno. Przeciągnij ikonę wzdłuż docka, aby ją przenieść; przeciągnięcie uruchomionej aplikacji pomiędzy pozostałe zachowuje ją tam. Kliknij prawym przyciskiem myszy, aby zachować aplikację w docku, usunąć ją stamtąd albo ją zakończyć. Dock ustępuje miejsca oknu pełnoekranowemu. Kliknij prawym przyciskiem myszy przycisk aplikacji, aby przenieść dock na inną krawędź albo sprawić, by ukrywał się, dopóki wskaźnik nie dotrze do jego krawędzi. Pozycja znajduje się też w _Wygląd > Dock > Pozycja docka_, a `omarchy dock position left` oraz `omarchy dock autohide on` ustawiają obie te opcje z terminala. Aplikacje, które trzymasz w docku, są wyblakłe, gdy nie są uruchomione.
+Pływający obszar roboczy pokazuje też dock, z twoimi przypiętymi aplikacjami, wszystkim, co jest uruchomione, oraz siatką każdej aplikacji za przyciskiem aplikacji, który otwierają też `Super + Alt + Space` oraz _Aplikacje_ w menu Collie. Kliknij prawym przyciskiem myszy aplikację na siatce lub wciśnij `Delete`, aby ją odinstalować. Kliknij aplikację, aby ją otworzyć albo wysunąć jej okno na przód; kliknij ponownie, aby przełączać cyklicznie jej okna. Kliknięcie środkowym przyciskiem otwiera nowe okno. Przeciągnij ikonę wzdłuż docka, aby ją przenieść; przeciągnięcie uruchomionej aplikacji pomiędzy pozostałe zachowuje ją tam. Kliknij prawym przyciskiem myszy, aby zachować aplikację w docku, usunąć ją stamtąd albo ją zakończyć. Dock ustępuje miejsca oknu pełnoekranowemu. Kliknij prawym przyciskiem myszy przycisk aplikacji, aby przenieść dock na inną krawędź albo sprawić, by ukrywał się, dopóki wskaźnik nie dotrze do jego krawędzi. Pozycja znajduje się też w _Wygląd > Dock > Pozycja docka_, a `collie dock position left` oraz `collie dock autohide on` ustawiają obie te opcje z terminala. Aplikacje, które trzymasz w docku, są wyblakłe, gdy nie są uruchomione.
 
-Nowe obszary robocze oraz wszystkie, którym nie nadałeś własnego układu za pomocą `Super + L`, używają układu domyślnego. Zmiana domyślnego ustawia na niego każdy obszar roboczy bez okien, natomiast ten z oknami zachowuje układ, który ma. Okno zminimalizowane do docka nadal liczy się jako okno na obszarze roboczym, który opuściło. Wybierasz go w _Wygląd > Układ obszaru roboczego_: Kafelkowy, Przewijany lub Pływający. `omarchy-hyprland-workspace-layout-default scrolling` ustawia go z terminala.
+Nowe obszary robocze oraz wszystkie, którym nie nadałeś własnego układu za pomocą `Super + L`, używają układu domyślnego. Zmiana domyślnego ustawia na niego każdy obszar roboczy bez okien, natomiast ten z oknami zachowuje układ, który ma. Okno zminimalizowane do docka nadal liczy się jako okno na obszarze roboczym, który opuściło. Wybierasz go w _Wygląd > Układ obszaru roboczego_: Kafelkowy, Przewijany lub Pływający. `collie-hyprland-workspace-layout-default scrolling` ustawia go z terminala.
 
 ### Grupowanie okien
 

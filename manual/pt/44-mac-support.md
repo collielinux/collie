@@ -1,16 +1,16 @@
 # Suporte para Mac
 
-O Omarchy tem suporte integrado para **Macs com Intel**. De momento, há algumas limitações conhecidas, mas, desde que esteja ciente delas e não se importe, pode dar uma nova vida aos seus Macs antigos ao instalar o Omarchy.
+O Collie tem suporte integrado para **Macs com Intel**. De momento, há algumas limitações conhecidas, mas, desde que esteja ciente delas e não se importe, pode dar uma nova vida aos seus Macs antigos ao instalar o Collie.
 
-Tenha em atenção que a instalação num Mac da série M não é diretamente suportada neste momento. Pode saber mais sobre o estado disto no #omarchy-on-other no nosso [Discord](https://discord.gg/tXFUdasqhY).
+Tenha em atenção que a instalação num Mac da série M não é diretamente suportada neste momento. Pode saber mais sobre o estado disto no #collie-on-other no nosso [Discord](https://discord.gg/tXFUdasqhY).
 
-Num teste simples, conseguimos obter ganhos de desempenho de 36% num MacBook Pro de 2019 só por instalar o Omarchy.
+Num teste simples, conseguimos obter ganhos de desempenho de 36% num MacBook Pro de 2019 só por instalar o Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instalar o Omarchy no Mac
+### Instalar o Collie no Mac
 
-De momento, o Omarchy só suporta ser o **único** sistema operativo instalado. Durante a instalação, o disco será apagado e o MacOS deixará de poder arrancar.
+De momento, o Collie só suporta ser o **único** sistema operativo instalado. Durante a instalação, o disco será apagado e o MacOS deixará de poder arrancar.
 
 Pode restaurá-lo mais tarde através do Internet Recovery, se quiser.
 
@@ -39,7 +39,7 @@ O instalador deteta o hardware do Mac e aplica automaticamente as correções ne
 
 ### Limitações Conhecidas
 
-Os membros da comunidade estão constantemente a trabalhar em soluções para estes desafios, por isso, se isto for problemático para si, junte-se ao #omarchy-on-other no nosso [Discord](https://discord.gg/tXFUdasqhY) e veja se existem métodos atualizados para os resolver.
+Os membros da comunidade estão constantemente a trabalhar em soluções para estes desafios, por isso, se isto for problemático para si, junte-se ao #collie-on-other no nosso [Discord](https://discord.gg/tXFUdasqhY) e veja se existem métodos atualizados para os resolver.
 
 #### Dispositivos com chip T1
 

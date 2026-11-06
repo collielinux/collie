@@ -199,7 +199,7 @@ expect("a unified-billing account with weekly credits shows the monthly quota be
 
 sandbox()
 signed_in(grok_home())
-side = state_home() / "omarchy" / "agents" / "accounts" / "grok" / "side"
+side = state_home() / "collie" / "agents" / "accounts" / "grok" / "side"
 signed_in(side, token="token-side", user="u-side", tier="SuperGrok")
 registry("grok", [
   {"id": "main", "label": "Main", "home": "", "primary": True},

@@ -1,16 +1,16 @@
 # Prise en charge des Mac
 
-Omarchy prend en charge nativement les **Mac Intel**. Il existe pour le moment quelques limitations connues, mais tant que vous en êtes conscient et que cela vous convient ; vous pouvez redonner un nouveau souffle à vos vieux Mac en y installant Omarchy.
+Collie prend en charge nativement les **Mac Intel**. Il existe pour le moment quelques limitations connues, mais tant que vous en êtes conscient et que cela vous convient ; vous pouvez redonner un nouveau souffle à vos vieux Mac en y installant Collie.
 
-Veuillez noter que l'installation sur un Mac de série M n'est pas directement prise en charge pour le moment. Vous pouvez en savoir plus sur l'état des choses dans #omarchy-on-other sur notre [Discord](https://discord.gg/tXFUdasqhY).
+Veuillez noter que l'installation sur un Mac de série M n'est pas directement prise en charge pour le moment. Vous pouvez en savoir plus sur l'état des choses dans #collie-on-other sur notre [Discord](https://discord.gg/tXFUdasqhY).
 
-Lors d'un simple test, nous avons obtenu des gains de performance de 36% simplement en installant Omarchy sur un MacBook Pro de 2019.
+Lors d'un simple test, nous avons obtenu des gains de performance de 36% simplement en installant Collie sur un MacBook Pro de 2019.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Installer Omarchy sur Mac
+### Installer Collie sur Mac
 
-Omarchy ne prend en charge pour le moment que le cas où il est le **seul** OS installé. Pendant l'installation, le disque sera effacé et MacOS ne pourra plus démarrer.
+Collie ne prend en charge pour le moment que le cas où il est le **seul** OS installé. Pendant l'installation, le disque sera effacé et MacOS ne pourra plus démarrer.
 
 Vous pourrez toujours le restaurer plus tard via Internet Recovery si vous le souhaitez.
 
@@ -39,7 +39,7 @@ L'installateur détecte le matériel Mac et applique automatiquement les correct
 
 ### Limitations connues
 
-Des membres de la communauté travaillent en permanence sur des solutions à ces défis, donc si cela pose problème pour vous, rejoignez #omarchy-on-other sur notre [Discord](https://discord.gg/tXFUdasqhY) et voyez s'il existe des méthodes à jour pour les résoudre.
+Des membres de la communauté travaillent en permanence sur des solutions à ces défis, donc si cela pose problème pour vous, rejoignez #collie-on-other sur notre [Discord](https://discord.gg/tXFUdasqhY) et voyez s'il existe des méthodes à jour pour les résoudre.
 
 #### Appareils avec puce T1
 

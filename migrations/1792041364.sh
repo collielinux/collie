@@ -1,5 +1,5 @@
-echo "Install Gliff on aarch64, now that Omarchy's repositories build it there"
+echo "Install Gliff on aarch64, now that Collie's repositories build it there"
 
-if omarchy-hw-aarch64; then
-  omarchy-pkg-add gliff
+if collie-hw-aarch64; then
+  collie-pkg-add gliff
 fi

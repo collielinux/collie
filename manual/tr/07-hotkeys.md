@@ -8,7 +8,7 @@ Her kısayol, değiştiricileri tarafından belirlenen bir düzlemde durur ve he
 
 | Düzlem | Orada ne var | Örnekler |
 | --- | --- | --- |
-| `Super + key` | Sistem: pencereler, çalışma alanları, düzenler ve temel menüler | `Super + Space` Omarchy menüsü, `Super + W` pencereyi kapat, `Super + F` tam ekran |
+| `Super + key` | Sistem: pencereler, çalışma alanları, düzenler ve temel menüler | `Super + Space` Collie menüsü, `Super + W` pencereyi kapat, `Super + F` tam ekran |
 | `Super + Shift + key` | Uygulamalar | `Super + Shift + B` tarayıcı, `Super + Shift + E` e-posta, `Super + Shift + N` editör |
 | `Super + Ctrl + key` | Paneller ve sistem menüleri | `Super + Ctrl + A` ses, `Super + Ctrl + N` ağ, `Super + Ctrl + C` yakalama menüsü |
 | `Super + Ctrl + Alt + key` | Hızlı eylemler ve duyurular | `Super + Ctrl + Alt + T` saati göster, `Super + Ctrl + Alt + B` pil, `Super + Ctrl + Alt + C` ekran görüntüsü |
@@ -34,7 +34,7 @@ Bir varsayılan size uymuyorsa (diyelim ki Windows'taki gibi ekran görüntüler
 
 | Kısayol                  | İşlev              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy menüsü (uygulamalar ve diğer her şey)    |
+| `Super + Space`           | Collie menüsü (uygulamalar ve diğer her şey)    |
 | `Super + Alt + Space` | Uygulama ızgarası |
 | `Super + Escape` | Sistem menüsü (askıya al, yeniden başlat, vb.)  |
 | `Super + Ctrl + L` | Bilgisayarı kilitle |
@@ -171,7 +171,7 @@ Bağlamaları `~/.config/hypr/bindings.lua` içinde değiştirin/ekleyin.
 | `Super + V`           | Yapıştır    |
 | `Super + Ctrl + V`           | Pano yöneticisi    |
 
-Genelde Linux'ta, terminalde kopyalayıp yapıştırmak için `Ctrl + Shift + C/V` ve bunu diğer her yerde yapmak için `Ctrl + C/V` gerekir. Bu Omarchy birleşik pano kısayolları her yerde çalışır.
+Genelde Linux'ta, terminalde kopyalayıp yapıştırmak için `Ctrl + Shift + C/V` ve bunu diğer her yerde yapmak için `Ctrl + C/V` gerekir. Bu Collie birleşik pano kısayolları her yerde çalışır.
 
 ## Yakalama
 
@@ -192,7 +192,7 @@ Genelde Linux'ta, terminalde kopyalayıp yapıştırmak için `Ctrl + Shift + C/
 
 Ekran kayıtlarında, kısayol önce hangi sesi istediğinizi sorar, sonra kaydı başlatır. Durdurmak için tekrar basın. Ayrıntılar için [ekran görüntüleri ve kayıt](12-screenshots-recording.md) bölümüne bakın.
 
-Tüm yakalama seçeneklerine Omarchy menüsündeki (`Super + Space`) _Trigger > Capture_ altından da erişilebilir.
+Tüm yakalama seçeneklerine Collie menüsündeki (`Super + Space`) _Trigger > Capture_ altından da erişilebilir.
 
 ## Bildirimler
 
@@ -214,9 +214,9 @@ Tüm yakalama seçeneklerine Omarchy menüsündeki (`Super + Space`) _Trigger > 
 | `Super + Backspace` | Bir pencerede şeffaflığı aç/kapat |
 | `Super + Ctrl + Backspace` | Tek pencere kare en-boy oranını aç/kapat |
 
-Ek arka plan görüntüleri `~/.config/omarchy/backgrounds/<theme name>` içinde bulunur. Omarchy menüsündeki _Install > Style > Background_ üzerinden de kullanılabilir.
+Ek arka plan görüntüleri `~/.config/collie/backgrounds/<theme name>` içinde bulunur. Collie menüsündeki _Install > Style > Background_ üzerinden de kullanılabilir.
 
-Tüm stil seçeneklerine Omarchy menüsündeki (`Super + Space`) _Style_ altından da erişilebilir.
+Tüm stil seçeneklerine Collie menüsündeki (`Super + Space`) _Style_ altından da erişilebilir.
 
 ## Aç/Kapat
 
@@ -317,7 +317,7 @@ Bu işlevler bir Tmux oturumu içinde çalıştırılmalıdır.
 
 ## Ghostty Terminal
 
-Ghostty terminali, Omarchy menüsü üzerinden _Install > Terminal_ kullanılarak kurulur.
+Ghostty terminali, Collie menüsü üzerinden _Install > Terminal_ kullanılarak kurulur.
 
 | Kısayol                  | İşlev              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Seçimi panoya koyacak eksiksiz bir emoji seçici göstermek için `Super + Ctrl
 | `Shift + CapsLock Space N` | Adınız (kurulumda girildiği gibi)  |
 | `Shift + CapsLock Space E` | E-postanız (kurulumda girildiği gibi)  |
 
-`~/.XCompose` dosyasını düzenleyerek kendinizinkilerden daha fazlasını ekleyebilir, ardından değişikliklerin alınması için terminalde `omarchy-restart-xcompose` çalıştırabilirsiniz.
+`~/.XCompose` dosyasını düzenleyerek kendinizinkilerden daha fazlasını ekleyebilir, ardından değişikliklerin alınması için terminalde `collie-restart-xcompose` çalıştırabilirsiniz.

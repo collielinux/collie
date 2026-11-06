@@ -1,16 +1,16 @@
 # Podpora Maců
 
-Omarchy má vestavěnou podporu pro **Macy s procesorem Intel**. Momentálně existuje pár známých omezení, ale pokud o nich víte a nevadí vám, můžete instalací Omarchy vdechnout svým starým Macům nový život.
+Collie má vestavěnou podporu pro **Macy s procesorem Intel**. Momentálně existuje pár známých omezení, ale pokud o nich víte a nevadí vám, můžete instalací Collie vdechnout svým starým Macům nový život.
 
-Upozorňujeme, že instalace na Macu s čipem řady M momentálně není přímo podporovaná. Více o aktuálním stavu se dozvíte v kanálu #omarchy-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY).
+Upozorňujeme, že instalace na Macu s čipem řady M momentálně není přímo podporovaná. Více o aktuálním stavu se dozvíte v kanálu #collie-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY).
 
-V jednoduchém testu jsme na MacBooku Pro z roku 2019 dosáhli jen instalací Omarchy zvýšení výkonu o 36 %.
+V jednoduchém testu jsme na MacBooku Pro z roku 2019 dosáhli jen instalací Collie zvýšení výkonu o 36 %.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instalace Omarchy na Macu
+### Instalace Collie na Macu
 
-Omarchy momentálně podporuje pouze instalaci jako **jediný** operační systém. Během instalace bude disk vymazán a macOS už nepůjde spustit.
+Collie momentálně podporuje pouze instalaci jako **jediný** operační systém. Během instalace bude disk vymazán a macOS už nepůjde spustit.
 
 Později ho případně můžete obnovit přes Internet Recovery.
 
@@ -39,7 +39,7 @@ Instalační program rozpozná hardware Macu a automaticky použije potřebné o
 
 ### Známá omezení
 
-Členové komunity na řešeních těchto problémů neustále pracují, takže pokud jsou pro vás problematické, připojte se do kanálu #omarchy-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY) a zjistěte, zda existují nějaké aktuální způsoby, jak je vyřešit.
+Členové komunity na řešeních těchto problémů neustále pracují, takže pokud jsou pro vás problematické, připojte se do kanálu #collie-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY) a zjistěte, zda existují nějaké aktuální způsoby, jak je vyřešit.
 
 #### Zařízení s čipem T1
 

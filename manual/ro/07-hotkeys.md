@@ -8,7 +8,7 @@ Fiecare tastă rapidă stă pe un plan, stabilit de modificatorii ei, și fiecar
 
 | Plan | Ce se află acolo | Exemple |
 | --- | --- | --- |
-| `Super + key` | Sistemul: ferestre, spații de lucru, aranjamente și meniuri de bază | `Super + Space` meniul Omarchy, `Super + W` închide fereastra, `Super + F` ecran complet |
+| `Super + key` | Sistemul: ferestre, spații de lucru, aranjamente și meniuri de bază | `Super + Space` meniul Collie, `Super + W` închide fereastra, `Super + F` ecran complet |
 | `Super + Shift + key` | Aplicații | `Super + Shift + B` browser, `Super + Shift + E` e-mail, `Super + Shift + N` editor |
 | `Super + Ctrl + key` | Panouri și meniuri de sistem | `Super + Ctrl + A` audio, `Super + Ctrl + N` rețea, `Super + Ctrl + C` meniul de captură |
 | `Super + Ctrl + Alt + key` | Acțiuni rapide și notificări | `Super + Ctrl + Alt + T` arată ora, `Super + Ctrl + Alt + B` baterie, `Super + Ctrl + Alt + C` captură de ecran |
@@ -34,7 +34,7 @@ Dacă o valoare implicită nu ți se potrivește (să zicem că vrei `Super + Sh
 
 | Tastă rapidă | Funcție |
 | --- | --- |
-| `Super + Space` | Meniul Omarchy (aplicații și orice altceva) |
+| `Super + Space` | Meniul Collie (aplicații și orice altceva) |
 | `Super + Alt + Space` | Grila de aplicații |
 | `Super + Escape` | Meniul de sistem (suspendare, repornire etc.) |
 | `Super + Ctrl + L` | Blochează calculatorul |
@@ -171,7 +171,7 @@ Modifică/adaugă combinații în `~/.config/hypr/bindings.lua`.
 | `Super + V` | Lipește |
 | `Super + Ctrl + V` | Manager de clipboard |
 
-De obicei pe Linux, ai nevoie de `Ctrl + Shift + C/V` ca să copiezi și să lipești în terminal și de `Ctrl + C/V` ca să faci asta peste tot în rest. Aceste taste rapide unificate pentru clipboard din Omarchy funcționează peste tot.
+De obicei pe Linux, ai nevoie de `Ctrl + Shift + C/V` ca să copiezi și să lipești în terminal și de `Ctrl + C/V` ca să faci asta peste tot în rest. Aceste taste rapide unificate pentru clipboard din Collie funcționează peste tot.
 
 ## Captură
 
@@ -192,7 +192,7 @@ De obicei pe Linux, ai nevoie de `Ctrl + Shift + C/V` ca să copiezi și să lip
 
 La înregistrările de ecran, tasta rapidă te întreabă mai întâi ce audio vrei, apoi începe înregistrarea. Apas-o din nou ca să oprești. Vezi [capturi de ecran și înregistrare](12-screenshots-recording.md) pentru detalii.
 
-Toate opțiunile de captură sunt accesibile și sub _Trigger > Capture_ în meniul Omarchy (`Super + Space`).
+Toate opțiunile de captură sunt accesibile și sub _Trigger > Capture_ în meniul Collie (`Super + Space`).
 
 ## Notificări
 
@@ -214,9 +214,9 @@ Toate opțiunile de captură sunt accesibile și sub _Trigger > Capture_ în men
 | `Super + Backspace` | Comută transparența pe o fereastră |
 | `Super + Ctrl + Backspace` | Comută aspectul pătrat pentru o singură fereastră |
 
-Imaginile de fundal suplimentare se află în `~/.config/omarchy/backgrounds/<theme name>`. Disponibile și prin _Install > Style > Background_ în meniul Omarchy.
+Imaginile de fundal suplimentare se află în `~/.config/collie/backgrounds/<theme name>`. Disponibile și prin _Install > Style > Background_ în meniul Collie.
 
-Toate opțiunile de stil sunt accesibile și sub _Style_ în meniul Omarchy (`Super + Space`).
+Toate opțiunile de stil sunt accesibile și sub _Style_ în meniul Collie (`Super + Space`).
 
 ## Comutatoare
 
@@ -317,7 +317,7 @@ Aceste funcții trebuie rulate în interiorul unei sesiuni Tmux.
 
 ## Terminalul Ghostty
 
-Terminalul Ghostty se instalează folosind _Install > Terminal_ din meniul Omarchy.
+Terminalul Ghostty se instalează folosind _Install > Terminal_ din meniul Collie.
 
 | Tastă rapidă | Funcție |
 | --- | --- |
@@ -408,4 +408,4 @@ Poți folosi `Super + Ctrl + E` ca să afișezi un selector complet de emoji car
 | `Shift + CapsLock Space N` | Numele tău (așa cum a fost introdus la configurare) |
 | `Shift + CapsLock Space E` | E-mailul tău (așa cum a fost introdus la configurare) |
 
-Poți adăuga mai multe de-ale tale editând `~/.XCompose`, apoi rulând `omarchy-restart-xcompose` în terminal ca modificările să fie preluate.
+Poți adăuga mai multe de-ale tale editând `~/.XCompose`, apoi rulând `collie-restart-xcompose` în terminal ca modificările să fie preluate.

@@ -2,23 +2,23 @@
 
 ### Rozbil jsem si systém aktualizací!
 
-Nejprve zkuste [vrátit systém zpět](47-system-snapshots.md) na verzi před poslední aktualizací. Pokud to nepomůže, použijte `omarchy-debug` a podělte se o svůj problém v kanálu #omarchy-help na Discordu. A pokud selže i to, můžete výchozí konfigurace a balíčky znovu nainstalovat pomocí `omarchy-reinstall`.
+Nejprve zkuste [vrátit systém zpět](47-system-snapshots.md) na verzi před poslední aktualizací. Pokud to nepomůže, použijte `collie-debug` a podělte se o svůj problém v kanálu #collie-help na Discordu. A pokud selže i to, můžete výchozí konfigurace a balíčky znovu nainstalovat pomocí `collie-reinstall`.
 
 ### Proč jsou některé aplikace na mém displeji tak velké?
 
-Omarchy předpokládá displej s vysokým rozlišením a měřítkem 2x, takže nastavuje `GDK_SCALE` na 2, dokud si v panelu monitoru nezvolíte vlastní měřítko. Pokud máte displej s měřítkem 1x a aplikace GTK nebo X11 vycházejí příliš velké, zvolte pro něj v panelu monitoru 1x, nebo přidejte `hl.env("GDK_SCALE", "1")` do `~/.config/hypr/monitors.lua` (a pak restartujte všechny aplikace, které jsou příliš velké). Viz [manuál k monitorům](33-monitors.md).
+Collie předpokládá displej s vysokým rozlišením a měřítkem 2x, takže nastavuje `GDK_SCALE` na 2, dokud si v panelu monitoru nezvolíte vlastní měřítko. Pokud máte displej s měřítkem 1x a aplikace GTK nebo X11 vycházejí příliš velké, zvolte pro něj v panelu monitoru 1x, nebo přidejte `hl.env("GDK_SCALE", "1")` do `~/.config/hypr/monitors.lua` (a pak restartujte všechny aplikace, které jsou příliš velké). Viz [manuál k monitorům](33-monitors.md).
 
 U Spotify můžete uživatelské rozhraní zmenšit pomocí `Ctrl + Minus` (a zvětšit pomocí `Ctrl + Plus`).
 
 ### Proč mi přestaly fungovat všechny klávesové zkratky s klávesou Super?
 
-Na některých noteboocích ASUS ROG a TUF je `Fn + Super` snadno přehlédnutelná kombinace, která přepíná firmwarový zámek klávesy Windows (určený pro hraní her, abyste omylem neopustili hru). Na obrazovce se vám o tom nic neukáže. Když je zámek zapnutý, Super nevysílá vůbec nic — takže každá zkratka Omarchy, která Super používá, prostě přestane fungovat a vypadá to, jako by se rozbil Hyprland.
+Na některých noteboocích ASUS ROG a TUF je `Fn + Super` snadno přehlédnutelná kombinace, která přepíná firmwarový zámek klávesy Windows (určený pro hraní her, abyste omylem neopustili hru). Na obrazovce se vám o tom nic neukáže. Když je zámek zapnutý, Super nevysílá vůbec nic — takže každá zkratka Collie, která Super používá, prostě přestane fungovat a vypadá to, jako by se rozbil Hyprland.
 
 Než se začnete hrabat v `~/.config/hypr/`, stiskněte jednou `Fn + Super`, a pokud to Super nevrátí, stiskněte to znovu, abyste zámek nenechali zapnutý. Nejde o Fn-lock, který mění pouze to, co dělá řada kláves F.
 
 ### Právě mi přestala fungovat Wi-Fi, Bluetooth, zvuk nebo trackpad
 
-Než budete restartovat počítač, zkuste restartovat samostatně jen daný nefunkční subsystém. _Update > Hardware_ v nabídce Omarchy obsahuje Wi-Fi, Bluetooth, Audio a Trackpad a opětovné načtení některého z nich vyřeší většinu situací typu „před pěti minutami to fungovalo“ — Bluetooth sluchátka, která se nechtějí znovu připojit, trackpad, který přestal reagovat po uspání, nebo zvuk, který zmizel po odpojení monitoru.
+Než budete restartovat počítač, zkuste restartovat samostatně jen daný nefunkční subsystém. _Update > Hardware_ v nabídce Collie obsahuje Wi-Fi, Bluetooth, Audio a Trackpad a opětovné načtení některého z nich vyřeší většinu situací typu „před pěti minutami to fungovalo“ — Bluetooth sluchátka, která se nechtějí znovu připojit, trackpad, který přestal reagovat po uspání, nebo zvuk, který zmizel po odpojení monitoru.
 
 ### Proč mi nehrají externí reproduktory?
 
@@ -26,7 +26,7 @@ Pravděpodobně proto, že nejsou nastavené jako primární výstup. Klikněte 
 
 ### Reproduktory mého notebooku znějí divně
 
-Na některých noteboocích Omarchy automaticky používá ladění reproduktorů, které koriguje frekvenční odezvu vestavěných reproduktorů. `omarchy audio tuning status` vám řekne, zda je na vašem počítači nějaké aktivní, a `omarchy audio tuning off` ho vypne, pokud chcete reproduktory raději slyšet bez úprav.
+Na některých noteboocích Collie automaticky používá ladění reproduktorů, které koriguje frekvenční odezvu vestavěných reproduktorů. `collie audio tuning status` vám řekne, zda je na vašem počítači nějaké aktivní, a `collie audio tuning off` ho vypne, pokud chcete reproduktory raději slyšet bez úprav.
 
 ### Proč se nemůžu přihlásit nebo použít sudo se svým heslem?
 

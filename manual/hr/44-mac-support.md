@@ -1,16 +1,16 @@
 # Podrška za Mac
 
-Omarchy ima ugrađenu podršku za **Intel Macove**. Trenutačno postoji nekoliko poznatih ograničenja, ali sve dok ste ih svjesni i slažete se s njima; možete udahnuti novi život svojim starim Macovima instaliranjem Omarchyja.
+Collie ima ugrađenu podršku za **Intel Macove**. Trenutačno postoji nekoliko poznatih ograničenja, ali sve dok ste ih svjesni i slažete se s njima; možete udahnuti novi život svojim starim Macovima instaliranjem Collieja.
 
-Imajte na umu da instalacija na Mac s M-serijom trenutačno nije izravno podržana. Više o stanju toga možete saznati u #omarchy-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY).
+Imajte na umu da instalacija na Mac s M-serijom trenutačno nije izravno podržana. Više o stanju toga možete saznati u #collie-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY).
 
-U jednostavnom testu uspjeli smo postići 36% poboljšanja performansi na MacBooku Pro iz 2019. samo instaliranjem Omarchyja.
+U jednostavnom testu uspjeli smo postići 36% poboljšanja performansi na MacBooku Pro iz 2019. samo instaliranjem Collieja.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Instalacija Omarchyja na Mac
+### Instalacija Collieja na Mac
 
-Omarchy trenutačno podržava samo da bude **jedini** instalirani OS. Tijekom instalacije pogon će biti obrisan i MacOS se više neće moći pokrenuti.
+Collie trenutačno podržava samo da bude **jedini** instalirani OS. Tijekom instalacije pogon će biti obrisan i MacOS se više neće moći pokrenuti.
 
 Kasnije ga i dalje možete vratiti putem Internet Recoveryja ako to želite.
 
@@ -39,7 +39,7 @@ Instalacijski program prepoznaje Mac hardver i automatski primjenjuje potrebne i
 
 ### Poznata ograničenja
 
-Članovi zajednice neprestano rade na rješenjima za ove izazove, pa ako vam oni predstavljaju problem, pridružite se #omarchy-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY) i provjerite postoje li ažurirane metode za njihovo rješavanje.
+Članovi zajednice neprestano rade na rješenjima za ove izazove, pa ako vam oni predstavljaju problem, pridružite se #collie-on-other na našem [Discordu](https://discord.gg/tXFUdasqhY) i provjerite postoje li ažurirane metode za njihovo rješavanje.
 
 #### Uređaji s čipom T1
 

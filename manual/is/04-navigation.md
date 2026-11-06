@@ -1,8 +1,8 @@
 # Flakk
 
-Allt í Omarchy gerist í gegnum lyklaborðið — _ALLT!_ Þegar kerfið ræsist í fyrsta skipti geturðu bókstaflega ekki gert neitt með músinni einni saman. En þú getur ýtt á `Super + Space` til að birta Omarchy-valmyndina og þaðan geturðu gert nánast allt.
+Allt í Collie gerist í gegnum lyklaborðið — _ALLT!_ Þegar kerfið ræsist í fyrsta skipti geturðu bókstaflega ekki gert neitt með músinni einni saman. En þú getur ýtt á `Super + Space` til að birta Collie-valmyndina og þaðan geturðu gert nánast allt.
 
-En Omarchy-valmyndin er ekki einu sinni ætluð sem helsta leiðin til að stjórna kerfinu mestan tímann. Við getum verið fljótari en það! Öll mikilvægustu forritin eru bundin beint við einstaka flýtilykla. Þú ræsir útstöðina með `Super + Return` og vafra með `Super + Shift + Return`. Prófaðu að gera annað á eftir hinu og þú munt sjá töfra flísaskipulags Hyprland í verki:
+En Collie-valmyndin er ekki einu sinni ætluð sem helsta leiðin til að stjórna kerfinu mestan tímann. Við getum verið fljótari en það! Öll mikilvægustu forritin eru bundin beint við einstaka flýtilykla. Þú ræsir útstöðina með `Super + Return` og vafra með `Super + Shift + Return`. Prófaðu að gera annað á eftir hinu og þú munt sjá töfra flísaskipulags Hyprland í verki:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Ef þú heldur `Super` inni og notar músina til að smella á glugga geturðu e
 
 ### Dwindle á móti skrunskipulagi
 
-Sjálfgefið skipulag Omarchy heitir dwindle. Það heldur öllum gluggum sem þú opnar á einu vinnusvæði sýnilegum á öllum tímum, jafnvel þótt það þurfi að minnka þá.
+Sjálfgefið skipulag Collie heitir dwindle. Það heldur öllum gluggum sem þú opnar á einu vinnusvæði sýnilegum á öllum tímum, jafnvel þótt það þurfi að minnka þá.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Fljótandi vinnusvæði virkar eins og hefðbundið skjáborð: gluggar skarast og þú færir þá og breytir stærð þeirra sjálfur. Hver gluggi fær titilstiku í litum þemans þíns, með hnöppum til að lágmarka, hámarka og loka. `Super + M` lágmarkar líka gluggann sem er í fókus. Lágmarkaður gluggi bíður í bryggjunni; smelltu á forritið hans til að koma honum til baka. Smelltu á glugga til að koma honum fram fyrir. Breyttu stærð hans frá hvaða brún eða horni sem er. Tvísmelltu á titilstiku til að hámarka gluggann en halda efri stikunni sýnilegri, og aftur til að fá gömlu stærðina hans til baka.
 
-Fljótandi vinnusvæði sýnir líka bryggju, með föstu forritunum þínum, öllu sem er í gangi og yfirliti með öllum forritum í rist á bak við forritahnappinn, sem `Super + Alt + Space` og _Forrit_ í Omarchy-valmyndinni opna líka. Hægrismelltu á forrit í ristinni, eða ýttu á `Delete`, til að fjarlægja það. Smelltu á forrit til að opna það, eða til að koma glugganum þess fram fyrir; smelltu aftur til að fara í gegnum gluggana þess einn af öðrum. Miðsmellur opnar nýjan glugga. Dragðu tákn eftir bryggjunni til að færa það; að draga forrit í gangi inn á milli hinna heldur því þar. Hægrismelltu til að halda forriti í bryggjunni, taka það þaðan út eða loka því. Bryggjan víkur fyrir glugga á öllum skjánum. Hægrismelltu á forritahnappinn til að færa bryggjuna á aðra brún eða láta hana fela sig þar til bendillinn nær að brún hennar. Staðsetningin er líka undir _Útlit > Bryggja > Staðsetning bryggju_, og `omarchy dock position left` og `omarchy dock autohide on` stilla hvort tveggja úr útstöð. Forrit sem þú geymir í bryggjunni eru dauf á meðan þau eru ekki í gangi.
+Fljótandi vinnusvæði sýnir líka bryggju, með föstu forritunum þínum, öllu sem er í gangi og yfirliti með öllum forritum í rist á bak við forritahnappinn, sem `Super + Alt + Space` og _Forrit_ í Collie-valmyndinni opna líka. Hægrismelltu á forrit í ristinni, eða ýttu á `Delete`, til að fjarlægja það. Smelltu á forrit til að opna það, eða til að koma glugganum þess fram fyrir; smelltu aftur til að fara í gegnum gluggana þess einn af öðrum. Miðsmellur opnar nýjan glugga. Dragðu tákn eftir bryggjunni til að færa það; að draga forrit í gangi inn á milli hinna heldur því þar. Hægrismelltu til að halda forriti í bryggjunni, taka það þaðan út eða loka því. Bryggjan víkur fyrir glugga á öllum skjánum. Hægrismelltu á forritahnappinn til að færa bryggjuna á aðra brún eða láta hana fela sig þar til bendillinn nær að brún hennar. Staðsetningin er líka undir _Útlit > Bryggja > Staðsetning bryggju_, og `collie dock position left` og `collie dock autohide on` stilla hvort tveggja úr útstöð. Forrit sem þú geymir í bryggjunni eru dauf á meðan þau eru ekki í gangi.
 
-Ný vinnusvæði, og öll sem þú hefur ekki gefið eigið skipulag með `Super + L`, nota sjálfgefið skipulag. Að breyta sjálfgefna skipulaginu endurstillir hvert vinnusvæði án glugga á það, á meðan vinnusvæði með glugga á sér heldur skipulaginu sem það hefur. Gluggi sem lágmarkaður er í bryggjuna telst enn sem gluggi á vinnusvæðinu sem hann fór af. Veldu það undir _Útlit > Skipulag vinnusvæðis_: Flísaskipulag, Skrunskipulag eða Fljótandi. `omarchy-hyprland-workspace-layout-default scrolling` stillir það úr útstöð.
+Ný vinnusvæði, og öll sem þú hefur ekki gefið eigið skipulag með `Super + L`, nota sjálfgefið skipulag. Að breyta sjálfgefna skipulaginu endurstillir hvert vinnusvæði án glugga á það, á meðan vinnusvæði með glugga á sér heldur skipulaginu sem það hefur. Gluggi sem lágmarkaður er í bryggjuna telst enn sem gluggi á vinnusvæðinu sem hann fór af. Veldu það undir _Útlit > Skipulag vinnusvæðis_: Flísaskipulag, Skrunskipulag eða Fljótandi. `collie-hyprland-workspace-layout-default scrolling` stillir það úr útstöð.
 
 ### Að hópa saman glugga
 

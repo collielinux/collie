@@ -21,7 +21,7 @@ SH
 chmod +x "$work/bin/top"
 
 cpu() {
-  IDLE="$2" LC_ALL="$1" PATH="$work/bin:$PATH" "$ROOT/bin/omarchy-system-stats" | awk -F'\t' '$1 == "cpu" { print $2 }'
+  IDLE="$2" LC_ALL="$1" PATH="$work/bin:$PATH" "$ROOT/bin/collie-system-stats" | awk -F'\t' '$1 == "cpu" { print $2 }'
 }
 
 [[ $(cpu es_ES.UTF-8 " 84.3") == "16%" ]] || fail 'system stats reads CPU idle the same in a decimal-comma locale' "$(cpu es_ES.UTF-8 " 84.3")"

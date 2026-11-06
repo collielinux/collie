@@ -4,7 +4,7 @@ set -euo pipefail
 
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
-restart="$ROOT/bin/omarchy-restart-trackpad"
+restart="$ROOT/bin/collie-restart-trackpad"
 
 test_tmp=$(mktemp -d)
 trap 'rm -rf "$test_tmp"' EXIT
@@ -30,7 +30,7 @@ SH
 
 printf '#!/bin/bash\n' >"$stub_bin/sleep"
 printf '#!/bin/bash\n' >"$stub_bin/lsmod"
-printf '#!/bin/bash\n' >"$stub_bin/omarchy-toggle-input-device"
+printf '#!/bin/bash\n' >"$stub_bin/collie-toggle-input-device"
 chmod +x "$stub_bin"/*
 
 # An I2C HID device bound to i2c_hid_acpi, with one input device and what udev
@@ -46,7 +46,7 @@ i2c_device i2c-DELL06CB:00 "ID_INPUT_TOUCHPAD=1"
 i2c_device i2c-HIMX5200:00 "ID_INPUT_TOUCHSCREEN=1"
 i2c_device i2c-NCT9640:00 "ID_INPUT_KEYBOARD=1"
 
-WRITES="$writes" OMARCHY_I2C_HID_DRIVER_PATH="$driver" PATH="$stub_bin:$PATH" bash "$restart" >/dev/null
+WRITES="$writes" COLLIE_I2C_HID_DRIVER_PATH="$driver" PATH="$stub_bin:$PATH" bash "$restart" >/dev/null
 
 expected=$'unbind i2c-DELL06CB:00\nbind i2c-DELL06CB:00'
 [[ $(<"$writes") == "$expected" ]] ||

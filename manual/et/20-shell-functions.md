@@ -1,6 +1,6 @@
 # Kesta funktsioonid
 
-Omarchy tuleb komplekti kestafunktsioonidega, et lihtsustada tavalisi ülesandeid ja kapseldada keerukaid parameetrikõnesid.
+Collie tuleb komplekti kestafunktsioonidega, et lihtsustada tavalisi ülesandeid ja kapseldada keerukaid parameetrikõnesid.
 
 ## Pakkimine
 

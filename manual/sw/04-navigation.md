@@ -1,8 +1,8 @@
 # Urambazaji
 
-Kila kitu katika Omarchy hufanyika kupitia kibodi — _KILA KITU!_ Mfumo unapoanza kwa mara ya kwanza, kihalisi huwezi kufanya chochote kwa kipanya pekee. Lakini unaweza kubonyeza `Super + Space` ili kuonyesha Omarchy Menu na kuanzia hapa unaweza kufanya karibu kila kitu.
+Kila kitu katika Collie hufanyika kupitia kibodi — _KILA KITU!_ Mfumo unapoanza kwa mara ya kwanza, kihalisi huwezi kufanya chochote kwa kipanya pekee. Lakini unaweza kubonyeza `Super + Space` ili kuonyesha Collie Menu na kuanzia hapa unaweza kufanya karibu kila kitu.
 
-Lakini menyu ya Omarchy hata haikukusudiwa kuwa njia kuu ya kuendesha mfumo kwa muda mwingi. Tunaweza kuwa wepesi zaidi kuliko hivyo! Programu zote muhimu zaidi zimeunganishwa moja kwa moja na vitufe vya mkato vya pekee. Unaanzisha terminal kwa `Super + Return` na kivinjari kwa `Super + Shift + Return`. Jaribu kufanya moja baada ya nyingine, na utaona uchawi wa upigaji vigae wa Hyprland ukifanya kazi:
+Lakini menyu ya Collie hata haikukusudiwa kuwa njia kuu ya kuendesha mfumo kwa muda mwingi. Tunaweza kuwa wepesi zaidi kuliko hivyo! Programu zote muhimu zaidi zimeunganishwa moja kwa moja na vitufe vya mkato vya pekee. Unaanzisha terminal kwa `Super + Return` na kivinjari kwa `Super + Shift + Return`. Jaribu kufanya moja baada ya nyingine, na utaona uchawi wa upigaji vigae wa Hyprland ukifanya kazi:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Unaweza pia kwenda kwenye skrini nzima kwa `Super + F` au hata upana kamili tu (
 
 ### Dwindle dhidi ya mpangilio wa scrolling
 
-Mpangilio chaguo-msingi wa Omarchy unaitwa dwindle. Huweka madirisha yote unayofungua kwenye eneo moja la kazi yaonekane wakati wote, hata ikiwa inabidi kuyapunguza ukubwa.
+Mpangilio chaguo-msingi wa Collie unaitwa dwindle. Huweka madirisha yote unayofungua kwenye eneo moja la kazi yaonekane wakati wote, hata ikiwa inabidi kuyapunguza ukubwa.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Eneo la kazi linaloelea hufanya kazi kama eneo-kazi la kitamaduni: madirisha huingiliana, na unayahamisha na kuyapima ukubwa mwenyewe. Kila dirisha hupata upau wa kichwa wenye rangi za mandhari yako, wenye vitufe vya kupunguza, kukuza, na kufunga. `Super + M` pia hupunguza dirisha lililolengwa. Dirisha lililopunguzwa husubiri kwenye dock; bofya programu yake ili kulirudisha. Bofya dirisha ili kulileta mbele. Libadilishe ukubwa kutoka kwenye ukingo au pembe yoyote. Bofya mara mbili upau wa kichwa ili kukuza dirisha huku ukiacha upau wa juu uonekane, na tena ili kupata ukubwa wake wa zamani.
 
-Eneo la kazi linaloelea pia huonyesha dock, yenye programu zako zilizobandikwa, kila kitu kinachoendeshwa, na gridi ya kila programu nyuma ya kitufe cha programu, ambayo `Super + Alt + Space` na _Programu_ katika menyu ya Omarchy pia huifungua. Bofya kulia programu kwenye gridi, au bonyeza `Delete`, ili kuiondoa. Bofya programu ili kuifungua, au kuleta dirisha lake mbele; bofya tena ili kuzunguka kupitia madirisha yake. Kubofya kwa kitufe cha kati hufungua dirisha jipya. Buruta ikoni kando ya dock ili kuihamisha; kuburuta programu inayoendeshwa kati ya nyingine huibakisha hapo. Bofya kulia ili kuweka programu kwenye dock, kuitoa, au kuifunga. Dock huondoka njiani mwa dirisha la skrini nzima. Bofya kulia kitufe cha programu ili kuhamisha dock hadi kwenye ukingo mwingine au kuifanya ifiche hadi kishale kifike kwenye ukingo wake. Nafasi pia iko chini ya _Mwonekano > Dock > Nafasi ya Dock_, na `omarchy dock position left` na `omarchy dock autohide on` huweka zote mbili kutoka kwenye terminal. Programu unazoweka kwenye dock hufifia zikiwa haziendeshwi.
+Eneo la kazi linaloelea pia huonyesha dock, yenye programu zako zilizobandikwa, kila kitu kinachoendeshwa, na gridi ya kila programu nyuma ya kitufe cha programu, ambayo `Super + Alt + Space` na _Programu_ katika menyu ya Collie pia huifungua. Bofya kulia programu kwenye gridi, au bonyeza `Delete`, ili kuiondoa. Bofya programu ili kuifungua, au kuleta dirisha lake mbele; bofya tena ili kuzunguka kupitia madirisha yake. Kubofya kwa kitufe cha kati hufungua dirisha jipya. Buruta ikoni kando ya dock ili kuihamisha; kuburuta programu inayoendeshwa kati ya nyingine huibakisha hapo. Bofya kulia ili kuweka programu kwenye dock, kuitoa, au kuifunga. Dock huondoka njiani mwa dirisha la skrini nzima. Bofya kulia kitufe cha programu ili kuhamisha dock hadi kwenye ukingo mwingine au kuifanya ifiche hadi kishale kifike kwenye ukingo wake. Nafasi pia iko chini ya _Mwonekano > Dock > Nafasi ya Dock_, na `collie dock position left` na `collie dock autohide on` huweka zote mbili kutoka kwenye terminal. Programu unazoweka kwenye dock hufifia zikiwa haziendeshwi.
 
-Maeneo mapya ya kazi, na yoyote ambayo hujayapa mpangilio wake yenyewe kwa `Super + L`, hutumia mpangilio chaguo-msingi. Kubadilisha chaguo-msingi huweka upya kila eneo la kazi lisilo na madirisha kwake, wakati lile lenye madirisha hubakisha mpangilio lililo nao. Dirisha lililopunguzwa hadi kwenye dock bado huhesabika kama dirisha kwenye eneo la kazi lililoliacha. Lichague chini ya _Mwonekano > Mpangilio wa Eneo la Kazi_: Upigaji Vigae, Scrolling, au Kuelea. `omarchy-hyprland-workspace-layout-default scrolling` huliweka kutoka kwenye terminal.
+Maeneo mapya ya kazi, na yoyote ambayo hujayapa mpangilio wake yenyewe kwa `Super + L`, hutumia mpangilio chaguo-msingi. Kubadilisha chaguo-msingi huweka upya kila eneo la kazi lisilo na madirisha kwake, wakati lile lenye madirisha hubakisha mpangilio lililo nao. Dirisha lililopunguzwa hadi kwenye dock bado huhesabika kama dirisha kwenye eneo la kazi lililoliacha. Lichague chini ya _Mwonekano > Mpangilio wa Eneo la Kazi_: Upigaji Vigae, Scrolling, au Kuelea. `collie-hyprland-workspace-layout-default scrolling` huliweka kutoka kwenye terminal.
 
 ### Kupanga madirisha katika vikundi
 

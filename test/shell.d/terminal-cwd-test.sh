@@ -62,11 +62,11 @@ exit 0
 SH
 chmod +x "$stub_bin/hyprctl"
 
-cwd=$(ACTIVE_PID="$terminal_pid" PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" "$ROOT/bin/omarchy-cmd-terminal-cwd")
+cwd=$(ACTIVE_PID="$terminal_pid" PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" "$ROOT/bin/collie-cmd-terminal-cwd")
 [[ $cwd == "$work_dir" ]] || fail "a new terminal opens in the focused terminal's shell directory" "got: $cwd"
 pass "a new terminal opens in the focused terminal's shell directory"
 
-output=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/omarchy-cmd-terminal-cwd" 2>&1)
+output=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/collie-cmd-terminal-cwd" 2>&1)
 [[ $output == "$test_tmp" ]] || fail "with no focused terminal the new one opens in HOME" "got: $output"
 pass "with no focused terminal the new one opens in HOME, quietly"
 
@@ -78,14 +78,14 @@ echo "hyprctl was asked for the active window" >&2
 exit 1
 SH
 
-cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" "$ROOT/bin/omarchy-cmd-terminal-cwd" "$terminal_pid" 2>&1)
+cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" "$ROOT/bin/collie-cmd-terminal-cwd" "$terminal_pid" 2>&1)
 [[ $cwd == "$work_dir" ]] || fail "a terminal pid passed in finds its shell directory without hyprctl" "got: $cwd"
 pass "a terminal pid passed in finds its shell directory without hyprctl"
 
-cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/omarchy-cmd-terminal-cwd" "$browser_pid" 2>&1)
+cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/collie-cmd-terminal-cwd" "$browser_pid" 2>&1)
 [[ $cwd == "$test_tmp" ]] || fail "a focused app that is not a terminal opens a new terminal in HOME, not its helper shell's directory" "got: $cwd"
 pass "a focused app that is not a terminal opens a new terminal in HOME, not its helper shell's directory"
 
-cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/omarchy-cmd-terminal-cwd" "$pty_browser_pid" 2>&1)
+cwd=$(PATH="$stub_bin:$PATH" XDG_RUNTIME_DIR="$test_tmp" HOME="$test_tmp" "$ROOT/bin/collie-cmd-terminal-cwd" "$pty_browser_pid" 2>&1)
 [[ $cwd == "$test_tmp" ]] || fail "an app started from a terminal, sharing its pty, still opens a new terminal in HOME" "got: $cwd"
 pass "an app started from a terminal, sharing its pty, still opens a new terminal in HOME"

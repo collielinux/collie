@@ -1,3 +1,3 @@
-if omarchy-hw-framework16; then
-  omarchy-pkg-add qmk-hid
+if collie-hw-framework16; then
+  collie-pkg-add qmk-hid
 fi

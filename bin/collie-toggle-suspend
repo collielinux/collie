@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# collie:summary=Toggle suspend availability in the system menu
+
+if collie-sleep-disabled; then
+  collie-notification-send -g 󰒲 "$(collie-i18n suspend.turnedOffOnMachine)"
+  exit 0
+fi
+
+collie-toggle suspend-off
+
+if collie-toggle-enabled suspend-off; then
+  collie-notification-send -g 󰒲 "$(collie-i18n suspend.removedFromMenu)"
+else
+  collie-notification-send -g 󰒲 "$(collie-i18n suspend.availableInMenu)"
+fi

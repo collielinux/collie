@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# collie:summary=Edit, set, or reset screensaver branding
+# collie:group=branding
+# collie:name=screensaver
+# collie:args=<image|text|reset>
+# collie:examples=collie branding screensaver image | collie branding screensaver text | collie branding screensaver reset
+
+set -euo pipefail
+
+case "${1:-}" in
+image)
+  image=$(collie-file-select --title "$(collie-i18n branding.pickScreensaverImage)" --extensions "png svg")
+  if collie-transcode-ascii "$image" ~/.config/collie/branding/screensaver.txt; then
+    collie-launch-screensaver force >/dev/null 2>&1
+  fi
+  ;;
+text)
+  collie-launch-editor ~/.config/collie/branding/screensaver.txt >/dev/null 2>&1 && collie-launch-screensaver force >/dev/null 2>&1
+  ;;
+reset)
+  cp "$COLLIE_PATH/logo.txt" ~/.config/collie/branding/screensaver.txt && collie-launch-screensaver force >/dev/null 2>&1
+  ;;
+*)
+  echo "Usage: collie-branding-screensaver <image|text|reset>" >&2
+  exit 1
+  ;;
+esac

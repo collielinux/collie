@@ -1,6 +1,6 @@
 # Shell-funktiot
 
-Omarchyssa on joukko shell-funktioita yleisten tehtävien yksinkertaistamiseksi ja monimutkaisten parametrikutsujen kapseloimiseksi.
+Colliessa on joukko shell-funktioita yleisten tehtävien yksinkertaistamiseksi ja monimutkaisten parametrikutsujen kapseloimiseksi.
 
 ## Pakkaus
 

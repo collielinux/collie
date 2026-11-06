@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# collie:summary=Restore the default Collie Plymouth boot theme and SDDM login screen
+# collie:requires-sudo=true
+
+set -euo pipefail
+
+"$COLLIE_PATH/bin/collie-refresh-plymouth"
+"$COLLIE_PATH/bin/collie-refresh-sddm"

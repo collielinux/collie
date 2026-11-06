@@ -8,7 +8,7 @@ Jede Tastenkombination liegt auf einer Ebene, bestimmt durch ihre Modifikatoren,
 
 | Ebene | Was dort zu finden ist | Beispiele |
 | --- | --- | --- |
-| `Super + key` | Das System: Fenster, Arbeitsbereiche, Layouts und Kernmenüs | `Super + Space` Omarchy-Menü, `Super + W` Fenster schließen, `Super + F` Vollbild |
+| `Super + key` | Das System: Fenster, Arbeitsbereiche, Layouts und Kernmenüs | `Super + Space` Collie-Menü, `Super + W` Fenster schließen, `Super + F` Vollbild |
 | `Super + Shift + key` | Apps | `Super + Shift + B` Browser, `Super + Shift + E` E-Mail, `Super + Shift + N` Editor |
 | `Super + Ctrl + key` | Panels und Systemmenüs | `Super + Ctrl + A` Audio, `Super + Ctrl + N` Netzwerk, `Super + Ctrl + C` Aufnahme-Menü |
 | `Super + Ctrl + Alt + key` | Schnellaktionen und Hinweise | `Super + Ctrl + Alt + T` Uhrzeit anzeigen, `Super + Ctrl + Alt + B` Akku, `Super + Ctrl + Alt + C` Screenshot |
@@ -34,7 +34,7 @@ Wenn dir eine Voreinstellung nicht passt (sagen wir, du willst `Super + Shift + 
 
 | Tastenkombination | Funktion |
 | ----------------------- | --------------------- |
-| `Super + Space` | Omarchy-Menü (Apps und alles andere) |
+| `Super + Space` | Collie-Menü (Apps und alles andere) |
 | `Super + Alt + Space` | App-Übersicht |
 | `Super + Escape` | Systemmenü (Ruhezustand, Neustart usw.) |
 | `Super + Ctrl + L` | Computer sperren |
@@ -171,7 +171,7 @@ Die Kürzel zum Ändern der Größe verwenden die physischen Tasten `code:20` un
 | `Super + V` | Einfügen |
 | `Super + Ctrl + V` | Zwischenablage-Manager |
 
-Normalerweise brauchst du unter Linux `Ctrl + Shift + C/V`, um im Terminal zu kopieren und einzufügen, und `Ctrl + C/V`, um es überall sonst zu tun. Diese vereinheitlichten Omarchy-Tastenkombinationen für die Zwischenablage funktionieren überall.
+Normalerweise brauchst du unter Linux `Ctrl + Shift + C/V`, um im Terminal zu kopieren und einzufügen, und `Ctrl + C/V`, um es überall sonst zu tun. Diese vereinheitlichten Collie-Tastenkombinationen für die Zwischenablage funktionieren überall.
 
 ## Aufnahme
 
@@ -192,7 +192,7 @@ Normalerweise brauchst du unter Linux `Ctrl + Shift + C/V`, um im Terminal zu ko
 
 Bei Bildschirmaufzeichnungen fragt die Tastenkombination zuerst, welches Audio du willst, und startet dann die Aufzeichnung. Drücke sie erneut, um zu stoppen. Siehe [Screenshots und Aufzeichnung](12-screenshots-recording.md) für die Details.
 
-Alle Aufnahme-Optionen sind auch unter _Trigger > Capture_ im Omarchy-Menü (`Super + Space`) zugänglich.
+Alle Aufnahme-Optionen sind auch unter _Trigger > Capture_ im Collie-Menü (`Super + Space`) zugänglich.
 
 ## Benachrichtigungen
 
@@ -214,9 +214,9 @@ Alle Aufnahme-Optionen sind auch unter _Trigger > Capture_ im Omarchy-Menü (`Su
 | `Super + Backspace` | Transparenz bei einem Fenster ein-/ausschalten |
 | `Super + Ctrl + Backspace` | Quadratisches Seitenverhältnis für einzelnes Fenster ein-/ausschalten |
 
-Zusätzliche Hintergrundbilder liegen in `~/.config/omarchy/backgrounds/<theme name>`. Auch verfügbar über _Install > Style > Background_ im Omarchy-Menü.
+Zusätzliche Hintergrundbilder liegen in `~/.config/collie/backgrounds/<theme name>`. Auch verfügbar über _Install > Style > Background_ im Collie-Menü.
 
-Alle Stil-Optionen sind auch unter _Style_ im Omarchy-Menü (`Super + Space`) zugänglich.
+Alle Stil-Optionen sind auch unter _Style_ im Collie-Menü (`Super + Space`) zugänglich.
 
 ## Umschalter
 
@@ -317,7 +317,7 @@ Diese Funktionen müssen innerhalb einer Tmux-Sitzung ausgeführt werden.
 
 ## Ghostty Terminal
 
-Das Ghostty-Terminal wird mit _Install > Terminal_ über das Omarchy-Menü installiert.
+Das Ghostty-Terminal wird mit _Install > Terminal_ über das Collie-Menü installiert.
 
 | Tastenkombination | Funktion |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Du kannst `Super + Ctrl + E` verwenden, um eine vollständige Emoji-Auswahl anzu
 | `Shift + CapsLock Space N` | Dein Name (wie bei der Einrichtung eingegeben) |
 | `Shift + CapsLock Space E` | Deine E-Mail (wie bei der Einrichtung eingegeben) |
 
-Du kannst eigene hinzufügen, indem du `~/.XCompose` bearbeitest und dann `omarchy-restart-xcompose` im Terminal ausführst, damit die Änderungen übernommen werden.
+Du kannst eigene hinzufügen, indem du `~/.XCompose` bearbeitest und dann `collie-restart-xcompose` im Terminal ausführst, damit die Änderungen übernommen werden.

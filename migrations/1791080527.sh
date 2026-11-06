@@ -1,7 +1,7 @@
 echo "Enable desktop camera access on Snapdragon ThinkPad T14s Gen 6"
 
-if omarchy-hw-aarch64-qualcomm && omarchy-hw-match '^21N[12]'; then
-  source "$OMARCHY_PATH/install/hardware/lenovo/thinkpad-t14s-camera.sh"
+if collie-hw-aarch64-qualcomm && collie-hw-match '^21N[12]'; then
+  source "$COLLIE_PATH/install/hardware/lenovo/thinkpad-t14s-camera.sh"
 
   sudo udevadm control --reload
   sudo udevadm trigger --action=add --subsystem-match=dma_heap --sysname-match=system

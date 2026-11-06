@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# collie:summary=Remove Steam and all of its game libraries, configs, and caches.
+# collie:requires-sudo=true
+
+set -e
+
+collie-lifecycle-dispatch pre-remove steam
+collie-pkg-drop steam
+
+rm -rf \
+  "$HOME/.steam" \
+  "$HOME/.local/share/Steam" \
+  "$HOME/.config/steam" \
+  "$HOME/.cache/steam"
+
+echo ""
+echo "Steam and its data have been removed."

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# collie:summary=Ensure default application launchers are installed.
+
+# Copy .desktop declarations
+mkdir -p ~/.local/share/applications
+cp "$COLLIE_PATH"/applications/*.desktop ~/.local/share/applications/
+
+if collie-cmd-present alacritty; then
+  cp "$COLLIE_PATH/default/alacritty/Alacritty.desktop" ~/.local/share/applications/
+fi
+
+update-desktop-database ~/.local/share/applications

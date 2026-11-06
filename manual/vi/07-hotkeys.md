@@ -8,7 +8,7 @@ Mỗi phím tắt nằm trên một tầng, được xác định bởi các ph�
 
 | Tầng | Cái gì sống ở đó | Ví dụ |
 | --- | --- | --- |
-| `Super + key` | Hệ thống: cửa sổ, workspace, bố cục và các menu cốt lõi | `Super + Space` menu Omarchy, `Super + W` đóng cửa sổ, `Super + F` toàn màn hình |
+| `Super + key` | Hệ thống: cửa sổ, workspace, bố cục và các menu cốt lõi | `Super + Space` menu Collie, `Super + W` đóng cửa sổ, `Super + F` toàn màn hình |
 | `Super + Shift + key` | Ứng dụng | `Super + Shift + B` trình duyệt, `Super + Shift + E` email, `Super + Shift + N` trình soạn thảo |
 | `Super + Ctrl + key` | Bảng điều khiển và menu hệ thống | `Super + Ctrl + A` âm thanh, `Super + Ctrl + N` mạng, `Super + Ctrl + C` menu chụp |
 | `Super + Ctrl + Alt + key` | Thao tác nhanh và thông báo trạng thái | `Super + Ctrl + Alt + T` hiển thị giờ, `Super + Ctrl + Alt + B` pin, `Super + Ctrl + Alt + C` ảnh chụp màn hình |
@@ -34,7 +34,7 @@ Nếu một mặc định không phù hợp với bạn (chẳng hạn bạn mu�
 
 | Phím tắt                  | Chức năng              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Menu Omarchy (ứng dụng và mọi thứ khác)    |
+| `Super + Space`           | Menu Collie (ứng dụng và mọi thứ khác)    |
 | `Super + Alt + Space` | Lưới ứng dụng |
 | `Super + Escape` | Menu hệ thống (tạm dừng, khởi động lại, v.v.)  |
 | `Super + Ctrl + L` | Khóa máy tính |
@@ -171,7 +171,7 @@ Thay đổi/thêm các phím tắt trong `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Dán    |
 | `Super + Ctrl + V`           | Trình quản lý clipboard    |
 
-Thường thì trên Linux, bạn cần `Ctrl + Shift + C/V` để sao chép'n'dán trong terminal và `Ctrl + C/V` để làm việc đó ở mọi nơi khác. Các phím tắt clipboard hợp nhất này của Omarchy hoạt động ở mọi nơi.
+Thường thì trên Linux, bạn cần `Ctrl + Shift + C/V` để sao chép'n'dán trong terminal và `Ctrl + C/V` để làm việc đó ở mọi nơi khác. Các phím tắt clipboard hợp nhất này của Collie hoạt động ở mọi nơi.
 
 ## Chụp/quay
 
@@ -192,7 +192,7 @@ Thường thì trên Linux, bạn cần `Ctrl + Shift + C/V` để sao chép'n'd
 
 Với quay màn hình, phím tắt trước tiên hỏi bạn muốn âm thanh nào, rồi bắt đầu quay. Nhấn nó lần nữa để dừng. Xem [ảnh chụp màn hình và quay màn hình](12-screenshots-recording.md) để biết chi tiết.
 
-Tất cả các tùy chọn chụp/quay cũng có thể truy cập được dưới _Trigger > Capture_ trong menu Omarchy (`Super + Space`).
+Tất cả các tùy chọn chụp/quay cũng có thể truy cập được dưới _Trigger > Capture_ trong menu Collie (`Super + Space`).
 
 ## Thông báo
 
@@ -214,9 +214,9 @@ Tất cả các tùy chọn chụp/quay cũng có thể truy cập được dư�
 | `Super + Backspace` | Bật/tắt độ trong suốt trên một cửa sổ |
 | `Super + Ctrl + Backspace` | Bật/tắt tỷ lệ vuông cho một cửa sổ đơn |
 
-Các hình nền bổ sung sống trong `~/.config/omarchy/backgrounds/<theme name>`. Cũng có sẵn qua _Install > Style > Background_ trong menu Omarchy.
+Các hình nền bổ sung sống trong `~/.config/collie/backgrounds/<theme name>`. Cũng có sẵn qua _Install > Style > Background_ trong menu Collie.
 
-Tất cả các tùy chọn phong cách cũng có thể truy cập được dưới _Style_ trong menu Omarchy (`Super + Space`).
+Tất cả các tùy chọn phong cách cũng có thể truy cập được dưới _Style_ trong menu Collie (`Super + Space`).
 
 ## Bật/tắt
 
@@ -317,7 +317,7 @@ Các hàm này phải được chạy bên trong một phiên Tmux.
 
 ## Terminal Ghostty
 
-Terminal Ghostty được cài đặt bằng _Install > Terminal_ qua menu Omarchy.
+Terminal Ghostty được cài đặt bằng _Install > Terminal_ qua menu Collie.
 
 | Phím tắt                  | Chức năng              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Bạn có thể dùng `Super + Ctrl + E` để hiển thị một bộ chọn em
 | `Shift + CapsLock Space N` | Tên của bạn (như đã nhập khi cài đặt)  |
 | `Shift + CapsLock Space E` | Email của bạn (như đã nhập khi cài đặt)  |
 
-Bạn có thể thêm nhiều hơn của riêng mình bằng cách chỉnh sửa `~/.XCompose`, rồi chạy `omarchy-restart-xcompose` trong terminal để các thay đổi được áp dụng.
+Bạn có thể thêm nhiều hơn của riêng mình bằng cách chỉnh sửa `~/.XCompose`, rồi chạy `collie-restart-xcompose` trong terminal để các thay đổi được áp dụng.

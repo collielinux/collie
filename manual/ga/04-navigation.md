@@ -1,8 +1,8 @@
 # Nascleanúint
 
-Tarlaíonn gach rud in Omarchy tríd an méarchlár — _GACH RUD!_ Nuair a thosaíonn an córas den chéad uair, ní féidir leat rud ar bith a dhéanamh leis an luch amháin go litriúil. Ach is féidir leat `Super + Space` a bhualadh chun Roghchlár Omarchy a thaispeáint agus as seo is féidir leat beagnach gach rud a dhéanamh.
+Tarlaíonn gach rud in Collie tríd an méarchlár — _GACH RUD!_ Nuair a thosaíonn an córas den chéad uair, ní féidir leat rud ar bith a dhéanamh leis an luch amháin go litriúil. Ach is féidir leat `Super + Space` a bhualadh chun Roghchlár Collie a thaispeáint agus as seo is féidir leat beagnach gach rud a dhéanamh.
 
-Ach níl sé i gceist fiú gurb é roghchlár Omarchy an príomhbhealach chun an córas a oibriú an chuid is mó den am. Is féidir linn éirí níos tapúla ná sin! Tá na feidhmchláir is tábhachtaí go léir ceangailte go díreach le heochracha aicearra aonair. Tosaíonn tú an teirminéal le `Super + Return` agus brabhsálaí le `Super + Shift + Return`. Bain triail as ceann i ndiaidh a chéile, agus feicfidh tú draíocht thíleáil Hyprland i ngníomh:
+Ach níl sé i gceist fiú gurb é roghchlár Collie an príomhbhealach chun an córas a oibriú an chuid is mó den am. Is féidir linn éirí níos tapúla ná sin! Tá na feidhmchláir is tábhachtaí go léir ceangailte go díreach le heochracha aicearra aonair. Tosaíonn tú an teirminéal le `Super + Return` agus brabhsálaí le `Super + Shift + Return`. Bain triail as ceann i ndiaidh a chéile, agus feicfidh tú draíocht thíleáil Hyprland i ngníomh:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Is féidir leat dul go lánscáileán le `Super + F` freisin nó fiú díreach g
 
 ### Leagan amach dwindle vs scrollaithe
 
-Tugtar dwindle ar leagan amach réamhshocraithe Omarchy. Coinníonn sé gach fuinneog a osclaíonn tú ar spás oibre amháin le feiceáil i gcónaí, fiú más gá dó iad a chrapadh síos.
+Tugtar dwindle ar leagan amach réamhshocraithe Collie. Coinníonn sé gach fuinneog a osclaíonn tú ar spás oibre amháin le feiceáil i gcónaí, fiú más gá dó iad a chrapadh síos.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Oibríonn spás oibre ar snámh mar dheasc thraidisiúnta: forluíonn fuinneoga, agus bogann tú agus athraíonn tú a méid tú féin. Faigheann gach fuinneog barra teidil i ndathanna do théama, le cnaipí chun íoslaghdú, uasmhéadú, agus dúnadh. Íoslaghdaíonn `Super + M` an fhuinneog atá i bhfócas freisin. Fanann fuinneog íoslaghdaithe sa duga; cliceáil a haipe chun í a thabhairt ar ais. Cliceáil fuinneog chun í a thabhairt chun tosaigh. Athraigh a méid ó aon imeall nó cúinne. Dúbailchliceáil barra teidil chun an fhuinneog a uasmhéadú agus an barra uachtarach á choinneáil i radharc, agus arís chun a seanmhéid a fháil ar ais.
 
-Taispeánann spás oibre ar snámh duga freisin, le do haipeanna pionnáilte, gach rud atá ag rith, agus greille de gach aip taobh thiar den chnaipe aipeanna, a osclaíonn `Super + Alt + Space` agus _Apps_ i roghchlár Omarchy freisin. Deaschliceáil aip ar an ngreille, nó brúigh `Delete`, chun í a dhíshuiteáil. Cliceáil aip chun í a oscailt, nó chun a fuinneog a thabhairt chun tosaigh; cliceáil arís chun timthriallú trína fuinneoga. Osclaíonn meánchliceáil fuinneog nua. Tarraing deilbhín feadh an duga chun é a bhogadh; má tharraingíonn tú aip atá ag rith isteach i measc na cinn eile coinníonn sé sin ann í. Deaschliceáil chun aip a choinneáil sa duga, í a bhaint amach, nó éirí as. Éalaíonn an duga as bealach fuinneoige lánscáileáin. Deaschliceáil cnaipe na n-aipeanna chun an duga a bhogadh go imeall eile nó chun é a chur i bhfolach go dtí go sroicheann an pointeoir a imeall. Tá an suíomh faoi _Appearance > Dock > Dock Position_ freisin, agus socraíonn `omarchy dock position left` agus `omarchy dock autohide on` an dá cheann ó theirminéal. Bíonn aipeanna a choinníonn tú sa duga céimnithe agus iad gan a bheith ag rith.
+Taispeánann spás oibre ar snámh duga freisin, le do haipeanna pionnáilte, gach rud atá ag rith, agus greille de gach aip taobh thiar den chnaipe aipeanna, a osclaíonn `Super + Alt + Space` agus _Apps_ i roghchlár Collie freisin. Deaschliceáil aip ar an ngreille, nó brúigh `Delete`, chun í a dhíshuiteáil. Cliceáil aip chun í a oscailt, nó chun a fuinneog a thabhairt chun tosaigh; cliceáil arís chun timthriallú trína fuinneoga. Osclaíonn meánchliceáil fuinneog nua. Tarraing deilbhín feadh an duga chun é a bhogadh; má tharraingíonn tú aip atá ag rith isteach i measc na cinn eile coinníonn sé sin ann í. Deaschliceáil chun aip a choinneáil sa duga, í a bhaint amach, nó éirí as. Éalaíonn an duga as bealach fuinneoige lánscáileáin. Deaschliceáil cnaipe na n-aipeanna chun an duga a bhogadh go imeall eile nó chun é a chur i bhfolach go dtí go sroicheann an pointeoir a imeall. Tá an suíomh faoi _Appearance > Dock > Dock Position_ freisin, agus socraíonn `collie dock position left` agus `collie dock autohide on` an dá cheann ó theirminéal. Bíonn aipeanna a choinníonn tú sa duga céimnithe agus iad gan a bheith ag rith.
 
-Úsáideann spásanna oibre nua, agus aon cheann nár thug tú leagan amach dá chuid féin dó le `Super + L`, an leagan amach réamhshocraithe. Athshocraíonn athrú an réamhshocraithe gach spás oibre gan fuinneoga chuige, agus coinníonn ceann a bhfuil fuinneoga air an leagan amach atá aige. Áirítear fuinneog a íoslaghdaíodh go dtí an duga fós mar fhuinneog ar an spás oibre a d'fhág sí. Roghnaigh é faoi _Appearance > Workspace Layout_: Tiling, Scrolling, nó Floating. Socraíonn `omarchy-hyprland-workspace-layout-default scrolling` é ó theirminéal.
+Úsáideann spásanna oibre nua, agus aon cheann nár thug tú leagan amach dá chuid féin dó le `Super + L`, an leagan amach réamhshocraithe. Athshocraíonn athrú an réamhshocraithe gach spás oibre gan fuinneoga chuige, agus coinníonn ceann a bhfuil fuinneoga air an leagan amach atá aige. Áirítear fuinneog a íoslaghdaíodh go dtí an duga fós mar fhuinneog ar an spás oibre a d'fhág sí. Roghnaigh é faoi _Appearance > Workspace Layout_: Tiling, Scrolling, nó Floating. Socraíonn `collie-hyprland-workspace-layout-default scrolling` é ó theirminéal.
 
 ### Fuinneoga a ghrúpáil
 

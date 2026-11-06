@@ -16,7 +16,7 @@ virtual_monitor=""
 
 # The layout and rotate commands save what they set for the next config load,
 # so put the saved settings back too, not just the live arrangement.
-settings="${XDG_STATE_HOME:-$HOME/.local/state}/omarchy/monitors/settings"
+settings="${XDG_STATE_HOME:-$HOME/.local/state}/collie/monitors/settings"
 settings_backup=""
 if [[ -f $settings ]]; then
   settings_backup=$(mktemp)
@@ -24,11 +24,11 @@ if [[ -f $settings ]]; then
 fi
 
 cleanup() {
-  omarchy-shell shell hide omarchy.monitor >/dev/null 2>&1 || true
+  collie-shell shell hide collie.monitor >/dev/null 2>&1 || true
   if [[ -n $virtual_monitor ]]; then
     hyprctl output remove "$virtual_monitor" >/dev/null 2>&1 || true
   fi
-  omarchy-hyprland-monitor-rotate --monitor "$primary" "$primary_degrees" >/dev/null 2>&1 || true
+  collie-hyprland-monitor-rotate --monitor "$primary" "$primary_degrees" >/dev/null 2>&1 || true
   hyprctl eval "hl.monitor({ output = \"$primary\", position = \"$primary_position\" })" >/dev/null 2>&1 || true
   # Last, since the rotate above saves settings of its own.
   if [[ -n $settings_backup ]]; then
@@ -68,8 +68,8 @@ wait_until "temporary second monitor appears" 15 find_virtual_monitor
 hyprctl eval "hl.monitor({ output = \"$virtual_monitor\", mode = \"1920x1080@60\", position = \"auto\", scale = 1 })" >/dev/null
 hyprctl dispatch "hl.dsp.focus({ monitor = \"$primary\" })" >/dev/null
 
-omarchy-shell shell summon omarchy.monitor >/dev/null
-wait_until "display panel opens" 15 layer_present "omarchy-keyboard-panel"
+collie-shell shell summon collie.monitor >/dev/null
+wait_until "display panel opens" 15 layer_present "collie-keyboard-panel"
 sleep 1
 
 # j stops at the last row, the layout map, however many rows sit above it.
@@ -107,5 +107,5 @@ screenshot "success-monitor-panel-05-rotated"
 pass "r, j and Enter rotate the shown display a quarter turn"
 
 wtype -k Escape
-wait_until "Escape closes the display panel" 15 layer_absent "omarchy-keyboard-panel"
+wait_until "Escape closes the display panel" 15 layer_absent "collie-keyboard-panel"
 pass "the display panel's layout and rotation are reachable from the keyboard"

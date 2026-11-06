@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# collie:summary=Detect ASUS Zenbook UX5406AA series laptops on Intel Panther Lake.
+
+collie-hw-match "ux5406aa" && collie-hw-intel-ptl

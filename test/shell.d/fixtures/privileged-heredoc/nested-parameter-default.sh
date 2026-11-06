@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# omarchy:heredoc-expands paths=none -- review regression fixture
-sudo tee /etc/omarchy/review.conf >/dev/null <<EOF
+# collie:heredoc-expands paths=none -- review regression fixture
+sudo tee /etc/collie/review.conf >/dev/null <<EOF
 ExecStart=${target:-$HOME/.local/bin/payload}
 EOF

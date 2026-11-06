@@ -18,15 +18,15 @@ dark_top="$TMPDIR/dark-top.png"
 magick -size 100x100 xc:'#202020' -fill '#f5f5f5' -draw 'rectangle 0,0 99,19' "$light_top"
 magick -size 100x100 xc:'#f5f5f5' -fill '#202020' -draw 'rectangle 0,0 99,19' "$dark_top"
 
-result=$(HOME="$TMPDIR" omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
+result=$(HOME="$TMPDIR" collie-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
 [[ $result == "#101010" ]] || fail "transparent bar text switches to background color on light wallpaper" "expected #101010, got $result"
 pass "transparent bar text switches to background color on light wallpaper"
 
-result=$(HOME="$TMPDIR" omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$dark_top" --screen 100x100)
+result=$(HOME="$TMPDIR" collie-bar-text-color top 20 '#ffffff' '#101010' --background "$dark_top" --screen 100x100)
 [[ $result == "#ffffff" ]] || fail "transparent bar text keeps text color on dark wallpaper" "expected #ffffff, got $result"
 pass "transparent bar text keeps text color on dark wallpaper"
 
-result=$(HOME="$TMPDIR" omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$TMPDIR/missing.png" --screen 100x100)
+result=$(HOME="$TMPDIR" collie-bar-text-color top 20 '#ffffff' '#101010' --background "$TMPDIR/missing.png" --screen 100x100)
 [[ $result == "#ffffff" ]] || fail "transparent bar text falls back to text color when sampling fails" "expected #ffffff, got $result"
 pass "transparent bar text falls back to text color when sampling fails"
 
@@ -38,7 +38,7 @@ dark_stripes="$TMPDIR/dark-stripes.png"
 magick -size 4x1 xc:black -fill white -draw 'point 1,0' "$TMPDIR/stripe.png"
 magick -size 400x100 tile:"$TMPDIR/stripe.png" "$dark_stripes"
 
-result=$(HOME="$TMPDIR" omarchy-bar-text-color top 10 '#101010' '#ffffff' --background "$dark_stripes" --screen 100x25)
+result=$(HOME="$TMPDIR" collie-bar-text-color top 10 '#101010' '#ffffff' --background "$dark_stripes" --screen 100x25)
 [[ $result == "#ffffff" ]] || fail "transparent bar text averages fine wallpaper detail" "expected #ffffff, got $result"
 pass "transparent bar text averages fine wallpaper detail"
 
@@ -50,7 +50,7 @@ ffmpeg -y -f lavfi -i "testsrc=size=640x360:rate=10:duration=2" \
   -vf "drawbox=x=0:y=0:w=640:h=40:color=0xf5f5f5:t=fill" \
   -c:v libx264 -preset ultrafast -pix_fmt yuv420p "$light_top_video" -loglevel error
 
-result=$(HOME="$TMPDIR" omarchy-bar-text-color top 40 '#ffffff' '#101010' --background "$light_top_video" --screen 640x360)
+result=$(HOME="$TMPDIR" collie-bar-text-color top 40 '#ffffff' '#101010' --background "$light_top_video" --screen 640x360)
 [[ $result == "#101010" ]] || fail "transparent bar text samples one frame of a video wallpaper" "expected #101010, got $result"
 pass "transparent bar text samples one frame of a video wallpaper"
 
@@ -72,7 +72,7 @@ SH
 chmod +x "$bounded_bin/timeout" "$bounded_bin/magick"
 
 result=$(HOME="$TMPDIR" LIMIT_LOG="$TMPDIR/limits" TIMEOUT_LOG="$TMPDIR/timeout" ARGS_LOG="$TMPDIR/args" PATH="$bounded_bin:$PATH" \
-  omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
+  collie-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
 [[ $result == "#101010" ]] || fail "bounded wallpaper sample still chooses the contrasting color" "expected #101010, got $result"
 [[ $(<"$TMPDIR/limits") == $'512MiB\t0\t0\t5\t2' ]] || fail "wallpaper sampling bounds ImageMagick resources" "$(<"$TMPDIR/limits")"
 [[ $(<"$TMPDIR/timeout") == $'--kill-after=1s\t5s\tmagick' ]] || fail "wallpaper sampling has a hard timeout" "$(<"$TMPDIR/timeout")"
@@ -82,7 +82,7 @@ pass "transparent bar wallpaper sampling is resource bounded"
 # on a canvas at most 1920 px wide, and JPEG decodes at about that size. Otherwise
 # a 6K or 8K wallpaper exceeds the pixel-cache limit and silently falls back.
 HOME="$TMPDIR" LIMIT_LOG="$TMPDIR/limits" TIMEOUT_LOG="$TMPDIR/timeout" ARGS_LOG="$TMPDIR/args" PATH="$bounded_bin:$PATH" \
-  omarchy-bar-text-color bottom 64 '#ffffff' '#101010' --background "$light_top" --screen 6016x3384 >/dev/null
+  collie-bar-text-color bottom 64 '#ffffff' '#101010' --background "$light_top" --screen 6016x3384 >/dev/null
 args=$(<"$TMPDIR/args")
 [[ $args == "-define jpeg:size=1920x1080 "* ]] || fail "high-resolution screen decodes JPEG at canvas size" "$args"
 [[ $args == *" -scale 1920x1080^ "* && $args == *" -crop 1920x21+0+1059 "* ]] ||
@@ -102,7 +102,7 @@ SH
 chmod +x "$failing_bin/magick"
 
 result=$(HOME="$TMPDIR" PATH="$failing_bin:$PATH" \
-  omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
+  collie-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
 [[ $result == "#ffffff" ]] || fail "failed wallpaper sample falls back to text color" "expected #ffffff, got $result"
 pass "failed wallpaper sample falls back to text color"
 
@@ -115,6 +115,6 @@ SH
 chmod +x "$expired_bin/timeout"
 
 result=$(HOME="$TMPDIR" PATH="$expired_bin:$PATH" \
-  omarchy-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
+  collie-bar-text-color top 20 '#ffffff' '#101010' --background "$light_top" --screen 100x100)
 [[ $result == "#ffffff" ]] || fail "timed-out wallpaper sample falls back to text color" "expected #ffffff, got $result"
 pass "timed-out wallpaper sample falls back to text color"

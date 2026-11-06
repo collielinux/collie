@@ -4,7 +4,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/base-test.sh"
 
 require_command lua
 
-OMARCHY_PATH="$ROOT" lua - <<'LUA' || fail "a popped-out window is centered again on the monitor it moves to"
+COLLIE_PATH="$ROOT" lua - <<'LUA' || fail "a popped-out window is centered again on the monitor it moves to"
 local handlers, timers, centered = {}, {}, {}
 
 hl = {
@@ -14,7 +14,7 @@ hl = {
   dsp = { window = { center = function(args) return args end } },
 }
 
-dofile(os.getenv("OMARCHY_PATH") .. "/default/hypr/bootstrap.lua")
+dofile(os.getenv("COLLIE_PATH") .. "/default/hypr/bootstrap.lua")
 require("default.hypr.pop")
 
 local left, right = { id = 0 }, { id = 1 }

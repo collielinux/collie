@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# collie:summary=Wake displays and restore brightness after idle
+# collie:group=system
+# collie:name=wake
+# collie:examples=collie system wake
+
+collie-brightness-display on
+collie-brightness-keyboard restore
+collie-hyprland-monitor-clamshell >/dev/null 2>&1 || true

@@ -1,8 +1,8 @@
 # Motīvi
 
-Omarchy komplektā ir divdesmit divi skaisti motīvi. Varat izvēlēties starp tiem Omarchy izvēlnē (`Super + Space`) sadaļā _Izskats > Motīvs_ vai pāriet tieši uz motīvu atlasītāju ar `Super + Ctrl + T`.
+Collie komplektā ir divdesmit divi skaisti motīvi. Varat izvēlēties starp tiem Collie izvēlnē (`Super + Space`) sadaļā _Izskats > Motīvs_ vai pāriet tieši uz motīvu atlasītāju ar `Super + Ctrl + T`.
 
-Katrs motīvs noformē darbvirsmu, termināli, neovim, aktivitāšu ekrānu (btop), Chromium un visu Omarchy apvalku: augšējo joslu, izvēlni, paziņojumus, OSD un bloķēšanas ekrānu. (Obsidian gadījumā Omarchy motīvs lietotnē jāizvēlas manuāli sadaļā _Izskats > Motīvi_).
+Katrs motīvs noformē darbvirsmu, termināli, neovim, aktivitāšu ekrānu (btop), Chromium un visu Collie apvalku: augšējo joslu, izvēlni, paziņojumus, OSD un bloķēšanas ekrānu. (Obsidian gadījumā Collie motīvs lietotnē jāizvēlas manuāli sadaļā _Izskats > Motīvi_).
 
 Motīviem ir fona attēlu kopa, no kuras varat izvēlēties ar `Super + Ctrl + W`.
 

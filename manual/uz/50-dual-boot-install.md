@@ -1,6 +1,6 @@
 # Dual Boot o'rnatish
 
-Omarchy'ni Windows yoki boshqa o'rnatmalar yoniga bitta bo'limga o'rnatishingiz mumkin.
+Collie'ni Windows yoki boshqa o'rnatmalar yoniga bitta bo'limga o'rnatishingiz mumkin.
 
 Bu o'rnatish usuli ham sukut bo'yicha bo'lim uchun LUKS shifrlashi bilan keladi, shuning uchun u aslida to'liq diskka o'rnatishdan hech qanday farq qilmaydi va shunchaki diskda bo'sh joy mavjud bo'lishini talab qiladi.
 
@@ -14,17 +14,17 @@ Tegishli bo'limni toping, ustiga o'ng tugmani bosing va **Shrink Volume** bandin
 
 ![dual-boot-2](images/dual-boot-2.webp)
 
- Hajmni qancha qisqartirmoqchi bo'lsangiz, o'sha miqdorni kiriting. Shuni yodda tutingki, bu kelajakdagi Omarchy o'rnatmangizning yuklash bo'limini ham o'z ichiga olgan hajmi bo'ladi.
+ Hajmni qancha qisqartirmoqchi bo'lsangiz, o'sha miqdorni kiriting. Shuni yodda tutingki, bu kelajakdagi Collie o'rnatmangizning yuklash bo'limini ham o'z ichiga olgan hajmi bo'ladi.
 
  ![dual-boot-3](images/dual-boot-3.webp)
 
-Tugatganingizda, taxminan shunday ko'rinishni ko'rishingiz kerak, bunda 50GB li qism ushbu misolda Omarchy'ni o'rnatadigan joyimizdir.
+Tugatganingizda, taxminan shunday ko'rinishni ko'rishingiz kerak, bunda 50GB li qism ushbu misolda Collie'ni o'rnatadigan joyimizdir.
 
  ![dual-boot-4](images/dual-boot-4.webp)
 
-## Omarchy'ni o'rnatish
+## Collie'ni o'rnatish
 
-Omarchy'ni o'rnatish jarayoni aslida odatdagidan farq qilmaydi. Diskingizni tanlaganingizdan so'ng, sizga **Free space install** varianti taklif qilinadi. To'liq disk o'chib ketishining oldini olish uchun o'sha variantni tanlang.
+Collie'ni o'rnatish jarayoni aslida odatdagidan farq qilmaydi. Diskingizni tanlaganingizdan so'ng, sizga **Free space install** varianti taklif qilinadi. To'liq disk o'chib ketishining oldini olish uchun o'sha variantni tanlang.
 
  ![dual-boot-5](images/dual-boot-5.webp)
 
@@ -33,9 +33,9 @@ Hammasi to'g'ri ekanini tasdiqlang va odatdagidek o'rnatish tugashini kuting. Ay
 
 ## Boshqa o'rnatmalarni yuklovchiga qo'shish
 
-Omarchy o'rnatishini tugatganingizda, endi Limine yuklovchisi sukut bo'yicha ekanini ko'rasiz. U bilan Windows kabi boshqa o'rnatmalaringiz uchun ham Limine'ga variantlar qo'shishingiz mumkin.
+Collie o'rnatishini tugatganingizda, endi Limine yuklovchisi sukut bo'yicha ekanini ko'rasiz. U bilan Windows kabi boshqa o'rnatmalaringiz uchun ham Limine'ga variantlar qo'shishingiz mumkin.
 
-Boshqa operatsion tizimlarni qo'shish uchun `limine-scan` buyrug'ini ishga tushiring va kerakli yozuvlarni Limine konfiguratsiyangizga qo'shish uchun ko'rsatmalarga amal qiling. Yuklash menyusi sukut bo'yicha yashirin qoladi va bir soniyadan so'ng Omarchy'ni ishga tushiradi. Windows yoki boshqa yozuvni tanlash uchun Limine ishga tushishi bilanoq istalgan tugmani bosing; menyu paydo bo'lganda, yozuvni tanlash uchun strelka tugmalaridan foydalaning va Enter tugmasini bosing. Agar tugmani bosishingizdan oldin Omarchy ishga tushib ketsa, qayta ishga tushiring va yana urinib ko'ring. Agar _Setup > Direct Boot_ ni yoqqan bo'lsangiz, proshivka Limine'ni butunlay o'tkazib yuboradi, shuning uchun BIOS yuklash menyusidan Limine'ni tanlang yoki yozuvni olib tashlash uchun _Setup > Direct Boot_ ni yana ishga tushiring.
+Boshqa operatsion tizimlarni qo'shish uchun `limine-scan` buyrug'ini ishga tushiring va kerakli yozuvlarni Limine konfiguratsiyangizga qo'shish uchun ko'rsatmalarga amal qiling. Yuklash menyusi sukut bo'yicha yashirin qoladi va bir soniyadan so'ng Collie'ni ishga tushiradi. Windows yoki boshqa yozuvni tanlash uchun Limine ishga tushishi bilanoq istalgan tugmani bosing; menyu paydo bo'lganda, yozuvni tanlash uchun strelka tugmalaridan foydalaning va Enter tugmasini bosing. Agar tugmani bosishingizdan oldin Collie ishga tushib ketsa, qayta ishga tushiring va yana urinib ko'ring. Agar _Setup > Direct Boot_ ni yoqqan bo'lsangiz, proshivka Limine'ni butunlay o'tkazib yuboradi, shuning uchun BIOS yuklash menyusidan Limine'ni tanlang yoki yozuvni olib tashlash uchun _Setup > Direct Boot_ ni yana ishga tushiring.
 
 ## Bitlocker
 

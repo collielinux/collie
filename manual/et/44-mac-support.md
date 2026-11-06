@@ -1,16 +1,16 @@
 # Maci tugi
 
-Omarchyl on sisseehitatud tugi **Intel Macidele**. Praegu on paar teadaolevat piirangut, kuid kui sa oled neist teadlik ja need sobivad sulle, saad oma vanadele Macidele Omarchy paigaldamisega uue elu sisse puhuda.
+Colliel on sisseehitatud tugi **Intel Macidele**. Praegu on paar teadaolevat piirangut, kuid kui sa oled neist teadlik ja need sobivad sulle, saad oma vanadele Macidele Collie paigaldamisega uue elu sisse puhuda.
 
-Pane tähele, et M-seeria Macile paigaldamine ei ole praegu otseselt toetatud. Selle seisu kohta saad lähemalt teada kanalil #omarchy-on-other meie [Discordis](https://discord.gg/tXFUdasqhY).
+Pane tähele, et M-seeria Macile paigaldamine ei ole praegu otseselt toetatud. Selle seisu kohta saad lähemalt teada kanalil #collie-on-other meie [Discordis](https://discord.gg/tXFUdasqhY).
 
-Lihtsas testis suutsime 2019. aasta MacBook Prol saavutada 36% jõudluse kasvu ainuüksi Omarchy paigaldamisega.
+Lihtsas testis suutsime 2019. aasta MacBook Prol saavutada 36% jõudluse kasvu ainuüksi Collie paigaldamisega.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Omarchy paigaldamine Macile
+### Collie paigaldamine Macile
 
-Omarchy toetab praegu ainult paigaldamist **ainsa** operatsioonisüsteemina. Paigalduse käigus kustutatakse ketas ja MacOS ei ole enam käivitatav.
+Collie toetab praegu ainult paigaldamist **ainsa** operatsioonisüsteemina. Paigalduse käigus kustutatakse ketas ja MacOS ei ole enam käivitatav.
 
 Soovi korral saad selle hiljem Internet Recovery kaudu siiski taastada.
 
@@ -39,7 +39,7 @@ Paigaldaja tuvastab Maci riistvara ja rakendab vajalikud parandused automaatselt
 
 ### Teadaolevad piirangud
 
-Kogukonna liikmed töötavad pidevalt nende väljakutsete lahenduste kallal, nii et kui need on sinu jaoks probleemsed, liitu kanaliga #omarchy-on-other meie [Discordis](https://discord.gg/tXFUdasqhY) ja vaata, kas nende lahendamiseks on ajakohaseid meetodeid.
+Kogukonna liikmed töötavad pidevalt nende väljakutsete lahenduste kallal, nii et kui need on sinu jaoks probleemsed, liitu kanaliga #collie-on-other meie [Discordis](https://discord.gg/tXFUdasqhY) ja vaata, kas nende lahendamiseks on ajakohaseid meetodeid.
 
 #### T1 kiibiga seadmed
 

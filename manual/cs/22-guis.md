@@ -20,11 +20,11 @@ Obsidian je zdarma pro všechny účely, včetně osobního, komerčního a nezi
 
 Obsidian také nabízí [komerční doplněk pro synchronizaci](https://obsidian.md/sync) s mobilními aplikacemi na iOS a Android. (https://obsidian.md/pricing).
 
-Obsidian spustíte pomocí `Super + Shift + O`. Chcete-li používat synchronizaci motivu, musíte v nastavení vybrat motiv `Omarchy`.
+Obsidian spustíte pomocí `Super + Shift + O`. Chcete-li používat synchronizaci motivu, musíte v nastavení vybrat motiv `Collie`.
 
 ## Omawrite
 
-[Omawrite](https://github.com/omacom-io/omawrite) je vlastní, naprosto jednoduchá aplikace Omarchy na psaní v Markdownu. Žádné trezory, žádné pluginy, jen vy a slova.
+[Omawrite](https://github.com/omacom-io/omawrite) je vlastní, naprosto jednoduchá aplikace Collie na psaní v Markdownu. Žádné trezory, žádné pluginy, jen vy a slova.
 
 Omawrite spustíte pomocí `Super + Shift + W`.
 
@@ -44,18 +44,18 @@ Aether spustíte přes spouštěč aplikací (`Super + Space`).
 
 [LocalSend](https://localsend.org/) vám umožňuje posílat soubory do jiných zařízení ve stejné síti, na kterých běží tato aplikace, podobně jako AirDrop od Apple. Je ale multiplatformní, takže můžete posílat soubory do a z Windows, macOS, Android, iOS a samozřejmě Linux.
 
-Nabídku Share otevřete pomocí `Super + Ctrl + S` nebo pod _Trigger > Share_ v nabídce Omarchy. Nabízí čtyři možnosti:
+Nabídku Share otevřete pomocí `Super + Ctrl + S` nebo pod _Trigger > Share_ v nabídce Collie. Nabízí čtyři možnosti:
 
 - **Clipboard** odešle cokoli, co jste zkopírovali, jako textový soubor. Skvělé, když potřebujete dostat odkaz nebo úryvek kódu do telefonu, aniž byste si posílali e-mail.
 - **File** otevře výběr souborů, ve kterém můžete vybrat hned několik souborů najednou.
 - **Folder** odešle celý adresář.
 - **Receive** otevře samotný LocalSend, aby vám jiné zařízení mohlo něco poslat.
 
-Totéž funguje z terminálu pomocí `omarchy share clipboard`, `omarchy share file [path]` a `omarchy share folder [path]`. Cestu vynechte a zobrazí se vám výběr souborů.
+Totéž funguje z terminálu pomocí `collie share clipboard`, `collie share file [path]` a `collie share folder [path]`. Cestu vynechte a zobrazí se vám výběr souborů.
 
 Posílat můžete také rovnou ze správce souborů: klikněte pravým tlačítkem na libovolný výběr v Nautilus a vyberte _Send via LocalSend_.
 
-Firewall v Omarchy je ve výchozím nastavení zavřený s výjimkou portu pro LocalSend, takže tohle funguje hned po čerstvé instalaci. Viz [zabezpečení](48-security.md).
+Firewall v Collie je ve výchozím nastavení zavřený s výjimkou portu pro LocalSend, takže tohle funguje hned po čerstvé instalaci. Viz [zabezpečení](48-security.md).
 
 ## LibreOffice
 
@@ -65,19 +65,19 @@ LibreOffice spustíte přes spouštěč aplikací (`Super + Space`).
 
 ## Hype
 
-[Hype](https://github.com/omacom/hype) je vlastní, naprosto jednoduchá prezentační aplikace Omarchy. Vaše prezentace je jediný soubor Markdown s obrázky a videi vedle něj: každý snímek píšete pod živým náhledem, snímky přetažením seřadíte, a pak prezentujete na celé obrazovce nebo exportujete do PDF a PowerPoint. Dokonce převezme váš motiv Omarchy.
+[Hype](https://github.com/omacom/hype) je vlastní, naprosto jednoduchá prezentační aplikace Collie. Vaše prezentace je jediný soubor Markdown s obrázky a videi vedle něj: každý snímek píšete pod živým náhledem, snímky přetažením seřadíte, a pak prezentujete na celé obrazovce nebo exportujete do PDF a PowerPoint. Dokonce převezme váš motiv Collie.
 
 Hype spustíte přes spouštěč aplikací (`Super + Space`). Stisknutím `?` uvnitř zobrazíte všechny zkratky.
 
 ## Signed
 
-[Signed](https://github.com/omacom/signed) je vlastní, naprosto jednoduchý způsob Omarchy, jak podepisovat PDF a vyplňovat je. Umístěte svůj uložený podpis, text a dnešní datum kamkoli na stránku a pak uložte podepsanou kopii vedle originálu. Jak na to, najdete v [Vyplňování PDF](27-filling-out-pdfs.md).
+[Signed](https://github.com/omacom/signed) je vlastní, naprosto jednoduchý způsob Collie, jak podepisovat PDF a vyplňovat je. Umístěte svůj uložený podpis, text a dnešní datum kamkoli na stránku a pak uložte podepsanou kopii vedle originálu. Jak na to, najdete v [Vyplňování PDF](27-filling-out-pdfs.md).
 
 Signed spustíte přes spouštěč aplikací (`Super + Space`), nebo s ním otevřete PDF ze správce souborů.
 
 ## Omacalc
 
-[Omacalc](https://github.com/omacom-io/omacalc) je vlastní, naprosto jednoduchá kalkulačka Omarchy, která se otevírá v plovoucím okně.
+[Omacalc](https://github.com/omacom-io/omacalc) je vlastní, naprosto jednoduchá kalkulačka Collie, která se otevírá v plovoucím okně.
 
 Omacalc spustíte pomocí `Super + Shift + Q` (nebo klávesou kalkulačky, pokud ji vaše klávesnice má).
 
@@ -85,7 +85,7 @@ Omacalc spustíte pomocí `Super + Shift + Q` (nebo klávesou kalkulačky, pokud
 
 [Signal](https://signal.org/) je průkopníkem E2E šifrovaného zasílání zpráv a skvělou komunikační volbou pro každého, kdo by raději nešel přes některý z velkých technologických konglomerátů.
 
-Signal spustíte pomocí `Super + Shift + G`. Není součástí základní instalace, takže když to poprvé stisknete, Omarchy vám nabídne, že ho za vás nainstaluje (najdete ho také pod _Install > Service_ v nabídce Omarchy).
+Signal spustíte pomocí `Super + Shift + G`. Není součástí základní instalace, takže když to poprvé stisknete, Collie vám nabídne, že ho za vás nainstaluje (najdete ho také pod _Install > Service_ v nabídce Collie).
 
 ## mpv
 
@@ -95,13 +95,13 @@ mpv spustíte přes spouštěč aplikací (`Super + Space`), nebo prostě dvojkl
 
 ## Omacut
 
-[Omacut](https://github.com/omacom-io/omacut) je vlastní, naprosto jednoduchý střihač videa Omarchy. Když potřebujete jen useknout začátek a konec klipu, je to lepší než spouštět plnohodnotný editor videa.
+[Omacut](https://github.com/omacom-io/omacut) je vlastní, naprosto jednoduchý střihač videa Collie. Když potřebujete jen useknout začátek a konec klipu, je to lepší než spouštět plnohodnotný editor videa.
 
 Omacut spustíte přes spouštěč aplikací (`Super + Space`).
 
 ## Monologue
 
-[Monologue](https://github.com/omacom/monologue) je vlastní, naprosto jednoduchý rekordér webkamery Omarchy. Jednou si vyberte kameru a mikrofon, pak stiskněte `Space` pro nahrávání a znovu pro pozastavení a pokračování stejného záběru. Vždy nahrává v nejvyšším rozlišení vaší kamery, s živým ukazatelem mikrofonu, abyste si před začátkem mohli zkontrolovat úrovně.
+[Monologue](https://github.com/omacom/monologue) je vlastní, naprosto jednoduchý rekordér webkamery Collie. Jednou si vyberte kameru a mikrofon, pak stiskněte `Space` pro nahrávání a znovu pro pozastavení a pokračování stejného záběru. Vždy nahrává v nejvyšším rozlišení vaší kamery, s živým ukazatelem mikrofonu, abyste si před začátkem mohli zkontrolovat úrovně.
 
 Zastavte záběr a okamžitě se otevře ve vestavěném editoru. Dvojklikem klip rozdělíte, přetažením úchytů oříznete každý kousek a odstraníte části, které nechcete. Pak ho uložte jako MP4. Váš původní záznam zůstane zachován, dokud ho nezahodíte, takže se k němu můžete vždy vrátit a sestříhat ho jinak.
 

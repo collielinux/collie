@@ -8,7 +8,7 @@ Varje snabbtangent sitter på ett plan, som bestäms av dess modifierare, och va
 
 | Plan | Vad som finns där | Exempel |
 | --- | --- | --- |
-| `Super + key` | Systemet: fönster, arbetsytor, layouter och kärnmenyer | `Super + Space` Omarchy-menyn, `Super + W` stäng fönster, `Super + F` helskärm |
+| `Super + key` | Systemet: fönster, arbetsytor, layouter och kärnmenyer | `Super + Space` Collie-menyn, `Super + W` stäng fönster, `Super + F` helskärm |
 | `Super + Shift + key` | Appar | `Super + Shift + B` webbläsare, `Super + Shift + E` e-post, `Super + Shift + N` redigerare |
 | `Super + Ctrl + key` | Paneler och systemmenyer | `Super + Ctrl + A` ljud, `Super + Ctrl + N` nätverk, `Super + Ctrl + C` inspelningsmeny |
 | `Super + Ctrl + Alt + key` | Snabbåtgärder och meddelanden | `Super + Ctrl + Alt + T` visa tid, `Super + Ctrl + Alt + B` batteri, `Super + Ctrl + Alt + C` skärmdump |
@@ -34,7 +34,7 @@ Om en standardbindning inte passar dig (säg att du vill ha `Super + Shift + S` 
 
 | Snabbtangent                  | Funktion              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy-menyn (appar och allt annat)    |
+| `Super + Space`           | Collie-menyn (appar och allt annat)    |
 | `Super + Alt + Space` | Apprutnät |
 | `Super + Escape` | Systemmeny (viloläge, omstart, osv.)  |
 | `Super + Ctrl + L` | Lås datorn |
@@ -171,7 +171,7 @@ Snabbtangenterna för storleksändring använder de fysiska tangenterna `code:20
 | `Super + V`           | Klistra in    |
 | `Super + Ctrl + V`           | Urklippshanterare    |
 
-Vanligtvis på Linux behöver du `Ctrl + Shift + C/V` för att kopiera och klistra in i terminalen och `Ctrl + C/V` för att göra det överallt annars. De här enhetliga urklippssnabbtangenterna i Omarchy fungerar överallt.
+Vanligtvis på Linux behöver du `Ctrl + Shift + C/V` för att kopiera och klistra in i terminalen och `Ctrl + C/V` för att göra det överallt annars. De här enhetliga urklippssnabbtangenterna i Collie fungerar överallt.
 
 ## Inspelning
 
@@ -192,7 +192,7 @@ Vanligtvis på Linux behöver du `Ctrl + Shift + C/V` för att kopiera och klist
 
 Vid skärminspelningar frågar snabbtangenten först vilket ljud du vill ha, sedan startar inspelningen. Tryck på den igen för att stoppa. Se [skärmdumpar och inspelning](12-screenshots-recording.md) för detaljerna.
 
-Alla inspelningsalternativ finns också under _Trigger > Capture_ i Omarchy-menyn (`Super + Space`).
+Alla inspelningsalternativ finns också under _Trigger > Capture_ i Collie-menyn (`Super + Space`).
 
 ## Aviseringar
 
@@ -214,9 +214,9 @@ Alla inspelningsalternativ finns också under _Trigger > Capture_ i Omarchy-meny
 | `Super + Backspace` | Växla transparens på ett fönster |
 | `Super + Ctrl + Backspace` | Växla kvadratiskt format för ett enskilt fönster |
 
-Extra bakgrundsbilder finns i `~/.config/omarchy/backgrounds/<theme name>`. Finns också via _Install > Style > Background_ i Omarchy-menyn.
+Extra bakgrundsbilder finns i `~/.config/collie/backgrounds/<theme name>`. Finns också via _Install > Style > Background_ i Collie-menyn.
 
-Alla stilalternativ finns också under _Style_ i Omarchy-menyn (`Super + Space`).
+Alla stilalternativ finns också under _Style_ i Collie-menyn (`Super + Space`).
 
 ## Växlingar
 
@@ -317,7 +317,7 @@ Dessa funktioner måste köras inuti en Tmux-session.
 
 ## Ghostty Terminal
 
-Ghostty-terminalen installeras med _Install > Terminal_ via Omarchy-menyn.
+Ghostty-terminalen installeras med _Install > Terminal_ via Collie-menyn.
 
 | Snabbtangent                  | Funktion              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Du kan använda `Super + Ctrl + E` för att visa en komplett emoji-väljare som 
 | `Shift + CapsLock Space N` | Ditt namn (som det angavs vid installationen)  |
 | `Shift + CapsLock Space E` | Din e-post (som den angavs vid installationen)  |
 
-Du kan lägga till fler egna genom att redigera `~/.XCompose` och sedan köra `omarchy-restart-xcompose` i terminalen för att ändringarna ska börja gälla.
+Du kan lägga till fler egna genom att redigera `~/.XCompose` och sedan köra `collie-restart-xcompose` i terminalen för att ändringarna ska börja gälla.

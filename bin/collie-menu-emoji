@@ -1,0 +1,6 @@
+#!/bin/bash
+# collie:summary=Launch emojis
+# collie:group=menu
+# collie:examples=collie menu emoji
+
+collie-shell shell toggle collie.emojis

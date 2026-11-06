@@ -1,16 +1,16 @@
 # Sokongan Mac
 
-Omarchy mempunyai sokongan terbina dalam untuk **Intel Macs**. Terdapat beberapa batasan yang diketahui buat masa ini, tetapi selagi anda sedar dan OK dengannya; anda boleh memberi nafas baharu kepada Mac lama anda dengan memasang Omarchy.
+Collie mempunyai sokongan terbina dalam untuk **Intel Macs**. Terdapat beberapa batasan yang diketahui buat masa ini, tetapi selagi anda sedar dan OK dengannya; anda boleh memberi nafas baharu kepada Mac lama anda dengan memasang Collie.
 
-Sila ambil perhatian bahawa pemasangan pada Mac siri M tidak disokong secara langsung pada masa ini. Anda boleh mengetahui lebih lanjut tentang statusnya dalam #omarchy-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami.
+Sila ambil perhatian bahawa pemasangan pada Mac siri M tidak disokong secara langsung pada masa ini. Anda boleh mengetahui lebih lanjut tentang statusnya dalam #collie-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami.
 
-Dalam satu ujian ringkas, kami berjaya mencapai peningkatan prestasi sebanyak 36% pada MacBook Pro 2019 hanya dengan memasang Omarchy.
+Dalam satu ujian ringkas, kami berjaya mencapai peningkatan prestasi sebanyak 36% pada MacBook Pro 2019 hanya dengan memasang Collie.
 
- ![macbook-omarchy](images/macbook-omarchy.webp)
+ ![macbook-collie](images/macbook-collie.webp)
 
-### Memasang Omarchy pada Mac
+### Memasang Collie pada Mac
 
-Omarchy hanya menyokong menjadi **satu-satunya** OS yang dipasang buat masa ini. Semasa pemasangan, pemacu akan dipadamkan sepenuhnya dan MacOS tidak lagi boleh dibut.
+Collie hanya menyokong menjadi **satu-satunya** OS yang dipasang buat masa ini. Semasa pemasangan, pemacu akan dipadamkan sepenuhnya dan MacOS tidak lagi boleh dibut.
 
 Anda masih boleh memulihkannya kemudian melalui Internet Recovery jika anda mahu.
 
@@ -39,7 +39,7 @@ Pemasang mengesan perkakasan Mac dan menggunakan pembaikan yang diperlukan secar
 
 ### Batasan yang Diketahui
 
-Ahli komuniti sentiasa berusaha mencari penyelesaian kepada cabaran ini, jadi jika ini bermasalah untuk anda, sertai #omarchy-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami dan lihat jika ada kaedah terkini untuk menyelesaikannya.
+Ahli komuniti sentiasa berusaha mencari penyelesaian kepada cabaran ini, jadi jika ini bermasalah untuk anda, sertai #collie-on-other di [Discord](https://discord.gg/tXFUdasqhY) kami dan lihat jika ada kaedah terkini untuk menyelesaikannya.
 
 #### Peranti dengan Cip T1
 

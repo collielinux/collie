@@ -1,4 +1,4 @@
-echo "Open OpenCode 2 with the Omarchy theme"
+echo "Open OpenCode 2 with the Collie theme"
 
 # OpenCode 2 reads its theme from cli.json, not opencode.json. Leave a theme
 # the user picked alone, and leave a missing cli.json to OpenCode's own
@@ -13,6 +13,6 @@ if [[ -f $cli_config ]]; then
     mv "$cli_config.tmp" "$cli_config"
   fi
 elif [[ -d $config_dir && ! -e $config_dir/tui.json && ! -e ${XDG_STATE_HOME:-$HOME/.local/state}/opencode/kv.json ]]; then
-  cp "$OMARCHY_PATH/config/opencode/cli.json" "$cli_config"
+  cp "$COLLIE_PATH/config/opencode/cli.json" "$cli_config"
   chmod 600 "$cli_config"
 fi

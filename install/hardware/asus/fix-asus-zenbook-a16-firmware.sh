@@ -6,6 +6,6 @@
 # package installs both. It runs before qualcomm/firmware.sh, which keeps the DSP
 # driver off unless that image is already there.
 
-if omarchy-hw-aarch64-qualcomm && omarchy-hw-match "UX3607OA"; then
-  omarchy-pkg-add asus-zenbook-a16-firmware
+if collie-hw-aarch64-qualcomm && collie-hw-match "UX3607OA"; then
+  collie-pkg-add asus-zenbook-a16-firmware
 fi

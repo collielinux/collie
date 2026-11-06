@@ -7,6 +7,6 @@
 # speakers attached across idle and gives them a working volume range. It runs
 # before speaker-tuning.sh, whose tuning for this laptop needs the speaker sink.
 
-if omarchy-hw-aarch64-qualcomm && omarchy-hw-match "UX3607OA"; then
-  omarchy-pkg-add asus-zenbook-a16-audio
+if collie-hw-aarch64-qualcomm && collie-hw-match "UX3607OA"; then
+  collie-pkg-add asus-zenbook-a16-audio
 fi

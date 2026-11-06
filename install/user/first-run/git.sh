@@ -1,5 +1,5 @@
-# An upgrade, or a run of omarchy-setup-git, can have set the identity already.
+# An upgrade, or a run of collie-setup-git, can have set the identity already.
 if [[ -z $(git config --global user.name) || -z $(git config --global user.email) ]]; then
-  omarchy-notification-send -u critical -g  "$(omarchy-i18n firstRun.gitTitle)" "$(omarchy-i18n firstRun.gitBody)" \
-    --exec omarchy-launch-floating-terminal-with-presentation omarchy-setup-git
+  collie-notification-send -u critical -g  "$(collie-i18n firstRun.gitTitle)" "$(collie-i18n firstRun.gitBody)" \
+    --exec collie-launch-floating-terminal-with-presentation collie-setup-git
 fi

@@ -17,20 +17,20 @@ cleanup_test() {
 trap cleanup_test EXIT
 
 stub_bin="$test_tmp/bin"
-mapped_root="$test_tmp/omarchy"
+mapped_root="$test_tmp/collie"
 test_home="$test_tmp/home"
 runtime_dir=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}
 if [[ ! -d $runtime_dir || -L $runtime_dir || $(stat -Lc '%u %a' "$runtime_dir" 2>/dev/null || true) != "$(id -u) 700" ]]; then
   if (( EUID != 0 )); then
     fail "test needs a private XDG runtime directory or root namespace"
   fi
-  runtime_dir=$(mktemp -d -p /run omarchy-stay-awake-runtime.XXXXXXXX)
+  runtime_dir=$(mktemp -d -p /run collie-stay-awake-runtime.XXXXXXXX)
   chmod 0700 "$runtime_dir"
   test_runtime_created="$runtime_dir"
 fi
 test_run_id="test-$BASHPID-$RANDOM"
-state_dir="$runtime_dir/omarchy-update-stay-awake-$test_run_id"
-state_hardlink="$runtime_dir/.omarchy-update-stay-awake-hardlink-$test_run_id"
+state_dir="$runtime_dir/collie-update-stay-awake-$test_run_id"
+state_hardlink="$runtime_dir/.collie-update-stay-awake-hardlink-$test_run_id"
 inhibitor_log="$test_tmp/inhibitors"
 mkdir -p "$stub_bin" "$test_home" "$mapped_root/bin"
 : >"$inhibitor_log"
@@ -92,9 +92,9 @@ while [[ ${1:-} == --* ]]; do shift; done
 exec "$@"
 SH
 
-cat >"$stub_bin/omarchy-toggle-idle" <<'SH'
+cat >"$stub_bin/collie-toggle-idle" <<'SH'
 #!/bin/bash
-state_file="$HOME/.local/state/omarchy/indicators/stay-awake"
+state_file="$HOME/.local/state/collie/indicators/stay-awake"
 case "$1" in
   stay-awake)
     mkdir -p "$(dirname "$state_file")"
@@ -106,20 +106,20 @@ case "$1" in
 esac
 SH
 chmod +x "$stub_bin"/*
-ln -s "$stub_bin/omarchy-toggle-idle" "$mapped_root/bin/omarchy-toggle-idle"
+ln -s "$stub_bin/collie-toggle-idle" "$mapped_root/bin/collie-toggle-idle"
 
-mapped_helper="$mapped_root/bin/omarchy-update-stay-awake"
-cp "$ROOT/bin/omarchy-update-stay-awake" "$mapped_helper"
-cp "$ROOT/bin/omarchy-security-functions" "$mapped_root/bin/omarchy-security-functions"
+mapped_helper="$mapped_root/bin/collie-update-stay-awake"
+cp "$ROOT/bin/collie-update-stay-awake" "$mapped_helper"
+cp "$ROOT/bin/collie-security-functions" "$mapped_root/bin/collie-security-functions"
 for mapped_file in \
   "$mapped_helper" \
-  "$mapped_root/bin/omarchy-security-functions"; do
+  "$mapped_root/bin/collie-security-functions"; do
   sed -i \
     -e "s#/usr/bin/sudo#$stub_bin/sudo#g" \
     -e "s#/usr/bin/pkexec#$stub_bin/pkexec#g" \
     -e "s#/usr/bin/systemd-inhibit#$stub_bin/systemd-inhibit#g" \
     -e "s#/usr/bin/setpriv#$stub_bin/setpriv#g" \
-    -e 's#state_dir="$state_base/omarchy-update-stay-awake"#state_dir="$state_base/omarchy-update-stay-awake-${OMARCHY_TEST_RUN_ID:?}"#' \
+    -e 's#state_dir="$state_base/collie-update-stay-awake"#state_dir="$state_base/collie-update-stay-awake-${COLLIE_TEST_RUN_ID:?}"#' \
     "$mapped_file"
 done
 chmod +x "$mapped_helper"
@@ -129,8 +129,8 @@ run_helper() {
   XDG_RUNTIME_DIR="$runtime_dir" \
   INHIBITOR_LOG="$inhibitor_log" \
   TEST_STATE_DIR="$state_dir" \
-  OMARCHY_TEST_RUN_ID="$test_run_id" \
-  OMARCHY_PATH="$mapped_root" \
+  COLLIE_TEST_RUN_ID="$test_run_id" \
+  COLLIE_PATH="$mapped_root" \
   PATH="$stub_bin:$ROOT/bin:/usr/bin:/bin" \
     "$mapped_helper" "$@"
 }
@@ -162,7 +162,7 @@ start_identity_process() {
   local token="$1"
 
   /usr/bin/bash -c 'trap "exit 0" TERM; while :; do sleep 0.05; done' \
-    omarchy-test "--why=Omarchy update in progress [$token]" &
+    collie-test "--why=Collie update in progress [$token]" &
   identity_pid=$!
   test_processes+=("$identity_pid")
   identity_start=$(awk '{ print $22 }' "/proc/$identity_pid/stat")
@@ -208,17 +208,17 @@ fi
 permissive_runtime="$test_tmp/permissive-runtime"
 mkdir -m 755 "$permissive_runtime"
 if HOME="$test_home" XDG_RUNTIME_DIR="$permissive_runtime" PATH="$stub_bin:$ROOT/bin:/usr/bin:/bin" \
-  OMARCHY_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
+  COLLIE_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
   fail "permissive XDG runtime is rejected"
 fi
 symlink_runtime="$test_tmp/runtime-link"
 ln -s "$runtime_dir" "$symlink_runtime"
 if HOME="$test_home" XDG_RUNTIME_DIR="$symlink_runtime" PATH="$stub_bin:$ROOT/bin:/usr/bin:/bin" \
-  OMARCHY_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
+  COLLIE_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
   fail "symlink XDG runtime is rejected"
 fi
 if HOME="$test_home" XDG_RUNTIME_DIR="$test_tmp/../${test_tmp##*/}/runtime" PATH="$stub_bin:$ROOT/bin:/usr/bin:/bin" \
-  OMARCHY_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
+  COLLIE_TEST_RUN_ID="$test_run_id" "$mapped_helper" stop 2>/dev/null; then
   fail "non-canonical XDG runtime is rejected"
 fi
 pass "unsafe XDG runtime directories are rejected"
@@ -239,7 +239,7 @@ pass "unsafe inhibitor state directories are rejected"
 
 # Package replacement leaves the preceding helper's PID/start pair and its
 # umask-derived modes for the newly installed stop command to consume.
-idle_marker="$test_home/.local/state/omarchy/indicators/stay-awake"
+idle_marker="$test_home/.local/state/collie/indicators/stay-awake"
 for modes in '755 644' '750 640' '700 600'; do
   read -r directory_mode file_mode <<<"$modes"
   for idle_choice in update user; do
@@ -331,7 +331,7 @@ token=44444444444444444444444444444444
   while [[ ! -e $1 ]]; do sleep 0.05; done
   trap "exit 0" TERM
   while :; do sleep 0.05; done
-' omarchy-retry "$retry_flag" "--why=Omarchy update in progress [$token]" &
+' collie-retry "$retry_flag" "--why=Collie update in progress [$token]" &
 retry_pid=$!
 test_processes+=("$retry_pid")
 retry_start=$(awk '{ print $22 }' "/proc/$retry_pid/stat")
@@ -432,7 +432,7 @@ pass "state publication failures roll back a launched inhibitor"
 # Hold each cancellation window open, including publication before child exec,
 # readiness before idle setup, and publication of the update-owned idle marker.
 cp "$mapped_helper" "$test_tmp/helper-before-pause"
-idle_marker="$test_home/.local/state/omarchy/indicators/stay-awake"
+idle_marker="$test_home/.local/state/collie/indicators/stay-awake"
 for cancel_phase in published ready idle-temporary idle user-idle; do
   rm -f "$test_tmp/cancel-ready" "$test_tmp/release-child"
   if [[ $cancel_phase == "user-idle" ]]; then
@@ -465,8 +465,8 @@ for old, new in edits:
 p.write_text(s)
 PY
   (
-    export HOME="$test_home" XDG_RUNTIME_DIR="$runtime_dir" OMARCHY_PATH="$mapped_root"
-    export INHIBITOR_LOG="$inhibitor_log" OMARCHY_TEST_RUN_ID="$test_run_id"
+    export HOME="$test_home" XDG_RUNTIME_DIR="$runtime_dir" COLLIE_PATH="$mapped_root"
+    export INHIBITOR_LOG="$inhibitor_log" COLLIE_TEST_RUN_ID="$test_run_id"
     export TEST_CANCEL_READY="$test_tmp/cancel-ready" TEST_RELEASE_CHILD="$test_tmp/release-child"
     export PATH="$stub_bin:$ROOT/bin:/usr/bin:/bin"
     exec "$mapped_helper" start
@@ -535,7 +535,7 @@ if (( namespace_capable == 0 )); then
 else
   # Keep the protected entrypoint, shared helper and harmless command stubs
   # together, even when tmpfs hides a checkout or fixture under /tmp.
-  tar -C "$test_tmp" -cf "$test_tmp/namespace-fixture.tar" bin omarchy
+  tar -C "$test_tmp" -cf "$test_tmp/namespace-fixture.tar" bin collie
   if ! "${namespace_args[@]}" /usr/bin/bash -s -- "$test_tmp" "$test_run_id" \
     9<"$test_tmp/namespace-fixture.tar" <<'SH'
 set -euo pipefail
@@ -552,19 +552,19 @@ setpriv --reuid=1000 --regid=1000 --clear-groups sleep 30 &
 victim_pid=$!
 trap 'kill "$victim_pid" "${legacy_sudo_pid:-$victim_pid}" 2>/dev/null || true; wait "$victim_pid" 2>/dev/null || true' EXIT
 victim_start=$(awk '{ print $22 }' "/proc/$victim_pid/stat")
-state=/tmp/omarchy-1000/omarchy-update-stay-awake-$run_id
+state=/tmp/collie-1000/collie-update-stay-awake-$run_id
 
 run_fallback() {
   local uid=$1 home=$2
   shift 2
   setpriv --reuid="$uid" --regid="$uid" --clear-groups /usr/bin/env -i \
-    HOME="$home" OMARCHY_PATH="$fixture/omarchy" OMARCHY_TEST_RUN_ID="$run_id" \
+    HOME="$home" COLLIE_PATH="$fixture/collie" COLLIE_TEST_RUN_ID="$run_id" \
     INHIBITOR_LOG="$home/inhibitors" PATH="$fixture/bin:/usr/bin:/bin" \
-    "$fixture/omarchy/bin/omarchy-update-stay-awake" "$@"
+    "$fixture/collie/bin/collie-update-stay-awake" "$@"
 }
 
 setpriv --reuid=1001 --regid=1001 --clear-groups /usr/bin/bash -c '
-  mkdir -m 755 /tmp/omarchy-1000 "$3"
+  mkdir -m 755 /tmp/collie-1000 "$3"
   printf "%s %s\n" "$1" "$2" >"$3/inhibit-pid"
   chmod 644 "$3/inhibit-pid"
 ' attacker "$victim_pid" "$victim_start" "$state"
@@ -573,14 +573,14 @@ if run_fallback 1000 /tmp/victim-home stop 2>/tmp/refusal; then
   echo "foreign fallback state was accepted" >&2
   exit 1
 fi
-grep -q 'unsafe Omarchy update inhibitor state path' /tmp/refusal
+grep -q 'unsafe Collie update inhibitor state path' /tmp/refusal
 kill -0 "$victim_pid"
 
-rm -rf /tmp/omarchy-1000
+rm -rf /tmp/collie-1000
 # The old helper also left a readable fallback parent after a successful stop.
-setpriv --reuid=1000 --regid=1000 --clear-groups mkdir -m 755 /tmp/omarchy-1000
+setpriv --reuid=1000 --regid=1000 --clear-groups mkdir -m 755 /tmp/collie-1000
 run_fallback 1000 /tmp/victim-home start
-[[ $(stat -Lc '%u %a' /tmp/omarchy-1000) == "1000 700" ]]
+[[ $(stat -Lc '%u %a' /tmp/collie-1000) == "1000 700" ]]
 run_fallback 1000 /tmp/victim-home stop
 [[ ! -e $state ]]
 
@@ -594,7 +594,7 @@ if run_fallback 1000 /tmp/victim-home stop 2>/tmp/refusal; then
   echo "foreign state file was accepted" >&2
   exit 1
 fi
-grep -q 'unsafe Omarchy update sleep inhibitor state' /tmp/refusal
+grep -q 'unsafe Collie update sleep inhibitor state' /tmp/refusal
 kill -0 "$victim_pid"
 
 # A legacy-looking record owned by another account is still untrusted.
@@ -630,7 +630,7 @@ wait "$legacy_sudo_pid" 2>/dev/null || true
 # Root may read the record, but must not signal a live legacy target whose
 # real UID differs. Preserve the retry handle instead of treating it as dead.
 mkdir -m 700 /tmp/root-home
-root_state=/tmp/omarchy-0/omarchy-update-stay-awake-$run_id
+root_state=/tmp/collie-0/collie-update-stay-awake-$run_id
 mkdir -p "$root_state"
 printf '%s %s\n' "$victim_pid" "$victim_start" >"$root_state/inhibit-pid"
 chmod 644 "$root_state/inhibit-pid"
@@ -644,9 +644,9 @@ kill -0 "$victim_pid"
 rm "$root_state/inhibit-pid"
 
 run_fallback 0 /tmp/root-home start
-[[ $(stat -Lc '%u %a' /tmp/omarchy-0) == "0 700" ]]
+[[ $(stat -Lc '%u %a' /tmp/collie-0) == "0 700" ]]
 run_fallback 0 /tmp/root-home stop
-[[ ! -e /tmp/omarchy-0/omarchy-update-stay-awake-$run_id ]]
+[[ ! -e /tmp/collie-0/collie-update-stay-awake-$run_id ]]
 SH
   then
     fail "two-UID fallback probe failed after its capability check" "$(<"$namespace_probe_error")"

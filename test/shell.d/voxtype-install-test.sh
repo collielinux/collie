@@ -11,14 +11,14 @@ lib_path="$test_tmp/lib/voxtype"
 calls="$test_tmp/calls.log"
 mkdir -p "$stub_bin" "$lib_path"
 
-for command in gum omarchy-pkg-drop omarchy-pkg-add hyprctl omarchy-restart-shell omarchy-notification-send systemctl; do
+for command in gum collie-pkg-drop collie-pkg-add hyprctl collie-restart-shell collie-notification-send systemctl; do
   printf '#!/bin/bash\nexit 0\n' >"$stub_bin/$command"
 done
-printf '#!/bin/bash\nexit 1\n' >"$stub_bin/omarchy-pkg-present"
+printf '#!/bin/bash\nexit 1\n' >"$stub_bin/collie-pkg-present"
 # Voxtype is already installed, so the install asks nothing and only sets it up.
-printf '#!/bin/bash\nexit 1\n' >"$stub_bin/omarchy-cmd-missing"
-printf '#!/bin/bash\nexit 0\n' >"$stub_bin/omarchy-dictation-use"
-cat >"$stub_bin/omarchy-hw-vulkan" <<'SH'
+printf '#!/bin/bash\nexit 1\n' >"$stub_bin/collie-cmd-missing"
+printf '#!/bin/bash\nexit 0\n' >"$stub_bin/collie-dictation-use"
+cat >"$stub_bin/collie-hw-vulkan" <<'SH'
 #!/bin/bash
 (( ${VULKAN:-1} == 1 ))
 SH
@@ -44,9 +44,9 @@ run_install() {
     ;;
   esac
 
-  HOME="$test_tmp/home" OMARCHY_PATH="$ROOT" OMARCHY_VOXTYPE_LIB_PATH="$lib_path" \
+  HOME="$test_tmp/home" COLLIE_PATH="$ROOT" COLLIE_VOXTYPE_LIB_PATH="$lib_path" \
     VULKAN="$vulkan" TEST_LOG="$calls" PATH="$stub_bin:$PATH" \
-    XDG_CONFIG_HOME="$test_tmp/home/.config" bash "$ROOT/bin/omarchy-install-dictation-voxtype" >/dev/null ||
+    XDG_CONFIG_HOME="$test_tmp/home/.config" bash "$ROOT/bin/collie-install-dictation-voxtype" >/dev/null ||
     fail "Voxtype install completes (vulkan=$vulkan backend=$backend)"
 
   grep -Fx 'voxtype setup systemd' "$calls" >/dev/null ||

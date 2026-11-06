@@ -7,6 +7,6 @@
 
 set -e
 
-if omarchy-pkg-present superwhisper-bin && [[ $(omarchy-default-dictation 2>/dev/null) == "superwhisper" ]]; then
-  omarchy-install-dictation-superwhisper --background
+if collie-pkg-present superwhisper-bin && [[ $(collie-default-dictation 2>/dev/null) == "superwhisper" ]]; then
+  collie-install-dictation-superwhisper --background
 fi

@@ -1,8 +1,8 @@
 # Navigācija
 
-Viss Omarchy notiek ar tastatūru — _VISU!_ Kad sistēma pirmo reizi startējas, jūs burtiski neko nevarat izdarīt tikai ar peli. Bet jūs varat nospiest `Super + Space`, lai atvērtu Omarchy izvēlni, un no šejienes jūs varat izdarīt gandrīz visu.
+Viss Collie notiek ar tastatūru — _VISU!_ Kad sistēma pirmo reizi startējas, jūs burtiski neko nevarat izdarīt tikai ar peli. Bet jūs varat nospiest `Super + Space`, lai atvērtu Collie izvēlni, un no šejienes jūs varat izdarīt gandrīz visu.
 
-Bet Omarchy izvēlne pat nav paredzēta kā galvenais veids, kā lielāko daļu laika darboties ar sistēmu. Mēs varam ātrāk! Visas svarīgākās lietotnes ir piesaistītas tieši atsevišķiem karstajiem taustiņiem. Jūs startējat termināli ar `Super + Return` un pārlūku ar `Super + Shift + Return`. Mēģiniet izdarīt vienu pēc otra, un jūs redzēsiet Hyprland flīzēšanas maģiju darbībā:
+Bet Collie izvēlne pat nav paredzēta kā galvenais veids, kā lielāko daļu laika darboties ar sistēmu. Mēs varam ātrāk! Visas svarīgākās lietotnes ir piesaistītas tieši atsevišķiem karstajiem taustiņiem. Jūs startējat termināli ar `Super + Return` un pārlūku ar `Super + Shift + Return`. Mēģiniet izdarīt vienu pēc otra, un jūs redzēsiet Hyprland flīzēšanas maģiju darbībā:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Jūs varat arī pāriet pilnekrāna režīmā ar `Super + F` vai pat tikai piln�
 
 ### Dwindle pret ritināšanas izkārtojumu
 
-Omarchy noklusējuma izkārtojums tiek saukts par dwindle. Tas visu laiku saglabā visus logus, kurus atverat vienā darbvietā, redzamus, pat ja tam tie jāsamazina.
+Collie noklusējuma izkārtojums tiek saukts par dwindle. Tas visu laiku saglabā visus logus, kurus atverat vienā darbvietā, redzamus, pat ja tam tie jāsamazina.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Peldoša darbvieta darbojas kā tradicionāla darbvirsma: logi pārklājas, un jūs tos pārvietojat un maināt to izmēru pats. Katrs logs iegūst virsrakstjoslu jūsu motīva krāsās, ar pogām minimizēšanai, maksimizēšanai un aizvēršanai. `Super + M` minimizē arī fokusēto logu. Minimizēts logs gaida dokā; noklikšķiniet uz tā lietotnes, lai to atgrieztu. Noklikšķiniet uz loga, lai izvirzītu to priekšplānā. Mainiet tā izmēru no jebkuras malas vai stūra. Veiciet dubultklikšķi uz virsrakstjoslas, lai maksimizētu logu, vienlaikus saglabājot augšējo joslu redzamu, un vēlreiz, lai atgūtu tā veco izmēru.
 
-Peldoša darbvieta rāda arī doku ar jūsu piespraustajām lietotnēm, visu, kas darbojas, un visu lietotņu režģi aiz lietotņu pogas, kuru atver arī `Super + Alt + Space` un _Lietotnes_ Omarchy izvēlnē. Ar peles labo pogu noklikšķiniet uz lietotnes režģī vai nospiediet `Delete`, lai to atinstalētu. Noklikšķiniet uz lietotnes, lai to atvērtu vai izvirzītu tās logu priekšplānā; noklikšķiniet vēlreiz, lai cikliski pārslēgtos starp tās logiem. Vidējais klikšķis atver jaunu logu. Velciet ikonu gar doku, lai to pārvietotu; ievelkot darbojošos lietotni starp pārējām, tā tur paliek. Ar peles labo pogu noklikšķiniet, lai paturētu lietotni dokā, izņemtu to vai aizvērtu to. Doks atkāpjas pilnekrāna logam. Ar peles labo pogu noklikšķiniet uz lietotņu pogas, lai pārvietotu doku uz citu malu vai liktu tam slēpties, līdz rādītājs sasniedz tā malu. Pozīcija ir arī sadaļā _Izskats > Doks > Doka pozīcija_, un `omarchy dock position left` un `omarchy dock autohide on` iestata abus no termināļa. Lietotnes, kuras jūs paturat dokā, ir izbalējušas, kamēr tās nedarbojas.
+Peldoša darbvieta rāda arī doku ar jūsu piespraustajām lietotnēm, visu, kas darbojas, un visu lietotņu režģi aiz lietotņu pogas, kuru atver arī `Super + Alt + Space` un _Lietotnes_ Collie izvēlnē. Ar peles labo pogu noklikšķiniet uz lietotnes režģī vai nospiediet `Delete`, lai to atinstalētu. Noklikšķiniet uz lietotnes, lai to atvērtu vai izvirzītu tās logu priekšplānā; noklikšķiniet vēlreiz, lai cikliski pārslēgtos starp tās logiem. Vidējais klikšķis atver jaunu logu. Velciet ikonu gar doku, lai to pārvietotu; ievelkot darbojošos lietotni starp pārējām, tā tur paliek. Ar peles labo pogu noklikšķiniet, lai paturētu lietotni dokā, izņemtu to vai aizvērtu to. Doks atkāpjas pilnekrāna logam. Ar peles labo pogu noklikšķiniet uz lietotņu pogas, lai pārvietotu doku uz citu malu vai liktu tam slēpties, līdz rādītājs sasniedz tā malu. Pozīcija ir arī sadaļā _Izskats > Doks > Doka pozīcija_, un `collie dock position left` un `collie dock autohide on` iestata abus no termināļa. Lietotnes, kuras jūs paturat dokā, ir izbalējušas, kamēr tās nedarbojas.
 
-Jaunas darbvietas un jebkuras, kurām neesat piešķīris savu izkārtojumu ar `Super + L`, izmanto noklusējuma izkārtojumu. Noklusējuma maiņa atiestata katru darbvietu bez logiem uz to, bet darbvieta ar logiem saglabā izkārtojumu, kāds tai ir. Logs, kas minimizēts dokā, joprojām tiek uzskatīts par logu darbvietā, kuru tas pameta. Izvēlieties to sadaļā _Izskats > Darbvietas izkārtojums_: Flīzēšana, Ritināšana vai Peldošais. `omarchy-hyprland-workspace-layout-default scrolling` iestata to no termināļa.
+Jaunas darbvietas un jebkuras, kurām neesat piešķīris savu izkārtojumu ar `Super + L`, izmanto noklusējuma izkārtojumu. Noklusējuma maiņa atiestata katru darbvietu bez logiem uz to, bet darbvieta ar logiem saglabā izkārtojumu, kāds tai ir. Logs, kas minimizēts dokā, joprojām tiek uzskatīts par logu darbvietā, kuru tas pameta. Izvēlieties to sadaļā _Izskats > Darbvietas izkārtojums_: Flīzēšana, Ritināšana vai Peldošais. `collie-hyprland-workspace-layout-default scrolling` iestata to no termināļa.
 
 ### Logu grupēšana
 

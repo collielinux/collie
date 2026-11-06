@@ -44,7 +44,7 @@ case "$1" in
     ;;
   config)
     case "$2" in
-      remote.origin.url) echo https://github.com/omacom/omarchy.git ;;
+      remote.origin.url) echo https://github.com/embeputer/collie.git ;;
       remote.origin.promisor) [[ ${TEST_GIT_PROMISOR:-no} == "yes" ]] && echo true ;;
       *) exit 1 ;;
     esac
@@ -63,14 +63,14 @@ SH
 chmod +x "$stub_bin/git"
 
 run_dev_update() {
-  OMARCHY_PATH="$1" \
+  COLLIE_PATH="$1" \
     TEST_GIT_LOG="$git_log" \
     PATH="$stub_bin:$PATH" \
-    "$ROOT/bin/omarchy-update-dev"
+    "$ROOT/bin/collie-update-dev"
 }
 
 : >"$git_log"
-run_dev_update /usr/share/omarchy
+run_dev_update /usr/share/collie
 [[ ! -s $git_log ]] || fail "package-backed updates do not invoke git" "$(cat "$git_log")"
 pass "package-backed updates skip the dev checkout step"
 
@@ -100,6 +100,6 @@ pass "dev checkout without an upstream is skipped safely"
 if TEST_GIT_CHECKOUT=no run_dev_update "$checkout" >"$test_tmp/invalid.out" 2>"$test_tmp/invalid.err"; then
   fail "invalid dev checkout fails the update"
 fi
-grep -F "OMARCHY_PATH is not a git checkout: $checkout" "$test_tmp/invalid.err" >/dev/null ||
+grep -F "COLLIE_PATH is not a git checkout: $checkout" "$test_tmp/invalid.err" >/dev/null ||
   fail "invalid dev checkout reports the configured path" "$(cat "$test_tmp/invalid.err")"
 pass "invalid dev checkout fails with a useful error"

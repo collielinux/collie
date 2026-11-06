@@ -8,7 +8,7 @@ Svaka prečica sjedi na ravnini koju određuju njezini modifikatori, a svaka rav
 
 | Ravnina | Što tamo živi | Primjeri |
 | --- | --- | --- |
-| `Super + key` | Sustav: prozori, radni prostori, rasporedi i osnovni izbornici | `Super + Space` Omarchy izbornik, `Super + W` zatvori prozor, `Super + F` cijeli zaslon |
+| `Super + key` | Sustav: prozori, radni prostori, rasporedi i osnovni izbornici | `Super + Space` Collie izbornik, `Super + W` zatvori prozor, `Super + F` cijeli zaslon |
 | `Super + Shift + key` | Aplikacije | `Super + Shift + B` preglednik, `Super + Shift + E` e-pošta, `Super + Shift + N` uređivač |
 | `Super + Ctrl + key` | Ploče i izbornici sustava | `Super + Ctrl + A` zvuk, `Super + Ctrl + N` mreža, `Super + Ctrl + C` izbornik za snimanje |
 | `Super + Ctrl + Alt + key` | Brze radnje i obavijesti | `Super + Ctrl + Alt + T` prikaži vrijeme, `Super + Ctrl + Alt + B` baterija, `Super + Ctrl + Alt + C` snimka zaslona |
@@ -34,7 +34,7 @@ Ako vam zadana postavka ne odgovara (recimo da želite `Super + Shift + S` za sn
 
 | Prečica                  | Funkcija              |
 | ----------------------- | --------------------- |
-| `Super + Space`           | Omarchy izbornik (aplikacije i sve ostalo)    |
+| `Super + Space`           | Collie izbornik (aplikacije i sve ostalo)    |
 | `Super + Alt + Space` | Mreža aplikacija |
 | `Super + Escape` | Izbornik sustava (obustava, ponovno pokretanje itd.)  |
 | `Super + Ctrl + L` | Zaključaj računalo |
@@ -171,7 +171,7 @@ Promijenite/dodajte povezivanja u `~/.config/hypr/bindings.lua`.
 | `Super + V`           | Zalijepi    |
 | `Super + Ctrl + V`           | Upravitelj međuspremnika    |
 
-Obično na Linuxu trebate `Ctrl + Shift + C/V` za kopiranje i lijepljenje u terminalu i `Ctrl + C/V` da to radite svugdje drugdje. Ove ujedinjene Omarchy prečice za međuspremnik rade svugdje.
+Obično na Linuxu trebate `Ctrl + Shift + C/V` za kopiranje i lijepljenje u terminalu i `Ctrl + C/V` da to radite svugdje drugdje. Ove ujedinjene Collie prečice za međuspremnik rade svugdje.
 
 ## Snimanje
 
@@ -192,7 +192,7 @@ Obično na Linuxu trebate `Ctrl + Shift + C/V` za kopiranje i lijepljenje u term
 
 Kod snimanja zaslona prečica prvo pita koji zvuk želite, a zatim započinje snimanje. Pritisnite je ponovno za zaustavljanje. Pogledajte [snimke zaslona i snimanje](12-screenshots-recording.md) za detalje.
 
-Svim mogućnostima snimanja možete pristupiti i pod _Okidač > Snimanje_ u Omarchy izborniku (`Super + Space`).
+Svim mogućnostima snimanja možete pristupiti i pod _Okidač > Snimanje_ u Collie izborniku (`Super + Space`).
 
 ## Obavijesti
 
@@ -214,9 +214,9 @@ Svim mogućnostima snimanja možete pristupiti i pod _Okidač > Snimanje_ u Omar
 | `Super + Backspace` | Uključi/isključi prozirnost na prozoru |
 | `Super + Ctrl + Backspace` | Uključi/isključi kvadratni omjer za jedan prozor |
 
-Dodatne pozadinske slike nalaze se u `~/.config/omarchy/backgrounds/<theme name>`. Dostupno i putem _Instalacija > Stil > Pozadina_ u Omarchy izborniku.
+Dodatne pozadinske slike nalaze se u `~/.config/collie/backgrounds/<theme name>`. Dostupno i putem _Instalacija > Stil > Pozadina_ u Collie izborniku.
 
-Svim mogućnostima stila možete pristupiti i pod _Stil_ u Omarchy izborniku (`Super + Space`).
+Svim mogućnostima stila možete pristupiti i pod _Stil_ u Collie izborniku (`Super + Space`).
 
 ## Prekidači
 
@@ -317,7 +317,7 @@ Te se funkcije moraju pokrenuti unutar Tmux sesije.
 
 ## Ghostty terminal
 
-Ghostty terminal instalirate pomoću _Instalacija > Terminal_ u Omarchy izborniku.
+Ghostty terminal instalirate pomoću _Instalacija > Terminal_ u Collie izborniku.
 
 | Prečica                  | Funkcija              |
 | ----------------------- | --------------------- |
@@ -408,4 +408,4 @@ Možete koristiti `Super + Ctrl + E` za prikaz potpunog birača emojija koji će
 | `Shift + CapsLock Space N` | Vaše ime (kako je uneseno pri postavljanju)  |
 | `Shift + CapsLock Space E` | Vaša e-pošta (kako je unesena pri postavljanju)  |
 
-Možete dodati još vlastitih uređivanjem `~/.XCompose`, zatim pokretanjem `omarchy-restart-xcompose` u terminalu kako bi se promjene preuzele.
+Možete dodati još vlastitih uređivanjem `~/.XCompose`, zatim pokretanjem `collie-restart-xcompose` u terminalu kako bi se promjene preuzele.

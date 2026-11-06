@@ -1,8 +1,8 @@
 # Navigasjon
 
-Alt i Omarchy skjer via tastaturet — _ALT!_ Når systemet først starter, kan du bokstavelig talt ikke gjøre noen ting med bare musen. Men du kan trykke `Super + Space` for å vise Omarchy-menyen, og herfra kan du gjøre omtrent alt.
+Alt i Collie skjer via tastaturet — _ALT!_ Når systemet først starter, kan du bokstavelig talt ikke gjøre noen ting med bare musen. Men du kan trykke `Super + Space` for å vise Collie-menyen, og herfra kan du gjøre omtrent alt.
 
-Men Omarchy-menyen er ikke engang ment å være den viktigste måten å bruke systemet på mesteparten av tiden. Vi kan gjøre det raskere enn det! Alle de viktigste applikasjonene er bundet direkte til egne hurtigtaster. Du starter terminalen med `Super + Return` og en nettleser med `Super + Shift + Return`. Prøv å gjøre det ene etter det andre, så ser du magien i Hyprlands flislegging i aksjon:
+Men Collie-menyen er ikke engang ment å være den viktigste måten å bruke systemet på mesteparten av tiden. Vi kan gjøre det raskere enn det! Alle de viktigste applikasjonene er bundet direkte til egne hurtigtaster. Du starter terminalen med `Super + Return` og en nettleser med `Super + Shift + Return`. Prøv å gjøre det ene etter det andre, så ser du magien i Hyprlands flislegging i aksjon:
 
  ![navigation-browser-terminal](images/navigation-browser-terminal.webp)
 
@@ -30,7 +30,7 @@ Du kan også gå i fullskjerm med `Super + F`, eller til og med bare i full bred
 
 ### Dwindle kontra rullelayout
 
-Standardlayouten i Omarchy heter dwindle. Den holder alle vinduene du åpner på ett enkelt arbeidsområde, synlige til enhver tid, selv om den må krympe dem.
+Standardlayouten i Collie heter dwindle. Den holder alle vinduene du åpner på ett enkelt arbeidsområde, synlige til enhver tid, selv om den må krympe dem.
 
  ![navigation-dwindle-layout](images/navigation-dwindle-layout.webp)
 
@@ -56,9 +56,9 @@ hl.config({
 
 Et flytende arbeidsområde fungerer som et tradisjonelt skrivebord: vinduer overlapper, og du flytter og tilpasser størrelsen på dem selv. Hvert vindu får en tittellinje i fargene til temaet ditt, med knapper for å minimere, maksimere og lukke. `Super + M` minimerer også det fokuserte vinduet. Et minimert vindu venter i dokken; klikk på appen dets for å hente det tilbake. Klikk på et vindu for å hente det frem. Endre størrelsen fra en hvilken som helst kant eller et hvilket som helst hjørne. Dobbeltklikk på en tittellinje for å maksimere vinduet mens den øverste linjen fortsatt er synlig, og igjen for å få den gamle størrelsen tilbake.
 
-Et flytende arbeidsområde viser også en dokk, med de festede appene dine, alt som kjører, og et rutenett med alle apper bak app-knappen, som `Super + Alt + Space` og _Apps_ i Omarchy-menyen også åpner. Høyreklikk på en app i rutenettet, eller trykk `Delete`, for å avinstallere den. Klikk på en app for å åpne den, eller for å hente vinduet dess frem; klikk igjen for å bla gjennom vinduene dess. Midtklikk åpner et nytt vindu. Dra et ikon langs dokken for å flytte det; å dra en kjørende app inn blant de andre beholder den der. Høyreklikk for å beholde en app i dokken, ta den ut eller avslutte den. Dokken går av veien for et fullskjermsvindu. Høyreklikk på app-knappen for å flytte dokken til en annen kant eller få den til å skjule seg til pekeren når kanten dess. Posisjonen finnes også under _Appearance > Dock > Dock Position_, og `omarchy dock position left` og `omarchy dock autohide on` setter begge fra en terminal. Apper du beholder i dokken, vises nedtonet mens de ikke kjører.
+Et flytende arbeidsområde viser også en dokk, med de festede appene dine, alt som kjører, og et rutenett med alle apper bak app-knappen, som `Super + Alt + Space` og _Apps_ i Collie-menyen også åpner. Høyreklikk på en app i rutenettet, eller trykk `Delete`, for å avinstallere den. Klikk på en app for å åpne den, eller for å hente vinduet dess frem; klikk igjen for å bla gjennom vinduene dess. Midtklikk åpner et nytt vindu. Dra et ikon langs dokken for å flytte det; å dra en kjørende app inn blant de andre beholder den der. Høyreklikk for å beholde en app i dokken, ta den ut eller avslutte den. Dokken går av veien for et fullskjermsvindu. Høyreklikk på app-knappen for å flytte dokken til en annen kant eller få den til å skjule seg til pekeren når kanten dess. Posisjonen finnes også under _Appearance > Dock > Dock Position_, og `collie dock position left` og `collie dock autohide on` setter begge fra en terminal. Apper du beholder i dokken, vises nedtonet mens de ikke kjører.
 
-Nye arbeidsområder, og alle du ikke har gitt en egen layout med `Super + L`, bruker standardlayouten. Å endre standarden tilbakestiller alle arbeidsområder uten vinduer til den, mens ett med vinduer på beholder layouten det har. Et vindu minimert til dokken teller fortsatt som et vindu på arbeidsområdet det forlot. Velg den under _Appearance > Workspace Layout_: Tiling, Scrolling eller Floating. `omarchy-hyprland-workspace-layout-default scrolling` angir den fra en terminal.
+Nye arbeidsområder, og alle du ikke har gitt en egen layout med `Super + L`, bruker standardlayouten. Å endre standarden tilbakestiller alle arbeidsområder uten vinduer til den, mens ett med vinduer på beholder layouten det har. Et vindu minimert til dokken teller fortsatt som et vindu på arbeidsområdet det forlot. Velg den under _Appearance > Workspace Layout_: Tiling, Scrolling eller Floating. `collie-hyprland-workspace-layout-default scrolling` angir den fra en terminal.
 
 ### Gruppering av vinduer
 

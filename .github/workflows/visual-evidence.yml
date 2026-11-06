@@ -20,7 +20,7 @@ on:
       - 'install/*.packages'
       - 'default/themed/**'
       - 'default/hypr/**'
-      - 'default/omarchy/**'
+      - 'default/collie/**'
       - 'default/applications/**'
       - 'default/fonts/**'
       - 'default/gtk/**'
