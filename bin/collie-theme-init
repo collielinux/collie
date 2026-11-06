@@ -15,7 +15,7 @@ else
   THEME_NAME=$(gum input --placeholder="my-theme" --header="Name the new theme") || exit 1
 fi
 
-# Theme directory names are lowercase kebab-case (tokyo-night, catppuccin)
+# Theme directory names are lowercase kebab-case (puppy, catppuccin)
 THEME_NAME=$(printf '%s' "$THEME_NAME" | tr '[:upper:]' '[:lower:]' | tr ' _' '--' | tr -cd 'a-z0-9-')
 
 if [[ -z $THEME_NAME ]]; then
@@ -81,7 +81,7 @@ touch "$THEME_DIR/backgrounds/.gitkeep"
 # themes in $COLLIE_PATH/themes for the format each file takes.
 cat >"$THEME_DIR/neovim.lua" <<'EOF'
 -- Neovim colorscheme config for this theme (LazyVim spec).
--- Example: return { { "folke/tokyonight.nvim", opts = { style = "night" } } }
+-- Example: return { { "folke/ristretto.nvim", opts = { style = "night" } } }
 return {}
 EOF
 

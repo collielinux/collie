@@ -2,7 +2,7 @@
 
 # collie:summary=Print the directory holding a theme, preferring a user-installed copy
 # collie:args=<theme-name>
-# collie:examples=collie theme dir tokyo-night
+# collie:examples=collie theme dir puppy
 
 theme="${1:-}"
 

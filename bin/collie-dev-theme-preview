@@ -2,7 +2,7 @@
 
 # collie:summary=Preview an Collie theme palette in the terminal
 # collie:args=[theme-name|theme-dir|colors.toml] [--no-color] [--no-osc|--osc]
-# collie:examples=collie dev theme-preview | collie dev theme-preview tokyo-night | collie dev theme-preview themes/gruvbox/colors.toml --no-color --no-osc
+# collie:examples=collie dev theme-preview | collie dev theme-preview puppy | collie dev theme-preview themes/gruvbox/colors.toml --no-color --no-osc
 
 set -o pipefail
 

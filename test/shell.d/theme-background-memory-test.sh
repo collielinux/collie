@@ -22,7 +22,7 @@ current_background_name() {
   basename "$(readlink "$current_state/background")"
 }
 
-theme_a="tokyo-night"
+theme_a="puppy"
 theme_b="catppuccin"
 
 set_theme "$theme_a"
