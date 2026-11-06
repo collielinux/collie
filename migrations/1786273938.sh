@@ -1,7 +1,7 @@
 echo "Install herdr from the Collie package repo and seed its config"
 
-# The package was briefly published as collie-herdr; herdr replaces it
-collie-pkg-drop collie-herdr
+# The package was briefly published as omarchy-herdr; herdr replaces it
+collie-pkg-drop omarchy-herdr
 collie-pkg-add herdr
 
 # An earlier revision of this migration installed herdr through mise. Drop that

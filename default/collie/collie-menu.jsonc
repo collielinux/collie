@@ -313,7 +313,7 @@
   "install.editor.sublime": {"icon":"","label":"Sublime Text","disabled":"collie-pkg-present sublime-text-4","action":"collie-install-and-launch 'Sublime Text' sublime-text-4 sublime_text"},
   "install.editor.helix": {"icon":"","label":"Helix","disabled":"collie-pkg-present helix","action":"collie-launch-floating-terminal-with-presentation collie-install-editor-helix"},
   "install.editor.vim": {"icon":"","label":"Vim","disabled":"collie-pkg-present vim","action":"collie-install-app Vim vim"},
-  "install.editor.emacs": {"icon":"","label":"Emacs","disabled":"collie-pkg-present collie-emacs","action":"collie-launch-floating-terminal-with-presentation collie-install-editor-emacs"},
+  "install.editor.emacs": {"icon":"","label":"Emacs","disabled":"collie-pkg-present omarchy-emacs","action":"collie-launch-floating-terminal-with-presentation collie-install-editor-emacs"},
   "install.terminal.alacritty": {"icon":"","label":"Alacritty","disabled":"collie-pkg-present alacritty","action":"collie-launch-floating-terminal-with-presentation 'collie-install-terminal alacritty'"},
   "install.terminal.foot": {"icon":"","label":"Foot","disabled":"collie-pkg-present foot","action":"collie-launch-floating-terminal-with-presentation 'collie-install-terminal foot'"},
   "install.terminal.ghostty": {"icon":"","label":"Ghostty","disabled":"collie-pkg-present ghostty","action":"collie-launch-floating-terminal-with-presentation 'collie-install-terminal ghostty'"},
