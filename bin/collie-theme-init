@@ -1,0 +1,116 @@
+#!/bin/bash
+
+# collie:summary=Create a new empty theme in ~/.config/collie/themes
+# collie:args=[theme-name]
+# collie:examples=collie theme init nord-aurora
+# collie:examples=collie theme init
+
+set -euo pipefail
+
+THEMES_DIR="$HOME/.config/collie/themes"
+
+if [[ -n ${1:-} ]]; then
+  THEME_NAME="$1"
+else
+  THEME_NAME=$(gum input --placeholder="my-theme" --header="Name the new theme") || exit 1
+fi
+
+# Theme directory names are lowercase kebab-case (tokyo-night, catppuccin)
+THEME_NAME=$(printf '%s' "$THEME_NAME" | tr '[:upper:]' '[:lower:]' | tr ' _' '--' | tr -cd 'a-z0-9-')
+
+if [[ -z $THEME_NAME ]]; then
+  echo "A theme name is required" >&2
+  exit 1
+fi
+
+THEME_DIR="$THEMES_DIR/$THEME_NAME"
+if [[ -e $THEME_DIR ]]; then
+  echo "Theme already exists: $THEME_DIR" >&2
+  exit 1
+fi
+
+mkdir -p "$THEME_DIR/backgrounds"
+
+# colors.toml is the only required file: every palette key the renderer
+# reads, with a neutral starting point to edit from.
+cat >"$THEME_DIR/colors.toml" <<'EOF'
+mode = "dark" # or "light"
+
+accent = "#7aa2f7"
+selection = "#33415c"
+muted = "#565f89"
+
+background = "#1a1b26"
+dark_background = "#16161e"
+darker_background = "#11111a"
+lighter_background = "#24283b"
+
+foreground = "#c0caf5"
+dark_foreground = "#565f89"
+light_foreground = "#a9b1d6"
+bright_foreground = "#c0caf5"
+
+red = "#f7768e"
+yellow = "#e0af68"
+orange = "#ff9e64"
+green = "#9ece6a"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+
+bright_red = "#f7768e"
+bright_yellow = "#e0af68"
+bright_orange = "#ff9e64"
+bright_green = "#9ece6a"
+bright_blue = "#7aa2f7"
+bright_magenta = "#bb9af7"
+bright_cyan = "#7dcfff"
+
+selection_background = "#33415c"
+selection_foreground = "#c0caf5"
+cursor = "#c0caf5"
+
+hyprland_active_border = "#7aa2f7"
+hyprland_inactive_border = "#414868"
+EOF
+
+touch "$THEME_DIR/backgrounds/.gitkeep"
+
+# Optional per-app theme files stock themes can ship; fill in whichever
+# apps you want the theme to style. See docs/theming.md and the stock
+# themes in $COLLIE_PATH/themes for the format each file takes.
+cat >"$THEME_DIR/neovim.lua" <<'EOF'
+-- Neovim colorscheme config for this theme (LazyVim spec).
+-- Example: return { { "folke/tokyonight.nvim", opts = { style = "night" } } }
+return {}
+EOF
+
+cat >"$THEME_DIR/vscode.json" <<'EOF'
+{
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorCustomizations": {}
+}
+EOF
+
+cat >"$THEME_DIR/hyprland.lua" <<'EOF'
+-- Hyprland settings applied on top of the palette for this theme.
+-- Example: return { decoration = { shadow = { enabled = false } } }
+return {}
+EOF
+
+cat >"$THEME_DIR/btop.theme" <<'EOF'
+# btop theme; colors as #rrggbb or theme[index] palette references.
+# theme[main_bg]=""
+# theme[main_fg]=""
+EOF
+
+cat >"$THEME_DIR/icons.theme" <<'EOF'
+Yaru-blue
+EOF
+
+cat >"$THEME_DIR/chromium.theme" <<'EOF'
+{}
+EOF
+
+printf 'Created %s\n\n' "$THEME_DIR"
+printf 'Edit colors.toml and the app files, drop wallpapers into backgrounds/,\nthen apply it with: collie theme set %s\n' "$THEME_NAME"
