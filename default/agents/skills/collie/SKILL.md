@@ -13,7 +13,7 @@ description: >
 
 # Collie Skill
 
-Manage [Collie](https://omarchy.org/) Linux systems - a beautiful, fun, agentic Arch Linux distribution with Hyprland.
+Manage [Collie](https://github.com/embeputer/collie) Linux systems - a beautiful, fun, agentic Arch Linux distribution with Hyprland.
 
 This skill is for end-user customization on installed systems.
 It is not for contributing to Collie source code.
