@@ -104,39 +104,21 @@ assertDeepEqual(
 )
 JS
 
-# A rewrite may briefly leave an incomplete file; lifecycle state must survive it.
-run_node_test <<'JS'
-const fs = require('fs')
-const source = fs.readFileSync(root + '/shell/plugins/agents/Main.qml', 'utf8')
-const state = { localModel: {} }
-const parse = new Function('root', source.match(/function parseLocalModel\([^]*?\n  \}/)[0] + '\nreturn parseLocalModel')(state)
-const running = { models: { 'model-a': { recipe: 'model-a', unit: 'active', endpoint: 'http://127.0.0.1:11435/v1' }, 'model-b': { recipe: 'model-b', unit: 'activating' } }, ram_total_gib: 125.1 }
-parse(JSON.stringify(running))
-assertDeepEqual(state.localModel, running, 'lifecycle state loads without any usage record')
-for (const raw of ['{', 'null', '[]', '{}', '{"models":[]}', '{"models":{"model-a":{"recipe":false,"unit":"active"}}}', '{"models":{"model-a":{"recipe":"model-a","unit":"unknown"}}}']) {
-  parse(raw)
-  assertDeepEqual(state.localModel, running, 'invalid lifecycle state keeps the last good value: ' + raw)
-}
-parse('{"models":{"model-a":{"recipe":"model-a","unit":"failed","result":"exit-code"}}}')
-assertEqual(state.localModel.models['model-a'].result, 'exit-code', 'a server failure replaces the running state')
-parse('{"models":{}}')
-assertDeepEqual(state.localModel.models, {}, 'an empty models map clears the local lines')
-JS
 
 # Hosted and local rows share ordering, including positions saved while hidden.
 run_node_test <<'JS'
 const fs = require('fs')
 const source = fs.readFileSync(root + '/shell/plugins/agents/Main.qml', 'utf8')
 const functions = ['orderedProviders', 'moveProvider'].map(name => source.match(new RegExp('function ' + name + '\\([^]*?\\n  \\}'))[0]).join('\n')
-let providerOrder = ['codex', 'local:a', 'claude', 'hidden']
-let panelProviders = [{providerId: 'claude'}, {providerId: 'codex'}, {providerId: 'local:a'}, {providerId: 'local:b'}]
+let providerOrder = ['codex', 'zeta', 'claude', 'hidden']
+let panelProviders = [{providerId: 'claude'}, {providerId: 'codex'}, {providerId: 'zeta'}, {providerId: 'omega'}]
 let saved = ''
 const orderFile = {setText: text => { saved = text }}
 eval(functions)
 panelProviders = orderedProviders(panelProviders)
-assertDeepEqual(panelProviders.map(p => p.providerId), ['codex', 'local:a', 'claude', 'local:b'], 'saved order interleaves local models and puts new models last')
-moveProvider('local:b', 0)
-assertDeepEqual(JSON.parse(saved), ['local:b', 'codex', 'local:a', 'claude', 'hidden'], 'moving a local model saves the shared order and retains hidden ids')
+assertDeepEqual(panelProviders.map(p => p.providerId), ['codex', 'zeta', 'claude', 'omega'], 'saved order interleaves providers and puts new ones last')
+moveProvider('omega', 0)
+assertDeepEqual(JSON.parse(saved), ['omega', 'codex', 'zeta', 'claude', 'hidden'], 'moving a provider saves the shared order and retains hidden ids')
 JS
 
 # Exercise the panel's drag lifecycle with Elsewhen's real variable-height math.
@@ -148,7 +130,7 @@ const Reorder = {}
 vm.runInNewContext(fs.readFileSync(root + '/shell/plugins/panels/elsewhen/Model.js', 'utf8').replace(/^\.pragma.*$/mg, ''), Reorder)
 const state = {
   dragIndex: 0, dragTarget: 0, dragOffset: 0, dragPressY: 100,
-  rowPitches: [80, 140, 60], providers: [{providerId: 'codex'}, {providerId: 'local:a'}, {providerId: 'claude'}],
+  rowPitches: [80, 140, 60], providers: [{providerId: 'codex'}, {providerId: 'zeta'}, {providerId: 'claude'}],
   dragProviderId: 'codex', dragProviders: [], settling: false
 }
 let writes = []

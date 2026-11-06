@@ -31,32 +31,6 @@ Panel {
   // answers is how much room is left, and where.
   readonly property var providers: dragProviders !== null ? dragProviders : usage.panelProviders
 
-  function localActions(model) {
-    var actions = []
-    if (model.unit === "removing") return actions
-    if (model.unit !== "deactivating") actions.push("toggle")
-    if (model.unit === "active") actions.push("launch")
-    return actions
-  }
-
-  function runLocalAction(model, action) {
-    if (action === "launch") {
-      Util.execArgv(["collie-agent", "--local-model", model.recipe])
-      root.close()
-    } else if (action === "toggle") {
-      var running = model.unit === "active" || model.unit === "activating"
-      // Greyed out means not startable by any route: click, Return or Enter.
-      if (!running && localStartBlocked(model)) return
-      // The panel has no terminal: a start that fails records its reason,
-      // which the model's line shows.
-      Util.execArgv(["collie-agent-local", running ? "stop" : "start", model.recipe])
-    }
-  }
-
-  function localStartBlocked(model) {
-    return !!model && model.unit !== "active" && model.unit !== "activating" && model.fits === false
-  }
-
   // A start or stop runs steadily to 90% at the time the last one took, then
   // keeps creeping toward 98%, so one that runs long reads as slow, not stuck.
   function phaseProgress(elapsed, expected) {
@@ -66,14 +40,6 @@ Panel {
   }
 
   property double loadNowMs: Date.now()
-  readonly property bool localLoading: providers.some(function(p) { return p.localModel && ["activating", "deactivating", "removing"].indexOf(p.localModel.unit) >= 0 })
-  Timer {
-    interval: 250
-    running: root.opened && root.localLoading
-    repeat: true
-    triggeredOnStart: true
-    onTriggered: root.loadNowMs = Date.now()
-  }
 
   property var deleteTarget: null
   function deleteSelected() {
@@ -86,9 +52,7 @@ Panel {
     var target = deleteTarget
     deleteTarget = null
     if (!target) return
-    if (target.localModel) {
-      Util.execArgv(["collie-agent-local", "remove", target.localModel.recipe])
-    } else if (bar && bar.shell) {
+    if (bar && bar.shell) {
       var next = JSON.parse(JSON.stringify(settings || {}))
       if (!next.providers) next.providers = {}
       next.providers[target.providerId] = Object.assign({}, next.providers[target.providerId] || {}, { enabled: false })
@@ -132,8 +96,6 @@ Panel {
       var choices = []
       for (var k = 0; k < addProviders.length; k++) choices.push({ kind: "choice", index: k })
       rows.push(choices)
-    } else if (addStage === "local") {
-      for (var r = 0; r < localAddRecipes.length; r++) rows.push([{ kind: "localAdd", index: r }])
     } else if (addStage === "") {
       // Accounts count in the same order as accountEntries. Only what can be
       // done is a stop: one that isn't active offers Autoswitch beside Use, a
@@ -141,11 +103,6 @@ Panel {
       // fix is skipped.
       var entry = 0
       for (var p = 0; p < providers.length; p++) {
-        if (providers[p].localModel) {
-          var actions = localActions(providers[p].localModel)
-          rows.push(actions.length > 0 ? actions.map(function(action) { return { kind: action === "toggle" ? "modelToggle" : "modelLaunch", index: p } }) : [{ kind: "modelHeader", index: p }])
-          continue
-        }
         // Every agent's line is a stop, so Ctrl+Up/Down can move it: its
         // terminal button when it has a harness of its own, else its mark.
         rows.push([{ kind: lineStop(p), index: p }])
@@ -198,17 +155,11 @@ Panel {
   }
 
   // The first arrow only shows where the cursor is, as in the other panels.
-  // A line's rightmost button, where the cursor lands on it: a local model's
-  // terminal while it runs, else its play; a subscription's terminal; the mark
-  // only for a line with no button.
+  // A line's rightmost button, where the cursor lands on it: the terminal,
+  // the mark only for a line with no button.
   function lineStop(p) {
     var provider = providers[p]
     if (!provider) return "provider"
-    if (provider.localModel) {
-      var actions = localActions(provider.localModel)
-      if (actions.indexOf("launch") >= 0) return "modelLaunch"
-      return actions.indexOf("toggle") >= 0 ? "modelToggle" : "modelHeader"
-    }
     return harnessFor(provider) !== "" ? "providerLaunch" : "provider"
   }
 
@@ -371,7 +322,6 @@ Panel {
     return p && p.accounts && p.accounts.length > 0 ? p.accounts : []
   }
 
-  readonly property bool localBlocked: providers.some(function(p) { return p.localModel && p.localModel.fits === false })
 
   function refreshNow() {
     usage.refreshAll(true)
@@ -385,42 +335,12 @@ Panel {
   // close the panel; the login carries on, and its result arrives as a
   // notification too.
 
-  // Local AI is offered only on a machine some recipe fits.
   readonly property var addProviders: [
     { providerId: "claude", providerName: "Claude Code" },
     { providerId: "codex", providerName: "Codex" },
     { providerId: "grok", providerName: "Grok" }
-  ].concat(localFits ? [{ providerId: "local", providerName: Commons.I18n.t("agents.localAi") }] : [])
+  ]
 
-  // Local AI offers the catalog's recipes that fit this machine and aren't
-  // set up yet, recommended first. Each downloads tens of GB, so setting one
-  // up runs in a terminal that shows its progress.
-  readonly property bool localFits: (usage.localRecipes || []).some(function(recipe) { return recipe && recipe.available })
-  readonly property var localAddRecipes: {
-    var models = usage.localModel && usage.localModel.models ? usage.localModel.models : {}
-    var recipes = (usage.localRecipes || []).filter(function(recipe) {
-      return recipe && recipe.available && !models[recipe.id]
-    })
-    recipes.sort(function(a, b) { return (b.best ? 1 : 0) - (a.best ? 1 : 0) })
-    return recipes
-  }
-
-  function recipeFacts(recipe) {
-    var facts = []
-    if (recipe.architecture === "moe") facts.push(Commons.I18n.t("agents.localMoe"))
-    else if (recipe.architecture === "dense") facts.push(Commons.I18n.t("agents.localDense"))
-    if (recipe.memory_gib != null) facts.push(Commons.I18n.t("agents.localMemoryFact").arg(Commons.I18n.formatNumber(recipe.memory_gib, 0)))
-    if (recipe.context != null) facts.push(Commons.I18n.t("agents.localContextFact").arg(Commons.I18n.formatNumber(Math.round(recipe.context / 1024), 0)))
-    if (recipe.decode_tok_s != null) facts.push(Commons.I18n.t("agents.localSpeedFact").arg(Commons.I18n.formatNumber(Math.round(recipe.decode_tok_s), 0)))
-    return facts.join(" · ")
-  }
-
-  function setUpLocal(recipe) {
-    if (!recipe) return
-    Util.execArgv(["collie-launch-floating-terminal-with-presentation", "collie-agent-local use " + Util.shellQuote(String(recipe.id))])
-    cancelAdd()
-    root.close()
-  }
   property string addStage: ""
   property string addProvider: ""
   property var addChecks: ({})
@@ -447,10 +367,6 @@ Panel {
   }
 
   function chooseAddProvider(id) {
-    if (id === "local") {
-      if (localAddRecipes.length > 0) addStage = "local"
-      return
-    }
     var state = addChecks[id] || ""
     if (state === "") return
     addProvider = id
@@ -573,8 +489,6 @@ Panel {
     if (!target) refreshNow()
     else if (target.kind === "add") addStage !== "" ? cancelAdd() : addAccount()
     else if (target.kind === "choice") chooseAddProvider(addProviders[target.index].providerId)
-    else if (target.kind === "localAdd") setUpLocal(localAddRecipes[target.index])
-    else if (target.kind === "modelToggle" || target.kind === "modelLaunch") runLocalAction(providers[target.index].localModel, target.kind === "modelToggle" ? "toggle" : "launch")
     else if (target.kind === "providerLaunch") launchHarness(providers[target.index])
     else if (target.kind === "starter") startPrompt(starterPrompts[target.index].prompt)
     else if (target.kind === "providerSignin") signInAgain(providers[target.index], null)
@@ -1051,7 +965,7 @@ Panel {
   }
   // Local history counts as set up, so a machine with no subscription still
   // gets its summary rather than the picker.
-  readonly property bool blankSlate: usage.enabledProviders.length === 0 && !anySignedIn && !providers.some(function(p) { return !!p.localModel })
+  readonly property bool blankSlate: usage.enabledProviders.length === 0 && !anySignedIn
   // Choosing a provider: asked for with the +, or simply what the panel is
   // while nothing is set up. It's derived rather than switched into, so
   // records that load a moment after the panel opens take its place.
@@ -1074,14 +988,6 @@ Panel {
   // cursor without any stage change.
   onPickingChanged: {
     resetKeys()
-    if (picking) refreshLocalListing()
-  }
-
-  // A package upgrade may have brought new recipes; the listing Local AI
-  // offers from is rewritten whenever the picker shows, from + or as a blank
-  // slate, including one the panel opens on.
-  function refreshLocalListing() {
-    usage.refreshLocal()
   }
 
   // Picking an agent to add starts on the first one, ready for Enter. The
@@ -1092,7 +998,6 @@ Panel {
     keyColumn = 0
     Qt.callLater(function() {
       if (picking) pointAt("choice", 0)
-      else if (addStage === "local") pointAt("localAdd", 0)
     })
   }
   implicitWidth: button.implicitWidth
@@ -1108,10 +1013,6 @@ Panel {
     nowMs = Date.now()
     if (panelFlick) panelFlick.contentY = 0
     usage.refreshLimits()
-    // "Doesn't fit" was true when a model last started or stopped; memory an
-    // app has since let go of only shows after a fresh look, once per open.
-    if (localBlocked) Util.execArgv(["collie-agent-local", "status", "--write"])
-    if (picking) refreshLocalListing()
     Qt.callLater(function() { if (panel.loadedContent) panel.loadedContent.forceActiveFocus() })
   }
 
@@ -1243,9 +1144,7 @@ Panel {
           handleKey(event)
           event.accepted = true
         }
-        message: !root.deleteTarget ? "" : root.deleteTarget.localModel
-          ? Commons.I18n.t("agents.localRemoveConfirm").arg(root.deleteTarget.localModel.name || root.deleteTarget.localModel.recipe)
-          : Commons.I18n.t("agents.hideProviderConfirm").arg(root.deleteTarget.providerName)
+        message: !root.deleteTarget ? "" : Commons.I18n.t("agents.hideProviderConfirm").arg(root.deleteTarget.providerName)
         foreground: root.foreground
         background: root.surface
         fontFamily: root.fontFamily
@@ -1259,7 +1158,7 @@ Panel {
 
       onMoveRequested: function(dx, dy) {
         // Naming and signing in have their own fields; there the arrows scroll.
-        if (root.addStage === "" || root.addStage === "local" || root.picking) root.moveKey(dx, dy)
+        if (root.addStage === "" || root.picking) root.moveKey(dx, dy)
         else if (dy !== 0)
           panelFlick.contentY = root.clamp(panelFlick.contentY + dy * Style.space(56), 0,
                                            Math.max(0, panelFlick.contentHeight - panelFlick.height))
@@ -1452,11 +1351,7 @@ Panel {
           required property var modelData
           required property int index
           readonly property string state: root.addChecks[modelData.providerId] || ""
-          readonly property bool local: modelData.providerId === "local"
-          readonly property bool available: local ? root.localAddRecipes.length > 0 : state === "first" || state === "additional"
-          // Local AI stays offered once everything that fits is installed,
-          // greyed out and saying so.
-          opacity: local && !available ? 0.4 : 1
+          readonly property bool available: state === "first" || state === "additional"
           readonly property bool hasCursor: root.hasKey("choice", index)
           width: (choiceRow.width - choiceRow.spacing * (root.addProviders.length - 1)) / root.addProviders.length
           implicitHeight: choiceBody.implicitHeight + Style.space(16)
@@ -1495,107 +1390,6 @@ Panel {
             onClicked: root.chooseAddProvider(choice.modelData.providerId)
           }
 
-          PanelToolTip {
-            visible: choice.local && !choice.available && choiceMouse.containsMouse
-            text: Commons.I18n.t("agents.localAllInstalled")
-          }
-        }
-      }
-    }
-
-    // Local AI: the curated recipes that fit this machine, one per row.
-    Column {
-      visible: root.addStage === "local"
-      width: parent.width
-      spacing: Style.space(14)
-
-      Repeater {
-        model: root.addStage === "local" ? root.localAddRecipes : []
-
-        Item {
-          id: recipeRow
-          required property var modelData
-          required property int index
-          readonly property bool hasCursor: root.hasKey("localAdd", index)
-          width: parent.width
-          implicitHeight: Math.max(recipeMark.height, recipeBody.implicitHeight)
-          onHasCursorChanged: if (hasCursor) root.revealItem(recipeRow)
-
-          // The mark sits beside the name and details together, centred on
-          // both, and only it is lit, as on an agent's line.
-          CursorSurface {
-            anchors.fill: recipeMark
-            anchors.margins: -Style.space(5)
-            z: -1
-            hasCursor: recipeRow.hasCursor
-            foreground: root.foreground
-          }
-
-          ProviderIcon {
-            id: recipeMark
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            // As tall as the name and details, so the lit box frames both.
-            size: Math.max(Style.font.heading, recipeBody.implicitHeight - Style.space(10))
-            provider: ({ providerId: String(recipeRow.modelData.vendor || "local") })
-          }
-
-          Column {
-            id: recipeBody
-            anchors.left: recipeMark.right
-            anchors.leftMargin: Style.space(10)
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            spacing: Style.space(4)
-
-            Item {
-              width: parent.width
-              implicitHeight: recipeName.implicitHeight
-
-              Text {
-                id: recipeName
-                anchors.left: parent.left
-                textFormat: Text.PlainText
-                text: String(recipeRow.modelData.name || recipeRow.modelData.id)
-                color: recipeRow.hasCursor ? Commons.Color.accent : root.foreground
-                font.family: root.fontFamily
-                font.pixelSize: Style.font.body
-                font.bold: true
-              }
-
-              Text {
-                anchors.left: recipeName.right
-                anchors.leftMargin: Style.space(8)
-                anchors.baseline: recipeName.baseline
-                visible: recipeRow.modelData.best === true
-                textFormat: Text.PlainText
-                text: Commons.I18n.t("agents.localRecommended")
-                color: root.dim
-                font.family: root.fontFamily
-                font.pixelSize: Style.font.caption
-              }
-            }
-
-            // Measured on this machine class, so the speed holds here; a
-            // fact the catalog doesn't have is left out.
-            Text {
-              width: parent.width
-              textFormat: Text.PlainText
-              text: root.recipeFacts(recipeRow.modelData)
-              color: root.dim
-              font.family: root.fontFamily
-              font.pixelSize: Style.font.caption
-              wrapMode: Text.WordWrap
-            }
-          }
-
-          MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            cursorShape: Qt.PointingHandCursor
-            onEntered: root.pointAt("localAdd", recipeRow.index)
-            onClicked: root.setUpLocal(recipeRow.modelData)
-          }
         }
       }
     }
@@ -1723,30 +1517,6 @@ Panel {
     id: section
     property var provider: null
     property int providerIndex: -1
-    readonly property var model: provider ? (provider.localModel || null) : null
-    readonly property bool loading: !!model && model.unit === "activating"
-    readonly property bool running: !!model && model.unit === "active"
-    readonly property bool stopping: !!model && model.unit === "deactivating"
-    // Removing stops it first, then deletes its weights; one bar covers both.
-    readonly property bool removing: !!model && model.unit === "removing"
-    // When a start or stop ends, its bar fills to the end before the row
-    // changes over to memory (or goes), rather than vanishing near 90%.
-    property string finishing: ""
-    readonly property bool loadingShown: loading || finishing === "loading"
-    readonly property bool stoppingShown: stopping || finishing === "stopping"
-    onLoadingChanged: if (!loading && running) { finishing = "loading"; finishTimer.restart() }
-    onStoppingChanged: if (!stopping && !loading) { finishing = "stopping"; finishTimer.restart() }
-    Timer {
-      id: finishTimer
-      interval: Style.duration(450)
-      onTriggered: section.finishing = ""
-    }
-    readonly property real loadSeconds: model && Number(model.expected_load_seconds) > 0 ? Number(model.expected_load_seconds) : 60
-    readonly property real stopSeconds: model && Number(model.expected_stop_seconds) > 0 ? Number(model.expected_stop_seconds) : 10
-    readonly property real removeSeconds: model && Number(model.expected_remove_seconds) > 0 ? Number(model.expected_remove_seconds) : 10
-    readonly property real phaseSeconds: removing ? removeSeconds : stopping ? stopSeconds : loadSeconds
-    readonly property real elapsed: model ? Math.max(0, (root.loadNowMs - Number(model.since_ms || root.loadNowMs)) / 1000) : 0
-    readonly property real memory: model && model.observed ? Number(model.observed.ram_used_gib || 0) : 0
     readonly property var accounts: root.providerAccounts(provider)
     readonly property bool multi: accounts.length > 1
     readonly property var windows: root.displayWindows(provider)
@@ -1775,7 +1545,7 @@ Panel {
       width: parent.width
       implicitHeight: Math.max(sectionMark.height, sectionName.implicitHeight)
       // Lit for the keyboard, and as the drop spot while an agent is dragged.
-      readonly property bool lit: root.dragProviderId !== "" ? root.dragTarget === section.providerIndex : (root.hasKey("provider", section.providerIndex) || root.hasKey("modelHeader", section.providerIndex))
+      readonly property bool lit: root.dragProviderId !== "" ? root.dragTarget === section.providerIndex : (root.hasKey("provider", section.providerIndex))
       onLitChanged: if (lit && root.dragProviderId === "") root.revealItem(sectionHead)
 
       // Only the mark is lit: it's the handle the agent moves by.
@@ -1791,7 +1561,7 @@ Panel {
         id: sectionMark
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
-        provider: section.model ? ({ providerId: section.model.vendor || "ollama" }) : section.provider
+        provider: section.provider
 
         // The mark is the handle for dragging the agent up or down the page.
         MouseArea {
@@ -1817,14 +1587,9 @@ Panel {
         anchors.leftMargin: Style.space(10)
         anchors.verticalCenter: parent.verticalCenter
         textFormat: Text.PlainText
-        width: section.model ? Math.max(0, Math.min(implicitWidth, sectionHead.width - sectionMark.width - sectionPlan.implicitWidth - (localToggle.visible ? localToggle.width : 0) - (sectionLaunch.visible ? sectionLaunch.width : 0) - Style.space(40))) : implicitWidth
+        width: Math.max(0, Math.min(implicitWidth, sectionHead.width - sectionMark.width - sectionPlan.implicitWidth - (sectionLaunch.visible ? sectionLaunch.width : 0) - Style.space(40)))
         elide: Text.ElideRight
-        text: section.model ? (section.model.name || section.model.recipe) : section.provider ? section.provider.providerName : ""
-        HoverHandler { id: localNameHover }
-        PanelToolTip {
-          visible: !!section.model && localNameHover.hovered
-          text: section.model ? Commons.I18n.t("agents.localEndpoint").arg(section.model.endpoint || "").arg(section.model.recipe) : ""
-        }
+        text: section.provider ? section.provider.providerName : ""
         color: root.foreground
         font.family: root.fontFamily
         font.pixelSize: Style.font.body
@@ -1839,7 +1604,7 @@ Panel {
         anchors.baseline: sectionName.baseline
         visible: !section.multi && text !== ""
         textFormat: Text.PlainText
-        text: section.model ? "" : root.planLabel(section.provider)
+        text: root.planLabel(section.provider)
         color: root.dim
         font.family: root.fontFamily
         font.pixelSize: Style.font.caption
@@ -1853,99 +1618,20 @@ Panel {
         record: section.provider
       }
 
-      PanelActionButton {
-        id: localToggle
-        anchors.right: sectionLaunch.visible ? sectionLaunch.left : parent.right
-        anchors.rightMargin: sectionLaunch.visible ? Style.space(4) : 0
-        anchors.verticalCenter: parent.verticalCenter
-        visible: !!section.model && !section.stopping && !section.removing
-        // Greyed out, not disabled, so the reason still shows on hover.
-        readonly property bool blocked: root.localStartBlocked(section.model)
-        iconText: section.running || section.loading ? "󰏤" : "󰐊"
-        tooltipText: blocked ? Commons.I18n.t("agents.localNotEnoughMemory")
-          : section.running || section.loading ? Commons.I18n.t("agents.localStop") : Commons.I18n.t("agents.localStart")
-        foreground: blocked ? root.dim : root.foreground
-        opacity: blocked ? 0.5 : 1
-        fontFamily: root.fontFamily
-        hasCursor: root.hasKey("modelToggle", section.providerIndex)
-        onClicked: root.runLocalAction(section.model, "toggle")
-
-        // The button's own tooltip follows the pointer; the keyboard cursor
-        // landing on a greyed-out play says why too.
-        PanelToolTip {
-          visible: localToggle.blocked && localToggle.hasCursor
-          text: Commons.I18n.t("agents.localNotEnoughMemory")
-          fontFamily: root.fontFamily
-        }
-      }
-
       // Opens the coding agent made for this subscription: Codex for OpenAI,
       // Claude Code for Anthropic.
       PanelActionButton {
         id: sectionLaunch
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        visible: section.model ? section.running : root.harnessFor(section.provider) !== ""
+        visible: root.harnessFor(section.provider) !== ""
         iconText: "󰞷"
-        tooltipText: section.model ? Commons.I18n.t("agents.localLaunch") : Commons.I18n.t("agents.launchHarness").arg(section.provider ? section.provider.providerName : "")
+        tooltipText: Commons.I18n.t("agents.launchHarness").arg(section.provider ? section.provider.providerName : "")
         foreground: root.foreground
         fontFamily: root.fontFamily
-        hasCursor: root.hasKey(section.model ? "modelLaunch" : "providerLaunch", section.providerIndex)
-        onClicked: section.model ? root.runLocalAction(section.model, "launch") : root.launchHarness(section.provider)
+        hasCursor: root.hasKey("providerLaunch", section.providerIndex)
+        onClicked: root.launchHarness(section.provider)
       }
-    }
-
-    // Under a local model: memory while it runs, progress while it loads or
-    // stops (against how long that took last time), or why it couldn't start.
-    Item {
-      visible: section.running || section.loadingShown || section.stoppingShown || section.removing
-      width: parent.width
-      implicitHeight: Math.max(localMeterTitle.implicitHeight, localMeterValue.implicitHeight)
-
-      Text {
-        id: localMeterTitle
-        width: parent.width * 0.3
-        anchors.verticalCenter: parent.verticalCenter
-        textFormat: Text.PlainText
-        text: section.removing ? Commons.I18n.t("agents.localRemovingMeter")
-          : section.loadingShown ? Commons.I18n.t("agents.localLoadingMeter")
-          : section.stoppingShown ? Commons.I18n.t("agents.localStoppingMeter")
-          : Commons.I18n.t("agents.localMemory")
-        color: root.foreground
-        font.family: root.fontFamily
-        font.pixelSize: Style.font.bodySmall
-      }
-      Meter {
-        anchors.left: localMeterTitle.right
-        anchors.right: localMeterValue.left
-        anchors.rightMargin: Style.space(20)
-        anchors.verticalCenter: parent.verticalCenter
-        value: section.finishing !== "" ? 1 : section.loading || section.stopping || section.removing ? root.phaseProgress(section.elapsed, section.phaseSeconds)
-          : Number(usage.localModel.ram_total_gib) > 0 ? section.memory / Number(usage.localModel.ram_total_gib) : 0
-      }
-      Text {
-        id: localMeterValue
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        textFormat: Text.PlainText
-        horizontalAlignment: Text.AlignRight
-        text: section.loadingShown || section.stoppingShown || section.removing ? ""
-          : Commons.I18n.t("agents.localMemoryValue").arg(Commons.I18n.formatNumber(Math.round(section.memory)))
-        color: root.dim
-        font.family: root.fontFamily
-        font.pixelSize: Style.font.bodySmall
-      }
-    }
-
-    Text {
-      visible: !!section.model && !section.running && !section.loadingShown && !section.stoppingShown && !section.removing && String(section.model.error || "") !== ""
-      width: parent.width
-      textFormat: Text.PlainText
-      text: section.model ? String(section.model.error || "") : ""
-      color: root.urgent
-      font.family: root.fontFamily
-      font.pixelSize: Style.font.bodySmall
-      wrapMode: Text.Wrap
     }
 
     // A sign-in to redo for a single-account provider; with several, each

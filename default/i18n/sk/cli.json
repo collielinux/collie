@@ -21,8 +21,6 @@
   "agents.homeFailed": "Nepodarilo sa nastaviť domovský adresár pre nový účet.",
   "agents.installCliFailed": "Inštalácia CLI %1 sa nedokončila.",
   "agents.installingCli": "Inštaluje sa CLI %1…",
-  "agents.localUnsupported": "Žiadny agent nemôže používať lokálny model",
-  "agents.localUnsupportedBody": "Na používanie lokálneho modelu nainštalujte pi alebo OpenCode.",
   "agents.loginUnfinished": "Prihlásenie sa nedokončilo, takže nebol pridaný žiadny účet.",
   "agents.newSessionsUse": "Nové relácie %1 teraz používajú %2",
   "agents.noAccountNamed": "Účet %1 s názvom %2 neexistuje.",

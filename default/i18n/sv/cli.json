@@ -20,8 +20,6 @@
   "agents.homeFailed": "Kunde inte skapa en hemkatalog för det nya kontot.",
   "agents.installCliFailed": "Installationen av %1 CLI slutfördes inte.",
   "agents.installingCli": "Installerar %1 CLI…",
-  "agents.localUnsupported": "Ingen agent kan använda den lokala modellen",
-  "agents.localUnsupportedBody": "Installera pi eller OpenCode för att använda den lokala modellen.",
   "agents.loginUnfinished": "Inloggningen slutfördes inte, så inget konto lades till.",
   "agents.newSessionsUse": "Nya %1-sessioner använder nu %2",
   "agents.noAccountNamed": "Inget %1-konto med namnet %2.",

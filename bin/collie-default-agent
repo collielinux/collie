@@ -183,7 +183,7 @@ fi
 # agent then takes its place in the console as the tiled window the console is
 # shaped around, rather than running inline in a floating terminal over it.
 if [[ $installing == "true" && ${installer#* } == "special:qconsole" ]]; then
-  hyprctl dispatch 'hl.dsp.exec_cmd("collie-agent --prefer-local", { workspace = "special:qconsole silent" })' >/dev/null
+  hyprctl dispatch 'hl.dsp.exec_cmd("collie-agent", { workspace = "special:qconsole silent" })' >/dev/null
   hyprctl dispatch "hl.dsp.window.close({ window = \"address:${installer%% *}\" })" >/dev/null
 elif [[ $installing == "true" ]]; then
   printf '\033[2J\033[3J\033[H'

@@ -19,8 +19,6 @@
   "agents.homeFailed": "Không thể thiết lập home cho tài khoản mới.",
   "agents.installCliFailed": "Cài đặt %1 CLI chưa hoàn tất.",
   "agents.installingCli": "Đang cài %1 CLI…",
-  "agents.localUnsupported": "Không agent nào dùng được mô hình cục bộ",
-  "agents.localUnsupportedBody": "Cài pi hoặc OpenCode để dùng mô hình cục bộ.",
   "agents.loginUnfinished": "Đăng nhập chưa hoàn tất nên chưa thêm tài khoản nào.",
   "agents.newSessionsUse": "Phiên %1 mới giờ dùng %2",
   "agents.noAccountNamed": "Không có tài khoản %1 nào tên %2.",

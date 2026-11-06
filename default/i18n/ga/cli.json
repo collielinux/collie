@@ -23,8 +23,6 @@
   "agents.homeFailed": "Níorbh fhéidir baile a shocrú don chuntas nua.",
   "agents.installCliFailed": "Níor chríochnaigh suiteáil CLI %1.",
   "agents.installingCli": "Ag suiteáil CLI %1…",
-  "agents.localUnsupported": "Ní féidir le haon ghníomhaire an tsamhail áitiúil a úsáid",
-  "agents.localUnsupportedBody": "Suiteáil pi nó OpenCode chun an tsamhail áitiúil a úsáid.",
   "agents.loginUnfinished": "Níor chríochnaigh an logáil isteach, mar sin níor cuireadh aon chuntas leis.",
   "agents.newSessionsUse": "Úsáideann seisiúin nua %1 %2 anois",
   "agents.noAccountNamed": "Níl cuntas %1 darb ainm %2 ann.",

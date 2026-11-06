@@ -20,8 +20,6 @@
   "agents.homeFailed": "নতুন অ্যাকাউন্টের জন্য হোম তৈরি করা যায়নি।",
   "agents.installCliFailed": "%1 CLI ইনস্টল করা শেষ হয়নি।",
   "agents.installingCli": "%1 CLI ইনস্টল করা হচ্ছে…",
-  "agents.localUnsupported": "কোনো এজেন্ট লোকাল মডেল ব্যবহার করতে পারে না",
-  "agents.localUnsupportedBody": "লোকাল মডেল ব্যবহার করতে pi বা OpenCode ইনস্টল করুন।",
   "agents.loginUnfinished": "লগইন শেষ হয়নি, তাই কোনো অ্যাকাউন্ট যোগ করা হয়নি।",
   "agents.newSessionsUse": "নতুন %1 সেশনে এখন %2 ব্যবহার হবে",
   "agents.noAccountNamed": "%2 নামে কোনো %1 অ্যাকাউন্ট নেই।",

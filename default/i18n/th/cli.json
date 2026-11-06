@@ -19,8 +19,6 @@
   "agents.homeFailed": "ตั้งค่าโฮมสำหรับบัญชีใหม่ไม่สำเร็จ",
   "agents.installCliFailed": "ติดตั้ง CLI ของ %1 ไม่เสร็จสิ้น",
   "agents.installingCli": "กำลังติดตั้ง %1 CLI…",
-  "agents.localUnsupported": "ไม่มีเอเจนต์ใดใช้โมเดลในเครื่องได้",
-  "agents.localUnsupportedBody": "ติดตั้ง pi หรือ OpenCode เพื่อใช้โมเดลในเครื่อง",
   "agents.loginUnfinished": "การเข้าสู่ระบบไม่เสร็จสิ้น จึงไม่ได้เพิ่มบัญชี",
   "agents.newSessionsUse": "เซสชัน %1 ใหม่ใช้ %2 แล้ว",
   "agents.noAccountNamed": "ไม่มีบัญชี %1 ชื่อ %2",

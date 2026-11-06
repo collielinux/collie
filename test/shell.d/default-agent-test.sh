@@ -296,21 +296,6 @@ grep -Fq "Choose default agent with" "$test_tmp/no-agent-output" ||
 [[ ! -s $launch_log ]] || fail "agent launcher starts nothing without a default"
 pass "agent launcher refuses to launch without a default"
 
-# The agents panel launches a running local model whether or not a default was
-# chosen; it opens in an agent with an overlay all the same.
-cat >"$mock_bin/collie-agent-local" <<'SH'
-#!/bin/bash
-[[ $1 == "overlay" ]] && printf '%s\n' "/overlays/$2-local.config" collie-local test-model
-SH
-chmod +x "$mock_bin/collie-agent-local"
-: >"$launch_log"
-collie-agent --local-model test-model >"$test_tmp/local-output" 2>&1 ||
-  fail "agent launcher opens a local model without a default: $(<"$test_tmp/local-output")"
-mapfile -d '' -t launch_args <"$launch_log"
-[[ ${launch_args[*]} == *"/overlays/"*"-local.config"* ]] ||
-  fail "agent launcher points the local model's agent at its overlay: ${launch_args[*]}"
-rm "$mock_bin/collie-agent-local"
-pass "agent launcher opens a local model without a default"
 
 # The keybinding uses --pick, where an error on stderr nobody sees would make
 # the keypress look broken. It offers the choice instead.
@@ -491,7 +476,7 @@ chmod +x "$mock_bin/hyprctl"
 : >"$agent_open_log"
 collie-default-agent --install github-copilot >/dev/null
 [[ ! -s $agent_open_log ]] || fail "an install from the Quake console leaves its floating terminal"
-grep -qF 'hl.dsp.exec_cmd("collie-agent --prefer-local", { workspace = "special:qconsole silent" })' "$test_tmp/dispatch" ||
+grep -qF 'hl.dsp.exec_cmd("collie-agent", { workspace = "special:qconsole silent" })' "$test_tmp/dispatch" ||
   fail "an install from the Quake console opens the agent tiled in the console"
 grep -qF 'window = "address:0xc0ffee"' "$test_tmp/dispatch" ||
   fail "an install from the Quake console closes its floating terminal"
@@ -882,53 +867,6 @@ mapfile -d '' -t launch_args <"$launch_log"
   fail "--pick launches once an agent is chosen"
 [[ ! -s $menu_log ]] || fail "--pick opens no menu once an agent is chosen"
 pass "--pick launches once an agent is chosen"
-
-# The Quake console seeds with --prefer-local: the local model when one is
-# running, the usual agent otherwise. The mock reports whatever status the test
-# writes to COLLIE_TEST_LOCAL_STATUS, and no status at all when it is unset.
-cat >"$mock_bin/collie-agent-local" <<'SH'
-#!/bin/bash
-case $1 in
-status) [[ -n ${COLLIE_TEST_LOCAL_STATUS:-} ]] && printf '%s\n' "$COLLIE_TEST_LOCAL_STATUS" || exit 1 ;;
-overlay) printf '%s\n' "/overlays/$2-${3:-last}.config" collie-local "${3:-last}" ;;
-esac
-SH
-chmod +x "$mock_bin/collie-agent-local"
-prefer_local_launch() {
-  : >"$launch_log"
-  COLLIE_TEST_LOCAL_STATUS=$1 collie-agent --pick --prefer-local
-  mapfile -d '' -t launch_args <"$launch_log"
-}
-
-prefer_local_launch '{"last":"big","models":{"big":{"unit":"active","sub_state":"running"}}}'
-[[ ${launch_args[*]} == *"OPENCODE_CONFIG=/overlays/opencode-big.config"*"opencode --auto --standalone" ]] ||
-  fail "--prefer-local opens the running local model: ${launch_args[*]}"
-
-prefer_local_launch '{"last":"big","models":{"big":{"unit":"inactive","sub_state":"dead"},"small":{"unit":"active","sub_state":"running"}}}'
-[[ ${launch_args[*]} == *"/overlays/opencode-small.config"* ]] ||
-  fail "--prefer-local opens whichever model is running when the last one is stopped: ${launch_args[*]}"
-
-prefer_local_launch '{"last":"big","models":{"big":{"unit":"activating","sub_state":"start"}}}'
-[[ ${launch_args[*]} == "--app-id=org.collie.agent opencode --auto" ]] ||
-  fail "--prefer-local opens the usual agent while the model is still loading: ${launch_args[*]}"
-
-prefer_local_launch ''
-[[ ${launch_args[*]} == "--app-id=org.collie.agent opencode --auto" ]] ||
-  fail "--prefer-local opens the usual agent without a local model: ${launch_args[*]}"
-
-# A default that can't take the overlay, with no pi or OpenCode to stand in,
-# still opens rather than failing as --local would.
-printf '%s\n' "codex" >"$agent_file"
-: >"$notification_history"
-printf '#!/bin/bash\nexit 1\n' >"$mock_bin/collie-cmd-present"
-chmod +x "$mock_bin/collie-cmd-present"
-prefer_local_launch '{"last":"big","models":{"big":{"unit":"active","sub_state":"running"}}}'
-[[ ${launch_args[*]} == *"codex --approve-for-me" && ${launch_args[*]} != *overlays* ]] ||
-  fail "--prefer-local falls back to a default that can't take the overlay: ${launch_args[*]}"
-[[ ! -s $notification_history ]] || fail "--prefer-local falling back raises no notification"
-printf '%s\n' "opencode" >"$agent_file"
-rm "$mock_bin/collie-agent-local" "$mock_bin/collie-cmd-present"
-pass "--prefer-local opens the running local model, and the usual agent otherwise"
 
 : >"$launch_log"
 collie agent prompt "Review this project"
