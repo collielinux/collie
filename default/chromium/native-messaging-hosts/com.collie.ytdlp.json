@@ -1,9 +1,0 @@
-{
-  "name": "com.collie.ytdlp",
-  "description": "Collie yt-dlp download host",
-  "path": "__HOST_PATH__",
-  "type": "stdio",
-  "allowed_origins": [
-    "chrome-extension://dedjgknigfeelejglamclffonmophnfl/"
-  ]
-}

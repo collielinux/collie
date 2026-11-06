@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# collie:summary=Launch or attach to the persistent herdr session in a terminal
-
-exec collie-launch-terminal herdr

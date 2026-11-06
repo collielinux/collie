@@ -126,7 +126,6 @@ for installer in \
 done
 for setup_command in \
   collie-install-chromium-copy-url \
-  collie-install-chromium-ytdlp \
   collie-theme-set-browser; do
   ln -s collie-test-setup-call "$mock_bin/$setup_command"
 done
@@ -230,8 +229,6 @@ if grep -E 'groupadd|usermod|collie-browser-policy' "$setup_log" >/dev/null; the
 fi
 grep -Fxq 'collie-install-chromium-copy-url:' "$setup_log" ||
   fail "Chromium browser installer registers the Copy URL host"
-grep -Fxq 'collie-install-chromium-ytdlp:' "$setup_log" ||
-  fail "Chromium browser installer registers the yt-dlp host"
 grep -Fxq 'collie-theme-set-browser:' "$setup_log" ||
   fail "Chromium browser installer applies the current theme"
 pass "Chromium browser installer restores the complete Collie setup"

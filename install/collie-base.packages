@@ -44,7 +44,7 @@ fd
 ffmpeg
 ffmpegthumbnailer
 fontconfig
-foot
+ghostty
 fzf
 git
 gliff
@@ -56,7 +56,6 @@ gum
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
-herdr
 hype
 hyprland
 hyprland-guiutils
@@ -99,7 +98,7 @@ colliewrite
 collie-nvim
 omarchy-hyprland-titlebars
 # Local model recipes and their engine; Podman comes when a model is set up.
-omarchy-local-ai
+collie-local-ai
 # Stock power-profiles-daemon has no cppc_cpufreq driver, so profiles do nothing
 # on ARM laptops. Back to stock once upstream merges MR !236 and !239.
 omarchy-power-profiles-daemon
@@ -140,7 +139,6 @@ tesseract-data-eng
 tldr
 tree-sitter-cli
 tmux
-tobi-try
 ttf-ia-writer
 ttf-jetbrains-mono-nerd-basic
 tzupdate
@@ -163,6 +161,5 @@ xdg-terminal-exec
 xorg-xsetroot
 yaru-icon-theme
 yay
-yt-dlp
 zbar
 zoxide

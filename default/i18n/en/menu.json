@@ -74,9 +74,6 @@
   "learn.tmux-keybindings": {
     "label": "Tmux"
   },
-  "learn.herdr-keybindings": {
-    "label": "Herdr"
-  },
   "learn.community": {
     "label": "Community"
   },
@@ -582,9 +579,6 @@
   "setup.default.dictation.superwhisper": {
     "label": "Superwhisper"
   },
-  "setup.default.dictation.voxtype": {
-    "label": "Voxtype"
-  },
   "setup.default.terminal": {
     "label": "Terminal",
     "title": "Default Terminal"
@@ -842,9 +836,6 @@
   "install.ai.grok-bot": {
     "label": "Grok Bot"
   },
-  "install.ai.herdr": {
-    "label": "Herdr Desktop"
-  },
   "install.ai.hermes": {
     "label": "Hermes Desktop"
   },
@@ -1054,9 +1045,6 @@
   },
   "remove.dictation.superwhisper": {
     "label": "Superwhisper"
-  },
-  "remove.dictation.voxtype": {
-    "label": "Voxtype"
   },
   "remove.ai.grok-bot": {
     "label": "Grok Bot"

@@ -24,7 +24,6 @@ extension_id() {
 declare -A shipped_id=(
   [copy-url]=bgpiichlckmfanooecilcjemknkcpngb
   [whatsapp-slim]=amhpgjbcfakkmkeojmoaoiochhifohdi
-  [yt-dlp]=dedjgknigfeelejglamclffonmophnfl
 )
 declare -A extension_manifest
 for manifest in "$ROOT"/default/chromium/extensions/*/manifest.json; do

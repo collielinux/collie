@@ -1,8 +1,0 @@
-#!/bin/bash
-
-# collie:summary=Open Voxtype configuration
-
-set -e
-
-collie-launch-floating-terminal-with-presentation "voxtype configure"
-collie-restart-shell

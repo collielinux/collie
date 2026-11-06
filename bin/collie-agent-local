@@ -4,7 +4,7 @@
 # collie:args=<use|list|status|start|stop|remove> [args]
 # collie:examples=collie agent local use best | collie agent local use qwen3.8-27b-gufo | collie agent local stop | collie-agent-local use --help
 
-# The engine and its recipes come in omarchy-local-ai, on every machine so the
+# The engine and its recipes come in collie-local-ai, on every machine so the
 # agents panel knows which models fit. Podman, which runs them, only comes when
 # a model is first set up, from the terminal that setup runs in. An NVIDIA GPU
 # reaches the containers through the CDI spec nvidia-container-toolkit writes
@@ -17,4 +17,4 @@ if [[ ${1:-} == "use" ]]; then
   collie-pkg-add "${packages[@]}" || exit 1
 fi
 
-exec omarchy-local-ai "$@"
+exec collie-local-ai "$@"

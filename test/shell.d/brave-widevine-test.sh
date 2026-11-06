@@ -20,7 +20,7 @@ mkdir -p "$stub_bin" "$test_tmp/home" "$collie_path/install/helpers" "$collie_pa
 printf 'browser_policy_setup_dir() { :; }\nas_root() { sudo "$@"; }\n' >"$collie_path/install/helpers/browser-policy.sh"
 cp "$ROOT/config/chromium-flags.conf" "$collie_path/config/"
 
-for command in collie-pkg-add collie-pkg-aur-add collie-install-chromium-copy-url collie-install-chromium-ytdlp collie-theme-set-browser collie-lifecycle-dispatch; do
+for command in collie-pkg-add collie-pkg-aur-add collie-install-chromium-copy-url collie-theme-set-browser collie-lifecycle-dispatch; do
   printf '#!/bin/bash\nexit 0\n' >"$stub_bin/$command"
 done
 cat >"$stub_bin/sudo" <<'SH'

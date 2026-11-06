@@ -40,7 +40,7 @@ cp "$ROOT/config/chromium-flags.conf" "$collie_path/config/"
 for command in collie-pkg-add collie-pkg-aur-add collie-pkg-drop collie-install-gaming-gpu-lib32; do
   printf '#!/bin/bash\nprintf "%%s %%s\\n" "%s" "$*" >>"%s"\n' "$command" "$tmp/calls" >"$stub_bin/$command"
 done
-for command in collie-install-chromium-copy-url collie-install-chromium-ytdlp collie-theme-set-browser setsid; do
+for command in collie-install-chromium-copy-url collie-theme-set-browser setsid; do
   printf '#!/bin/bash\nexit 0\n' >"$stub_bin/$command"
 done
 chmod +x "$stub_bin"/*

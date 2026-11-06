@@ -18,10 +18,6 @@ hl.on("hyprland.start", function()
   hl.exec_cmd(o.launch("collie-hyprland-monitor-watch"))
   hl.exec_cmd(o.launch("udiskie --automount --no-notify --no-tray"))
 
-  -- Start the herdr server inside the graphical session so its panes inherit
-  -- WAYLAND_DISPLAY. Otherwise the first SSH login from a remote herdr starts
-  -- it with a tty environment, and agents in its panes can't read the clipboard.
-  hl.exec_cmd(o.launch("herdr server"))
 
   -- Run post-boot hooks after startup config has loaded.
   hl.exec_cmd("sleep 2 && collie-hook post-boot")

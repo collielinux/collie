@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# collie:summary=Overwrite the user herdr config with the Collie default and reload herdr.
-
-collie-refresh-config herdr/config.toml
-collie-restart-herdr

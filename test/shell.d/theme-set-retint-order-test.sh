@@ -70,7 +70,7 @@ chmod +x "$commands/retint" "$commands/noop"
 for command in "$ROOT"/bin/collie-restart-* "$ROOT"/bin/collie-theme-set-* collie-hook collie-theme-bg-cache; do
   ln -sf retint "$commands/${command##*/}"
 done
-for command in collie-theme-set-templates collie-theme-set-herdr-machines; do
+for command in collie-theme-set-templates; do
   ln -sf noop "$commands/$command"
 done
 cat >"$commands/collie-notification-send" <<'STUB'

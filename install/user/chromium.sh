@@ -3,4 +3,3 @@
 # applied. Without this, the bundled extensions load but have no native
 # messaging host to talk to.
 collie-install-chromium-copy-url
-collie-install-chromium-ytdlp

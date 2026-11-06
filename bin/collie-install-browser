@@ -34,7 +34,6 @@ copy_chromium_flags() {
   mkdir -p ~/.config
   cp -f "$COLLIE_PATH/config/chromium-flags.conf" "$1"
   collie-install-chromium-copy-url
-  collie-install-chromium-ytdlp
   collie-install-video-decode
 }
 

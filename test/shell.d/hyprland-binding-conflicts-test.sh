@@ -149,11 +149,11 @@ stub_bin="$tmpdir/bin"
 mkdir -p "$home" "$stub_bin"
 cat > "$stub_bin/collie-default-dictation" <<'SH'
 #!/bin/bash
-echo voxtype
+echo superwhisper
 SH
 # The dictation keys are bound only once the selected backend is installed.
-printf '#!/bin/bash\nexit 0\n' > "$stub_bin/voxtype"
-chmod +x "$stub_bin/collie-default-dictation" "$stub_bin/voxtype"
+printf '#!/bin/bash\nexit 0\n' > "$stub_bin/superwhisper"
+chmod +x "$stub_bin/collie-default-dictation" "$stub_bin/superwhisper"
 
 bindings=$(PATH="$stub_bin:$PATH" list_bindings "$home")
 [[ -n $bindings ]] || fail "default bindings load for the conflict check"
@@ -209,7 +209,7 @@ rebound=$(PATH="$stub_bin:$PATH" list_bindings "$home" \
 pass "rebinding replaces the default file manager without stacking actions"
 
 rebound=$(PATH="$stub_bin:$PATH" list_bindings "$home" \
-  'o.rebind("ALT + SPACE", "Dictation on release", "voxtype record toggle", { release = true })' | \
+  'o.rebind("ALT + SPACE", "Dictation on release", "collie dictation toggle", { release = true })' | \
   awk -F'\t' '$2 == "ALT + SPACE"')
 [[ $rebound == $'ALT+SPACE (release)\tALT + SPACE\tDictation on release' ]] ||
   fail "rebinding replaces all bindings for a key and preserves binding options" "$rebound"

@@ -69,7 +69,7 @@ for tool in awk base64 basename cat chmod cksum cmp cp cut date dirname env find
 done
 
 for name in hyprctl collie-shell pkill killall collie-theme-set-browser-policy \
-  collie-theme-set-herdr-machines collie-theme-bg-cache collie-hook; do
+  collie-theme-bg-cache collie-hook; do
   stub "$name"
 done
 # Never escalate: the browser policy hook would rewrite the system's policy.

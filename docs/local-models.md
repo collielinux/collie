@@ -1,17 +1,17 @@
 # Local models
 
-Local models run open models on the machine for the coding agents. The work happens in the `omarchy-local-ai` package, built from [omacom/omarchy-local-ai](https://github.com/omacom/omarchy-local-ai): its engine, the curated recipe catalog it reads from its own install directory, and their reference (`docs/engine.md` there, `/usr/share/doc/omarchy-local-ai/` once installed). It is a base package, so the panel can tell on every machine whether a recipe fits; Podman and crun, which run the models, are only optional dependencies, installed the first time a model is set up, with nvidia-container-toolkit on an NVIDIA machine for the CDI spec that hands the GPU to the containers. A recipe or engine change is a GitHub release of that repository, which the omarchy-pkgs recipe follows and builds from its tag.
+Local models run open models on the machine for the coding agents. The work happens in the `collie-local-ai` package, built from [omacom/collie-local-ai](https://github.com/omacom/collie-local-ai): its engine, the curated recipe catalog it reads from its own install directory, and their reference (`docs/engine.md` there, `/usr/share/doc/collie-local-ai/` once installed). It is a base package, so the panel can tell on every machine whether a recipe fits; Podman and crun, which run the models, are only optional dependencies, installed the first time a model is set up, with nvidia-container-toolkit on an NVIDIA machine for the CDI spec that hands the GPU to the containers. A recipe or engine change is a GitHub release of that repository, which the omarchy-pkgs recipe follows and builds from its tag.
 
 ## What stays in Collie
 
 | Path | Role |
 |---|---|
-| `bin/collie-agent-local` | The routed command (`collie agent local <command>`). Runs `omarchy-local-ai`; `use` installs Podman and crun, plus nvidia-container-toolkit where `collie-hw-nvidia` finds a GPU, with `collie-pkg-add` first when they're missing |
+| `bin/collie-agent-local` | The routed command (`collie agent local <command>`). Runs `collie-local-ai`; `use` installs Podman and crun, plus nvidia-container-toolkit where `collie-hw-nvidia` finds a GPU, with `collie-pkg-add` first when they're missing |
 | `shell/plugins/agents/Main.qml` | Watches the engine's `status.json` (`localModel`) and `list.json` (`localRecipes`) |
 | `shell/plugins/agents/Panel.qml` | Model lines (play/pause, terminal, memory meter, loading, stopping and removing bars, errors, Delete to remove) and Add another › Local AI, offered only when `list.json` has a recipe that fits this machine, and greyed out once every fitting recipe is set up |
 | `bin/collie-agent` | `--local` and `--local-model <recipe>` ask `collie-agent-local overlay` for the agent's launch overlay; `--prefer-local` does so only while a model is running (the Quake console seeds with it), and otherwise launches the usual agent |
 | `shell/plugins/agents/Panel.qml` (Add another) | Runs `collie-agent-local refresh --quiet` whenever the picker shows, so Local AI lists what an upgraded package brought |
-| `install/collie-base.packages`, `migrations/1793563475.sh` | Install `omarchy-local-ai` on every machine |
+| `install/collie-base.packages`, `migrations/1793563475.sh` | Install `collie-local-ai` on every machine |
 | `https://omarchy.org/manual/` | The user-facing guide |
 
 ## The contract with the package

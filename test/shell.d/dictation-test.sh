@@ -6,7 +6,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/base-test.sh"
 test_tmp=$(mktemp -d)
 trap 'rm -rf "$test_tmp"' EXIT
 export HOME="$test_tmp/home" XDG_CONFIG_HOME="$test_tmp/config" COLLIE_PATH="$ROOT"
-export DICTATION_LOG="$test_tmp/calls" DICTATION_INSTALLED="voxtype superwhisper hex"
+export DICTATION_LOG="$test_tmp/calls" DICTATION_INSTALLED="superwhisper hex"
 mkdir -p "$test_tmp/bin" "$XDG_CONFIG_HOME/collie/defaults"
 export PATH="$test_tmp/bin:$ROOT/bin:$PATH"
 config="$XDG_CONFIG_HOME/collie/defaults/dictation"
@@ -27,7 +27,7 @@ cat > "$test_tmp/bin/collie-launch-floating-terminal-with-presentation" <<'SH'
 printf '%s\n' "$*" > "$DICTATION_INSTALL_LOG"
 SH
 export DICTATION_INSTALL_LOG="$test_tmp/install"
-for backend in voxtype superwhisper; do
+for backend in superwhisper; do
   cat > "$test_tmp/bin/$backend" <<'SH'
 #!/bin/bash
 printf '%s %s\n' "${0##*/}" "$*" >> "$DICTATION_LOG"
@@ -117,14 +117,12 @@ if collie-default-dictation '../invalid' > "$test_tmp/output" 2>&1; then fail "i
 pass "Defaults delegates setup without prematurely selecting a backend"
 
 
-for backend in voxtype superwhisper hex; do
+for backend in superwhisper hex; do
   printf '%s\n' "$backend" > "$config"
   [[ $(collie-default-dictation) == "$backend" ]] || fail "configured backend is readable"
   : > "$DICTATION_LOG"
   for action in start stop toggle; do collie dictation "$action"; done
-  if [[ $backend == "voxtype" ]]; then
-    expected=$'voxtype record start\nvoxtype status\nvoxtype record stop\nvoxtype record toggle'
-  elif [[ $backend == "superwhisper" ]]; then
+  if [[ $backend == "superwhisper" ]]; then
     expected=$'superwhisper start\nsuperwhisper stop\nsuperwhisper record'
   else
     expected=$'hex dictation start\nhex dictation stop --print\ncollie-clipboard-paste-text hello\nhex dictation start'
@@ -172,13 +170,13 @@ printf '%s\n' '../invalid' > "$config"
 if collie-dictation start 2> "$test_tmp/error"; then fail "invalid backend must fail"; fi
 pass "external adapters follow the same protocol and errors propagate"
 
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 export SHORTCUT_STATE="$test_tmp/shortcuts.json"
 printf '%s\n' '{"shortcuts":{"hold":"RightAlt","toggle":"","cancel":"Escape"}}' > "$SHORTCUT_STATE"
 if SETUP_EXIT=1 collie-install-dictation-superwhisper > "$test_tmp/output" 2>&1; then fail "failed installation must fail"; fi
-[[ $(cat "$config") == "voxtype" ]] || fail "failed setup must preserve selection"
+[[ $(cat "$config") == "hex" ]] || fail "failed setup must preserve selection"
 if DICTATION_EXIT=7 collie-install-dictation-superwhisper > "$test_tmp/output" 2>&1; then fail "failed shortcut setup must fail"; fi
-[[ $(cat "$config") == "voxtype" ]] || fail "failed shortcuts must preserve selection"
+[[ $(cat "$config") == "hex" ]] || fail "failed shortcuts must preserve selection"
 collie-install-dictation-superwhisper
 [[ $(collie-default-dictation) == "superwhisper" ]] || fail "installer selects Superwhisper"
 jq -e '.shortcuts | .hold == "" and .toggle == "Ctrl+Alt+Space"' "$SHORTCUT_STATE" >/dev/null || fail "installer repairs conflicting hold-only profiles"
@@ -194,62 +192,41 @@ grep -qx setup-user "$DICTATION_LOG" || fail "background setup still configures 
 if grep -E '^(superwhisper settings|collie-notification-send)' "$DICTATION_LOG"; then fail "background setup opens no window and sends no toast"; fi
 pass "first-run Superwhisper setup stays in the background"
 
-DICTATION_INSTALLED=superwhisper
-CONFIRM_EXIT=1 collie-install-dictation-voxtype
-[[ $(cat "$config") == "superwhisper" ]] || fail "cancelled installation preserves selection"
-collie-install-dictation-voxtype
-[[ $(collie-default-dictation) == "voxtype" ]] || fail "installer selects Voxtype"
-DICTATION_INSTALLED="voxtype superwhisper"
-: > "$DICTATION_LOG"
-collie-install-dictation-voxtype
-grep -q 'voxtype setup --download --no-post-install' "$DICTATION_LOG" || fail "installed Voxtype retries model setup"
-printf '%s\n' 'custom model configuration' > "$XDG_CONFIG_HOME/voxtype/config.toml"
-printf '%s\n' superwhisper > "$config"
-for step in 'setup --download --no-post-install' 'setup systemd'; do
-  if FAIL_SETUP_STEP="$step" collie-install-dictation-voxtype > "$test_tmp/output" 2>&1; then fail "incomplete setup must fail"; fi
-  [[ $(cat "$config") == "superwhisper" ]] || fail "incomplete setup preserves selection"
-done
-if SERVICE_EXIT=1 collie-install-dictation-voxtype > "$test_tmp/output" 2>&1; then fail "service failure must fail"; fi
-[[ $(cat "$config") == "superwhisper" ]] || fail "service failure preserves selection"
-collie-install-dictation-voxtype
-[[ $(cat "$config") == "voxtype" ]] || fail "retry finishes installed Voxtype setup"
-[[ $(cat "$XDG_CONFIG_HOME/voxtype/config.toml") == "custom model configuration" ]] || fail "retry preserves custom configuration"
-pass "Voxtype retries incomplete model and service setup without replacing configuration"
 
 : > "$DICTATION_LOG"
 if DICTATION_EXIT=7 collie-dictation-use superwhisper > "$test_tmp/output" 2>&1; then fail "failed stop must prevent switching"; fi
-[[ $(cat "$config") == "voxtype" ]] || fail "failed stop preserves selection"
+[[ $(cat "$config") == "hex" ]] || fail "failed stop preserves selection"
 collie-dictation-use superwhisper
-[[ $(cat "$DICTATION_LOG") == $'voxtype status\nvoxtype record stop\nvoxtype status\nvoxtype record stop' ]] || fail "switch stops the previous backend"
+[[ $(cat "$DICTATION_LOG") == $'hex dictation stop --print\nhex dictation stop --print' ]] || fail "switch stops the previous backend"
 [[ $(cat "$config") == "superwhisper" ]] || fail "successful stop permits switching"
 : > "$DICTATION_LOG"
 collie-dictation-use superwhisper
 [[ ! -s $DICTATION_LOG ]] || fail "reselecting does not interrupt recording"
-printf '%s\n' voxtype > "$config"
-VOXTYPE_STATUS=stopped collie-dictation-use superwhisper
+printf '%s\n' hex > "$config"
+HEX_STATUS=stopped collie-dictation-use superwhisper
 [[ $(cat "$config") == "superwhisper" ]] || fail "a stopped Voxtype daemon permits switching"
 printf '%s\n' superwhisper > "$config"
-DICTATION_SERVICE_ACTIVE=0 collie-dictation-use voxtype
-[[ $(cat "$config") == "voxtype" ]] || fail "a stopped Superwhisper service permits switching"
+DICTATION_SERVICE_ACTIVE=0 collie-dictation-use hex
+[[ $(cat "$config") == "hex" ]] || fail "a stopped Superwhisper service permits switching"
 printf '%s\n' removed-backend > "$config"
-collie-dictation-use voxtype
-[[ $(cat "$config") == "voxtype" ]] || fail "a removed adapter permits recovery"
+collie-dictation-use hex
+[[ $(cat "$config") == "hex" ]] || fail "a removed adapter permits recovery"
 pass "switching stops recordings, preserves failed stops, and recovers unavailable providers"
 
 # Readers may run throughout a switch, but must never observe a truncated file.
 (
   for ((i = 0; i < 200; i++)); do
     selection=$(cat "$config")
-    [[ $selection == "voxtype" || $selection == "superwhisper" ]] || exit 1
+    [[ $selection == "hex" || $selection == "superwhisper" ]] || exit 1
   done
 ) &
 reader=$!
 for ((i = 0; i < 20; i++)); do
-  collie-dictation-use voxtype
+  collie-dictation-use hex
   collie-dictation-use superwhisper
 done
 wait "$reader" || fail "concurrent readers always see a complete selection"
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 pass "selection updates are atomic for concurrent readers"
 
 lua - <<'LUA' || fail "dictation shortcuts require a selection without limiting backend names"
@@ -294,7 +271,7 @@ pass "Alt + Space toggles dictation and Right Alt records while held, once a bac
 # Fresh users receive the backend choice through the settings package's skel.
 cp "$ROOT/config/collie/defaults/dictation" "$config"
 [[ $(collie-default-dictation) == "superwhisper" ]] || fail "fresh users default to Superwhisper"
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 pass "fresh users get Superwhisper as their default backend"
 
 lua - <<'LUA' || fail "desktop integration follows the selected backend without personal Hyprland config"
@@ -320,7 +297,7 @@ local function load_backend()
 end
 load_backend()
 assert(loaded[1] == "/config/superwhisper/shortcuts.lua")
-selected, available = "voxtype", false
+selected, available = "hex", false
 load_backend()
 assert(#loaded == 1, "a backend with no integration should need no config")
 selected, available = "future-backend", true
@@ -354,7 +331,7 @@ printf '%s\n' "$*" >> "$DICTATION_LOG"
 exit "${REMOVE_EXIT:-0}"
 SH
 chmod +x "$test_tmp/bin/systemctl" "$test_tmp/bin/collie-pkg-drop"
-collie-remove-dictation-voxtype
+collie-remove-dictation-hex
 [[ ! -e $config ]] || fail "removing Voxtype clears selection"
 if collie-default-dictation 2> "$test_tmp/error"; then fail "removal must not auto-select another backend"; fi
 pass "removal clears selection without automatic fallback"
@@ -384,19 +361,19 @@ for link in "$HOME/.local/bin/superwhisper" "$XDG_DATA_HOME/superwhisper/app/cur
 done
 [[ $(readlink "$HOME/.claude/skills/superwhisper") == "/custom/skill" ]] || fail "custom skills are preserved"
 [[ -f $XDG_DATA_HOME/superwhisper/models/model ]] || fail "downloaded models are retained"
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 collie-remove-dictation-superwhisper
-[[ $(cat "$config") == "voxtype" ]] || fail "removing Superwhisper preserves another selected backend"
+[[ $(cat "$config") == "hex" ]] || fail "removing Superwhisper preserves another selected backend"
 pass "Superwhisper removal clears its selection and owned links while preserving user data and other backends"
 
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 if HEX_MODEL_EXIT=1 collie-install-dictation-hex > "$test_tmp/output" 2>&1; then fail "failed Hex model download must fail"; fi
-[[ $(cat "$config") == "voxtype" ]] || fail "failed Hex setup preserves selection"
+[[ $(cat "$config") == "hex" ]] || fail "failed Hex setup preserves selection"
 collie-install-dictation-hex > "$test_tmp/output" 2>&1
 [[ $(cat "$config") == "hex" ]] || fail "installer selects Hex"
 collie-remove-dictation-hex
 [[ ! -e $config ]] || fail "Hex removal clears its selection"
-printf '%s\n' voxtype > "$config"
+printf '%s\n' hex > "$config"
 collie-remove-dictation-hex
-[[ $(cat "$config") == "voxtype" ]] || fail "removing Hex preserves another selected backend"
+[[ $(cat "$config") == "hex" ]] || fail "removing Hex preserves another selected backend"
 pass "Hex installer selects Hex only after setup succeeds, and removal clears only its own selection"

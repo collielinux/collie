@@ -49,7 +49,6 @@
   "learn.neovim": {"icon":"","label":"Neovim","action":"collie-launch-webapp 'https://www.lazyvim.org/keymaps'"},
   "learn.bash": {"icon":"󱆃","label":"Bash","action":"collie-launch-webapp 'https://devhints.io/bash'"},
   "learn.tmux-keybindings": {"icon":"","label":"Tmux","action":"collie-menu-tmux-keybindings"},
-  "learn.herdr-keybindings": {"icon":"","label":"Herdr","action":"collie-menu-herdr-keybindings"},
   "learn.community": {"icon":"󰙯","label":"Community","action":"collie-launch-discord-community"},
 
   // Appearance
@@ -223,7 +222,6 @@
   "setup.default.dictation": {"icon":"","label":"Dictation","title":"Default Dictation"},
   "setup.default.dictation.hex": {"icon":"","label":"Hex","checked":"[[ \"$(collie-default-dictation)\" == \"hex\" ]]","action":"collie-default-dictation hex"},
   "setup.default.dictation.superwhisper": {"icon":"","label":"Superwhisper","checked":"[[ \"$(collie-default-dictation)\" == \"superwhisper\" ]]","action":"collie-default-dictation superwhisper"},
-  "setup.default.dictation.voxtype": {"icon":"","label":"Voxtype","checked":"[[ \"$(collie-default-dictation)\" == \"voxtype\" ]]","action":"collie-default-dictation voxtype"},
   "setup.default.terminal": {"icon":"","label":"Terminal","title":"Default Terminal"},
   "setup.default.terminal.alacritty": {"icon":"","label":"Alacritty","checked":"[[ \"$(collie-default-terminal)\" == \"alacritty\" ]]","action":"collie-default-terminal alacritty"},
   "setup.default.terminal.foot": {"icon":"","label":"Foot","checked":"[[ \"$(collie-default-terminal)\" == \"foot\" ]]","action":"collie-default-terminal foot"},
@@ -311,7 +309,6 @@
   "install.ai.chatgpt": {"icon":"","iconFont":"collie","label":"ChatGPT Desktop","disabled":"collie-pkg-present openai-codex-desktop","action":"collie-launch-floating-terminal-with-presentation collie-install-ai-chatgpt"},
   "install.ai.claude": {"icon":"","iconFont":"collie","label":"Claude Desktop","disabled":"collie-pkg-present claude-desktop","action":"collie-launch-floating-terminal-with-presentation collie-install-ai-claude"},
   "install.ai.grok-bot": {"icon":"","iconFont":"collie","label":"Grok Bot","disabled":"collie-pkg-present grok-bot","action":"collie-install-and-launch 'Grok Bot' grok-bot grok-bot"},
-  "install.ai.herdr": {"icon":"","label":"Herdr Desktop","disabled":"[[ -f \"$HOME/.local/share/herdr-app/herdr-app\" ]]","action":"collie-launch-floating-terminal-with-presentation collie-install-ai-herdr"},
   "install.ai.hermes": {"icon":"","iconFont":"collie","label":"Hermes Desktop","disabled":"collie-pkg-present hermes-desktop","action":"collie-launch-floating-terminal-with-presentation collie-install-ai-hermes"},
   "install.ai.lm-studio": {"icon":"","iconFont":"collie","label":"LM Studio","disabled":"collie-pkg-present lmstudio-bin","action":"collie-install-app 'LM Studio' lmstudio-bin"},
   "install.ai.ollama": {"icon":"","iconFont":"collie","label":"Ollama","disabled":"collie-cmd-present ollama","action":"if collie-cmd-present nvidia-smi; then ollama_pkg=ollama-cuda; elif collie-cmd-present rocminfo; then ollama_pkg=ollama-rocm; else ollama_pkg=ollama; fi; collie-install-app Ollama \"$ollama_pkg\""},
@@ -352,7 +349,7 @@
   // Remove
   "remove.package": {"icon":"󰣇","label":"Package","action":"xdg-terminal-exec --app-id=org.collie.terminal collie-pkg-remove"},
   "remove.ai": {"icon":"󱚤","label":"AI","title":"Remove"},
-  "remove.dictation": {"icon":"","label":"Dictation","when":"collie-pkg-present voxtype-bin || collie-pkg-present superwhisper-bin || collie-pkg-present hex-bin"},
+  "remove.dictation": {"icon":"","label":"Dictation","when":"collie-pkg-present superwhisper-bin || collie-pkg-present hex-bin"},
   "remove.service": {"icon":"","label":"Services","title":"Remove"},
   "remove.development": {"icon":"󰵮","label":"Development","title":"Remove"},
   "remove.theme": {"icon":"󰸌","label":"Theme","action":"collie-theme-remove"},
@@ -382,7 +379,6 @@
   "remove.ai.claude": {"icon":"","iconFont":"collie","label":"Claude Desktop","when":"collie-pkg-present claude-desktop","action":"collie-launch-floating-terminal-with-presentation collie-remove-ai-claude"},
   "remove.dictation.hex": {"icon":"","label":"Hex","when":"collie-pkg-present hex-bin","action":"collie-launch-floating-terminal-with-presentation collie-remove-dictation-hex"},
   "remove.dictation.superwhisper": {"icon":"","label":"Superwhisper","when":"collie-pkg-present superwhisper-bin","action":"collie-launch-floating-terminal-with-presentation collie-remove-dictation-superwhisper"},
-  "remove.dictation.voxtype": {"icon":"","label":"Voxtype","when":"collie-pkg-present voxtype-bin","action":"collie-launch-floating-terminal-with-presentation collie-remove-dictation-voxtype"},
   "remove.ai.grok-bot": {"icon":"","iconFont":"collie","label":"Grok Bot","when":"collie-pkg-present grok-bot","action":"collie-launch-floating-terminal-with-presentation collie-remove-ai-grok-bot"},
   "remove.ai.lm-studio": {"icon":"","iconFont":"collie","label":"LM Studio","when":"collie-pkg-present lmstudio-bin","action":"collie-launch-floating-terminal-with-presentation collie-remove-ai-lm-studio"},
   "remove.ai.ollama": {"icon":"","iconFont":"collie","label":"Ollama","when":"collie-pkg-present ollama","action":"collie-launch-floating-terminal-with-presentation collie-remove-ai-ollama"},

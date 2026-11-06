@@ -541,7 +541,6 @@ other_theme_commands=(
   collie-theme-set-pi
   collie-theme-set-claude
   collie-theme-set-hermes
-  collie-theme-set-herdr-app
   collie-theme-set-browser
   collie-theme-set-vscode
   collie-theme-set-obsidian
@@ -624,6 +623,4 @@ if [[ $THEME_HEADLESS != "1" ]]; then
     apply_other_theme_commands detached </dev/null >/dev/null 2>/dev/null 9>&- &
   fi
 
-  # Mirror the theme to herdr machines. SSH can take a while, so this never holds up the theme change.
-  setsid collie-theme-set-herdr-machines >>"$HOME/.local/state/collie/theme-set-herdr-machines.log" 2>&1 </dev/null &
 fi

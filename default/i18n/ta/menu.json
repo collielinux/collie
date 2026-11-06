@@ -74,9 +74,6 @@
   "learn.tmux-keybindings": {
     "label": "Tmux"
   },
-  "learn.herdr-keybindings": {
-    "label": "Herdr"
-  },
   "learn.community": {
     "label": "சமூகம்"
   },
@@ -464,9 +461,6 @@
   },
   "setup.default.dictation.superwhisper": {
     "label": "Superwhisper"
-  },
-  "setup.default.dictation.voxtype": {
-    "label": "Voxtype"
   },
   "setup.default.terminal": {
     "label": "முனையம்",
@@ -920,9 +914,6 @@
   "remove.dictation.superwhisper": {
     "label": "Superwhisper"
   },
-  "remove.dictation.voxtype": {
-    "label": "Voxtype"
-  },
   "remove.ai.grok-bot": {
     "label": "Grok Bot"
   },
@@ -1252,9 +1243,6 @@
   },
   "setup.keyboard.input-methods": {
     "label": "உள்ளீட்டு முறைகள்"
-  },
-  "install.ai.herdr": {
-    "label": "Herdr Desktop"
   },
   "install.ai.amp": {
     "label": "Amp Desktop"
