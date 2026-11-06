@@ -662,9 +662,6 @@
   "install.service.bitwarden": {
     "label": "Bitwarden"
   },
-  "install.service.microsoft": {
-    "label": "Microsoft"
-  },
   "install.service.chromium-account": {
     "label": "Account Chromium"
   },
@@ -898,9 +895,6 @@
   },
   "remove.service.tailscale": {
     "label": "Tailscale"
-  },
-  "remove.service.microsoft": {
-    "label": "Microsoft"
   },
   "remove.service.ssh-agent": {
     "label": "SSH Agent"
