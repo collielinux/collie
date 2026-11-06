@@ -12,7 +12,7 @@ Local models run open models on the machine for the coding agents. The work happ
 | `bin/collie-agent` | `--local` and `--local-model <recipe>` ask `collie-agent-local overlay` for the agent's launch overlay; `--prefer-local` does so only while a model is running (the Quake console seeds with it), and otherwise launches the usual agent |
 | `shell/plugins/agents/Panel.qml` (Add another) | Runs `collie-agent-local refresh --quiet` whenever the picker shows, so Local AI lists what an upgraded package brought |
 | `install/collie-base.packages`, `migrations/1793563475.sh` | Install `omarchy-local-ai` on every machine |
-| `manual/17-ai.md` | The user-facing guide |
+| `https://omarchy.org/manual/` | The user-facing guide |
 
 ## The contract with the package
 

@@ -13,8 +13,8 @@ Subcommands:
                 single commit job, restricted to that locale's paths.
 
 Staleness is tracked in default/i18n/translation-manifest.json: for every
-locale it records the hash of the English source each unit (catalog key or
-manual chapter) was translated from. A unit is pending when its translation
+locale it records the hash of the English source each unit (a catalog key)
+was translated from. A unit is pending when its translation
 is missing or its recorded hash no longer matches the English source.
 """
 import argparse
@@ -35,9 +35,6 @@ RETRIES = 2
 MAX_ITEMS = 20
 MAX_CHARS = 8000
 PLACEHOLDERS = re.compile(r"%(\d)")
-URL_RE = re.compile(r"https?://[^\s)`]+")
-SENTENCE_END = ".,;:!?"
-HEADING_RE = re.compile(r"^#{1,6} ", re.M)
 
 
 class SyncError(Exception):
@@ -118,8 +115,6 @@ def english_units(root):
     for mid, fields in read_json(i18n / "menu.json", {}).items():
         for field, value in fields.items():
             units[f"menu:{mid}.{field}"] = value
-    for chapter in sorted((root / "manual").glob("*.md")):
-        units[f"manual:{chapter.name}"] = chapter.read_text(encoding="utf-8")
     return units
 
 
@@ -133,10 +128,6 @@ def translated_units(root, code):
         if isinstance(fields, dict):
             for field, value in fields.items():
                 units[f"menu:{mid}.{field}"] = value
-    manual_dir = root / "manual" / code
-    if manual_dir.is_dir():
-        for chapter in sorted(manual_dir.glob("*.md")):
-            units[f"manual:{chapter.name}"] = chapter.read_text(encoding="utf-8")
     return units
 
 
@@ -498,50 +489,6 @@ def validate_catalog_value(source, value, categories=None):
     return value
 
 
-FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.S)
-INLINE_RE = re.compile(r"`([^`\n]+)`")
-REL_DEST_RE = re.compile(r"\]\((?!<?https?://)([^)\s]+)")
-
-
-def protected_inline(text):
-    # Machine-significant spans only: paths, variables, and collie
-    # commands. Prose in backticks (menu paths, placeholder words) may
-    # legitimately be localized, so it is not held verbatim, and synopsis
-    # placeholders in <...> or [...] are erased before comparing for the
-    # same reason (<machine> and [file...] are words, not literals).
-    from collections import Counter
-    kept = []
-    for span in INLINE_RE.findall(text):
-        if any(c in span for c in "/~$") or span.startswith(("collie ", "collie-")):
-            span = re.sub(r"<[^>]+>", "<>", span)
-            kept.append(re.sub(r"\[[^\]]+\]", "[]", span))
-    return Counter(kept)
-
-
-def urls_of(text):
-    # The published manual's autolinks leave trailing ASCII punctuation out
-    # of a bare URL but keep 。 or । in it, and a (destination) keeps it all.
-    return [m.group() if text[:m.start()].endswith("(") else m.group().rstrip(SENTENCE_END)
-            for m in URL_RE.finditer(text)]
-
-
-def validate_manual(source, value):
-    from collections import Counter
-    if not isinstance(value, str) or not value.strip():
-        raise SyncError("empty translation")
-    if len(HEADING_RE.findall(source)) != len(HEADING_RE.findall(value)):
-        raise SyncError("heading count changed")
-    if sorted(urls_of(source)) != sorted(urls_of(value)):
-        raise SyncError("URLs changed")
-    if Counter(FENCE_RE.findall(source)) != Counter(FENCE_RE.findall(value)):
-        raise SyncError("code block contents changed")
-    if Counter(REL_DEST_RE.findall(source)) != Counter(REL_DEST_RE.findall(value)):
-        raise SyncError("relative link destinations changed")
-    if protected_inline(source) != protected_inline(value):
-        raise SyncError("commands or paths in inline code changed")
-    return value if value.endswith("\n") else value + "\n"
-
-
 def batch_catalog(items):
     """items: {unit: english}. Split like the site's batches."""
     batches, current, chars = [], {}, 0
@@ -573,7 +520,7 @@ def reference_translations(root, code, batch, limit=40):
     translated = translated_units(root, code)
     reference = {}
     for unit, value in sorted(translated.items()):
-        if unit in batch or unit not in english or unit.startswith("manual:"):
+        if unit in batch or unit not in english:
             continue
         if area(unit) in prefixes:
             reference[unit] = {"en": english[unit], code: value}
@@ -608,23 +555,6 @@ Short, natural UI language; menu labels one or two words where the language allo
     if not isinstance(result, dict) or set(result) != set(batch):
         raise SyncError("response keys do not match the batch")
     return {unit: validate_catalog_value(batch[unit], result[unit], categories) for unit in batch}
-
-
-def translate_manual(source, code, name, model):
-    note = REGIONAL_NOTES.get(code, "")
-    prompt = f"""Translate this complete Collie manual chapter from English into {name} ({code}).{(" " + note) if note else ""}
-Return ONLY a JSON object with exactly one string field: "markdown".
-Translate everything; never summarize. Keep the author's direct, opinionated voice.
-Preserve Markdown structure and heading levels, link URLs (translate link text only), relative .md links, image references, code blocks and inline code verbatim. Full lines, no hard wrapping.
-{BRIEF}
-<chapter>
-{json.dumps({"markdown": source}, ensure_ascii=False)}
-</chapter>
-"""
-    result = muse_json(prompt, model)
-    if not isinstance(result, dict) or set(result) != {"markdown"}:
-        raise SyncError("manual response shape is wrong")
-    return validate_manual(source, result["markdown"])
 
 
 # ------------------------------------------------------------------ translate
@@ -673,10 +603,6 @@ def apply_prune(root, code, prune):
                 if not data["menu"][mid]:
                     del data["menu"][mid]
                 changed.add("menu")
-        elif kind == "manual":
-            chapter = root / "manual" / code / rest
-            if chapter.exists():
-                chapter.unlink()
     for kind in changed:
         write_json(base / f"{kind}.json", data[kind], sort_keys=(kind != "menu"))
 
@@ -693,8 +619,7 @@ def cmd_translate(args):
     pending, prune = pending_for(root, code, english, manifest)
     if prune:
         apply_prune(root, code, prune)
-    catalog_pending = {u: english[u] for u in pending if not u.startswith("manual:")}
-    manual_pending = [u for u in pending if u.startswith("manual:")]
+    catalog_pending = {u: english[u] for u in pending}
     done = list(prune)
     failures = []
 
@@ -709,20 +634,6 @@ def cmd_translate(args):
                 continue
             apply_catalog_translations(root, code, translated)
             done.extend(translated)
-
-    def one_manual(unit):
-        filename = split_unit(unit)[1]
-        text = translate_manual(english[unit], code, name, args.model)
-        atomic_write(root / "manual" / code / filename, text)
-        return unit
-
-    with ThreadPoolExecutor(max_workers=args.concurrency) as pool:
-        futures = {pool.submit(one_manual, unit): unit for unit in manual_pending}
-        for future in as_completed(futures):
-            try:
-                done.append(future.result())
-            except SyncError as exc:
-                failures.append(f"{futures[future]}: {exc}")
 
     if args.done_file:
         existing = read_json(args.done_file, {})
@@ -776,7 +687,7 @@ def git(root, *argv, **kwargs):
 
 
 def language_paths(code):
-    return [f"default/i18n/{code}", f"manual/{code}"]
+    return [f"default/i18n/{code}"]
 
 
 def cmd_pack(args):

@@ -20,11 +20,10 @@ Three documentation trees, split by genre and audience:
 
 - `agents/skills/` - task procedure ("do this when doing X"), for anyone working on the codebase
 - `docs/` - reference on how the system is shaped (file layout, update pipeline, theming, shell architecture), for anyone working on the codebase; skills link here for depth
-- `manual/` - end-user documentation for using Collie, published; never codebase internals
 
 # Style
 
-- In markdown documents (`plans/`, `docs/`, `manual/`), write full lines — no hard wrapping at 80 columns; break only at structural boundaries like headings and list items
+- In markdown documents (`plans/`, `docs/`), write full lines — no hard wrapping at 80 columns; break only at structural boundaries like headings and list items
 - Two spaces for indentation, no tabs
 - Use bash 5 conditionals: use `[[ ]]` for string/file tests and `(( ))` for numeric tests
 - In `[[ ]]`, don't quote variables, but do quote string literals when comparing values (e.g., `[[ $branch == "dev" ]]`)
@@ -133,7 +132,7 @@ Exceptions are allowed for migration and package-helper scripts where the helper
 
 # Keybindings
 
-- Default hotkeys follow the planes in [`manual/07-hotkeys.md`](manual/07-hotkeys.md#how-hotkeys-are-laid-out). Pick the plane from what the binding does, never move an existing binding to make room for a new one, and use `Alt` only for a variant of the same binding without it. Hold new and changed bindings in review to the same rules.
+- Default hotkeys follow the planes described in the Collie manual's hotkey chapter (`https://omarchy.org/manual/`). Pick the plane from what the binding does, never move an existing binding to make room for a new one, and use `Alt` only for a variant of the same binding without it. Hold new and changed bindings in review to the same rules.
 
 # Config Structure
 

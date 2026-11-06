@@ -21,7 +21,6 @@ on:
       - 'default/i18n/en/**'
       - 'default/collie/collie-menu.jsonc'
       - 'default/hypr/bindings/**'
-      - 'manual/*.md'
       - 'shell/**'
       - 'bin/**'
       - 'install/**'
@@ -401,13 +400,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           if [ -s "$RUNNER_TEMP/collected/translations.patch" ]; then
-            # Translations, the manifest, and translated manual chapters only.
+            # Translations and the manifest only.
             python3 - <<'PY'
           import os, re, subprocess, sys
           from pathlib import Path
           patch = Path(os.environ['RUNNER_TEMP']) / 'collected/translations.patch'
           out = subprocess.run(['git', 'apply', '--numstat', '-z', str(patch)], check=True, capture_output=True).stdout
-          allowed = re.compile(r'^(default/i18n/(?!en/)[a-zA-Z-]+/(menu|shell|cli|keybindings)\.json|default/i18n/translation-manifest\.json|manual/(?!en/)[a-zA-Z-]+/[^/]+\.md)$')
+          allowed = re.compile(r'^(default/i18n/(?!en/)[a-zA-Z-]+/(menu|shell|cli|keybindings)\.json|default/i18n/translation-manifest\.json)$')
           for record in out.split(b'\0'):
               if not record:
                   continue

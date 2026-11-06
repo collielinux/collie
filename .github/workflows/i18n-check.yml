@@ -14,7 +14,6 @@ on:
       - 'shell/**'
       - 'bin/**'
       - 'install/**'
-      - 'manual/**'
       - 'scripts/i18n-sync.py'
       - 'test/shell.d/i18n-test.sh'
       - '.github/workflows/i18n-*'

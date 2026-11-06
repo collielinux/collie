@@ -168,73 +168,6 @@ const clipboard = requireFromRoot('shell/plugins/clipboard/ClipboardHistory.js')
 const daRow = clipboard.displayRows([{ type: 'image', path: '/tmp/a.png', mime: 'image/png', capturedAt: 'Friday 14:42' }], '', 50, tr)[0]
 assertEqual(daRow.previewText, daShell['clipboard.screenshotFrom'].replace('%1', 'Friday 14:42'), 'clipboard previews translate through tr')
 
-// The manual ships whole per language: same files as English, none empty,
-// and the machine-significant parts of every chapter preserved — code block
-// contents, URLs, relative link destinations, and commands or paths in
-// inline code. Prose, link text, and synopsis placeholders in <...> or
-// [...] may be localized. In structural mode, chapters the manifest marks
-// stale are exempt: their repair is pending sync work, not corruption.
-const manualDir = path.join(root, 'manual')
-const englishManual = fs.readdirSync(manualDir).filter((name) => name.endsWith('.md')).sort()
-assert(englishManual.length > 0, 'English manual exists')
-const englishTexts = {}
-for (const file of englishManual) englishTexts[file] = fs.readFileSync(path.join(manualDir, file), 'utf8')
-const bagOf = (items) => JSON.stringify([...items].sort())
-const fencesOf = (text) => [...text.matchAll(/```[^\n]*\n([\s\S]*?)```/g)].map((m) => m[1])
-// The published manual's autolinks leave trailing ASCII punctuation out of a
-// bare URL but keep 。 or । in it, and a (destination) keeps it all.
-const urlsOf = (text) => [...text.matchAll(/https?:\/\/[^\s)`]+/g)].map((m) => text[m.index - 1] === '(' ? m[0] : m[0].replace(/[.,;:!?]+$/, ''))
-const relDestsOf = (text) => [...text.matchAll(/\]\((?!<?https?:\/\/)([^)\s]+)/g)].map((m) => m[1])
-const protectedInlineOf = (text) => [...text.matchAll(/`([^`\n]+)`/g)].map((m) => m[1])
-  .filter((span) => /[/~$]/.test(span) || span.startsWith('collie ') || span.startsWith('collie-'))
-  .map((span) => span.replace(/<[^>]+>/g, '<>').replace(/\[[^\]]+\]/g, '[]'))
-function manualProblems(english, translatedText) {
-  const problems = []
-  if ((english.match(/^#{1,6} /gm) || []).length !== (translatedText.match(/^#{1,6} /gm) || []).length) problems.push('heading count changed')
-  if (bagOf(urlsOf(english)) !== bagOf(urlsOf(translatedText))) problems.push('URLs changed')
-  if (bagOf(fencesOf(english)) !== bagOf(fencesOf(translatedText))) problems.push('code block contents changed')
-  if (bagOf(relDestsOf(english)) !== bagOf(relDestsOf(translatedText))) problems.push('relative link destinations changed')
-  if (bagOf(protectedInlineOf(english)) !== bagOf(protectedInlineOf(translatedText))) problems.push('commands or paths in inline code changed')
-  return problems
-}
-const fencedChapter = englishManual.find((file) => englishTexts[file].includes('```'))
-assert(manualProblems(englishTexts[fencedChapter], englishTexts[fencedChapter].replace(/```[^\n]*\n/, '$&echo tampered\n')).length > 0, 'the manual integrity check catches a changed code block')
-const linkedChapter = englishManual.find((file) => /\]\(\d\d-[a-z0-9-]+\.md\)/.test(englishTexts[file]))
-assert(manualProblems(englishTexts[linkedChapter], englishTexts[linkedChapter].replace(/\]\(\d\d-[a-z0-9-]+\.md\)/, '](99-missing.md)')).length > 0, 'the manual integrity check catches a broken chapter link')
-assert(['https://example.org/walls を参照してください。', 'ดูที่ https://example.org/walls', 'https://example.org/walls. पर देखें']
-  .every((translated) => manualProblems('See https://example.org/walls.', translated).length === 0) &&
-  ['参照: https://example.org/walls。', 'देखें https://example.org/walls।', 'دیکھیں https://example.org/walls۔', 'See https://example.org/other.']
-    .every((translated) => manualProblems('See https://example.org/walls.', translated).length > 0) &&
-  manualProblems('[LocalSend](https://localsend.org/)', '[LocalSend](https://localsend.org/ダウンロード)').length > 0 &&
-  manualProblems('[dharmx/walls](https://github.com/dharmx/walls).', '[dharmx/walls](https://github.com/dharmx/walls.)。').length > 0, 'the manual integrity check ignores the full stop the published link drops, not one it keeps')
-for (const code of codes) {
-  if (code === 'en') continue
-  const dir = path.join(manualDir, code)
-  if (!fs.existsSync(dir)) {
-    assert(structural, `manual/${code} exists`)
-    continue
-  }
-  const chapters = fs.readdirSync(dir).filter((name) => name.endsWith('.md')).sort()
-  const texts = {}
-  for (const file of chapters) texts[file] = fs.readFileSync(path.join(dir, file), 'utf8')
-  const extra = chapters.filter((file) => !englishManual.includes(file))
-  const empty = chapters.filter((file) => texts[file].trim().length === 0)
-  const broken = []
-  for (const file of chapters) {
-    if (!Object.hasOwn(englishTexts, file)) continue
-    if (structural && isStale(code, `manual:${file}`, englishTexts[file])) continue
-    for (const problem of manualProblems(englishTexts[file], texts[file])) broken.push(`${file}: ${problem}`)
-    if (broken.length > 5) break
-  }
-  assert(broken.length === 0, `manual/${code} preserves commands, links, and code blocks`, JSON.stringify(broken.slice(0, 5)))
-  if (structural) {
-    // Extra chapters are prune-pending (their English was deleted or renamed).
-    assert(empty.length === 0, `manual/${code} chapters present are translated`, JSON.stringify(empty))
-  } else {
-    const missing = englishManual.filter((file) => !chapters.includes(file))
-    assert(JSON.stringify(chapters) === JSON.stringify(englishManual) && empty.length === 0, `manual/${code} has every English chapter translated`, JSON.stringify([...missing, ...empty]))
-  }
-}
 JS
 
 # --- Plural rules and number formatting agree between shell and CLI ---
@@ -504,9 +437,9 @@ assert_bash_equal "$keybindings_stale" "false" "the English keybindings catalog 
 assert_bash_equal "$extract_candidates" "0" "no embedded English literals await extraction"
 
 # A miniature tree exercises staleness: one key changed in English, one
-# deleted from the translation, one manual chapter missing.
+# deleted from the translation.
 fix=$work/fixture
-mkdir -p "$fix/default/i18n/en" "$fix/default/i18n/da" "$fix/default/collie" "$fix/manual" "$fix/shell" "$fix/bin"
+mkdir -p "$fix/default/i18n/en" "$fix/default/i18n/da" "$fix/default/collie" "$fix/shell" "$fix/bin"
 cat >"$fix/default/i18n/locales.json" <<'FIXJSON'
 {
   "en": {"name": "English", "englishName": "English", "formatLocale": "en-US", "locale": "en_US.UTF-8"},
@@ -521,17 +454,13 @@ printf '{\n  "strings": [],\n  "files": []\n}\n' >"$fix/default/i18n/extract-all
 printf '{\n  "a.one": "En",\n  "a.two": "To"\n}\n' >"$fix/default/i18n/da/shell.json"
 printf '{}\n' >"$fix/default/i18n/da/cli.json"
 printf '{\n  "root": {\n    "label": "Gaa"\n  }\n}\n' >"$fix/default/i18n/da/menu.json"
-printf '# Hello\n\nWorld.\n' >"$fix/manual/01-hello.md"
-mkdir -p "$fix/manual/da"
-printf '# Hej\n\nVerden.\n' >"$fix/manual/da/01-hello.md"
 python3 "$ROOT/scripts/i18n-sync.py" --root "$fix" manifest >/dev/null
 assert_bash_equal "$(python3 "$ROOT/scripts/i18n-sync.py" --root "$fix" pending | jq -c '.locales')" "[]" "sync fixture starts with nothing pending"
 
 printf '{\n  "a.one": "One changed",\n  "a.two": "Two"\n}\n' >"$fix/default/i18n/en/shell.json"
 printf '{\n  "a.two": "To"\n}\n' >"$fix/default/i18n/da/shell.json"
-printf '# New\n' >"$fix/manual/02-new.md"
 pending_units=$(python3 "$ROOT/scripts/i18n-sync.py" --root "$fix" pending | jq -c '.jobs.da.pending | sort')
-assert_bash_equal "$pending_units" '["manual:02-new.md","shell:a.one"]' "sync detects changed English and missing chapters"
+assert_bash_equal "$pending_units" '["shell:a.one"]' "sync detects changed English and missing chapters"
 
 printf 'Text {\n  text: "Brand new string"\n}\n' >"$fix/shell/Panel.qml"
 scan_strings=$(python3 "$ROOT/scripts/i18n-sync.py" --root "$fix" extract-scan | jq -c '[.candidates[].string]')
