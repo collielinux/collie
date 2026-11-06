@@ -6,12 +6,12 @@ source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/base-test.sh"
 
 packages="$ROOT/install/collie-base.packages"
 
-grep -qxF omasnap "$packages" || fail "fresh installs include Omasnap"
+grep -qxF colliesnap "$packages" || fail "fresh installs include Omasnap"
 ! grep -qxF tensaku "$packages" || fail "fresh installs no longer include Tensaku"
 ! grep -qxF satty "$packages" || fail "fresh installs no longer include Satty"
 pass "fresh installs use Omasnap as the screenshot tool"
 
-grep -Fq 'namespace = "^omasnap$"' "$ROOT/default/hypr/apps/screenshot-selection.lua" ||
+grep -Fq 'namespace = "^colliesnap$"' "$ROOT/default/hypr/apps/screenshot-selection.lua" ||
   fail "Omasnap has a layer rule"
 ! grep -Fq 'dev.tensaku.Tensaku' "$ROOT/default/hypr/apps/system.lua" ||
   fail "the removed Tensaku window rules are gone"
@@ -23,11 +23,11 @@ trap 'rm -rf "$test_tmp"' EXIT
 stub_bin="$test_tmp/bin"
 mkdir -p "$stub_bin"
 
-cat >"$stub_bin/omasnap" <<'SH'
+cat >"$stub_bin/colliesnap" <<'SH'
 #!/bin/bash
 printf '%s\t%s\n' "${OMASNAP_SCREENSHOT_DIR:-}" "$*" >>"$OMASNAP_TEST_LOG"
 SH
-chmod +x "$stub_bin/omasnap"
+chmod +x "$stub_bin/colliesnap"
 
 capture_log="$test_tmp/capture.log"
 OMASNAP_TEST_LOG="$capture_log" PATH="$stub_bin:$PATH" \

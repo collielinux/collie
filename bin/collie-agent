@@ -111,9 +111,7 @@ if [[ -z $agent ]]; then
   exit 1
 fi
 
-# OpenClaw's launcher sets OpenClaw up when the package became the seed before
-# this user's OpenClaw moved, so with the package a missing command is its to fix.
-if collie-cmd-missing "$agent" && ! { [[ $agent == "openclaw" ]] && collie-pkg-present openclaw; }; then
+if collie-cmd-missing "$agent"; then
   echo "$agent is not installed. Choose an installed agent with: collie default agent <name>" >&2
   exit 1
 fi
@@ -148,15 +146,6 @@ claude)
 grok)
   command=(grok --permission-mode bypassPermissions)
   [[ -n ${prompt:-} ]] && command+=(-- "$prompt")
-  ;;
-openclaw)
-  # The launcher owns onboarding and the gateway dance: OpenClaw's terminal UI
-  # must attach to the running gateway (the embedded `openclaw chat` refuses to
-  # start while the gateway owns the state directory). It has no permission
-  # prompts to skip, and --message seeds the session while keeping it
-  # interactive.
-  command=(collie-launch-openclaw --tui)
-  [[ -n ${prompt:-} ]] && command+=(--message "$prompt")
   ;;
 codex)
   command=(codex --approve-for-me)
@@ -305,10 +294,9 @@ mise_wrapper() {
 # The user's own install in ~/.local/bin, which collie-default-agent counts as
 # installed, still wins over mise's lazy shim earlier on PATH, which would
 # install and run mise's copy instead. Once mise has installed its own, a
-# terminal runs that one, so the launcher does too. OpenClaw's command runs its
-# launcher, so its prompt is the only argument that could match the name.
+# terminal runs that one, so the launcher does too.
 user_install="$HOME/.local/bin/$agent"
-if [[ $agent != "openclaw" && -f $user_install && -x $user_install ]] &&
+if [[ -f $user_install && -x $user_install ]] &&
   ! mise_wrapper "$user_install" && ! MISE_OFFLINE=1 mise which "$agent" &>/dev/null; then
   for i in "${!command[@]}"; do
     if [[ ${command[i]} == "$agent" ]]; then

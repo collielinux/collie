@@ -200,7 +200,7 @@ for tool in "$agy_package" "$grok_package" "$omp_package" "$crush_package" "$cur
   grep -Eq "^$tool = \\{ version = \"latest\", lazy = true, auto_update = \"4h\", minimum_release_age = \"0s\" \\}$" "$lazy_config" ||
     fail "user setup declares $tool as a self-updating native lazy tool"
 done
-for tool in "$ori_package" basecamp; do
+for tool in "$ori_package"; do
   grep -Eq "^$tool = \\{ version = \"latest\", lazy = true, minimum_release_age = \"0s\" \\}$" "$lazy_config" ||
     fail "user setup declares $tool as a native lazy tool"
 done
@@ -952,92 +952,6 @@ fi
 grep -F "missing is not installed" "$test_tmp/missing-output" >/dev/null ||
   fail "agent launcher explains when the default command is missing"
 pass "agent launcher reports a missing default command"
-
-# OpenClaw is its own self-updating runtime, not mise's: choosing it must route
-# through collie-install-openclaw-cli and never touch a mise environment.
-# openclaw-cli-test.sh covers the installer itself.
-cat >"$mock_bin/collie-install-openclaw-cli" <<'SH'
-#!/bin/bash
-if [[ $1 == "--check" ]]; then
-  [[ ${COLLIE_TEST_OPENCLAW_INSTALLED:-false} == "true" ]]
-else
-  printf '%s\n' "install-openclaw-cli $*" >>"$COLLIE_TEST_STUB_LOG"
-fi
-SH
-cat >"$mock_bin/collie-launch-openclaw" <<'SH'
-#!/bin/bash
-printf '%s\0' collie-launch-openclaw "$@" >"$COLLIE_TEST_AGENT_INLINE_LOG"
-SH
-cat >"$mock_bin/openclaw" <<'SH'
-#!/bin/bash
-exit 0
-SH
-chmod +x "$mock_bin/collie-install-openclaw-cli" \
-  "$mock_bin/collie-launch-openclaw" "$mock_bin/openclaw"
-
-: >"$launch_log"
-: >"$terminal_log"
-: >"$mise_history"
-COLLIE_TEST_OPENCLAW_INSTALLED=true collie-default-agent openclaw
-read -r chosen <"$agent_file"
-[[ $chosen == openclaw ]] || fail "choosing OpenClaw records it as the default agent"
-mapfile -d '' -t launch_args <"$launch_log"
-[[ ${launch_args[*]} == "--app-id=org.collie.agent collie-launch-openclaw --tui" ]] ||
-  fail "choosing OpenClaw launches its terminal UI"
-[[ ! -s $terminal_log ]] || fail "an installed OpenClaw needs no install terminal"
-! grep -q 'use -g openclaw' "$mise_history" || fail "OpenClaw never installs through mise"
-pass "choosing OpenClaw uses its runtime and launches its terminal UI"
-
-: >"$terminal_log"
-COLLIE_TEST_OPENCLAW_INSTALLED=false collie-default-agent openclaw
-mapfile -d '' -t terminal_args <"$terminal_log"
-[[ ${terminal_args[*]} == "collie-default-agent --install openclaw" ]] ||
-  fail "a missing OpenClaw routes through the install terminal"
-pass "a missing OpenClaw routes through the install terminal"
-
-: >"$stub_log"
-: >"$inline_log"
-COLLIE_TEST_OPENCLAW_INSTALLED=false collie-default-agent --install openclaw >/dev/null
-grep -Fx "install-openclaw-cli --now" "$stub_log" >/dev/null ||
-  fail "installing OpenClaw as default agent sets up its runtime"
-mapfile -d '' -t inline_args <"$inline_log"
-[[ ${inline_args[*]} == "collie-launch-openclaw --tui" ]] ||
-  fail "installing OpenClaw as default agent hands over to its terminal UI"
-pass "installing OpenClaw as default agent sets up its runtime"
-
-: >"$launch_log"
-collie agent prompt "Review this project"
-mapfile -d '' -t launch_args <"$launch_log"
-# Element-wise: the prompt must travel as one argv entry, which a space-joined
-# comparison could not tell apart from a prompt split into words.
-[[ ${#launch_args[@]} == 5 &&
-  ${launch_args[0]} == "--app-id=org.collie.agent" &&
-  ${launch_args[1]} == "collie-launch-openclaw" &&
-  ${launch_args[2]} == "--tui" &&
-  ${launch_args[3]} == "--message" &&
-  ${launch_args[4]} == "Review this project" ]] ||
-  fail "OpenClaw receives prompts through --message" "argv: ${launch_args[*]}"
-pass "OpenClaw receives prompts through --message"
-
-# With the package and no openclaw command, the launcher sets OpenClaw up, so
-# the agent hands over to it rather than calling OpenClaw missing.
-cat >"$mock_bin/collie-pkg-present" <<'SH'
-#!/bin/bash
-[[ " ${COLLIE_TEST_PACKAGES:-} " == *" $1 "* ]]
-SH
-chmod +x "$mock_bin/collie-pkg-present"
-: >"$launch_log"
-COLLIE_TEST_MISSING_COMMAND=openclaw COLLIE_TEST_PACKAGES=openclaw collie-agent >/dev/null 2>&1 ||
-  fail "OpenClaw's agent launches with the package and no command yet"
-mapfile -d '' -t launch_args <"$launch_log"
-[[ ${launch_args[*]} == "--app-id=org.collie.agent collie-launch-openclaw --tui" ]] ||
-  fail "OpenClaw's agent hands a missing command to its launcher when the package is there" "argv: ${launch_args[*]}"
-: >"$launch_log"
-if COLLIE_TEST_MISSING_COMMAND=openclaw COLLIE_TEST_PACKAGES= collie-agent >/dev/null 2>&1; then
-  fail "OpenClaw's agent without the package is still missing"
-fi
-[[ ! -s $launch_log ]] || fail "OpenClaw's agent without the package starts nothing"
-pass "OpenClaw's agent hands a missing command to its launcher only when the package is there"
 
 # Native lazy shims can precede ~/.local/bin. The agent launcher must still run
 # the official command when the default-agent selector recognized one, for

@@ -2,7 +2,7 @@
 
 # Antigravity signed in through another harness, with agy itself absent: the
 # record still carries the plan and limits, asked with that harness' token,
-# and counts the answers OpenClaw records. How pi, omp and opencode sessions
+# How pi, omp and opencode sessions
 # are read (forks, profiles, moved roots, both opencode stores) is held for
 # every collector by the shared and partition tests.
 
@@ -197,21 +197,5 @@ expect("Antigravity collector never writes pi's store", stores(), before)
 
 # ---------------------------------------------------------- local stats
 
-# OpenClaw keeps pi's format, one directory per agent; its entries carry no
-# id, so two alike answers are two answers. Gemini through any provider but
-# Antigravity's counts nowhere: pi's google-gemini-cli, and opencode's
-# "google" without the plugin's antigravity- model prefix.
-machine()
-openclaw = pi_reply("google-antigravity", 1, model="gemini-3-pro", usage={"input": 1, "output": 1})
-write_pi_session(home() / ".openclaw" / "agents" / "main" / "sessions" / "s.jsonl", [openclaw, openclaw])
-write_pi_session(home() / ".pi" / "agent" / "sessions" / "p" / "s.jsonl",
-                 [pi_reply("google-gemini-cli", 999, id="g1", model="gemini-3-pro"),
-                  pi_reply("google-antigravity", 10, id="a1", model="gemini-3-pro", usage={"input": 10, "output": 2})])
-opencode_db(message=[("m1", "s1", oc_v1("google", 999, "gemini-3-pro")), ("m2", "s2", oc_v1("google", 4, "antigravity-gemini-3-pro"))])
-record, _ = agy()
-expect("Antigravity collector counts OpenClaw's answers and only Antigravity's provider",
-       [record["ready"], record["usageStatusText"], record["totalPrompts"], record["todayTotalTokens"],
-        {model: bucket["inputTokens"] for model, bucket in record["modelUsage"].items()}],
-       [True, "Waiting for auth", 4, 20, {"gemini-3-pro": 12, "antigravity-gemini-3-pro": 4}], record)
 expect("waiting for auth with no limits kept is nothing stale", [record["limits"], record["limitsStale"]], [[], False], record)
 PY

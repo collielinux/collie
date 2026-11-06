@@ -733,7 +733,6 @@ remove_conflicting_legacy_packages() {
   # after NetworkManager and the rest of the new stack are installed.
   local conflicting_packages=(
     asdcontrol-git
-    localsend-bin
     collie-chromium
     collie-lazyvim
     openai-codex-bin
@@ -754,17 +753,6 @@ remove_conflicting_legacy_packages() {
       as_root pacman -Rdd --noconfirm "$pkg" || warn "Could not remove conflicting legacy package '$pkg'; continuing."
     fi
   done
-}
-
-migrate_1password_beta_package() {
-  if ! package_installed_exact 1password-beta && ! package_installed_exact 1password-beta-bin; then
-    return 0
-  fi
-
-  log "Replacing 1Password Beta with stable 1Password"
-  if ! as_root pacman -S --noconfirm --ask 4 1password; then
-    warn "Could not replace 1Password Beta with stable 1Password; leaving the existing 1Password package installed."
-  fi
 }
 
 migrate_lazydocker_package() {
@@ -789,7 +777,7 @@ install_collie_quattro_packages() {
   local core_packages=(
     omarchy-keyring
     "$settings_package"
-    omarchy-nvim
+    collie-nvim
     "$collie_package"
     fakeroot
     pacman-contrib
@@ -902,7 +890,6 @@ remove_retired_default_packages() {
     iwd
     lmstudio
     lmstudio-bin
-    localsend-bin
     makima-bin
     mako
     collie-chromium
@@ -2071,7 +2058,7 @@ if [[ -f $HOME/.config/hypr/hyprland.conf ]]; then
 fi
 
 mkdir -p "$HOME/.local/share/nautilus-python/extensions"
-for extension in localsend.py transcode.py; do
+for extension in transcode.py; do
   if [[ -f $root/default/nautilus-python/extensions/$extension ]]; then
     cp "$root/default/nautilus-python/extensions/$extension" "$HOME/.local/share/nautilus-python/extensions/"
   fi
@@ -2273,7 +2260,6 @@ legacy_icons_backup="$HOME/.local/share/applications/icons.collie-upgrade-to-qua
 if [[ -d $legacy_icons_dir ]]; then
   mkdir -p "$legacy_icons_backup"
   for icon in \
-    Basecamp.png \
     Battle.net.png \
     ChatGPT.png \
     Cliamp.png \
@@ -2285,7 +2271,6 @@ if [[ -d $legacy_icons_dir ]]; then
     "Google Maps.png" \
     "Google Messages.png" \
     "Google Photos.png" \
-    HEY.png \
     imv.png \
     "Retro Gaming.png" \
     WhatsApp.png \
@@ -2317,7 +2302,6 @@ if command -v xdg-settings >/dev/null 2>&1 &&
   env -u BROWSER XDG_CURRENT_DESKTOP= xdg-settings set default-web-browser chromium.desktop || true
 fi
 if command -v xdg-mime >/dev/null 2>&1; then
-  xdg-mime default HEY.desktop x-scheme-handler/mailto || true
 fi
 
 # This script is fetched from the branch and runs against whatever packaged
@@ -2454,7 +2438,6 @@ normalize_limine_config
 verify_kernel_cmdline_root
 configure_snapper_policy
 configure_lock_authentication
-migrate_1password_beta_package
 migrate_lazydocker_package
 cleanup_legacy_user_paths
 apply_system_transition

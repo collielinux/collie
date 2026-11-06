@@ -23,9 +23,9 @@ does, both keep working — `# collie:name=gaming xbox-cloud` on
 `collie-install-gaming-xbox-cloud` keeps the hyphen inside the name, so
 `collie install gaming xbox-cloud` is canonical while the filename route
 `collie install gaming xbox cloud` still resolves. An explicitly *empty* `#
-collie:name=` makes a command the root of its group: `collie-menu-share` sets
-`group=share` and an empty name, so its canonical route is `collie share`
-while `collie menu share` remains as the filename route. Alias routes register
+collie:name=` makes a command the root of its group: `collie-transcode` sets
+`group=transcode` and an empty name, so its canonical route is `collie transcode`
+while `collie menu transcode` remains as the filename route. Alias routes register
 the same way but are flagged, so listings show them as aliases rather than
 commands.
 
@@ -90,8 +90,8 @@ word) and a pointer to `collie commands --all`.
 Group help is synthesized from metadata, not written anywhere. A command
 belongs to a group when either its metadata group or its filename group
 matches, listed under the route that fits the group being viewed: `collie
-menu --help` shows `collie-menu-share` as `collie menu share`, while its
-canonical `collie share` stands alone. On the fast path, group help loads
+menu --help` shows `collie-menu-keybindings` as `collie menu keybindings`, while a
+group-root command like `collie transcode` stands alone. On the fast path, group help loads
 only that group's filename-prefixed binaries rather than everything.
 
 The top-level `collie` listing is driven entirely by the hand-curated

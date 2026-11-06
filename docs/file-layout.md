@@ -23,7 +23,7 @@ separate `omarchy-pkgs` repository, under `pkgbuilds/`):
   the live ISO env.
 
 Two other packages live in `omarchy-pkgs` but stand alone:
-`omarchy-keyring` (GPG keys for pacman) and `omarchy-nvim` (the Neovim
+`omarchy-keyring` (GPG keys for pacman) and `collie-nvim` (the Neovim
 setup; independently seeds `/etc/skel`).
 
 Some trees ship in neither package and exist only in the repo: `agents/skills/` (contributor task guides), `docs/`,
@@ -272,7 +272,7 @@ It only does the things `/etc/skel` can't:
 - Hyprland's package-owned default input reads `XKBLAYOUT` / `XKBVARIANT`
   from `/etc/vconsole.conf`; no per-user Hyprland config rewrite is needed.
 - `xdg-settings set default-web-browser chromium.desktop` and
-  `xdg-mime default HEY.desktop x-scheme-handler/mailto` (XDG-aware paths).
+  browser defaults (XDG-aware paths).
 - `collie-refresh-applications` (composes generated `.desktop` launchers).
 - Sources `install/user/all.sh` — theme, chromium, git, xcompose, mise,
   keyring, per-user hardware quirks (asus mic/mixer, framework f13 audio, …).

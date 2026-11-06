@@ -541,9 +541,7 @@ other_theme_commands=(
   collie-theme-set-pi
   collie-theme-set-claude
   collie-theme-set-hermes
-  collie-theme-set-t3code
   collie-theme-set-herdr-app
-  collie-theme-set-slack
   collie-theme-set-browser
   collie-theme-set-vscode
   collie-theme-set-obsidian

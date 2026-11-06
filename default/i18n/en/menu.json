@@ -369,9 +369,6 @@
   "trigger.transcode": {
     "label": "Transcode"
   },
-  "trigger.share": {
-    "label": "Share"
-  },
   "trigger.hardware": {
     "label": "Hardware"
   },
@@ -428,18 +425,6 @@
   },
   "trigger.reminder.clear": {
     "label": "Clear all"
-  },
-  "trigger.share.clipboard": {
-    "label": "Clipboard"
-  },
-  "trigger.share.file": {
-    "label": "File"
-  },
-  "trigger.share.folder": {
-    "label": "Folder"
-  },
-  "trigger.share.receive": {
-    "label": "Receive"
   },
   "trigger.tests.network-speedtest": {
     "label": "Network Speed Test"
@@ -549,9 +534,6 @@
   },
   "setup.default.agent.omp": {
     "label": "omp"
-  },
-  "setup.default.agent.openclaw": {
-    "label": "OpenClaw"
   },
   "setup.default.agent.opencode": {
     "label": "OpenCode"
@@ -794,26 +776,11 @@
   "install.browser.zen": {
     "label": "Zen"
   },
-  "install.service.1password": {
-    "label": "1Password"
-  },
-  "install.service.dropbox": {
-    "label": "Dropbox"
-  },
   "install.service.spotify": {
     "label": "Spotify"
   },
-  "install.service.signal": {
-    "label": "Signal"
-  },
-  "install.service.slack": {
-    "label": "Slack"
-  },
   "install.service.tailscale": {
     "label": "Tailscale"
-  },
-  "install.service.nordvpn": {
-    "label": "NordVPN"
   },
   "install.service.notion": {
     "label": "Notion"
@@ -887,14 +854,8 @@
   "install.ai.ollama": {
     "label": "Ollama"
   },
-  "install.ai.openclaw": {
-    "label": "OpenClaw"
-  },
   "install.ai.perplexity": {
     "label": "Perplexity"
-  },
-  "install.ai.t3-code": {
-    "label": "T3 Code"
   },
   "install.gaming.steam": {
     "label": "Steam"
@@ -1070,12 +1031,6 @@
   "remove.browser.zen": {
     "label": "Zen"
   },
-  "remove.service.1password": {
-    "label": "1Password"
-  },
-  "remove.service.dropbox": {
-    "label": "Dropbox"
-  },
   "remove.service.tailscale": {
     "label": "Tailscale"
   },
@@ -1112,14 +1067,8 @@
   "remove.ai.ollama": {
     "label": "Ollama"
   },
-  "remove.ai.openclaw": {
-    "label": "OpenClaw"
-  },
   "remove.ai.perplexity": {
     "label": "Perplexity"
-  },
-  "remove.ai.t3-code": {
-    "label": "T3 Code"
   },
   "remove.gaming.steam": {
     "label": "Steam"

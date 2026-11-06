@@ -146,13 +146,13 @@ download_url() {
 
     # Best-effort: the download already succeeded, and under `set -e` a failed
     # toast would exit before the thumbnail cleanup below is ever scheduled.
-    # Open plays it, Cut takes it into Omacut; clicking the card plays it too.
+    # Open plays it, Cut takes it into Colliecut; clicking the card plays it too.
     # `--` keeps mpv from parsing a leading-dash filename as an option; the path
     # is one discrete --with argument, so it never reaches a shell.
     collie-notification-send -g 󰄬 "$(collie-i18n download.complete)" "$title" \
       -t 10000 --image "${preview:-$filepath}" \
       --action "$(collie-i18n download.open)" mpv -- \
-      --action "$(collie-i18n download.cut)" omacut \
+      --action "$(collie-i18n download.cut)" colliecut \
       --with "$filepath" || true
 
     # The shell loads the thumbnail into memory when the toast appears and never

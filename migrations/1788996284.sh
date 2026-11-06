@@ -1,7 +1,7 @@
 echo "Repair remote Neovim clipboard yanks and paste"
 
 nvim_provider="$HOME/.config/nvim/lua/config/remote_clipboard.lua"
-provider_source="/usr/share/omarchy-nvim/config/lua/config/remote_clipboard.lua"
+provider_source="/usr/share/collie-nvim/config/lua/config/remote_clipboard.lua"
 
 # Dotfile managers may own either the file or a parent directory through a
 # symlink. Preserve that layout rather than detaching or editing its target.
@@ -27,16 +27,16 @@ case ${provider_hash%% *} in
       exit 0
     fi
     echo "Preserving customized Neovim provider: $nvim_provider"
-    echo "Review remote clipboard settings manually, or use omarchy-nvim-refresh to reset them."
+    echo "Review remote clipboard settings manually, or use collie-nvim-refresh to reset them."
     exit 0
     ;;
 esac
 
 # Updates install packages before migrations. Refuse an older package so this
 # migration remains pending instead of installing the provider it must repair.
-nvim_package=$(pacman -Q omarchy-nvim)
+nvim_package=$(pacman -Q collie-nvim)
 if [[ $(vercmp "${nvim_package#* }" "2026.9.21-2") == -* ]] || [[ ! -f $provider_source ]]; then
-  echo "Update omarchy-nvim to 2026.9.21-2 or newer before rerunning this migration." >&2
+  echo "Update collie-nvim to 2026.9.21-2 or newer before rerunning this migration." >&2
   exit 1
 fi
 

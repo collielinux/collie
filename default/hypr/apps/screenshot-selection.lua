@@ -3,4 +3,4 @@ hl.layer_rule({ match = { namespace = "selection" }, no_anim = true, animation =
 
 -- Keep the Omasnap overlay immediate. It stays visible to screen shares: hiding it blacks out the whole
 -- fullscreen overlay in output captures, which breaks Omasnap's scroll capture.
-hl.layer_rule({ match = { namespace = "^omasnap$" }, no_anim = true, animation = "none" })
+hl.layer_rule({ match = { namespace = "^colliesnap$" }, no_anim = true, animation = "none" })

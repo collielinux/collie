@@ -9,7 +9,7 @@ by, so the record and the default agent agree on which agent this is.
 
 Local stats come from Antigravity's history log, conversation summaries, and
 conversation transcripts under ~/.gemini/antigravity-cli/, and from the
-Antigravity answers pi, omp, OpenClaw, and opencode's Antigravity plugin
+Antigravity answers pi, omp, and opencode's Antigravity plugin
 recorded; no other collector counts those. The plan and
 limits come from the Google Cloud Code API (v1internal:loadCodeAssist and
 v1internal:retrieveUserQuotaSummary), asked with the sign-in agy keeps in the
@@ -613,22 +613,13 @@ def conversation_summaries(root, problems):
     return []
 
 
-# OpenClaw keeps pi's transcript format, one directory per agent, beside
-# pi's and omp's own trees.
 def session_roots():
-  roots = pi_session_roots()
-  openclaw = Path(os.environ.get("OPENCLAW_STATE_DIR") or (Path.home() / ".openclaw"))
-  try:
-    # Sorted so the scan order doesn't depend on directory order.
-    roots.extend(sorted(child / "sessions" for child in (openclaw / "agents").iterdir() if child.is_dir()))
-  except OSError:
-    pass
   # An alias is scanned under one spelling, and a root inside another is
   # dropped rather than counted twice.
-  return canonical_roots(roots)
+  return canonical_roots(pi_session_roots())
 
 
-# pi, omp, and OpenClaw answers through their google-antigravity provider.
+# pi and omp answers through their google-antigravity provider.
 def pi_billed_here(provider, model, entry):
   return provider == "google-antigravity"
 
@@ -639,13 +630,12 @@ def opencode_billed_here(provider, model, entry):
   return provider.startswith("google") and model.startswith("antigravity-")
 
 
-# Each answer pi, omp, OpenClaw, or opencode's Antigravity plugin recorded,
+# Each answer pi, omp, or opencode's Antigravity plugin recorded,
 # counted once. Hermes reaches Antigravity only through plugins that run agy
 # itself, so its sign-in and transcripts are agy's own, which local_stats
 # reads already.
 def harness_rows(problems):
-  # OpenClaw's trees are read along with pi's and omp's, so a message copied
-  # between any of them is still counted once.
+  # A message copied between pi's and omp's trees is still counted once.
   pi_rows, pi_complete = scan_pi_sessions(r'"provider"\s*:\s*"google-antigravity"', pi_billed_here, session_roots())
   db_rows, db_complete = scan_opencode(["google"], opencode_billed_here)
   if not pi_complete:

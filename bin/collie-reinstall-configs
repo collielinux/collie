@@ -21,10 +21,10 @@ cp -af /etc/skel/. ~/
 collie-refresh-limine
 collie-refresh-plymouth
 
-if collie-cmd-present omarchy-nvim-refresh; then
-  omarchy-nvim-refresh
-elif collie-cmd-present omarchy-nvim-setup; then
-  omarchy-nvim-setup --force
+if collie-cmd-present collie-nvim-refresh; then
+  collie-nvim-refresh
+elif collie-cmd-present collie-nvim-setup; then
+  collie-nvim-setup --force
 fi
 
 # /etc/skel holds the shared defaults, so put the Snapdragon video decoding

@@ -1,15 +1,15 @@
 echo "Let Neovim's current line and status line show the terminal background"
 
-# ~/.config/nvim is copied once from omarchy-nvim, so it misses the package's
+# ~/.config/nvim is copied once from collie-nvim, so it misses the package's
 # later changes. Bring in the transparency file and lualine spec it now ships.
 config="$HOME/.config/nvim"
-package="/usr/share/omarchy-nvim/config"
+package="/usr/share/collie-nvim/config"
 files=(plugin/after/transparency.lua lua/plugins/lualine-transparent.lua)
 
 [[ -d $config ]] || exit 0
 
-# Users without omarchy-nvim manage their own Neovim configuration.
-collie-pkg-present omarchy-nvim || exit 0
+# Users without collie-nvim manage their own Neovim configuration.
+collie-pkg-present collie-nvim || exit 0
 
 # Dotfile managers may own a file or a parent directory through a symlink.
 # Preserve that layout rather than detaching or editing its target.
@@ -27,7 +27,7 @@ done
 # Updates install packages before migrations. An older package leaves this
 # pending rather than copying files it does not have yet.
 if [[ ! -f $package/${files[1]} ]]; then
-  echo "Update omarchy-nvim to 2026.9.21-5 or newer before rerunning this migration." >&2
+  echo "Update collie-nvim to 2026.9.21-5 or newer before rerunning this migration." >&2
   exit 1
 fi
 

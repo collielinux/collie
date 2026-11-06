@@ -209,12 +209,12 @@ pass "notification wrapper rejects --exec with an empty program"
 # data after --with takes the rest of the line and joins every action, so a
 # filename that reads like a flag stays part of the filename.
 : >"$args_file"
-send "Screenshot saved" "shot.png" --action Edit omasnap --file --action "Copy path" wl-copy -- \
+send "Screenshot saved" "shot.png" --action Edit colliesnap --file --action "Copy path" wl-copy -- \
   --with "/tmp/a b --action x.png" >/dev/null
 load
-[[ $(hint_value collie-actions) == '[{"label":"Edit","argv":["omasnap","--file","/tmp/a b --action x.png"]},{"label":"Copy path","argv":["wl-copy","--","/tmp/a b --action x.png"]}]' ]] ||
+[[ $(hint_value collie-actions) == '[{"label":"Edit","argv":["colliesnap","--file","/tmp/a b --action x.png"]},{"label":"Copy path","argv":["wl-copy","--","/tmp/a b --action x.png"]}]' ]] ||
   fail "notification wrapper builds the actions hint" "$(hint_value collie-actions)"
-[[ $(hint_value collie-exec-argv) == '["omasnap","--file","/tmp/a b --action x.png"]' ]] ||
+[[ $(hint_value collie-exec-argv) == '["colliesnap","--file","/tmp/a b --action x.png"]' ]] ||
   fail "the first action is the click command" "$(hint_value collie-exec-argv)"
 pass "notification wrapper builds --action buttons with --with data, the first as the click"
 

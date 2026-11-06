@@ -123,8 +123,8 @@ pass "no entry outgrows the width the menu gives it"
 # the entry: XF86Calculator alone belongs in the tail the menu keeps for media
 # keys, while the calculator itself sits in the body of the list.
 stub_hyprctl <<BINDS
-$(exec_bind 65 "SUPER SHIFT + Q" "Calculator" "omacalc")
-$(exec_bind 0 "XF86Calculator" "Calculator" "omacalc")
+$(exec_bind 65 "SUPER SHIFT + Q" "Calculator" "colliecalc")
+$(exec_bind 0 "XF86Calculator" "Calculator" "colliecalc")
 $(exec_bind 8 "ALT + TAB" "Reveal active window on top" "true")
 BINDS
 
@@ -171,9 +171,9 @@ pass "a keycode is named by what the leading layout prints on it"
 # A chord refused for width opens a row of its own, and the next chord tries
 # that row rather than reaching back past it and printing out of order.
 stub_hyprctl <<BINDS
-$(exec_bind 64 "SUPER + A" "Calculator" "omacalc")
-$(exec_bind 77 "SUPER SHIFT CTRL ALT + BACKSPACE" "Calculator" "omacalc")
-$(exec_bind 64 "SUPER + B" "Calculator" "omacalc")
+$(exec_bind 64 "SUPER + A" "Calculator" "colliecalc")
+$(exec_bind 77 "SUPER SHIFT CTRL ALT + BACKSPACE" "Calculator" "colliecalc")
+$(exec_bind 64 "SUPER + B" "Calculator" "colliecalc")
 BINDS
 
 rendered=$(keybindings)
@@ -197,8 +197,8 @@ pass "an action Collie did not name keeps its chords on separate rows"
 # Even a named action gives up the shared row rather than overrun the column:
 # two rows in line beat one that juts out of it.
 stub_hyprctl <<BINDS
-$(exec_bind 73 "SUPER SHIFT ALT + BACKSPACE" "Calculator" "omacalc")
-$(exec_bind 69 "SUPER SHIFT CTRL + BACKSPACE" "Calculator" "omacalc")
+$(exec_bind 73 "SUPER SHIFT ALT + BACKSPACE" "Calculator" "colliecalc")
+$(exec_bind 69 "SUPER SHIFT CTRL + BACKSPACE" "Calculator" "colliecalc")
 BINDS
 
 rendered=$(keybindings)

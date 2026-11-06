@@ -423,13 +423,6 @@ cat >"$mock_bin/collie-shell" <<'SH'
 printf 'ok\n'
 SH
 
-cat >"$mock_bin/collie-installed-service-dropbox" <<'SH'
-#!/bin/bash
-set -euo pipefail
-
-[[ ${COLLIE_TEST_DROPBOX:-0} == "1" ]]
-SH
-
 cat >"$mock_bin/collie-installed-service-tailscale" <<'SH'
 #!/bin/bash
 set -euo pipefail
@@ -440,38 +433,36 @@ SH
 chmod +x "$mock_bin"/*
 mock_path="$mock_bin:$ROOT/bin:$PATH"
 
-HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_DROPBOX=0 COLLIE_TEST_TAILSCALE=0 collie-bar defaults
+HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_TAILSCALE=0 collie-bar defaults
 jq -e --slurpfile defaults "$ROOT/config/collie/shell.json" '
   .bar == $defaults[0].bar and
   .plugins == []
 ' "$TMPDIR/home/.config/collie/shell.json" >/dev/null
 pass "bar defaults restores the stock bar"
 
-HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_DROPBOX=1 COLLIE_TEST_TAILSCALE=1 collie-bar defaults
+HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_TAILSCALE=1 collie-bar defaults
 jq -e '
   def ids: map(.id // .);
   (.bar.layout.right | ids) as $right |
   ($right | index("collie.tray")) as $tray |
   ($right | index("collie.tailscale") == $tray + 1) and
-  ($right | index("collie.dropbox") == $tray + 2) and
   ([.bar.layout[]] | map(ids) | add | map(select(. == "collie.tailscale")) | length == 1)
 ' "$TMPDIR/home/.config/collie/shell.json" >/dev/null
 pass "bar defaults places plugins for running optional services"
 
 HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" \
-  COLLIE_TEST_SHELL_DOWN=1 COLLIE_TEST_DROPBOX=1 COLLIE_TEST_TAILSCALE=1 \
+  COLLIE_TEST_SHELL_DOWN=1 COLLIE_TEST_TAILSCALE=1 \
   collie-bar defaults
 jq -e '
   def ids: map(.id // .);
   (.bar.layout.right | ids) as $right |
   ($right | index("collie.tray")) as $tray |
   ($right | index("collie.tailscale") == $tray + 1) and
-  ($right | index("collie.dropbox") == $tray + 2) and
   ([.bar.layout[]] | map(ids) | add | map(select(. == "collie.tailscale")) | length == 1)
 ' "$TMPDIR/home/.config/collie/shell.json" >/dev/null
 pass "bar defaults places service widgets without a running shell"
 
-HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_DROPBOX=0 COLLIE_TEST_TAILSCALE=0 collie-refresh-shell
+HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_TAILSCALE=0 collie-refresh-shell
 jq -e '
   def ids: map(.id // .);
   ([.bar.layout[]] | map(ids) | add) as $all |
@@ -480,13 +471,12 @@ jq -e '
 ' "$TMPDIR/home/.config/collie/shell.json" >/dev/null
 pass "shell refresh keeps optional service widgets absent when services are unavailable"
 
-HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_DROPBOX=1 COLLIE_TEST_TAILSCALE=1 collie-refresh-shell
+HOME="$TMPDIR/home" COLLIE_PATH="$ROOT" PATH="$mock_path" COLLIE_TEST_TAILSCALE=1 collie-refresh-shell
 jq -e '
   def ids: map(.id // .);
   (.bar.layout.right | ids) as $right |
   ($right | index("collie.tray")) as $tray |
   ($right | index("collie.tailscale") == $tray + 1) and
-  ($right | index("collie.dropbox") == $tray + 2) and
   ([.bar.layout[]] | map(ids) | add | map(select(. == "collie.tailscale")) | length == 1)
 ' "$TMPDIR/home/.config/collie/shell.json" >/dev/null
 [[ -f $TMPDIR/home/.local/state/collie/restart-shell-called ]] || fail "shell refresh restarts shell"

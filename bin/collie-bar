@@ -173,7 +173,7 @@ cmd_defaults() {
 
   local optional_widgets="[]"
   local service widget
-  for service in dropbox tailscale; do
+  for service in tailscale; do
     if "collie-installed-service-$service"; then
       widget=$(jq -cn \
         --arg id "collie.$service" \

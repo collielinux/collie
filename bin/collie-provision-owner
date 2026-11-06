@@ -180,10 +180,9 @@ tips=(
   "Super + K shows all the key bindings"
   "Super is the Windows or command key on your keyboard"
   "Sign PDFs and fill them in with Signed"
-  "Share files with phones and laptops using LocalSend"
   "Turn any website into an app with Install > Web App in the menu"
   "Super + Return opens a terminal, Super + Shift + Return the browser"
-  "Edit images with Pinta, trim videos with Omacut, docs with LibreOffice"
+  "Edit images with Pinta, trim videos with Colliecut, docs with LibreOffice"
   "Super + Ctrl + Print grabs text off the screen with OCR"
   "Print takes a screenshot, Alt + Print records the screen"
   "Set a reminder with Super + Ctrl + R"
@@ -383,7 +382,7 @@ greeter_screen() {
     rows=$(stty size 2>/dev/null </dev/tty | awk '{print $1}')
     [[ $rows =~ ^[0-9]+$ ]] || rows=${LINES:-24}
 
-    tagline="Beautiful, Fun & Agentic Linux by DHH"
+    tagline="Beautiful, Fun & Agentic Linux"
     hint="Press Return to Start Setup"
 
     printf '%s%s' "$HIDE_CURSOR" "$CLEAR"

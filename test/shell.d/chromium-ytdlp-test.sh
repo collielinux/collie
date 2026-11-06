@@ -216,9 +216,9 @@ grep -qF -- $'COLLIE_FILE\t%(title)s' "$ytdlp_argv" &&
   fail "yt-dlp native host never prints the title into the file record" "$(cat "$ytdlp_argv")"
 pass "yt-dlp native host never prints the title into the file record"
 
-grep -qF -- "--action Open mpv -- --action Cut omacut --with $fake_file" "$notify_argv" ||
-  fail "yt-dlp native host offers Open in mpv and Cut in Omacut for the download" "$(cat "$notify_argv")"
-pass "yt-dlp native host offers Open in mpv and Cut in Omacut for the download"
+grep -qF -- "--action Open mpv -- --action Cut colliecut --with $fake_file" "$notify_argv" ||
+  fail "yt-dlp native host offers Open in mpv and Cut in Colliecut for the download" "$(cat "$notify_argv")"
+pass "yt-dlp native host offers Open in mpv and Cut in Colliecut for the download"
 
 grep -qF -- "Download complete My Great Clip" "$notify_argv" ||
   fail "yt-dlp native host toasts the page title, not the sanitised filename" "$(cat "$notify_argv")"

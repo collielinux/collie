@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # collie:summary=Set and launch the default coding agent
-# collie:args=[pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi|qwen|dsh|mcode|kiro-cli|freebuff|kilo|devin|amp|commandcode]
+# collie:args=[pi|omp|opencode|ori|claude|codex|grok|agy|hermes|copilot|crush|cursor-agent|muse|kimi|qwen|dsh|mcode|kiro-cli|freebuff|kilo|devin|amp|commandcode]
 # collie:examples=collie default agent | collie default agent codex | collie default agent claude
 
 installing=false
@@ -32,7 +32,6 @@ claude | claude-code) agent="claude"; name="Claude Code" ;;
 codex) agent="codex"; name="Codex" ;;
 crush) agent="crush"; name="Crush" ;;
 grok) agent="grok"; name="Grok" ;;
-openclaw) agent="openclaw"; name="OpenClaw"; agent_installer="collie-install-openclaw-cli" ;;
 agy | antigravity | antigravity-cli | gemini | gemini-cli) agent="agy"; name="Antigravity"; agent_package="antigravity-cli" ;;
 hermes) agent="hermes"; name="Hermes"; agent_installer="collie-install-hermes-cli" ;;
 copilot | github-copilot) agent="copilot"; name="GitHub Copilot" ;;
@@ -65,7 +64,7 @@ devin | devin-cli)
 amp | ampcode) agent="amp"; name="Amp" ;;
 commandcode | command-code | cmdc) agent="commandcode"; name="Command Code"; agent_package="npm:command-code" ;;
 *)
-  echo "Usage: collie-default-agent <pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi|qwen|dsh|mcode|kiro-cli|freebuff|kilo|devin|amp|commandcode>"
+  echo "Usage: collie-default-agent <pi|omp|opencode|ori|claude|codex|grok|agy|hermes|copilot|crush|cursor-agent|muse|kimi|qwen|dsh|mcode|kiro-cli|freebuff|kilo|devin|amp|commandcode>"
   exit 1
   ;;
 esac
@@ -76,11 +75,9 @@ agent_package=${agent_package:-$agent}
 # from a table-valued key. The bracketed package is only for the user's config.
 agent_tool=${agent_tool:-$agent_package}
 
-# Hermes and OpenClaw are not mise tools: each is a self-updating runtime in
-# the user's home, Hermes the desktop app's and OpenClaw the one its Control
-# UI updates. Each has its own installer with the same --check/--now contract
-# mise-backed agents get from mise; see collie-install-hermes-cli and
-# collie-install-openclaw-cli.
+# Hermes is not a mise tool: it is a self-updating runtime in
+# the user's home. It has its own installer with the same --check/--now contract
+# mise-backed agents get from mise; see collie-install-hermes-cli.
 if [[ -n ${agent_installer:-} ]]; then
   # Not collie-cmd-present: a command on PATH says nothing about whether the
   # install behind it finished or runs the sessions collie-agent starts.

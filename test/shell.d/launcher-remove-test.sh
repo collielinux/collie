@@ -44,9 +44,9 @@ fi
 SCRIPT
 chmod +x "$tmp_dir/bin/pacman"
 
-cat >"$tmp_dir/data/applications/Basecamp.desktop" <<'DESKTOP'
+cat >"$tmp_dir/data/applications/Example.desktop" <<'DESKTOP'
 [Desktop Entry]
-Name=Basecamp
+Name=Example
 Exec=collie-launch-webapp https://example.com
 DESKTOP
 
@@ -73,14 +73,14 @@ export PATH="$tmp_dir/bin:$PATH"
 export XDG_DATA_HOME="$tmp_dir/data"
 export XDG_DATA_DIRS="$tmp_dir/system"
 
-"$ROOT/bin/collie-remove-launcher-entry" Basecamp.desktop Basecamp
+"$ROOT/bin/collie-remove-launcher-entry" Example.desktop Example
 "$ROOT/bin/collie-remove-launcher-entry" Docker.desktop Docker
 "$ROOT/bin/collie-remove-launcher-entry" native.desktop Native
 "$ROOT/bin/collie-remove-launcher-entry" aliens.desktop Aliens
 
 mapfile -t lines <"$TEST_LOG"
 
-[[ ${lines[0]} == "web:false:Basecamp" ]] || fail "launcher remove routes web apps by desktop name" "${lines[0]}"
+[[ ${lines[0]} == "web:false:Example" ]] || fail "launcher remove routes web apps by desktop name" "${lines[0]}"
 pass "launcher remove routes web apps by desktop name"
 
 [[ ${lines[1]} == "tui:false:Docker" ]] || fail "launcher remove routes TUIs by desktop name" "${lines[1]}"
@@ -95,12 +95,3 @@ pass "launcher remove deletes user-owned desktop files"
 (( ${#lines[@]} == 3 )) || fail "launcher remove does not notify for user-owned desktop files" "$(printf '%s\n' "${lines[@]}")"
 pass "launcher remove does not notify for user-owned desktop files"
 
-cat >"$tmp_dir/data/applications/slack.desktop" <<'DESKTOP'
-[Desktop Entry]
-Name=Slack
-Exec=collie-launch-slack --ozone-platform=wayland %U
-DESKTOP
-"$ROOT/bin/collie-remove-launcher-entry" slack.desktop Slack
-[[ $(tail -1 "$TEST_LOG") == "terminal::collie-remove-service-slack" ]] || fail "the themed Slack launcher opens its package removal flow"
-[[ -f $tmp_dir/data/applications/slack.desktop ]] || fail "the override remains until package removal succeeds"
-pass "the themed Slack override routes to package removal before any cleanup"

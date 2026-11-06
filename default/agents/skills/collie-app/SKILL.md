@@ -2,7 +2,7 @@
 name: collie-app
 description: >
   Build a new desktop app for Collie the way Collie's own apps are built
-  (Hype, Monologue, Omacut): C++ and Qt Quick, compiled with qmake6 and make
+  (Hype, Monologue, Colliecut): C++ and Qt Quick, compiled with qmake6 and make
   into a single binary, following the Collie theme live, and installed as an
   Arch package so it shows up in the app launcher. Use when asked to make,
   build, or scaffold an app, tool, utility, or GUI program for the desktop.
@@ -17,7 +17,7 @@ from the keyboard, following the desktop theme, and installed like any other
 package. Build new ones the same way. `templates.md` has the starter files;
 the published apps are the reference for anything bigger:
 
-- Omacut, a video trimmer: https://github.com/omacom-io/omacut
+- Colliecut, a video trimmer: https://github.com/omacom-io/omacut
 - Monologue, a webcam recorder: https://github.com/omacom/monologue
 - Hype, Markdown presentations: https://github.com/omacom/hype
 - Signed, PDF signing: https://github.com/omacom/signed
@@ -71,7 +71,7 @@ files committed.
 - Heavy media work goes through the `ffmpeg`/`ffprobe` command-line tools via
   `QProcess`, not by linking libav.
 - Open and save dialogs go through xdg-desktop-portal over D-Bus
-  (`org.freedesktop.portal.FileChooser`), never `QFileDialog`. Omacut's
+  (`org.freedesktop.portal.FileChooser`), never `QFileDialog`. Colliecut's
   `src/portalfilepicker.{h,cpp}` behind an abstract `src/filepicker.h` is the
   pattern to copy, with its attribution, and lets tests inject a fake picker.
 

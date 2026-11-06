@@ -16,7 +16,6 @@ trap 'rm -rf "$test_tmp"' EXIT
 
 ln -s "$ROOT/shell/Ui" "$test_tmp/Ui"
 ln -s "$ROOT/shell/Commons" "$test_tmp/Commons"
-ln -s "$ROOT/shell/plugins/panels/dropbox/DropboxIcon.qml" "$test_tmp/DropboxIcon.qml"
 ln -s "$ROOT/shell/plugins/panels/tailscale/TailscaleIcon.qml" "$test_tmp/TailscaleIcon.qml"
 
 cat >"$test_tmp/shell.qml" <<'QML'
@@ -209,8 +208,7 @@ ShellRoot {
     if (!checkPaintedBounds(compactStatusIcon, "compact status icon")) return false
     if (!checkPaintedBounds(compactVerticalStatusIcon, "compact vertical status icon")) return false
     if (!checkPaintedBounds(rotatedIcon, "rotated icon")) return false
-    if (Math.abs(Math.max(dropbox.width, dropbox.height) - Style.bar.iconSize) > 0.05
-        || Math.abs(Math.max(tailscale.width, tailscale.height) - Style.bar.iconSize) > 0.05) {
+    if (Math.abs(Math.max(tailscale.width, tailscale.height) - Style.bar.iconSize) > 0.05) {
       fail("vector icons do not use the shared visual size")
       return false
     }
@@ -437,7 +435,6 @@ ShellRoot {
   BarIconButton { id: labelledPower; bar: testBar; text: "󰁹"; labelText: "100%"; slotSize: Style.bar.iconSlot * 2 }
   BarIconButton { id: rotatedIcon; bar: verticalBar; text: "\uf053"; textRotation: 90 }
   OpticalGlyph { id: plainLabel; width: 30; height: 20; text: "12"; fontSize: 12 }
-  DropboxIcon { id: dropbox; iconSize: Style.bar.iconSize / aspectRatio; artworkScale: 1 }
   TailscaleIcon { id: tailscale; iconSize: Style.bar.iconSize }
   BarIconButton {
     id: vector

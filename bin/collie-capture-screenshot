@@ -14,14 +14,14 @@ fi
 # preview. Omasnap reads that toast's text from this catalog itself:
 #   collie-i18n capture.screenshotSaved, collie-i18n capture.screenshotSavedCopied,
 #   collie-i18n capture.screenshotOpen, collie-i18n capture.screenshotEdit
-omasnap_args=(--notify)
+colliesnap_args=(--notify)
 for arg in "$@"; do
   case "$arg" in
-    copy) omasnap_args+=(--copy) ;;
-    save) omasnap_args+=(--save) ;;
+    copy) colliesnap_args+=(--copy) ;;
+    save) colliesnap_args+=(--save) ;;
     slurp) ;;
-    *) omasnap_args+=("$arg") ;;
+    *) colliesnap_args+=("$arg") ;;
   esac
 done
 
-exec omasnap "${omasnap_args[@]}"
+exec colliesnap "${colliesnap_args[@]}"
