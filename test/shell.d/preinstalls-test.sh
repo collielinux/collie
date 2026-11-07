@@ -131,7 +131,7 @@ for package in "${restored[@]}"; do
 done
 pass "every preinstall is shipped in collie-base.packages"
 
-for package in colliecut monologue colliecalc hype signed; do
+for package in shear monologue tally hype signed; do
   grep -qxF "$package" <<<"$(printf '%s\n' "${restored[@]}")" ||
     fail "preinstalls cover the Omacom apps" "$package is missing"
 done

@@ -454,7 +454,7 @@ stop_screenrecording() {
     collie-notification-send "$(collie-i18n capture.recordingSaved)" "$(recording_details "$filename")" \
       -t 10000 "${image_args[@]}" \
       --action "$(collie-i18n capture.recordingOpen)" mpv -- \
-      --action "$(collie-i18n capture.recordingCut)" colliecut \
+      --action "$(collie-i18n capture.recordingCut)" shear \
       --with "$filename"
 
     # The shell loads the preview into memory when the toast appears and never

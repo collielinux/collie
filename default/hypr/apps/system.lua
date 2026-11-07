@@ -27,7 +27,7 @@ o.window("org.collie.about", { float = true })
 o.window("org.collie.about", { center = true })
 o.window("org.collie.about", { size = { 920, 480 } })
 
-o.window("colliecalc", { float = true })
+o.window("tally", { float = true })
 
 -- Popped window rounding.
 o.window({ tag = "pop" }, { rounding = 8 })

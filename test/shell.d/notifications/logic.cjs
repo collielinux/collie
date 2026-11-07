@@ -155,7 +155,7 @@ for (const body of ['Your verification code is 938271', 'Your code is 938 271', 
 }
 
 { // The --exec click argv: structural, fails closed, stays discrete arguments.
-  const shot = JSON.stringify(['colliesnap', '--edit', '/tmp/shot.png'])
+  const shot = JSON.stringify(['snip', '--edit', '/tmp/shot.png'])
   const literal = ['printf', '%s|', '$(touch /tmp/x)', '`id`', 'a; rm -rf /', "q'uote", 'new\nline', '-dash']
   for (const good of [shot, ['mpv', '--', '/tmp/a b.mp4'], JSON.stringify(['bash', '-c', 'id']), JSON.stringify(literal)]) {
     const text = typeof good === 'string' ? good : JSON.stringify(good)
@@ -180,7 +180,7 @@ for (const body of ['Your verification code is 938271', 'Your code is 938 271', 
 }
 
 { // --action buttons: up to three, each a label and an argv held to the click's rules.
-  const actions = JSON.stringify([{ label: 'Edit', argv: ['colliesnap', '--file', '/tmp/a b.png'] },
+  const actions = JSON.stringify([{ label: 'Edit', argv: ['snip', '--file', '/tmp/a b.png'] },
                                   { label: 'Copy path', argv: ['wl-copy', '--', '/tmp/a b.png'] }])
   assert.equal(JSON.stringify(S.parseExecActions(actions)), actions)
   const one = { label: 'Go', argv: ['true'] }
@@ -188,7 +188,7 @@ for (const body of ['Your verification code is 938271', 'Your code is 938 271', 
                      JSON.stringify([{ label: 'Go', argv: ['-rf'] }]), JSON.stringify([{ label: 'Go' }]), JSON.stringify([one, 'x'])])
     assert.equal(S.parseExecActions(bad), null, bad)
   // Stored with the row, so a restored card keeps its buttons; redacted with a code.
-  const row = snap({ appName: 'colliesnap', summary: 'Screenshot saved', hints: { 'collie-actions': actions } })
+  const row = snap({ appName: 'snip', summary: 'Screenshot saved', hints: { 'collie-actions': actions } })
   assert.equal(Store.restored(Store.sanitiseForPersistence(row)).execActions, actions)
   const secret = snap({ appName: 'x', summary: 'Sign in', body: 'Your verification code is 482913', hints: { 'collie-actions': actions } })
   assert.equal(Store.sanitiseForPersistence(secret).execActions, '')
@@ -270,7 +270,7 @@ for (const body of ['Your verification code is 938271', 'Your code is 938 271', 
     [{ app: 'Google', urgency: 1, code: '482913' }, true, ''],
   ]) assert.equal(Delivery.quietReason(row, dnd), expected, JSON.stringify([row, dnd]))
   // The number keys count buttons in the order the card draws them: codes, --action, the sender's.
-  const deeds = Delivery.deeds({ codes: '482913 771204', execActions: JSON.stringify([{ label: 'Edit', argv: ['colliesnap'] }]) },
+  const deeds = Delivery.deeds({ codes: '482913 771204', execActions: JSON.stringify([{ label: 'Edit', argv: ['snip'] }]) },
                                [{ id: 'join', text: 'Join call' }])
   assert.equal(JSON.stringify(Array.from(deeds, d => d.kind + ':' + d.value)), JSON.stringify(['code:482913', 'code:771204', 'exec:0', 'action:join']))
   assert.equal(Delivery.deeds({}, []).length, 0)

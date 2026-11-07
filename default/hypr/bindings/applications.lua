@@ -10,8 +10,8 @@ o.bind("SUPER + SHIFT + N", "Editor", { collie = "editor" })
 if o.preinstalled_bindings_enabled() then
   -- Bindings for preinstalled Collie applications, TUIs, and web apps.
   o.bind("SUPER + ALT + RETURN", "Tmux", { collie = "terminal-tmux" })
-  o.bind("SUPER + SHIFT + Q", "Calculator", "colliecalc")
-  o.bind("XF86Calculator", "Calculator", "colliecalc")
+  o.bind("SUPER + SHIFT + Q", "Calculator", "tally")
+  o.bind("XF86Calculator", "Calculator", "tally")
   o.bind("SUPER + SHIFT + M", "Music", { collie = "spotify" })
   o.bind("SUPER + SHIFT + ALT + M", "Music TUI", { tui = "cliamp", focus = true })
   if o.cmd_present("lazydocker") then

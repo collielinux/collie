@@ -8,11 +8,11 @@
     "Press Escape. The filter clears. The menu stays open.",
     "Press Escape. The menu closes.",
     "Press Super+Alt+Space. The Apps menu opens.",
-    "Type `colliecalc`. Colliecalc is the top row.",
-    "Press Enter. Colliecalc opens. The menu closes.",
-    "Press Super+W. Colliecalc closes.",
+    "Type `tally`. Tally is the top row.",
+    "Press Enter. Tally opens. The menu closes.",
+    "Press Super+W. Tally closes.",
     "Press Super+Alt+Space. The Apps menu opens.",
     "Type `zzqqxx`. The menu shows \"No matches for “zzqqxx”\". No row is shown."
   ],
-  "proof": "* On success\n** The final screen shows the Apps menu filtered to `zzqqxx` with the \"No matches for “zzqqxx”\" text and no row, and no app window open\n** Supporting: no btop row for `btop`, the cleared filter and then the closed menu, Colliecalc on top for `colliecalc`, the Colliecalc window, and the desktop after Super+W\n* If unsuccessful\n** The final screen shows a row for `zzqqxx` or the menu closed; or an earlier screen shows a btop row, the menu closing on the first Escape, or no window after Enter"
+  "proof": "* On success\n** The final screen shows the Apps menu filtered to `zzqqxx` with the \"No matches for “zzqqxx”\" text and no row, and no app window open\n** Supporting: no btop row for `btop`, the cleared filter and then the closed menu, Tally on top for `tally`, the Tally window, and the desktop after Super+W\n* If unsuccessful\n** The final screen shows a row for `zzqqxx` or the menu closed; or an earlier screen shows a btop row, the menu closing on the first Escape, or no window after Enter"
 }

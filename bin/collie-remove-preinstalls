@@ -46,9 +46,9 @@ if gum confirm --affirmative "$(collie-i18n common.yes)" --negative "$(collie-i1
     pinta \
     obsidian \
     moonlight-qt \
-    colliecut \
+    shear \
     monologue \
-    colliecalc \
+    tally \
     hype \
     signed
 fi

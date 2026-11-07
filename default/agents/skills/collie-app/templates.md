@@ -2,7 +2,7 @@
 
 Read this when starting an app from the collie-app skill. Replace `<name>`
 with the app's name and `<Name>` with its display name. These come from
-Colliecut and Monologue (MIT, David Heinemeier Hansson); keep that attribution in
+Shear and Monologue (MIT, David Heinemeier Hansson); keep that attribution in
 the LICENSE of any app that copies them.
 
 ## `<name>.pro`
@@ -171,7 +171,7 @@ private:
 ```
 
 ```cpp
-// Theme watching follows Colliecut (MIT, David Heinemeier Hansson).
+// Theme watching follows Shear (MIT, David Heinemeier Hansson).
 #include "theme.h"
 
 #include <QColor>
