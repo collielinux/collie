@@ -269,7 +269,7 @@ Item {
   }
   Process {
     id: screensaverStopProcess
-    command: ["pkill", "-f", "[/]usr/lib/omarchy-screensaver/omarchy-screensaver"]
+    command: ["pkill", "-f", "[/]usr/lib/collie-screensaver/collie-screensaver"]
   }
   Process {
     id: lockProcess

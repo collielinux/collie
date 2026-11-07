@@ -32,7 +32,7 @@ journalctl -t collie-shell -n "$lines" --no-pager --quiet 2>/dev/null || true
 
 section "Relevant processes"
 ps -eo pid=,args= \
-  | grep -E 'quickshell -n -p|collie-system-sleep-monitor|systemd-inhibit.*Lock screen before suspend|omarchy-screensaver' \
+  | grep -E 'quickshell -n -p|collie-system-sleep-monitor|systemd-inhibit.*Lock screen before suspend|collie-screensaver' \
   | grep -v grep || true
 
 section "Sleep lock service"
@@ -49,7 +49,7 @@ hyprctl clients -j 2>/dev/null \
 section "Screensaver detector"
 if hyprctl layers -j 2>/dev/null | jq -e '[.. | objects | select(.namespace? == "org.collie.screensaver")] | length > 0' >/dev/null; then
   echo "running-layer"
-elif pgrep -f '[/]usr/lib/omarchy-screensaver/omarchy-screensaver' >/dev/null; then
+elif pgrep -f '[/]usr/lib/collie-screensaver/collie-screensaver' >/dev/null; then
   echo "running-process"
 elif collie-toggle-enabled screensaver-off; then
   echo "disabled"

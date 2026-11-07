@@ -34,11 +34,11 @@ chmod +x "$mock_bin"/*
 PATH="$mock_bin:$PATH" CALL_LOG="$call_log" "$ROOT/bin/collie-system-lock"
 mapfile -t shutdown < <(rg '^(pkill|timeout) ' "$call_log")
 
-[[ ${shutdown[0]} == "pkill -f [/]usr/lib/omarchy-screensaver/omarchy-screensaver" ]] ||
+[[ ${shutdown[0]} == "pkill -f [/]usr/lib/collie-screensaver/collie-screensaver" ]] ||
   fail "system lock stops the native screensaver" "calls: ${shutdown[*]}"
-[[ ${shutdown[1]} == "timeout 1s pidwait -f [/]usr/lib/omarchy-screensaver/omarchy-screensaver" ]] ||
+[[ ${shutdown[1]} == "timeout 1s pidwait -f [/]usr/lib/collie-screensaver/collie-screensaver" ]] ||
   fail "system lock waits for the native screensaver to clean up" "calls: ${shutdown[*]}"
-[[ ${shutdown[2]} == "pkill -KILL -f [/]usr/lib/omarchy-screensaver/omarchy-screensaver" ]] ||
+[[ ${shutdown[2]} == "pkill -KILL -f [/]usr/lib/collie-screensaver/collie-screensaver" ]] ||
   fail "system lock force-stops a stuck native screensaver" "calls: ${shutdown[*]}"
 rg -A1 '^pkill -KILL ' "$call_log" | rg -q 'invisible = false' ||
   fail "system lock shows the cursor a killed screensaver left hidden" "$(<"$call_log")"
