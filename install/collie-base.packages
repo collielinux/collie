@@ -94,7 +94,7 @@ nvim
 obsidian
 omacalc
 omacut
-omarchy-nvim
+collie-nvim
 omarchy-hyprland-titlebars
 # Local model recipes and their engine; Podman comes when a model is set up.
 # Stock power-profiles-daemon has no cppc_cpufreq driver, so profiles do nothing
