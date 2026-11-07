@@ -3,6 +3,7 @@ import QtQuick.Effects
 import qs.Commons
 import qs.Commons as Commons
 import qs.Ui
+import "../panels/clock"
 
 Item {
   id: root
@@ -132,6 +133,44 @@ Item {
       contrast: -0.08
     }
 
+    // Day and date above a large mono clock, top center. The clock shows the
+    // locale's own time format, seconds included, so the ticker runs every
+    // second rather than assuming minute granularity.
+    WallClock {
+      id: lockClock
+      readonly property var locale: Qt.locale(Commons.I18n.formatLocale)
+      readonly property string dateText: date.toLocaleDateString(locale, "dddd, d MMMM yyyy")
+      step: 1000
+    }
+
+    Column {
+      anchors.top: parent.top
+      anchors.topMargin: parent.height * 0.1
+      anchors.left: parent.left
+      anchors.right: parent.right
+      spacing: Style.space(12)
+
+      Text {
+        textFormat: Text.PlainText
+        width: parent.width
+        text: lockClock.dateText
+        color: Commons.Color.lock.placeholder
+        font.family: Style.font.family
+        font.pixelSize: Style.font.heading
+        horizontalAlignment: Text.AlignHCenter
+      }
+
+      Text {
+        textFormat: Text.PlainText
+        width: parent.width
+        text: lockClock.date.toLocaleTimeString(lockClock.locale)
+        color: Commons.Color.lock.text
+        font.family: Style.font.family
+        font.pixelSize: Style.font.displayLarge * 2
+        horizontalAlignment: Text.AlignHCenter
+      }
+    }
+
     MouseArea {
       anchors.fill: parent
       hoverEnabled: true
@@ -143,7 +182,9 @@ Item {
       id: inputField
       width: root.fieldWidth
       height: root.fieldHeight
-      anchors.centerIn: parent
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: parent.height * 0.09
       color: Commons.Color.lock.background
       borderSpec: root.inputBorderSpec
       radius: Style.cornerRadius
@@ -249,8 +290,8 @@ Item {
     Text {
       objectName: "fingerprintUnavailableNotice"
       textFormat: Text.PlainText
-      anchors.top: inputField.bottom
-      anchors.topMargin: 18
+      anchors.bottom: inputField.top
+      anchors.bottomMargin: 18
       anchors.horizontalCenter: inputField.horizontalCenter
       visible: root.fingerprintConfigured && root.fingerprintUnavailable
       text: Commons.I18n.t("lock.fingerprintUnavailable")
