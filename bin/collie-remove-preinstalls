@@ -42,9 +42,7 @@ if gum confirm --affirmative "$(collie-i18n common.yes)" --negative "$(collie-i1
   collie-pkg-drop \
     aether \
     cliamp \
-    libreoffice-fresh \
     pinta \
-    obsidian \
     moonlight-qt \
     shear \
     monologue \

@@ -25,7 +25,6 @@ docker
 docker-buildx
 docker-compose
 dosfstools
-dotnet-runtime
 evince
 exfatprogs
 expac
@@ -75,7 +74,6 @@ less
 libsecret
 libvips
 libyaml
-libreoffice-fresh
 man-db
 mariadb-libs
 mise-bin
@@ -91,7 +89,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
 nvim
-obsidian
 omacalc
 omacut
 collie-nvim
@@ -118,7 +115,6 @@ qt6-multimedia
 qt6-svg
 qt6-wayland
 ttfx
-qemu-user-static-binfmt
 qrencode
 qt6-imageformats
 quickshell

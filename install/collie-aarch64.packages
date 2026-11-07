@@ -2,3 +2,7 @@
 # (collie-pkg-defaults). omarchy-settings configures swap on zram, and the
 # x86_64 installer provides zram-generator for it; aarch64 gets it here.
 zram-generator
+
+# x86 application compat: binfmt_misc + qemu-user-static emulation.
+# Useless on x86_64 itself, so it lives here instead of the base list.
+qemu-user-static-binfmt

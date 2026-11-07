@@ -18,7 +18,6 @@ if o.preinstalled_bindings_enabled() then
     o.bind("SUPER + SHIFT + D", "Docker", { tui = "collie-launch-docker-tui" })
   end
   o.bind("SUPER + SHIFT + G", "Signal", { collie = "signal" })
-  o.bind("SUPER + SHIFT + O", "Obsidian", { launch = "obsidian", focus = "^obsidian$" })
 
   o.bind("SUPER + SHIFT + A", "ChatGPT", { webapp = "https://chatgpt.com" })
   o.bind("SUPER + SHIFT + ALT + A", "Grok", { webapp = "https://grok.com" })

@@ -16,28 +16,9 @@ local function send_shortcut_once(mods, key)
   end, { timeout = 50, type = "oneshot" })
 end
 
-local function active_window_class()
-  local window = hl.get_active_window()
-  return ((window and window.class) or ""):lower()
-end
-
 -- On JIS, + is Shift + ;, so apps see Ctrl + Shift + semicolon and never zoom
 -- in. Hand them Ctrl + keypad plus instead, which Chromium, Electron apps,
--- VS Code, and Firefox read as zoom in. Obsidian only listens for Ctrl + ^,
--- which JIS types without Shift.
-local zoom_in_overrides = {
-  obsidian = { "CTRL", "asciicircum" },
-}
-
+-- VS Code, and Firefox read as zoom in.
 o.bind("CTRL + SHIFT + semicolon", "Zoom in (JIS + key)", function()
-  local class = active_window_class()
-
-  for pattern, chord in pairs(zoom_in_overrides) do
-    if class:find(pattern, 1, true) then
-      send_shortcut_once(chord[1], chord[2])
-      return
-    end
-  end
-
   send_shortcut_once("CTRL", "KP_Add")
 end)
