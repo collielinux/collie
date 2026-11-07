@@ -94,7 +94,6 @@ nvim
 obsidian
 colliecalc
 colliecut
-colliewrite
 collie-nvim
 omarchy-hyprland-titlebars
 # Local model recipes and their engine; Podman comes when a model is set up.

@@ -98,8 +98,8 @@ wait_until "notification popup closes" 15 notifications_cleared
 
 # The menu's Apps submenu does the full launcher loop: open, search by
 # typing, launch the top hit.
-if window_present "(?i)colliewrite" >/dev/null 2>&1; then
-  fail "app launch test starts with no Omawrite window" "an Omawrite window is already open"
+if window_present "(?i)colliecalc" >/dev/null 2>&1; then
+  fail "app launch test starts with no Colliecalc window" "an Colliecalc window is already open"
 fi
 
 collie-menu summon apps >/dev/null
@@ -107,13 +107,13 @@ wait_until "apps menu opens" 15 layer_on_overlay "collie-menu"
 sleep 1
 screenshot "success-apps-menu-open"
 
-wtype "colliewrite"
+wtype "colliecalc"
 sleep 1
 screenshot "success-apps-menu-search"
 wtype -k Return
 
-wait_until "apps menu launches the top search hit" 60 window_present "(?i)colliewrite"
+wait_until "apps menu launches the top search hit" 60 window_present "(?i)colliecalc"
 wait_until "apps menu closes after launching" 15 layer_absent "collie-menu"
 
-close_windows "(?i)colliewrite"
-wait_until "Omawrite window closes" 30 window_absent "(?i)colliewrite"
+close_windows "(?i)colliecalc"
+wait_until "Colliecalc window closes" 30 window_absent "(?i)colliecalc"
